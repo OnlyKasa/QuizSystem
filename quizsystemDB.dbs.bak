@@ -89,7 +89,7 @@
 			<column name="i_teacher_information_pk" type="integer" jt="4" />
 			<column name="i_subject_information_pk" type="integer" jt="4" />
 			<column name="i_question_level_information" type="integer" jt="4" />
-			<column name="str_question_content_information" type="varchar" length="1000" jt="12" mandatory="y" />
+			<column name="str_question_information_content" type="varchar" length="1000" jt="12" mandatory="y" />
 			<column name="str_answer_1" type="varchar" length="500" jt="12" />
 			<column name="str_answer_2" type="varchar" length="500" jt="12" />
 			<column name="str_answer_3" type="varchar" length="500" jt="12" />
@@ -129,7 +129,6 @@
 		</table>
 		<table name="student_information" >
 			<column name="i_student_information_pk" type="integer" jt="4" mandatory="y" />
-			<column name="i_student_information_code" type="integer" jt="4" mandatory="y" />
 			<column name="i_faculty_information_pk" type="integer" jt="4" />
 			<column name="str_student_information_first_name" type="varchar" length="30" jt="12" />
 			<column name="str_student_information_last_name" type="varchar" length="30" jt="12" />
@@ -140,9 +139,6 @@
 			</index>
 			<index name="idx_student_information" unique="NORMAL" >
 				<column name="i_faculty_information_pk" />
-			</index>
-			<index name="idx_student_information_code" unique="UNIQUE" >
-				<column name="i_student_information_code" />
 			</index>
 			<fk name="fk_student_information" to_schema="public" to_table="faculty_information" delete_action="setNull" >
 				<fk_column name="i_faculty_information_pk" pk="i_faculty_information_pk" />
@@ -251,11 +247,11 @@
 		<entity schema="public" name="examination_result" color="1f5182" x="435" y="315" />
 		<entity schema="public" name="test_detail_information" color="1f5182" x="810" y="60" />
 		<entity schema="public" name="test_information" color="1f5182" x="795" y="300" />
+		<entity schema="public" name="question_information" color="1f5182" x="825" y="480" />
 		<entity schema="public" name="teacher_information" color="1f5182" x="45" y="690" />
 		<entity schema="public" name="examination_list" color="1f5182" x="450" y="615" />
 		<entity schema="public" name="examination_list_detail" color="1f5182" x="450" y="870" />
 		<entity schema="public" name="subject_information" color="1f5182" x="720" y="855" />
 		<entity schema="public" name="examination_room" color="1f5182" x="165" y="870" />
-		<entity schema="public" name="question_information" color="1f5182" x="825" y="480" />
 	</layout>
 </project>
