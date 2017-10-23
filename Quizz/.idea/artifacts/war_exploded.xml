@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="war:exploded">
+    <output-path>$PROJECT_DIR$/out</output-path>
+    <properties id="ant-postprocessing">
+      <options enabled="true" />
+    </properties>
+    <root id="root" />
+  </artifact>
+</component>
