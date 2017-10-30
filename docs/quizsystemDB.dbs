@@ -34,6 +34,7 @@
 			<column name="i_examination_list_detail_pk" type="integer" jt="4" mandatory="y" />
 			<column name="i_examination_list_pk" type="integer" jt="4" />
 			<column name="i_examination_list_detail_pk_ek" type="integer" jt="4" />
+			<column name="i_student_information_pk" type="integer" length="10" decimal="0" jt="4" />
 			<index name="pk_examination_list_detail" unique="PRIMARY_KEY" >
 				<column name="i_examination_list_detail_pk" />
 			</index>
@@ -42,6 +43,9 @@
 			</index>
 			<fk name="fk_examination_list_detail" to_schema="public" to_table="examination_list" delete_action="setNull" >
 				<fk_column name="i_examination_list_pk" pk="i_examination_list_pk" />
+			</fk>
+			<fk name="fk_examination_list_detail_to_student_information" to_schema="public" to_table="student_information" >
+				<fk_column name="i_student_information_pk" pk="i_student_information_pk" />
 			</fk>
 		</table>
 		<table name="examination_result" >
@@ -126,6 +130,30 @@
 			<index name="pk_rate_of_difficulty" unique="PRIMARY_KEY" >
 				<column name="i_rate_of_difficulty_pk" />
 			</index>
+		</table>
+		<table name="seiuser" >
+			<column name="user_id" type="varchar" length="50" decimal="0" jt="12" mandatory="y" />
+			<column name="password" type="varchar" length="100" decimal="0" jt="12" mandatory="y" />
+			<column name="top_menu" type="varchar" length="5" decimal="0" jt="12" >
+				<defo>&#039;ADM&#039;::character varying</defo>
+			</column>
+			<column name="i_student_information_pk" type="integer" length="10" decimal="0" jt="4" />
+			<column name="i_teacher_information_pk" type="integer" length="10" decimal="0" jt="4" />
+			<index name="pk_user_id" unique="PRIMARY_KEY" >
+				<column name="user_id" />
+			</index>
+			<index name="idx_seiuser_student" unique="NORMAL" >
+				<column name="i_student_information_pk" />
+			</index>
+			<index name="idx_seiuser_teacher" unique="NORMAL" >
+				<column name="i_teacher_information_pk" />
+			</index>
+			<fk name="fk_seiuser_to_student" to_schema="public" to_table="student_information" >
+				<fk_column name="i_student_information_pk" pk="i_student_information_pk" />
+			</fk>
+			<fk name="fk_seiuser_to_teacher" to_schema="public" to_table="teacher_information" >
+				<fk_column name="i_teacher_information_pk" pk="i_teacher_information_pk" />
+			</fk>
 		</table>
 		<table name="student_information" >
 			<column name="i_student_information_pk" type="integer" jt="4" mandatory="y" />
@@ -245,17 +273,18 @@
 	</layout>
 	<layout name="ERD" id="Layout_1a80b6e" show_relation="columns" >
 		<comment><![CDATA[ERD]]></comment>
-		<entity schema="public" name="rate_of_difficulty" color="1f5182" x="465" y="45" />
-		<entity schema="public" name="faculty_information" color="1f5182" x="45" y="465" />
-		<entity schema="public" name="student_information" color="1f5182" x="120" y="270" />
-		<entity schema="public" name="examination_result" color="1f5182" x="435" y="315" />
-		<entity schema="public" name="test_detail_information" color="1f5182" x="810" y="60" />
-		<entity schema="public" name="test_information" color="1f5182" x="795" y="300" />
-		<entity schema="public" name="teacher_information" color="1f5182" x="45" y="690" />
-		<entity schema="public" name="examination_list" color="1f5182" x="450" y="615" />
-		<entity schema="public" name="examination_list_detail" color="1f5182" x="450" y="870" />
-		<entity schema="public" name="subject_information" color="1f5182" x="720" y="855" />
-		<entity schema="public" name="examination_room" color="1f5182" x="165" y="870" />
-		<entity schema="public" name="question_information" color="1f5182" x="825" y="480" />
+		<entity schema="public" name="rate_of_difficulty" color="1f5182" x="480" y="45" />
+		<entity schema="public" name="student_information" color="1f5182" x="135" y="270" />
+		<entity schema="public" name="examination_result" color="1f5182" x="450" y="315" />
+		<entity schema="public" name="test_detail_information" color="1f5182" x="825" y="60" />
+		<entity schema="public" name="test_information" color="1f5182" x="810" y="300" />
+		<entity schema="public" name="examination_list_detail" color="1f5182" x="465" y="870" />
+		<entity schema="public" name="subject_information" color="1f5182" x="735" y="855" />
+		<entity schema="public" name="examination_room" color="1f5182" x="180" y="870" />
+		<entity schema="public" name="question_information" color="1f5182" x="840" y="480" />
+		<entity schema="public" name="examination_list" color="1f5182" x="495" y="615" />
+		<entity schema="public" name="faculty_information" color="1f5182" x="270" y="465" />
+		<entity schema="public" name="seiuser" color="1f5182" x="45" y="465" />
+		<entity schema="public" name="teacher_information" color="1f5182" x="45" y="645" />
 	</layout>
 </project>

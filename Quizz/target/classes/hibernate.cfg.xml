@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:postgresql://localhost:5432/postgres</property>
+    <property name="connection.driver_class">org.postgresql.Driver</property>
+      <mapping class="com.ben.quiz.domain.model.ExaminationListEntity"/>
+      <mapping resource="com/ben/quiz/domain/model/ExaminationListEntity.hbm.xml"/>
+      <mapping resource="com/ben/quiz/domain/model/ExaminationListDetailEntity.hbm.xml"/>
+      <mapping class="com.ben.quiz.domain.model.ExaminationListDetailEntity"/>
+      <mapping resource="com/ben/quiz/domain/model/ExaminationResultEntity.hbm.xml"/>
+      <mapping class="com.ben.quiz.domain.model.ExaminationResultEntity"/>
+      <mapping resource="com/ben/quiz/domain/model/ExaminationRoomEntity.hbm.xml"/>
+      <mapping class="com.ben.quiz.domain.model.ExaminationRoomEntity"/>
+      <mapping class="com.ben.quiz.domain.model.FacultyInformationEntity"/>
+      <mapping resource="com/ben/quiz/domain/model/FacultyInformationEntity.hbm.xml"/>
+      <mapping resource="com/ben/quiz/domain/model/QuestionInformationEntity.hbm.xml"/>
+      <mapping class="com.ben.quiz.domain.model.QuestionInformationEntity"/>
+      <mapping resource="com/ben/quiz/domain/model/RateOfDifficultyEntity.hbm.xml"/>
+      <mapping class="com.ben.quiz.domain.model.RateOfDifficultyEntity"/>
+      <mapping resource="com/ben/quiz/domain/model/StudentInformationEntity.hbm.xml"/>
+      <mapping class="com.ben.quiz.domain.model.StudentInformationEntity"/>
+      <mapping resource="com/ben/quiz/domain/model/SubjectInformationEntity.hbm.xml"/>
+      <mapping class="com.ben.quiz.domain.model.SubjectInformationEntity"/>
+      <mapping class="com.ben.quiz.domain.model.TeacherInformationEntity"/>
+      <mapping resource="com/ben/quiz/domain/model/TeacherInformationEntity.hbm.xml"/>
+      <mapping class="com.ben.quiz.domain.model.TestDetailInformationEntity"/>
+      <mapping resource="com/ben/quiz/domain/model/TestDetailInformationEntity.hbm.xml"/>
+      <mapping resource="com/ben/quiz/domain/model/TestInformationEntity.hbm.xml"/>
+      <mapping class="com.ben.quiz.domain.model.TestInformationEntity"/>
+      <!-- <property name="connection.username"/> -->
+    <!-- <property name="connection.password"/> -->
+
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hbm2ddl.auto">update</property> -->
+  </session-factory>
+</hibernate-configuration>
