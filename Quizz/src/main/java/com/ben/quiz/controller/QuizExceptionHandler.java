@@ -1,6 +1,6 @@
 package com.ben.quiz.controller;
 
-import com.ominext.gooval.domain.common.exception.GoovalException;
+import com.ben.quiz.domain.common.exception.QuizSystemException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
@@ -19,31 +19,31 @@ public class QuizExceptionHandler {
 
     private static final Logger logger = LoggerFactory.getLogger(QuizExceptionHandler.class);
 
-    @ExceptionHandler(GoovalException.class)
+    @ExceptionHandler(QuizSystemException.class)
     protected ResponseEntity<Object> handleGoovalException(HttpServletRequest request,
-                                                           GoovalException ex) {
-        logger.error(GoovalException.class.toString(), ex);
-        return new ResponseEntity<>(ex.getMessage(), new HttpHeaders(), HttpStatus.BAD_REQUEST);
+                                                           QuizSystemException ex) {
+        logger.error(QuizSystemException.class.toString(), ex);
+        return new ResponseEntity<Object>(ex.getMessage(), new HttpHeaders(), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler({MethodArgumentNotValidException.class, MethodArgumentTypeMismatchException.class})
     protected ResponseEntity<Object> handleArgumentsValidationException(HttpServletRequest request,
                                                                         MethodArgumentNotValidException ex) {
         logger.error(MethodArgumentNotValidException.class.toString(), ex);
-        return new ResponseEntity<>(ex.getMessage(), new HttpHeaders(), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<Object>(ex.getMessage(), new HttpHeaders(), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
     protected ResponseEntity<Object> handleInvalidRequestBodyException(HttpServletRequest request,
                                                                        HttpMessageNotReadableException ex) {
         logger.error(HttpMessageNotReadableException.class.toString(), ex);
-        return new ResponseEntity<>(ex.getMessage(), new HttpHeaders(), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<Object>(ex.getMessage(), new HttpHeaders(), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(Exception.class)
     protected ResponseEntity<Object> handleException(HttpServletRequest request,
                                                      Exception ex) {
         logger.error(Exception.class.toString(), ex);
-        return new ResponseEntity<>(ex.getMessage(), new HttpHeaders(), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<Object>(ex.getMessage(), new HttpHeaders(), HttpStatus.BAD_REQUEST);
     }
 }

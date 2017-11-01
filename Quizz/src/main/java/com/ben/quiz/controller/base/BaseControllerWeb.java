@@ -1,6 +1,7 @@
 package com.ben.quiz.controller.base;
 
 import com.ben.quiz.domain.common.constant.QuizTrasitionConst;
+import com.ben.quiz.domain.model.SUser;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +33,7 @@ public class BaseControllerWeb extends BaseController {
 			// If not logged in, redirect to login page
 			return redirect(QuizTrasitionConst.DOMAIN_ROOT);
 		}
-		inModel.put("fullname", getSUser().getStrFullname());
+		inModel.put("fullname", getSUser().getStrFullName());
 		try {
 			return (String) Class.forName("com.ben.quiz.domain.common.constant.QuizTrasitionConst$TEMPLATE").getDeclaredField(controllerName).get(null);
 		} catch (Exception e) {
@@ -46,7 +47,7 @@ public class BaseControllerWeb extends BaseController {
 			// If not logged in, redirect to login page
 			return redirect(QuizTrasitionConst.DOMAIN_ROOT);
 		}
-		inModel.put("fullname", getSUser().getStrFullname());
+		inModel.put("fullname", getSUser().getStrFullName());
 		try {
 			return (String) Class.forName("com.ben.quiz.domain.common.constant.QuizTrasitionConst$TEMPLATE").getDeclaredField(controllerName).get(null);
 		} catch (Exception e) {

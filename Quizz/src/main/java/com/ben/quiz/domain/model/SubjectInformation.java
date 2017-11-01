@@ -1,5 +1,8 @@
 package com.ben.quiz.domain.model;
 
+import com.ben.quiz.domain.common.constant.SequenceConst;
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
@@ -16,6 +19,12 @@ public class SubjectInformation extends BaseEntity implements Serializable {
     private Collection<QuestionInformation> questionInformationsByISubjectInformationPk;
 
     @Id
+    @GenericGenerator(
+            name = SequenceConst.SUBJECT_INFORMATION_SEQ_GEN,
+            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator", parameters = {
+            @org.hibernate.annotations.Parameter(name = "initial_value", value = "1"),
+            @org.hibernate.annotations.Parameter(name = "sequence_name", value = SequenceConst.SUBJECT_INFORMATION_SEQ)}
+    )
     @Column(name = "i_subject_information_pk", nullable = false)
     public int getiSubjectInformationPk() {
         return iSubjectInformationPk;

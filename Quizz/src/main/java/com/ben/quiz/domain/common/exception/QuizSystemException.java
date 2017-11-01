@@ -1,7 +1,7 @@
 package com.ben.quiz.domain.common.exception;
 
 /**
- * Gooval system exception
+ * Quiz system exception
  *
  */
 public class QuizSystemException extends RuntimeException {

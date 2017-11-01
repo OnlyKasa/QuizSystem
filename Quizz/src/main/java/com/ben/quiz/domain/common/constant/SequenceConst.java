@@ -35,5 +35,6 @@ public class SequenceConst {
     public static final String TEST_INFORMATION_SEQ = "test_information_seq";
     public static final String TEST_INFORMATION_SEQ_GEN = "test_information_seq_gen";
 
-
+    public static final String FACULTY_INFORMATION_SEQ ="faculty_information_seq";
+    public static final String FACULTY_INFORMATION_SEQ_GEN ="faculty_information_seq_gen";
 }
