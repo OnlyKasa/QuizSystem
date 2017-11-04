@@ -51,7 +51,7 @@ public class CodeConst {
 	/**
 	 * Use for Error Code
 	 *
-	 * @author DucPH
+	 * @author QuangNV
 	 *
 	 */
 	public interface ErrorCode {
@@ -141,7 +141,7 @@ public class CodeConst {
 	/**
 	 * Use for Authentication
 	 * 
-	 * @author DucPH
+	 * @author QuangNV
 	 *
 	 */
 	public interface Authentication {
@@ -178,7 +178,7 @@ public class CodeConst {
 	/**
 	 * User for Customer
 	 * 
-	 * @author DucPH
+	 * @author QuangNV
 	 */
 	public interface Customer {
 		public static final String UPDATE = "update";

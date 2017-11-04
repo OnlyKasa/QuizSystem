@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Controller base class for project
  *
- * @author
+ * @author Quang NV
  *
  */
 public class BaseController {

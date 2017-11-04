@@ -20,7 +20,7 @@ public class QuizExceptionHandler {
     private static final Logger logger = LoggerFactory.getLogger(QuizExceptionHandler.class);
 
     @ExceptionHandler(QuizSystemException.class)
-    protected ResponseEntity<Object> handleGoovalException(HttpServletRequest request,
+    protected ResponseEntity<Object> handleQuizException(HttpServletRequest request,
                                                            QuizSystemException ex) {
         logger.error(QuizSystemException.class.toString(), ex);
         return new ResponseEntity<Object>(ex.getMessage(), new HttpHeaders(), HttpStatus.BAD_REQUEST);

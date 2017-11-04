@@ -19,9 +19,9 @@ public class Constant {
      * URL
      */
     public interface URL {
-        String FORGOT_PASSWORD = "/gooval/forgot-password";
-        String LOGIN = "/gooval/login";
-        String CHANGE_PASSWORD = "/gooval/change-password";
+        String FORGOT_PASSWORD = "/quiz/forgot-password";
+        String LOGIN = "/quiz/login";
+        String CHANGE_PASSWORD = "/quiz/change-password";
     }
 
     /**
@@ -69,7 +69,7 @@ public class Constant {
 
 
     public static <T> Map<String, Object> responseSuccess(String key, T object) {
-        return responseSuccess(key, object, "成功");
+        return responseSuccess(key, object, null);
     }
 
     public static <T> Map<String, Object> responseSuccess(String mesage) {

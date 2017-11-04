@@ -3,6 +3,7 @@ package com.ben.quiz.domain.common.constant;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 
 public class CommonConst {
+	public static final String ERROR_MESSAGER = "An error occurred on the system side";
     public static final String DATABASE_ERROR = "database.error";
     public static final String SERVICE_ERROR = "service.error";
     public static final String BUSINESS_ERROR = "business.error";

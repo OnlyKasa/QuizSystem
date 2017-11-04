@@ -1,6 +1,8 @@
 package com.ben.quiz;
 
+import com.ben.quiz.domain.common.bean.handler.QuizErrorPageRegistrar;
 import org.modelmapper.ModelMapper;
+import org.springframework.boot.web.servlet.ErrorPageRegistrar;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.support.ErrorPageFilter;
 import org.springframework.context.MessageSource;
@@ -8,7 +10,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
@@ -88,7 +94,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public LocaleResolver getLocaleResolver() {
         CookieLocaleResolver resolver = new CookieLocaleResolver();
         resolver.setCookieDomain("quizLocaleCookie");
-        resolver.setDefaultLocale(Locale.ENGLISH);
+        resolver.setDefaultLocale(new Locale(""));
         resolver.setCookieMaxAge(360 * 60);
         return resolver;
     }
@@ -182,6 +188,17 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         interceptor.setParamName("locale");
         interceptor.setParamName("lang");
         registry.addInterceptor(localeChangeInterceptor()).addPathPatterns("/*");
+    }
+
+    @Bean
+    public ErrorPageRegistrar errorPageRegistrar() {
+        return new QuizErrorPageRegistrar();
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)  // 404
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public String handleConflict() {
+        return "error";
     }
 
     @Bean

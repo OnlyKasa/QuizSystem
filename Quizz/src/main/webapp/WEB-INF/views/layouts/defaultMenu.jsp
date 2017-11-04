@@ -2,135 +2,134 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ page session="true" %>
-    <div class="header-2">
-        <nav class="navbar navbar-default">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <i class="fa fa-bars" aria-hidden="true"></i>
-                    </button>
-                </div>
 
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <div class="navbar-right">
-                        <ul class="nav navbar-nav flexbox">
-                            <li class="username">
-                                <a href="#">
-									<span class="text-overflow">
-										<i class="fa fa-user" aria-hidden="true"></i> ${fullname}
-									</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="${pageContext.request.contextPath}/auth/C108">
-                                    <i class="fa fa-sign-out" aria-hidden="true"></i> ログアウト
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+<div class="header-2">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </button>
+            </div>
 
-                    <ul class="nav navbar-nav navbar-main">
-                        <li class="active first-child">
-                            <a>利用履歴</a>
-                            <div class="sub-menu">
-                                <ul class="flexbox">
-                                    <li class="sub-active">
-                                        <a href="#"><span>利用履歴</span></a>
-                                    </li>
-                                    <li><a href="#"><span>配達内容訂正申請</span></a></li>
-                                    <li><a href="#"><span>配達内容訂正承認</span></a></li>
-                                </ul>
-                            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="navbar-right">
+                    <ul class="nav navbar-nav flexbox">
+                        <li class="username">
+                            <a href="#">
+											<span class="text-overflow">
+												<i class="fa fa-user" aria-hidden="true"></i>
+												${fullname}
+											</span>
+                            </a>
                         </li>
-
-                        <li class="normal">
-                            <a>請求支払</a>
-                            <div class="sub-menu">
-                                <ul class="flexbox">
-                                    <li><a href="#"><span>請求</span></a></li>
-                                    <li><a href="#"><span>事業所別月別利用明細</span></a></li>
-                                    <li><a href="#"><span>従業員別月別利用明細</span></a></li>
-                                    <li><a href="#"><span>支払</span></a></li>
-                                    <li><a href="#"><span>店舗別月別売上</span></a></li>
-                                </ul>
-                            </div>
-                        </li>
-
-                        <li class="normal">
-                            <a>メニュー管理</a>
-                            <div class="sub-menu">
-                                <ul class="flexbox">
-                                    <li><a href="#"><span>メニュー</span></a></li>
-                                    <li><a href="#"><span>メニュー詳細</span></a></li>
-                                    <li><a href="#"><span>メニューカテゴリー</span></a></li>
-                                    <li><a href="#"><span>配達メニュー</span></a></li>
-                                    <li><a href="#"><span>配達メニュー詳細</span></a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="normal">
-                            <a>弁当予約管理</a>
-                            <div class="sub-menu">
-                                <ul class="flexbox">
-                                    <li><a href="#"><span>従業員別予約一覧</span></a></li>
-                                    <li><a href="#"><span>事業所別予約一覧</span></a></li>
-                                    <li><a href="#"><span>配達先別一覧</span></a></li>
-                                    <li><a href="#"><span>メニュー別一覧</span></a></li>
-                                    <li><a href="#"><span>予約履歴</span></a></li>
-                                </ul>
-                            </div>
-                        </li>
-
                         <li>
-                            <a><spring:message code="MENU.AM" /></a>
-                            <div class="sub-menu">
-                                <ul class="flexbox">
-                                    <li><a href="${pageContext.request.contextPath}/company/AM19"><span><spring:message code="MENU.AM.AM19" /></span></a></li>
-                                    <li><a href="${pageContext.request.contextPath}/company/AM20"><span><spring:message code="MENU.AM.AM20" /></span></a></li>
-                                    <li><a href="${pageContext.request.contextPath}/company/AM21"><span><spring:message code="MENU.AM.AM21" /></span></a></li>
-                                    <li><a href="#"><span>事業所情報</span></a></li>
-                                    <li><a href="#"><span>事業所月額オプション設定</span></a></li>
-                                    <li><a href="#"><span>従業員情報</span></a></li>
-                                    <li><a href="#"><span>NFC情報</span></a></li>
-                                </ul>
-                            </div>
-                        </li>
-
-                        <li class="normal">
-                            <a>基本情報(店舗)</a>
-                            <div class="sub-menu">
-                                <ul class="flexbox">
-                                    <li><a href="#"><span>店舗運営企業情報</span></a></li>
-                                    <li><a href="#"><span>店舗企業契約情報</span></a></li>
-                                    <li><a href="#"><span>店舗情報</span></a></li>
-                                    <li><a href="#"><span>店舗月額オプション設定</span></a></li>
-                                    <li><a href="#"><span>配達条件</span></a></li>
-                                    <li><a href="#"><span>配達先情報</span></a></li>
-                                    <li><a href="#"><span>休業日情報</span></a></li>
-                                    <li><a href="#"><span>店舗スタッフ情報</span></a></li>
-                                </ul>
-                            </div>
-                        </li>
-
-                        <li class="normal last-child">
-                            <a>システム管理</a>
-                            <div class="sub-menu">
-                                <ul class="flexbox">
-                                    <li><a href="#"><span>月額オプションマスタ</span></a></li>
-                                    <li><a href="#"><span>都道府県</span></a></li>
-                                    <li><a href="#"><span>消費税</span></a></li>
-                                    <li><a href="#"><span>配達メニュージャンル</span></a></li>
-                                    <li><a href="#"><span>端末</span></a></li>
-                                    <li><a href="#"><span>カード種別</span></a></li>
-                                    <li><a href="#"><span>健康MSG</span></a></li>
-                                    <li><a href="#"><span>タブレットアプリVER</span></a></li>
-                                    <li><a href="#"><span>利用規約</span></a></li>
-                                    <li><a href="#"><span>システムパラメータ</span></a></li>
-                                </ul>
-                            </div>
+                            <a href="${pageContext.request.contextPath}/auth/C108">
+                                <i class="fa fa-sign-out" aria-hidden="true"></i> ログアウト
+                            </a>
                         </li>
                     </ul>
                 </div>
+                <ul class="nav navbar-nav navbar-main">
+                    <li class="normal first-child">
+                        <a><spring:message code='MENU.M01.HEAD' /></a>
+                        <div class="sub-menu">
+                            <ul class="flexbox container">
+                                <li><a onclick="redirectPage('payment','M01')" href="#"><span><spring:message code='MENU.M01' /></span></a></li>
+                                <li><a onclick="redirectPage('payment','M02')" href="#"><span><spring:message code='MENU.M02' /></span></a></li>
+                                <li><a onclick="redirectPage('company','M03')" href="#"><span><spring:message code='MENU.M03' /></span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="normal">
+                        <a><spring:message code='MENU.M04.HEAD' /></a>
+                        <div class="sub-menu">
+                            <ul class="flexbox container">
+                                <li><a onclick="redirectPage('billing','M04')" href="#"><span><spring:message code='MENU.M04' /></span></a></li>
+                                <li><a onclick="redirectPage('billing','M05')" href="#"><span><spring:message code='MENU.M05' /></span></a></li>
+                                <li><a onclick="redirectPage('billing','M06')"  href="#"><span><spring:message code='MENU.M06' /></span></a></li>
+                                <li><a onclick="redirectPage('payment','M07')" href="#"><span><spring:message code='MENU.M07' /></span></a></li>
+                                <li><a onclick="redirectPage('payment','M08')" href="#"><span><spring:message code='MENU.M08' /></span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="normal">
+                        <a><spring:message code='MENU.M09.HEAD' /></a>
+                        <div class="sub-menu">
+                            <ul class="flexbox container">
+                                <li><a onclick="redirectPage('menu','M09')" href="#"><span><spring:message code='MENU.M09' /></span></a></li>
+                                <li><a onclick="redirectPage('menu','M10')" href="#"><span><spring:message code='MENU.M10' /></span></a></li>
+                                <li><a onclick="redirectPage('menu','M11')" href="#"><span><spring:message code='MENU.M11' /></span></a></li>
+                                <li><a onclick="redirectPage('deliverymenu','M12')" href="#"><span><spring:message code='MENU.M12' /></span></a></li>
+                                <li><a onclick="redirectPage('deliverymenu','M13')" href="#"><span><spring:message code='MENU.M13' /></span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="normal">
+                        <a><spring:message code='MENU.M14.HEAD' /></a>
+                        <div class="sub-menu">
+                            <ul class="flexbox container">
+                                <li><a onclick="redirectPage('order','M14')" href="#"><span><spring:message code='MENU.M14' /></span></a></li>
+                                <li><a onclick="redirectPage('order','M15')" href="#"><span><spring:message code='MENU.M15' /></span></a></li>
+                                <li><a onclick="redirectPage('order','M16')" href="#"><span><spring:message code='MENU.M16' /></span></a></li>
+                                <li><a href="#"><span><spring:message code='MENU.M17' /></span></a></li>
+                                <li><a onclick="redirectPage('payment','M18')" href="#"><span><spring:message code='MENU.M18' /></span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="normal">
+                        <a><spring:message code='MENU.M19.HEAD' /></a>
+                        <div class="sub-menu">
+                            <ul class="flexbox">
+                                <li><a onclick="redirectPage('company','M19')" href="#"><span><spring:message code='MENU.M19' /></span></a></li>
+                                <li><a onclick="redirectPage('company','M20')" href="#"><span><spring:message code='MENU.M20' /></span></a></li>
+                                <li><a onclick="redirectPage('company','M21')" href="#"><span><spring:message code='MENU.M21' /></span></a></li>
+                                <li><a onclick="redirectPage('office','M22')" href="#"><span><spring:message code='MENU.M22' /></span></a></li>
+                                <li><a onclick="redirectPage('office','M23')" href="#"><span><spring:message code='MENU.M23' /></span></a></li>
+                                <li><a onclick="redirectPage('employee','M24')" href="#"><span><spring:message code='MENU.M24' /></span></a></li>
+                                <li><a onclick="redirectPage('employee','M25')" href="#"><span><spring:message code='MENU.M25' /></span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="normal">
+                        <a><spring:message code='MENU.M26.HEAD' /></a>
+                        <div class="sub-menu">
+                            <ul class="flexbox">
+                                <li><a onclick="redirectPage('foodcompany','M26')" href="#"><span><spring:message code='MENU.M26' /></span></a></li>
+                                <li><a onclick="redirectPage('foodcompany','M27')" href="#"><span><spring:message code='MENU.M27' /></span></a></li>
+                                <li><a onclick="redirectPage('store','M28')" href="#"><span><spring:message code='MENU.M28' /></span></a></li>
+                                <li><a onclick="redirectPage('foodcompany','M29')" href="#"><span><spring:message code='MENU.M29' /></span></a></li>
+                                <li><a onclick="redirectPage('order','M30')" href="#"><span><spring:message code='MENU.M30' /></span></a></li>
+                                <li><a onclick="redirectPage('order','M31')" href="#"><span><spring:message code='MENU.M31' /></span></a></li>
+                                <li><a onclick="redirectPage('foodcompany','M32')" href="#"><span><spring:message code='MENU.M32' /></span></a></li>
+                                <li><a onclick="redirectPage('foodcompany','M33')" href="#"><span><spring:message code='MENU.M33' /></span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="normal last-child">
+                        <a><spring:message code='MENU.COMMON.HEAD' /></a>
+                        <div class="sub-menu">
+                            <ul class="flexbox">
+                                <li><a onclick="redirectPage('system','M34')" href="#"><span><spring:message code='MENU.M34' /></span></a></li>
+                                <li><a href="#"><span><spring:message code='MENU.M35' /></span></a></li>
+                                <li><a href="#"><span><spring:message code='MENU.M36' /></span></a></li>
+                                <li><a onclick="redirectPage('maintenance','M37')" href="#"><span><spring:message code='MENU.M37' /></span></a></li>
+                                <li><a onclick="redirectPage('maintenance','M38')" href="#"><span><spring:message code='MENU.M38' /></span></a></li>
+                                <li><a onclick="redirectPage('maintenance','M39')" href="#"><span><spring:message code='MENU.M39' /></span></a></li>
+                                <li><a onclick="redirectPage('system','M40')" href="#"><span><spring:message code='MENU.M40' /></span></a></li>
+                                <li><a onclick="redirectPage('system','M41')" href="#"><span><spring:message code='MENU.M41' /></span></a></li>
+                                <li><a onclick="redirectPage('system','M42')" href="#"><span><spring:message code='MENU.M42' /></span></a></li>
+                                <li><a onclick="redirectPage('system','M43')"><span><spring:message code='MENU.M43' /></span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
             </div>
-        </nav>
-    </div>
+        </div>
+    </nav>
+</div>

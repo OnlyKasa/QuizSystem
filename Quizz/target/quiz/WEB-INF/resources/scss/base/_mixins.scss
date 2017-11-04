@@ -1,0 +1,156 @@
+@mixin add-main-border-bottom(){
+	border-bottom:1px solid $primary-color;
+}
+
+@mixin add-border-radius($radius){
+	border-radius: $radius;
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	-o-border-radius: $radius;
+}
+
+@mixin add-border-radius-all($radius-tl, $radius-tr, $radius-bl, $radius-br){
+	border-radius: $radius-tl $radius-tr $radius-bl $radius-br;
+	-webkit-border-radius: $radius-tl $radius-tr $radius-bl $radius-br;
+	-moz-border-radius: $radius-tl $radius-tr $radius-bl $radius-br;
+	-ms-border-radius: $radius-tl $radius-tr $radius-bl $radius-br;
+	-o-border-radius: $radius-tl $radius-tr $radius-bl $radius-br;
+}
+
+@mixin add-transition-all($time){
+	transition:all $time;
+	-webkit-transition:all $time;
+	-moz-transition:all $time;
+	-ms-transition:all $time;
+	-o-transition:all $time;
+}
+
+@mixin add-scale($x){
+	transform: scale($x);
+	-webkit-transform: scale($x);
+	-moz-transform: scale($x);
+	-ms-transform: scale($x);
+	-o-transform: scale($x);
+}
+
+@mixin add-animation-default($name, $duration, $count, $fill){
+	animation-name: $name;
+	animation-duration: $duration;
+	animation-iteration-count: $count;
+	animation-fill-mode: $fill;
+
+	-webkit-animation-name: $name;
+	-webkit-animation-duration: $duration;
+	-webkit-animation-iteration-count: $count;
+	-webkit-animation-fill-mode: $fill;
+
+	-moz-animation-name: $name;
+	-moz-animation-duration: $duration;
+	-moz-animation-iteration-count: $count;
+	-moz-animation-fill-mode: $fill;
+
+	-ms-animation-name: $name;
+	-ms-animation-duration: $duration;
+	-ms-animation-iteration-count: $count;
+	-ms-animation-fill-mode: $fill;
+
+	-o-animation-name: $name;
+	-o-animation-duration: $duration;
+	-o-animation-iteration-count: $count;
+	-o-animation-fill-mode: $fill;
+}
+
+@mixin add-animation-delay($delay){
+	animation-delay: $delay;
+	-webkit-animation-delay: $delay;
+	-moz-animation-delay: $delay;
+	-ms-animation-delay: $delay;
+	-o-animation-delay: $delay;
+}
+
+@mixin add-box-shadow($x, $y, $blur, $color){
+	box-shadow: $x $y $blur $color;
+	-webkit-box-shadow: $x $y $blur $color;
+	-moz-box-shadow: $x $y $blur $color;
+	-ms-box-shadow: $x $y $blur $color;
+	-o-box-shadow: $x $y $blur $color;
+}
+
+@mixin clear-box-shadow(){
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	-ms-box-shadow: none;
+	-o-box-shadow: none;
+}
+
+@mixin add-box-shadow-inset($x, $y, $blur, $color){
+	box-shadow:inset $x $y $blur $color;
+	-webkit-box-shadow:inset $x $y $blur $color;
+	-moz-box-shadow:inset $x $y $blur $color;
+	-ms-box-shadow:inset $x $y $blur $color;
+	-o-box-shadow:inset $x $y $blur $color;
+}
+
+@mixin clear-text-shadow(){
+	text-shadow: none;
+	-webkit-text-shadow: none;
+	-moz-text-shadow: none;
+	-ms-text-shadow: none;
+	-o-text-shadow: none;
+}
+ 
+@mixin add-text-shadow($x, $y, $blur, $color){
+	text-shadow: $x $y $blur $color;
+	-webkit-text-shadow: $x $y $blur $color;
+	-moz-text-shadow: $x $y $blur $color;
+	-ms-text-shadow: $x $y $blur $color;
+	-o-text-shadow: $x $y $blur $color;
+}
+
+@mixin add-opacity($percent){
+	opacity: $percent;
+	-webkit-filter: alpha(opacity= $percent);
+}
+
+@mixin add-grayscale($number){
+	-o-filter: grayscale($number);
+	-ms-filter: grayscale($number);
+	-moz-filter: grayscale($number);
+	-webkit-filter: grayscale($number);
+    filter: grayscale($number); 
+}
+
+@mixin add-brightness($percent){
+	-o-filter: brightness($percent);
+	-ms-filter: brightness($percent);
+	-moz-filter: brightness($percent);
+	-webkit-filter: brightness($percent);
+    filter: brightness($percent); 
+}
+
+@mixin add-important-grayscale($number){
+	-webkit-filter: grayscale($number) !important;
+    filter: grayscale($number) !important;; 
+}
+
+@mixin add-transform-translate($x){
+	transform:translate($x);
+	-webkit-transform:translate($x);
+	-moz-transform:translate($x);
+	-ms-transform:translate($x);
+	-o-transform:translate($x);
+}
+
+@mixin add-background-gradient($position, $color-top, $color-bottom){
+	background: linear-gradient($position, $color-top, $color-bottom);
+	background: -webkit-linear-gradient($position, $color-top, $color-bottom);
+	background: -moz-linear-gradient($position, $color-top, $color-bottom);
+	background: -ms-linear-gradient($position, $color-top, $color-bottom);
+	background: -o-linear-gradient($position, $color-top, $color-bottom);
+}
+
+
+
+

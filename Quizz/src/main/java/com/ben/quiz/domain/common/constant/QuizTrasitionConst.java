@@ -28,6 +28,9 @@ public class QuizTrasitionConst {
         public static final String ROOT = "/auth";
 
         public static String LOG_OUT = AUTH.ROOT + "/logout";
+
+        public static String LOG_IN = AUTH.ROOT + "/login";
+
     }
 
 

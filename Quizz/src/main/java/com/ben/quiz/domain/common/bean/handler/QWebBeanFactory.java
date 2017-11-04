@@ -8,7 +8,7 @@ import javax.servlet.ServletRequest;
 /**
  * Get the bean managed by Hospital Bean Factory DispatcherServlet.
  *
- * @author DucPH
+ * @author QuangNV
  *
  */
 public class QWebBeanFactory {
