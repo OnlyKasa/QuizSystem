@@ -1,37 +1,24 @@
 package com.ben.quiz.domain.model;
 
-import com.ben.quiz.domain.common.constant.SequenceConst;
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Collection;
 
 @Entity
 @Table(name = "question_information", schema = "public", catalog = "quizsystem")
 public class QuestionInformation extends BaseEntity implements Serializable {
-    private static final long serialVersionUID = 6728508407408577547L;
+    private static final long serialVersionUID = -7438593994919407064L;
     private int iQuestionInformationPk;
-    private Integer iQuestionLevelInformation;
+    private Integer iQuestionInformationLevel;
     private String strQuestionContentInformation;
     private String strAnswer1;
     private String strAnswer2;
     private String strAnswer3;
     private String strAnswer4;
     private String strAnswer5;
-    private String strAnswerTrue;
+    private String strTrueAnswer;
     private Integer iQuestionInformationPkEk;
-    private TeacherInformation teacherInformationByITeacherInformationPk;
-    private SubjectInformation subjectInformationByISubjectInformationPk;
-    private Collection<TestDetailInformation> testDetailInformationsByIQuestionInformationPk;
 
     @Id
-    @GenericGenerator(
-            name = SequenceConst.QUESTION_INFORMATION_SEQ_GEN,
-            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator", parameters = {
-            @org.hibernate.annotations.Parameter(name = "initial_value", value = "1"),
-            @org.hibernate.annotations.Parameter(name = "sequence_name", value = SequenceConst.QUESTION_INFORMATION_SEQ)}
-    )
     @Column(name = "i_question_information_pk", nullable = false)
     public int getiQuestionInformationPk() {
         return iQuestionInformationPk;
@@ -42,13 +29,13 @@ public class QuestionInformation extends BaseEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "i_question_level_information", nullable = true)
-    public Integer getiQuestionLevelInformation() {
-        return iQuestionLevelInformation;
+    @Column(name = "i_question_information_level", nullable = true)
+    public Integer getiQuestionInformationLevel() {
+        return iQuestionInformationLevel;
     }
 
-    public void setiQuestionLevelInformation(Integer iQuestionLevelInformation) {
-        this.iQuestionLevelInformation = iQuestionLevelInformation;
+    public void setiQuestionInformationLevel(Integer iQuestionInformationLevel) {
+        this.iQuestionInformationLevel = iQuestionInformationLevel;
     }
 
     @Basic
@@ -112,13 +99,13 @@ public class QuestionInformation extends BaseEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "str_answer_true", nullable = false, length = 500)
-    public String getStrAnswerTrue() {
-        return strAnswerTrue;
+    @Column(name = "str_true_answer", nullable = false, length = 500)
+    public String getStrTrueAnswer() {
+        return strTrueAnswer;
     }
 
-    public void setStrAnswerTrue(String strAnswerTrue) {
-        this.strAnswerTrue = strAnswerTrue;
+    public void setStrTrueAnswer(String strTrueAnswer) {
+        this.strTrueAnswer = strTrueAnswer;
     }
 
     @Basic
@@ -139,7 +126,7 @@ public class QuestionInformation extends BaseEntity implements Serializable {
         QuestionInformation that = (QuestionInformation) o;
 
         if (iQuestionInformationPk != that.iQuestionInformationPk) return false;
-        if (iQuestionLevelInformation != null ? !iQuestionLevelInformation.equals(that.iQuestionLevelInformation) : that.iQuestionLevelInformation != null)
+        if (iQuestionInformationLevel != null ? !iQuestionInformationLevel.equals(that.iQuestionInformationLevel) : that.iQuestionInformationLevel != null)
             return false;
         if (strQuestionContentInformation != null ? !strQuestionContentInformation.equals(that.strQuestionContentInformation) : that.strQuestionContentInformation != null)
             return false;
@@ -148,7 +135,7 @@ public class QuestionInformation extends BaseEntity implements Serializable {
         if (strAnswer3 != null ? !strAnswer3.equals(that.strAnswer3) : that.strAnswer3 != null) return false;
         if (strAnswer4 != null ? !strAnswer4.equals(that.strAnswer4) : that.strAnswer4 != null) return false;
         if (strAnswer5 != null ? !strAnswer5.equals(that.strAnswer5) : that.strAnswer5 != null) return false;
-        if (strAnswerTrue != null ? !strAnswerTrue.equals(that.strAnswerTrue) : that.strAnswerTrue != null)
+        if (strTrueAnswer != null ? !strTrueAnswer.equals(that.strTrueAnswer) : that.strTrueAnswer != null)
             return false;
         if (iQuestionInformationPkEk != null ? !iQuestionInformationPkEk.equals(that.iQuestionInformationPkEk) : that.iQuestionInformationPkEk != null)
             return false;
@@ -159,44 +146,15 @@ public class QuestionInformation extends BaseEntity implements Serializable {
     @Override
     public int hashCode() {
         int result = iQuestionInformationPk;
-        result = 31 * result + (iQuestionLevelInformation != null ? iQuestionLevelInformation.hashCode() : 0);
+        result = 31 * result + (iQuestionInformationLevel != null ? iQuestionInformationLevel.hashCode() : 0);
         result = 31 * result + (strQuestionContentInformation != null ? strQuestionContentInformation.hashCode() : 0);
         result = 31 * result + (strAnswer1 != null ? strAnswer1.hashCode() : 0);
         result = 31 * result + (strAnswer2 != null ? strAnswer2.hashCode() : 0);
         result = 31 * result + (strAnswer3 != null ? strAnswer3.hashCode() : 0);
         result = 31 * result + (strAnswer4 != null ? strAnswer4.hashCode() : 0);
         result = 31 * result + (strAnswer5 != null ? strAnswer5.hashCode() : 0);
-        result = 31 * result + (strAnswerTrue != null ? strAnswerTrue.hashCode() : 0);
+        result = 31 * result + (strTrueAnswer != null ? strTrueAnswer.hashCode() : 0);
         result = 31 * result + (iQuestionInformationPkEk != null ? iQuestionInformationPkEk.hashCode() : 0);
         return result;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "i_teacher_information_pk", referencedColumnName = "i_teacher_information_pk")
-    public TeacherInformation getTeacherInformationByITeacherInformationPk() {
-        return teacherInformationByITeacherInformationPk;
-    }
-
-    public void setTeacherInformationByITeacherInformationPk(TeacherInformation teacherInformationByITeacherInformationPk) {
-        this.teacherInformationByITeacherInformationPk = teacherInformationByITeacherInformationPk;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "i_subject_information_pk", referencedColumnName = "i_subject_information_pk")
-    public SubjectInformation getSubjectInformationByISubjectInformationPk() {
-        return subjectInformationByISubjectInformationPk;
-    }
-
-    public void setSubjectInformationByISubjectInformationPk(SubjectInformation subjectInformationByISubjectInformationPk) {
-        this.subjectInformationByISubjectInformationPk = subjectInformationByISubjectInformationPk;
-    }
-
-    @OneToMany(mappedBy = "questionInformationByIQuestionInformationPk")
-    public Collection<TestDetailInformation> getTestDetailInformationsByIQuestionInformationPk() {
-        return testDetailInformationsByIQuestionInformationPk;
-    }
-
-    public void setTestDetailInformationsByIQuestionInformationPk(Collection<TestDetailInformation> testDetailInformationsByIQuestionInformationPk) {
-        this.testDetailInformationsByIQuestionInformationPk = testDetailInformationsByIQuestionInformationPk;
     }
 }

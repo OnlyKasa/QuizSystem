@@ -1,30 +1,18 @@
 package com.ben.quiz.domain.model;
 
-import com.ben.quiz.domain.common.constant.SequenceConst;
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Collection;
 
 @Entity
 @Table(name = "faculty_information", schema = "public", catalog = "quizsystem")
 public class FacultyInformation extends BaseEntity implements Serializable {
-    private static final long serialVersionUID = -4668360173111055052L;
+    private static final long serialVersionUID = 6284373736772264684L;
     private int iFacultyInformationPk;
     private String strFacultyInformationShortName;
     private String strFacultyInformationFullName;
     private Integer iFacultyInformationPkEk;
-    private Collection<StudentInformation> studentInformationsByIFacultyInformationPk;
-    private Collection<TeacherInformation> teacherInformationsByIFacultyInformationPk;
 
     @Id
-    @GenericGenerator(
-            name = SequenceConst.FACULTY_INFORMATION_SEQ_GEN,
-            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator", parameters = {
-            @org.hibernate.annotations.Parameter(name = "initial_value", value = "1"),
-            @org.hibernate.annotations.Parameter(name = "sequence_name", value = SequenceConst.FACULTY_INFORMATION_SEQ)}
-    )
     @Column(name = "i_faculty_information_pk", nullable = false)
     public int getiFacultyInformationPk() {
         return iFacultyInformationPk;
@@ -89,23 +77,5 @@ public class FacultyInformation extends BaseEntity implements Serializable {
         result = 31 * result + (strFacultyInformationFullName != null ? strFacultyInformationFullName.hashCode() : 0);
         result = 31 * result + (iFacultyInformationPkEk != null ? iFacultyInformationPkEk.hashCode() : 0);
         return result;
-    }
-
-    @OneToMany(mappedBy = "facultyInformationByIFacultyInformationPk")
-    public Collection<StudentInformation> getStudentInformationsByIFacultyInformationPk() {
-        return studentInformationsByIFacultyInformationPk;
-    }
-
-    public void setStudentInformationsByIFacultyInformationPk(Collection<StudentInformation> studentInformationsByIFacultyInformationPk) {
-        this.studentInformationsByIFacultyInformationPk = studentInformationsByIFacultyInformationPk;
-    }
-
-    @OneToMany(mappedBy = "facultyInformationByIFacultyInformationPk")
-    public Collection<TeacherInformation> getTeacherInformationsByIFacultyInformationPk() {
-        return teacherInformationsByIFacultyInformationPk;
-    }
-
-    public void setTeacherInformationsByIFacultyInformationPk(Collection<TeacherInformation> teacherInformationsByIFacultyInformationPk) {
-        this.teacherInformationsByIFacultyInformationPk = teacherInformationsByIFacultyInformationPk;
     }
 }

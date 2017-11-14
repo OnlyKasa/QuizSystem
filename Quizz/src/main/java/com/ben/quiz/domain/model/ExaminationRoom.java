@@ -1,28 +1,17 @@
 package com.ben.quiz.domain.model;
 
-import com.ben.quiz.domain.common.constant.SequenceConst;
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Collection;
 
 @Entity
 @Table(name = "examination_room", schema = "public", catalog = "quizsystem")
 public class ExaminationRoom extends BaseEntity implements Serializable {
-    private static final long serialVersionUID = 7770843345283497023L;
+    private static final long serialVersionUID = -2166181014264686934L;
     private int iExaminationRoomPk;
     private String strExaminationRoomName;
     private Integer iExaminationRoomPkEk;
-    private Collection<ExaminationList> examinationListsByIExaminationRoomPk;
 
     @Id
-    @GenericGenerator(
-            name = SequenceConst.EXAMINATION_ROOM_SEQ_GEN,
-            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator", parameters = {
-            @org.hibernate.annotations.Parameter(name = "initial_value", value = "1"),
-            @org.hibernate.annotations.Parameter(name = "sequence_name", value = SequenceConst.EXAMINATION_ROOM_SEQ)}
-    )
     @Column(name = "i_examination_room_pk", nullable = false)
     public int getiExaminationRoomPk() {
         return iExaminationRoomPk;
@@ -74,14 +63,5 @@ public class ExaminationRoom extends BaseEntity implements Serializable {
         result = 31 * result + (strExaminationRoomName != null ? strExaminationRoomName.hashCode() : 0);
         result = 31 * result + (iExaminationRoomPkEk != null ? iExaminationRoomPkEk.hashCode() : 0);
         return result;
-    }
-
-    @OneToMany(mappedBy = "examinationRoomByIExaminationRoomPk")
-    public Collection<ExaminationList> getExaminationListsByIExaminationRoomPk() {
-        return examinationListsByIExaminationRoomPk;
-    }
-
-    public void setExaminationListsByIExaminationRoomPk(Collection<ExaminationList> examinationListsByIExaminationRoomPk) {
-        this.examinationListsByIExaminationRoomPk = examinationListsByIExaminationRoomPk;
     }
 }

@@ -1,31 +1,20 @@
 package com.ben.quiz.domain.model;
 
-import com.ben.quiz.domain.common.constant.SequenceConst;
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Collection;
 
 @Entity
 @Table(name = "test_information", schema = "public", catalog = "quizsystem")
 public class TestInformation extends BaseEntity implements Serializable {
-    private static final long serialVersionUID = -5571546540217494879L;
+    private static final long serialVersionUID = -3032544100982809089L;
     private int iTestInformationPk;
-    private int iTestInformationTime;
-    private Integer iRateOfDifficultyPk;
+    private Double fExaminationResultScore;
+    private Integer iExaminationResultNumAnswerTrue;
     private Integer iTestInformationPkEk;
-    private Collection<ExaminationResult> examinationResultsByITestInformationPk;
-    private Collection<TestDetailInformation> testDetailInformationsByITestInformationPk;
-    private RateOfDifficulty rateOfDifficultyByIRateOfDifficultyPk;
+    private StudentInformation studentInformationByIStudentInformationPk;
+    private ExaminationInformation examinationInformationByIExaminationInformationPk;
 
     @Id
-    @GenericGenerator(
-            name = SequenceConst.TEST_INFORMATION_SEQ_GEN,
-            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator", parameters = {
-            @org.hibernate.annotations.Parameter(name = "initial_value", value = "1"),
-            @org.hibernate.annotations.Parameter(name = "sequence_name", value = SequenceConst.TEST_INFORMATION_SEQ)}
-    )
     @Column(name = "i_test_information_pk", nullable = false)
     public int getiTestInformationPk() {
         return iTestInformationPk;
@@ -36,23 +25,23 @@ public class TestInformation extends BaseEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "i_test_information_time", nullable = false)
-    public int getiTestInformationTime() {
-        return iTestInformationTime;
+    @Column(name = "f_examination_result_score", nullable = true, precision = 0)
+    public Double getfExaminationResultScore() {
+        return fExaminationResultScore;
     }
 
-    public void setiTestInformationTime(int iTestInformationTime) {
-        this.iTestInformationTime = iTestInformationTime;
+    public void setfExaminationResultScore(Double fExaminationResultScore) {
+        this.fExaminationResultScore = fExaminationResultScore;
     }
 
     @Basic
-    @Column(name = "i_rate_of_difficulty_pk", nullable = true)
-    public Integer getiRateOfDifficultyPk() {
-        return iRateOfDifficultyPk;
+    @Column(name = "i_examination_result_num_answer_true", nullable = true)
+    public Integer getiExaminationResultNumAnswerTrue() {
+        return iExaminationResultNumAnswerTrue;
     }
 
-    public void setiRateOfDifficultyPk(Integer iRateOfDifficultyPk) {
-        this.iRateOfDifficultyPk = iRateOfDifficultyPk;
+    public void setiExaminationResultNumAnswerTrue(Integer iExaminationResultNumAnswerTrue) {
+        this.iExaminationResultNumAnswerTrue = iExaminationResultNumAnswerTrue;
     }
 
     @Basic
@@ -73,8 +62,9 @@ public class TestInformation extends BaseEntity implements Serializable {
         TestInformation that = (TestInformation) o;
 
         if (iTestInformationPk != that.iTestInformationPk) return false;
-        if (iTestInformationTime != that.iTestInformationTime) return false;
-        if (iRateOfDifficultyPk != null ? !iRateOfDifficultyPk.equals(that.iRateOfDifficultyPk) : that.iRateOfDifficultyPk != null)
+        if (fExaminationResultScore != null ? !fExaminationResultScore.equals(that.fExaminationResultScore) : that.fExaminationResultScore != null)
+            return false;
+        if (iExaminationResultNumAnswerTrue != null ? !iExaminationResultNumAnswerTrue.equals(that.iExaminationResultNumAnswerTrue) : that.iExaminationResultNumAnswerTrue != null)
             return false;
         if (iTestInformationPkEk != null ? !iTestInformationPkEk.equals(that.iTestInformationPkEk) : that.iTestInformationPkEk != null)
             return false;
@@ -85,37 +75,29 @@ public class TestInformation extends BaseEntity implements Serializable {
     @Override
     public int hashCode() {
         int result = iTestInformationPk;
-        result = 31 * result + iTestInformationTime;
-        result = 31 * result + (iRateOfDifficultyPk != null ? iRateOfDifficultyPk.hashCode() : 0);
+        result = 31 * result + (fExaminationResultScore != null ? fExaminationResultScore.hashCode() : 0);
+        result = 31 * result + (iExaminationResultNumAnswerTrue != null ? iExaminationResultNumAnswerTrue.hashCode() : 0);
         result = 31 * result + (iTestInformationPkEk != null ? iTestInformationPkEk.hashCode() : 0);
         return result;
     }
 
-    @OneToMany(mappedBy = "testInformationByITestInformationPk")
-    public Collection<ExaminationResult> getExaminationResultsByITestInformationPk() {
-        return examinationResultsByITestInformationPk;
+    @ManyToOne
+    @JoinColumn(name = "i_student_information_pk", referencedColumnName = "i_student_information_pk")
+    public StudentInformation getStudentInformationByIStudentInformationPk() {
+        return studentInformationByIStudentInformationPk;
     }
 
-    public void setExaminationResultsByITestInformationPk(Collection<ExaminationResult> examinationResultsByITestInformationPk) {
-        this.examinationResultsByITestInformationPk = examinationResultsByITestInformationPk;
-    }
-
-    @OneToMany(mappedBy = "testInformationByITestInformationPk")
-    public Collection<TestDetailInformation> getTestDetailInformationsByITestInformationPk() {
-        return testDetailInformationsByITestInformationPk;
-    }
-
-    public void setTestDetailInformationsByITestInformationPk(Collection<TestDetailInformation> testDetailInformationsByITestInformationPk) {
-        this.testDetailInformationsByITestInformationPk = testDetailInformationsByITestInformationPk;
+    public void setStudentInformationByIStudentInformationPk(StudentInformation studentInformationByIStudentInformationPk) {
+        this.studentInformationByIStudentInformationPk = studentInformationByIStudentInformationPk;
     }
 
     @ManyToOne
-    @JoinColumn(name = "i_rate_of_difficulty_pk", referencedColumnName = "i_rate_of_difficulty_pk")
-    public RateOfDifficulty getRateOfDifficultyByIRateOfDifficultyPk() {
-        return rateOfDifficultyByIRateOfDifficultyPk;
+    @JoinColumn(name = "i_examination_information_pk", referencedColumnName = "i_examination_information_pk", nullable = false)
+    public ExaminationInformation getExaminationInformationByIExaminationInformationPk() {
+        return examinationInformationByIExaminationInformationPk;
     }
 
-    public void setRateOfDifficultyByIRateOfDifficultyPk(RateOfDifficulty rateOfDifficultyByIRateOfDifficultyPk) {
-        this.rateOfDifficultyByIRateOfDifficultyPk = rateOfDifficultyByIRateOfDifficultyPk;
+    public void setExaminationInformationByIExaminationInformationPk(ExaminationInformation examinationInformationByIExaminationInformationPk) {
+        this.examinationInformationByIExaminationInformationPk = examinationInformationByIExaminationInformationPk;
     }
 }

@@ -1,7 +1,5 @@
 package com.ben.quiz.domain.common.util;
 
-import com.ominext.gooval.domain.common.converter.CustomDateConverter;
-import com.ominext.gooval.domain.common.converter.CustomStringConverter;
 import org.apache.commons.beanutils.BeanUtilsBean;
 import org.apache.commons.beanutils.ConvertUtilsBean;
 import org.apache.commons.beanutils.converters.*;
@@ -14,8 +12,8 @@ public class BeanUtil {
 
     static {
         buNative = new BeanUtilsBean(new ConvertUtilsBean(), BeanUtilsBean.getInstance().getPropertyUtils());
-        buNative.getConvertUtils().register(new CustomDateConverter(), Date.class);
-        buNative.getConvertUtils().register(new CustomStringConverter(), String.class);
+//        buNative.getConvertUtils().register(new CustomDateConverter(), Date.class);
+//        buNative.getConvertUtils().register(new CustomStringConverter(), String.class);
         buNative.getConvertUtils().register(new LongConverter(null), Long.class);
         buNative.getConvertUtils().register(new IntegerConverter(null), Integer.class);
         buNative.getConvertUtils().register(new ShortConverter(null), Short.class);

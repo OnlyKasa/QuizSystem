@@ -2,8 +2,8 @@ package com.ben.quiz.domain.repository.impl;
 
 import com.ben.quiz.domain.common.constant.CodeConst;
 import com.ben.quiz.domain.common.exception.QuizException;
-import com.ben.quiz.domain.model.SeiUser;
-import com.ben.quiz.domain.model.SeiUser_;
+import com.ben.quiz.domain.model.Seiuser;
+import com.ben.quiz.domain.model.Seiuser_;
 import com.ben.quiz.domain.repository.interfaces.UserRepository;
 import org.springframework.stereotype.Repository;
 import javax.persistence.NoResultException;
@@ -18,17 +18,17 @@ import javax.persistence.criteria.Root;
 public class UserRepositoryImpl extends BaseRepositoryImpl implements UserRepository {
 
 //    @Override
-//    public SeiUser findSeiUserByUseridAndPassword(String userName, String passWord) throws GoovalException {
+//    public Seiuser findSeiUserByUseridAndPassword(String userName, String passWord) throws GoovalException {
 //        final CriteriaBuilder builder = entityManager.getCriteriaBuilder();
-//        final CriteriaQuery<SeiUser> criteriaQuery = builder.createQuery(SeiUser.class);
-//        final Root<SeiUser> SeiUserRoot = criteriaQuery.from(SeiUser.class);
+//        final CriteriaQuery<Seiuser> criteriaQuery = builder.createQuery(Seiuser.class);
+//        final Root<Seiuser> SeiUserRoot = criteriaQuery.from(Seiuser.class);
 //        final Root<MEmployee> employeeRoot = criteriaQuery.from(MEmployee.class);
 //        Predicate predicate = builder.and(builder.equal(SeiUserRoot.get(SeiUser_.userId), userName),
 //                builder.equal(SeiUserRoot.get("password"), passWord),
 //                builder.equal(SeiUserRoot.get(SeiUser_.iEmployeePk), employeeRoot.get(MEmployee_.iEmployeePk)),
 //                builder.isNull(employeeRoot.get(MEmployee_.dtTosConfirm)));
 //        criteriaQuery.select(SeiUserRoot).where(predicate);
-//        final TypedQuery<SeiUser> typedQuery = entityManager.createQuery(criteriaQuery);
+//        final TypedQuery<Seiuser> typedQuery = entityManager.createQuery(criteriaQuery);
 //        try {
 //            return typedQuery.getSingleResult();
 //        } catch (NoResultException ex) {
@@ -38,15 +38,15 @@ public class UserRepositoryImpl extends BaseRepositoryImpl implements UserReposi
 
 
     @Override
-    public SeiUser findSeiUserByUserId(String username) throws QuizException {
+    public Seiuser findSeiUserByUserId(String username) throws QuizException {
         final CriteriaBuilder builder = entityManager.getCriteriaBuilder();
-        final CriteriaQuery<SeiUser> criteriaQuery = builder.createQuery(SeiUser.class);
-        final Root<SeiUser> root = criteriaQuery.from(SeiUser.class);
+        final CriteriaQuery<Seiuser> criteriaQuery = builder.createQuery(Seiuser.class);
+        final Root<Seiuser> root = criteriaQuery.from(Seiuser.class);
         Predicate predicate = builder.and(
-                builder.equal(root.get(SeiUser_.userId), username));
+                builder.equal(root.get(Seiuser_.userId), username));
         criteriaQuery.select(root)
                 .where(predicate);
-        final TypedQuery<SeiUser> typedQuery = entityManager.createQuery(criteriaQuery);
+        final TypedQuery<Seiuser> typedQuery = entityManager.createQuery(criteriaQuery);
         try {
             return typedQuery.getSingleResult();
         } catch (NoResultException ex) {
@@ -56,17 +56,17 @@ public class UserRepositoryImpl extends BaseRepositoryImpl implements UserReposi
     }
 //
 //    @Override
-//    public SeiUser findEmployeeSeiUserByUserId(String strUserId) throws GoovalException {
+//    public Seiuser findEmployeeSeiUserByUserId(String strUserId) throws GoovalException {
 //        final CriteriaBuilder builder = entityManager.getCriteriaBuilder();
-//        final CriteriaQuery<SeiUser> criteriaQuery = builder.createQuery(SeiUser.class);
-//        final Root<SeiUser> root = criteriaQuery.from(SeiUser.class);
+//        final CriteriaQuery<Seiuser> criteriaQuery = builder.createQuery(Seiuser.class);
+//        final Root<Seiuser> root = criteriaQuery.from(Seiuser.class);
 //        Predicate predicate = builder.and(
 //                builder.isNotNull(root.get(SeiUser_.iEmployeePk)),
 //                builder.equal(root.get(SeiUser_.userId), strUserId));
 //        criteriaQuery.where(predicate)
 //                .select(root);
 //
-//        final TypedQuery<SeiUser> typedQuery = entityManager.createQuery(criteriaQuery);
+//        final TypedQuery<Seiuser> typedQuery = entityManager.createQuery(criteriaQuery);
 //        try {
 //            return typedQuery.getSingleResult();
 //        } catch (NoResultException ex) {

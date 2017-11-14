@@ -14,12 +14,12 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <div class="navbar-right">
-                    <ul class="nav navbar-nav flexbox">
+                    <ul class="nav navbar-nav flex-box">
                         <li class="username">
                             <a href="#">
 											<span class="text-overflow">
 												<i class="fa fa-user" aria-hidden="true"></i>
-												${fullname}
+												${fullName}
 											</span>
                             </a>
                         </li>
@@ -32,9 +32,9 @@
                 </div>
                 <ul class="nav navbar-nav navbar-main">
                     <li class="normal first-child">
-                        <a><spring:message code='MENU.M01.HEAD' /></a>
+                        <a>Teacher Informtion</a>
                         <div class="sub-menu">
-                            <ul class="flexbox container">
+                            <ul class="flex-box container">
                                 <li><a onclick="redirectPage('payment','M01')" href="#"><span><spring:message code='MENU.M01' /></span></a></li>
                                 <li><a onclick="redirectPage('payment','M02')" href="#"><span><spring:message code='MENU.M02' /></span></a></li>
                                 <li><a onclick="redirectPage('company','M03')" href="#"><span><spring:message code='MENU.M03' /></span></a></li>
@@ -45,7 +45,7 @@
                     <li class="normal">
                         <a><spring:message code='MENU.M04.HEAD' /></a>
                         <div class="sub-menu">
-                            <ul class="flexbox container">
+                            <ul class="flex-box container">
                                 <li><a onclick="redirectPage('billing','M04')" href="#"><span><spring:message code='MENU.M04' /></span></a></li>
                                 <li><a onclick="redirectPage('billing','M05')" href="#"><span><spring:message code='MENU.M05' /></span></a></li>
                                 <li><a onclick="redirectPage('billing','M06')"  href="#"><span><spring:message code='MENU.M06' /></span></a></li>
@@ -58,7 +58,7 @@
                     <li class="normal">
                         <a><spring:message code='MENU.M09.HEAD' /></a>
                         <div class="sub-menu">
-                            <ul class="flexbox container">
+                            <ul class="flex-box container">
                                 <li><a onclick="redirectPage('menu','M09')" href="#"><span><spring:message code='MENU.M09' /></span></a></li>
                                 <li><a onclick="redirectPage('menu','M10')" href="#"><span><spring:message code='MENU.M10' /></span></a></li>
                                 <li><a onclick="redirectPage('menu','M11')" href="#"><span><spring:message code='MENU.M11' /></span></a></li>
@@ -70,7 +70,7 @@
                     <li class="normal">
                         <a><spring:message code='MENU.M14.HEAD' /></a>
                         <div class="sub-menu">
-                            <ul class="flexbox container">
+                            <ul class="flex-box container">
                                 <li><a onclick="redirectPage('order','M14')" href="#"><span><spring:message code='MENU.M14' /></span></a></li>
                                 <li><a onclick="redirectPage('order','M15')" href="#"><span><spring:message code='MENU.M15' /></span></a></li>
                                 <li><a onclick="redirectPage('order','M16')" href="#"><span><spring:message code='MENU.M16' /></span></a></li>
@@ -83,7 +83,7 @@
                     <li class="normal">
                         <a><spring:message code='MENU.M19.HEAD' /></a>
                         <div class="sub-menu">
-                            <ul class="flexbox">
+                            <ul class="flex-box">
                                 <li><a onclick="redirectPage('company','M19')" href="#"><span><spring:message code='MENU.M19' /></span></a></li>
                                 <li><a onclick="redirectPage('company','M20')" href="#"><span><spring:message code='MENU.M20' /></span></a></li>
                                 <li><a onclick="redirectPage('company','M21')" href="#"><span><spring:message code='MENU.M21' /></span></a></li>
@@ -98,7 +98,7 @@
                     <li class="normal">
                         <a><spring:message code='MENU.M26.HEAD' /></a>
                         <div class="sub-menu">
-                            <ul class="flexbox">
+                            <ul class="flex-box">
                                 <li><a onclick="redirectPage('foodcompany','M26')" href="#"><span><spring:message code='MENU.M26' /></span></a></li>
                                 <li><a onclick="redirectPage('foodcompany','M27')" href="#"><span><spring:message code='MENU.M27' /></span></a></li>
                                 <li><a onclick="redirectPage('store','M28')" href="#"><span><spring:message code='MENU.M28' /></span></a></li>
@@ -114,7 +114,7 @@
                     <li class="normal last-child">
                         <a><spring:message code='MENU.COMMON.HEAD' /></a>
                         <div class="sub-menu">
-                            <ul class="flexbox">
+                            <ul class="flex-box">
                                 <li><a onclick="redirectPage('system','M34')" href="#"><span><spring:message code='MENU.M34' /></span></a></li>
                                 <li><a href="#"><span><spring:message code='MENU.M35' /></span></a></li>
                                 <li><a href="#"><span><spring:message code='MENU.M36' /></span></a></li>

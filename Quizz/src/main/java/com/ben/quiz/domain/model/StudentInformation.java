@@ -1,34 +1,22 @@
 package com.ben.quiz.domain.model;
 
-import com.ben.quiz.domain.common.constant.SequenceConst;
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
-import java.util.Collection;
 
 @Entity
 @Table(name = "student_information", schema = "public", catalog = "quizsystem")
 public class StudentInformation extends BaseEntity implements Serializable {
-    private static final long serialVersionUID = 4094109657012183007L;
+    private static final long serialVersionUID = 4219646419311988501L;
     private int iStudentInformationPk;
     private int iStudentInformationCode;
     private String strStudentInformationFirstName;
     private String strStudentInformationLastName;
     private Date dtStudentInformationBirthday;
     private Integer iStudentInformationPkEk;
-    private Collection<ExaminationListDetail> examinationListDetailsByIStudentInformationPk;
-    private Collection<ExaminationResult> examinationResultsByIStudentInformationPk;
     private FacultyInformation facultyInformationByIFacultyInformationPk;
 
     @Id
-    @GenericGenerator(
-            name = SequenceConst.STUDENT_INFORMATION_SEQ_GEN,
-            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator", parameters = {
-            @org.hibernate.annotations.Parameter(name = "initial_value", value = "1"),
-            @org.hibernate.annotations.Parameter(name = "sequence_name", value = SequenceConst.STUDENT_INFORMATION_SEQ)}
-    )
     @Column(name = "i_student_information_pk", nullable = false)
     public int getiStudentInformationPk() {
         return iStudentInformationPk;
@@ -118,24 +106,6 @@ public class StudentInformation extends BaseEntity implements Serializable {
         result = 31 * result + (dtStudentInformationBirthday != null ? dtStudentInformationBirthday.hashCode() : 0);
         result = 31 * result + (iStudentInformationPkEk != null ? iStudentInformationPkEk.hashCode() : 0);
         return result;
-    }
-
-    @OneToMany(mappedBy = "studentInformationByIStudentInformationPk")
-    public Collection<ExaminationListDetail> getExaminationListDetailsByIStudentInformationPk() {
-        return examinationListDetailsByIStudentInformationPk;
-    }
-
-    public void setExaminationListDetailsByIStudentInformationPk(Collection<ExaminationListDetail> examinationListDetailsByIStudentInformationPk) {
-        this.examinationListDetailsByIStudentInformationPk = examinationListDetailsByIStudentInformationPk;
-    }
-
-    @OneToMany(mappedBy = "studentInformationByIStudentInformationPk")
-    public Collection<ExaminationResult> getExaminationResultsByIStudentInformationPk() {
-        return examinationResultsByIStudentInformationPk;
-    }
-
-    public void setExaminationResultsByIStudentInformationPk(Collection<ExaminationResult> examinationResultsByIStudentInformationPk) {
-        this.examinationResultsByIStudentInformationPk = examinationResultsByIStudentInformationPk;
     }
 
     @ManyToOne

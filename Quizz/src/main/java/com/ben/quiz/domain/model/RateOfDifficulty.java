@@ -1,31 +1,20 @@
 package com.ben.quiz.domain.model;
 
-import com.ben.quiz.domain.common.constant.SequenceConst;
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Collection;
 
 @Entity
 @Table(name = "rate_of_difficulty", schema = "public", catalog = "quizsystem")
 public class RateOfDifficulty extends BaseEntity implements Serializable {
-    private static final long serialVersionUID = -2174280269540772355L;
+    private static final long serialVersionUID = -5660510559481877660L;
     private int iRateOfDifficultyPk;
     private Integer iNumQuestionLevel1;
     private Integer iNumQuestionLevel2;
     private Integer iNumQuestionLevel3;
     private Integer iNumQuestionLevel4;
     private Integer iRateOfDifficultyPkEk;
-    private Collection<TestInformation> testInformationsByIRateOfDifficultyPk;
 
     @Id
-    @GenericGenerator(
-            name = SequenceConst.RATE_OF_DIFFICULTY_SEQ_GEN,
-            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator", parameters = {
-            @org.hibernate.annotations.Parameter(name = "initial_value", value = "1"),
-            @org.hibernate.annotations.Parameter(name = "sequence_name", value = SequenceConst.RATE_OF_DIFFICULTY_SEQ)}
-    )
     @Column(name = "i_rate_of_difficulty_pk", nullable = false)
     public int getiRateOfDifficultyPk() {
         return iRateOfDifficultyPk;
@@ -116,14 +105,5 @@ public class RateOfDifficulty extends BaseEntity implements Serializable {
         result = 31 * result + (iNumQuestionLevel4 != null ? iNumQuestionLevel4.hashCode() : 0);
         result = 31 * result + (iRateOfDifficultyPkEk != null ? iRateOfDifficultyPkEk.hashCode() : 0);
         return result;
-    }
-
-    @OneToMany(mappedBy = "rateOfDifficultyByIRateOfDifficultyPk")
-    public Collection<TestInformation> getTestInformationsByIRateOfDifficultyPk() {
-        return testInformationsByIRateOfDifficultyPk;
-    }
-
-    public void setTestInformationsByIRateOfDifficultyPk(Collection<TestInformation> testInformationsByIRateOfDifficultyPk) {
-        this.testInformationsByIRateOfDifficultyPk = testInformationsByIRateOfDifficultyPk;
     }
 }

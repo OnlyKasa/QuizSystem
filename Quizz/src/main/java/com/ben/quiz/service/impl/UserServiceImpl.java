@@ -5,7 +5,7 @@ import com.ben.quiz.domain.common.constant.QuizTrasitionConst;
 import com.ben.quiz.domain.common.exception.QuizException;
 import com.ben.quiz.domain.common.util.JspUtil;
 import com.ben.quiz.domain.model.SUser;
-import com.ben.quiz.domain.model.SeiUser;
+import com.ben.quiz.domain.model.Seiuser;
 import com.ben.quiz.domain.repository.interfaces.UserRepository;
 import com.ben.quiz.service.interfaces.UserService;
 import org.apache.log4j.Logger;
@@ -75,11 +75,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         try {
-            SeiUser seiUser = userRepository.findSeiUserByUserId(userName);
+            Seiuser Seiuser = userRepository.findSeiUserByUserId(userName);
             return new org.springframework.security.core.userdetails.User(
-                    seiUser.getUserId(),
-                    seiUser.getPassword(),
-                    AuthorityUtils.createAuthorityList(seiUser.getTopMenu())
+                    Seiuser.getUserId(),
+                    Seiuser.getPassword(),
+                    AuthorityUtils.createAuthorityList(Seiuser.getTopMenu())
             );
         } catch (QuizException e) {
             e.printStackTrace();

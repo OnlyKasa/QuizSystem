@@ -1,30 +1,18 @@
 package com.ben.quiz.domain.model;
 
-import com.ben.quiz.domain.common.constant.SequenceConst;
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Collection;
 
 @Entity
 @Table(name = "subject_information", schema = "public", catalog = "quizsystem")
 public class SubjectInformation extends BaseEntity implements Serializable {
-    private static final long serialVersionUID = -832010241820013998L;
+    private static final long serialVersionUID = -8952603756520797504L;
     private int iSubjectInformationPk;
     private String strSubjectInformationName;
-    private int iSubjectInformationCreditNum;
+    private int iSubjectInformationCreditsNum;
     private Integer iSubjectInformationPkEk;
-    private Collection<ExaminationList> examinationListsByISubjectInformationPk;
-    private Collection<QuestionInformation> questionInformationsByISubjectInformationPk;
 
     @Id
-    @GenericGenerator(
-            name = SequenceConst.SUBJECT_INFORMATION_SEQ_GEN,
-            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator", parameters = {
-            @org.hibernate.annotations.Parameter(name = "initial_value", value = "1"),
-            @org.hibernate.annotations.Parameter(name = "sequence_name", value = SequenceConst.SUBJECT_INFORMATION_SEQ)}
-    )
     @Column(name = "i_subject_information_pk", nullable = false)
     public int getiSubjectInformationPk() {
         return iSubjectInformationPk;
@@ -45,13 +33,13 @@ public class SubjectInformation extends BaseEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "i_subject_information_credit_num", nullable = false)
-    public int getiSubjectInformationCreditNum() {
-        return iSubjectInformationCreditNum;
+    @Column(name = "i_subject_information_credits_num", nullable = false)
+    public int getiSubjectInformationCreditsNum() {
+        return iSubjectInformationCreditsNum;
     }
 
-    public void setiSubjectInformationCreditNum(int iSubjectInformationCreditNum) {
-        this.iSubjectInformationCreditNum = iSubjectInformationCreditNum;
+    public void setiSubjectInformationCreditsNum(int iSubjectInformationCreditsNum) {
+        this.iSubjectInformationCreditsNum = iSubjectInformationCreditsNum;
     }
 
     @Basic
@@ -72,7 +60,7 @@ public class SubjectInformation extends BaseEntity implements Serializable {
         SubjectInformation that = (SubjectInformation) o;
 
         if (iSubjectInformationPk != that.iSubjectInformationPk) return false;
-        if (iSubjectInformationCreditNum != that.iSubjectInformationCreditNum) return false;
+        if (iSubjectInformationCreditsNum != that.iSubjectInformationCreditsNum) return false;
         if (strSubjectInformationName != null ? !strSubjectInformationName.equals(that.strSubjectInformationName) : that.strSubjectInformationName != null)
             return false;
         if (iSubjectInformationPkEk != null ? !iSubjectInformationPkEk.equals(that.iSubjectInformationPkEk) : that.iSubjectInformationPkEk != null)
@@ -85,26 +73,8 @@ public class SubjectInformation extends BaseEntity implements Serializable {
     public int hashCode() {
         int result = iSubjectInformationPk;
         result = 31 * result + (strSubjectInformationName != null ? strSubjectInformationName.hashCode() : 0);
-        result = 31 * result + iSubjectInformationCreditNum;
+        result = 31 * result + iSubjectInformationCreditsNum;
         result = 31 * result + (iSubjectInformationPkEk != null ? iSubjectInformationPkEk.hashCode() : 0);
         return result;
-    }
-
-    @OneToMany(mappedBy = "subjectInformationByISubjectInformationPk")
-    public Collection<ExaminationList> getExaminationListsByISubjectInformationPk() {
-        return examinationListsByISubjectInformationPk;
-    }
-
-    public void setExaminationListsByISubjectInformationPk(Collection<ExaminationList> examinationListsByISubjectInformationPk) {
-        this.examinationListsByISubjectInformationPk = examinationListsByISubjectInformationPk;
-    }
-
-    @OneToMany(mappedBy = "subjectInformationByISubjectInformationPk")
-    public Collection<QuestionInformation> getQuestionInformationsByISubjectInformationPk() {
-        return questionInformationsByISubjectInformationPk;
-    }
-
-    public void setQuestionInformationsByISubjectInformationPk(Collection<QuestionInformation> questionInformationsByISubjectInformationPk) {
-        this.questionInformationsByISubjectInformationPk = questionInformationsByISubjectInformationPk;
     }
 }

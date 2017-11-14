@@ -59,7 +59,7 @@
 				display: none;
 				background-color:$light-primary-color;
 
-				.flexbox.container{
+				.flex-box.container{
 					padding-left:0;
 					padding-right:0;
 				}
@@ -289,7 +289,7 @@
 					z-index: 1000;
 					padding:30px 0;
 
-					.flexbox{
+					.flex-box{
 						display: flex;
 						justify-content: center;
 

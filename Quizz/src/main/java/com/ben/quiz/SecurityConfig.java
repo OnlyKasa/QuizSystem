@@ -1,6 +1,6 @@
 package com.ben.quiz;
 
-import com.ben.quiz.domain.model.SeiUser;
+import com.ben.quiz.domain.model.Seiuser;
 import com.ben.quiz.service.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -17,7 +17,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private UserService userService ;
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userService).passwordEncoder(SeiUser.PASSWORD_ENCODER);
+        auth.userDetailsService(userService).passwordEncoder(Seiuser.PASSWORD_ENCODER);
     }
 
     @Override

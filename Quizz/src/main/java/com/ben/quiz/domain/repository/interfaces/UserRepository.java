@@ -1,15 +1,15 @@
 package com.ben.quiz.domain.repository.interfaces;
 
 import com.ben.quiz.domain.common.exception.QuizException;
-import com.ben.quiz.domain.model.SeiUser;
+import com.ben.quiz.domain.model.Seiuser;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends BaseRepository {
-//    SeiUser findSeiuserByUseridAndPassword(String username, String password) throws QuizException;
+//    Seiuser findSeiuserByUseridAndPassword(String username, String password) throws QuizException;
 
-    SeiUser findSeiUserByUserId(String username) throws QuizException;
+    Seiuser findSeiUserByUserId(String username) throws QuizException;
 
-//    SeiUser findEmployeeSeiuserByUserId(String username) throws QuizException;
+//    Seiuser findEmployeeSeiuserByUserId(String username) throws QuizException;
 
 }
