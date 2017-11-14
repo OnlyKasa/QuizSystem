@@ -145,28 +145,28 @@ public class CodeConst {
 	 *
 	 */
 	public interface Authentication {
-
-		public static final String LOGIN_BY_ID = "ids";
-		public static final String LOGIN_BY_USERNAME = "username";
-		public static final int LOGIN_FAILURE_TIMES_0 = 0;
-		public static final int LOGIN_FAILURE_TIMES_1 = 1;
-		public static final int LOGIN_FAILURE_TIMES_3 = 3;
-		public static final int LOGIN_FAILURE_TIMES_4 = 4;
-		public static final int LOGIN_FAILURE_TIMES_5 = 5;
-		public static final String LOGIN_ACCOUNT_IS_LOCKED = "AccountIsLocked";
-		public static final String LOGIN_PERMISSION_CLASS = "class";
-		public static final String ERROR_USERNAME_CODE = "ERROR_USERNAME_CODE";
-		public static final String ERROR_PASSWORD_CODE = "ERROR_PASSWORD_CODE";
-		public static final String ERROR_PASSWORD_CODE_1LOGIN_LEFT = "ERROR_PASSWORD_CODE_1LOGIN_LEFT";
-		public static final String ERROR_PASSWORD_CODE_2LOGIN_LEFT = "ERROR_PASSWORD_CODE_2LOGIN_LEFT";
-		public static final String ERROR_PASSWORD_CODE_3LOGIN_LEFT = "ERROR_PASSWORD_CODE_3LOGIN_LEFT";
-		public static final String ERROR_COMMON_CODE = "ERROR_COMMON_CODE";
-		public static final String ERROR_USER_ID_ONLY_NUMBER_CODE = "ERROR_USER_ID_ONLY_NUMBER_CODE";
-		public static final String ERROR_USER_NAME_EMPTY_CODE = "ERROR_USER_NAME_EMPTY_CODE";
-		public static final String ERROR_PASSWORD_EMPTY_CODE = "ERROR_PASSWORD_EMPTY_CODE";
-		public static final String ERROR_NOT_SUPPORT_METHOD_CODE = "ERROR_NOT_SUPPORT_METHOD_CODE";
-		public static final String ERROR_ALL_EMPTY_CODE = "ERROR_ALL_EMPTY_CODE";
-		public static final String ERROR_USERNAME_ONLY_LETTERS_OR_NUMBERS = "ERROR_USERNAME_ONLY_LETTERS_OR_NUMBERS";
+        String LOGIN_ERROR_USER_NOT_EXISTS = "User name not exists";
+        String LOGIN_BY_ID = "ids";
+		String LOGIN_BY_USERNAME = "username";
+		int LOGIN_FAILURE_TIMES_0 = 0;
+		int LOGIN_FAILURE_TIMES_1 = 1;
+		int LOGIN_FAILURE_TIMES_3 = 3;
+        int LOGIN_FAILURE_TIMES_4 = 4;
+		int LOGIN_FAILURE_TIMES_5 = 5;
+		String LOGIN_ACCOUNT_IS_LOCKED = "AccountIsLocked";
+		String LOGIN_PERMISSION_CLASS = "class";
+		String ERROR_USERNAME_CODE = "ERROR_USERNAME_CODE";
+		String ERROR_PASSWORD_CODE = "ERROR_PASSWORD_CODE";
+		String ERROR_PASSWORD_CODE_1LOGIN_LEFT = "ERROR_PASSWORD_CODE_1LOGIN_LEFT";
+		String ERROR_PASSWORD_CODE_2LOGIN_LEFT = "ERROR_PASSWORD_CODE_2LOGIN_LEFT";
+		String ERROR_PASSWORD_CODE_3LOGIN_LEFT = "ERROR_PASSWORD_CODE_3LOGIN_LEFT";
+	    String ERROR_COMMON_CODE = "ERROR_COMMON_CODE";
+		String ERROR_USER_ID_ONLY_NUMBER_CODE = "ERROR_USER_ID_ONLY_NUMBER_CODE";
+		String ERROR_USER_NAME_EMPTY_CODE = "ERROR_USER_NAME_EMPTY_CODE";
+		String ERROR_PASSWORD_EMPTY_CODE = "ERROR_PASSWORD_EMPTY_CODE";
+		String ERROR_NOT_SUPPORT_METHOD_CODE = "ERROR_NOT_SUPPORT_METHOD_CODE";
+		String ERROR_ALL_EMPTY_CODE = "ERROR_ALL_EMPTY_CODE";
+		String ERROR_USERNAME_ONLY_LETTERS_OR_NUMBERS = "ERROR_USERNAME_ONLY_LETTERS_OR_NUMBERS";
 	}
 
 	public static class LogOutAccount {

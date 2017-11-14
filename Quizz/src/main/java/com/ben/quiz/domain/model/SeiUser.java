@@ -1,5 +1,9 @@
 package com.ben.quiz.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -7,8 +11,14 @@ import java.io.Serializable;
 @Table(name = "seiuser", schema = "public", catalog = "quizsystem")
 public class SeiUser extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 1753386973337809772L;
+
+    public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder();
+
     private String userId;
+    @JsonIgnore     //ensure field is to be ignored by introspection-based
+                    // serialization and deserialization functionality
     private String password;
+    @JsonIgnore
     private String topMenu;
     private Integer iStudentInformationPk;
     private Integer iTeacherInformationPk;
@@ -32,7 +42,7 @@ public class SeiUser extends BaseEntity implements Serializable {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = PASSWORD_ENCODER.encode(password);
     }
 
     @Basic

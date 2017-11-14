@@ -1,13 +1,13 @@
 package com.ben.quiz.service.interfaces;
 
 import com.ben.quiz.domain.common.exception.QuizException;
-import org.hibernate.QueryException;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
-public interface UserService {
+public interface UserService extends UserDetailsService {
 //
 //    void resetPassword(ForgotPasswordReq forgotPasswordReq) throws QuizException;
 //

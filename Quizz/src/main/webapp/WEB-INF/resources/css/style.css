@@ -1081,7 +1081,7 @@ textarea {
   color: #707070;
   height: 32px;
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: -ms-flex-box;
   display: flex;
   display: -webkit-flex;
   -webkit-box-pack: center;
@@ -2065,7 +2065,7 @@ textarea {
   background-color: #f5f5f5;
   height: 80px;
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: -ms-flex-box;
   display: flex;
   display: -webkit-flex;
   -webkit-box-align: center;
@@ -3198,7 +3198,7 @@ a.txt-green.border:hover {
     padding: 20px 5px;
     height: 62px;
     display: -webkit-box;
-    display: -ms-flexbox;
+    display: -ms-flex-box;
     display: flex;
     display: -webkit-flex;
     -webkit-align-items: center;
@@ -3563,7 +3563,7 @@ input:checked + .slider:before {
   .header-2 .navbar-main li .sub-menu {
     display: none;
     background-color: #c0de96; }
-    .header-2 .navbar-main li .sub-menu .flexbox.container {
+    .header-2 .navbar-main li .sub-menu .flex-box.container {
       padding-left: 0;
       padding-right: 0; }
     .header-2 .navbar-main li .sub-menu li a {
@@ -3685,33 +3685,33 @@ input:checked + .slider:before {
         width: 100%;
         z-index: 1000;
         padding: 30px 0; }
-        .header-2 .navbar-main li .sub-menu .flexbox {
+        .header-2 .navbar-main li .sub-menu .flex-box {
           display: -webkit-box;
           display: -webkit-flex;
-          display: -ms-flexbox;
+          display: -ms-flex-box;
           display: flex;
           -webkit-box-pack: center;
           -webkit-justify-content: center;
           -ms-flex-pack: center;
           justify-content: center; }
-          .header-2 .navbar-main li .sub-menu .flexbox.container {
+          .header-2 .navbar-main li .sub-menu .flex-box.container {
             -webkit-box-pack: start;
             -webkit-justify-content: flex-start;
             -ms-flex-pack: start;
             justify-content: flex-start; }
-            .header-2 .navbar-main li .sub-menu .flexbox.container.padding-left-1 {
+            .header-2 .navbar-main li .sub-menu .flex-box.container.padding-left-1 {
               padding-left: 80px; }
-            .header-2 .navbar-main li .sub-menu .flexbox.container.padding-left-2 {
+            .header-2 .navbar-main li .sub-menu .flex-box.container.padding-left-2 {
               padding-left: 140px; }
-            .header-2 .navbar-main li .sub-menu .flexbox.container.padding-left-3 {
+            .header-2 .navbar-main li .sub-menu .flex-box.container.padding-left-3 {
               padding-left: 260px; }
-            .header-2 .navbar-main li .sub-menu .flexbox.container.padding-left-4 {
+            .header-2 .navbar-main li .sub-menu .flex-box.container.padding-left-4 {
               padding-left: 350px; }
-            .header-2 .navbar-main li .sub-menu .flexbox.container.padding-left-5 {
+            .header-2 .navbar-main li .sub-menu .flex-box.container.padding-left-5 {
               padding-left: 140px; }
-            .header-2 .navbar-main li .sub-menu .flexbox.container.padding-left-6 {
+            .header-2 .navbar-main li .sub-menu .flex-box.container.padding-left-6 {
               padding-left: 300px; }
-            .header-2 .navbar-main li .sub-menu .flexbox.container.padding-left-7 {
+            .header-2 .navbar-main li .sub-menu .flex-box.container.padding-left-7 {
               padding-left: 340px; }
         .header-2 .navbar-main li .sub-menu li a {
           border: 0;
@@ -3770,7 +3770,7 @@ input:checked + .slider:before {
     padding: 0;
     line-height: 60px;
     display: -webkit-box;
-    display: -ms-flexbox;
+    display: -ms-flex-box;
     display: flex;
     display: -webkit-flex;
     -webkit-box-pack: center;
