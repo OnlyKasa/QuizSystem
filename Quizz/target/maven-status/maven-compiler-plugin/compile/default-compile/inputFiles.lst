@@ -1,4 +1,3 @@
-/home/ben/Documents/java/QuizSystem/Quizz/src/main/java/com/ben/quiz/controller/base/QuizErrorPageRegistrator.java
 /home/ben/Documents/java/QuizSystem/Quizz/src/main/java/com/ben/quiz/domain/common/form/FormError.java
 /home/ben/Documents/java/QuizSystem/Quizz/src/main/java/com/ben/quiz/domain/common/exception/QuizSystemException.java
 /home/ben/Documents/java/QuizSystem/Quizz/src/main/java/com/ben/quiz/domain/model/SeiUser.java
@@ -37,6 +36,7 @@
 /home/ben/Documents/java/QuizSystem/Quizz/src/main/java/com/ben/quiz/WebConfig.java
 /home/ben/Documents/java/QuizSystem/Quizz/src/main/java/com/ben/quiz/domain/common/util/PropertiesGenerator.java
 /home/ben/Documents/java/QuizSystem/Quizz/src/main/java/com/ben/quiz/domain/common/bean/handler/QuizErrorPageRegistrar.java
+/home/ben/Documents/java/QuizSystem/Quizz/src/main/java/com/ben/quiz/domain/common/util/JspUtil.java
 /home/ben/Documents/java/QuizSystem/Quizz/src/main/java/com/ben/quiz/service/interfaces/UserService.java
 /home/ben/Documents/java/QuizSystem/Quizz/src/main/java/com/ben/quiz/domain/common/form/BaseForm.java
 /home/ben/Documents/java/QuizSystem/Quizz/src/main/java/com/ben/quiz/domain/model/SForgotPassword.java

@@ -363,17 +363,7 @@ $(document).ready(function(){
     }).bind("ajaxError", function() {
         $(this).hide();
     });
-    $.getJSON( contextPath + "/js/i18n/quizMessage_en.json", function( json ) {
-        $.i18n().load( {
-            jp: json
-        });
-    });
 });
-
-
-function getMessage(messageName) {
-    return $.i18n().messageStore.messages.jp[messageName];
-}
 
 
 function makeOnEnter(inputID, func){

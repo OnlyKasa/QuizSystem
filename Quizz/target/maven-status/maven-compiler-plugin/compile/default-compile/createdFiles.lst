@@ -43,6 +43,7 @@ com/ben/quiz/domain/common/exception/QuizSystemException.class
 com/ben/quiz/domain/model/SeiUser_.class
 com/ben/quiz/domain/common/constant/CodeConst$ctrlStatus.class
 com/ben/quiz/domain/model/QuestionInformation_.class
+com/ben/quiz/domain/common/util/JspUtil.class
 com/ben/quiz/domain/common/exception/ErrorException.class
 com/ben/quiz/domain/model/ExaminationList.class
 com/ben/quiz/domain/model/StudentInformation.class
@@ -53,6 +54,7 @@ com/ben/quiz/controller/base/BasicErrorController.class
 com/ben/quiz/domain/common/constant/Constant$ctrlStatus.class
 com/ben/quiz/domain/model/TestDetailInformation_.class
 com/ben/quiz/controller/base/WebErrorController.class
+com/ben/quiz/service/impl/UserServiceImpl.class
 com/ben/quiz/domain/model/SForgotPassword.class
 com/ben/quiz/domain/common/constant/CodeConst$ScreenMode.class
 com/ben/quiz/domain/model/SubjectInformation.class
@@ -67,7 +69,6 @@ com/ben/quiz/domain/common/constant/CommonConst$HostMail.class
 com/ben/quiz/domain/model/FacultyInformation.class
 com/ben/quiz/domain/common/form/FormError.class
 com/ben/quiz/WebConfig.class
-com/ben/quiz/controller/base/QuizErrorPageRegistrator.class
 com/ben/quiz/domain/model/SubjectInformation_.class
 com/ben/quiz/domain/common/bean/handler/QuizErrorPageRegistrar.class
 com/ben/quiz/domain/common/constant/CodeConst$Customer.class

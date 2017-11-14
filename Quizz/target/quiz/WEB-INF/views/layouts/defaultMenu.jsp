@@ -77,7 +77,7 @@
                                 <li><a href="#"><span><spring:message code='MENU.M17' /></span></a></li>
                                 <li><a onclick="redirectPage('payment','M18')" href="#"><span><spring:message code='MENU.M18' /></span></a></li>
                             </ul>
-                        </div>
+                         </div>
                     </li>
 
                     <li class="normal">
