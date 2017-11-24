@@ -1,0 +1,62 @@
+.spinner {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    margin-left: -50px; /* half width of the spinner gif */
+    margin-top: -50px; /* half height of the spinner gif */
+    text-align:center;
+    z-index:1234;
+    overflow: hidden;
+}
+.form-border .mb-25{
+    margin-bottom: 25px;
+}
+.is-not-valid{
+    border: 1px solid #ed6969;
+}
+.is-not-valid.edited{
+    border: 1px solid #ccc;
+}
+.error-tooltip{
+    padding-right: 10px;
+}
+.delete-component{
+    color: #ed6969;
+}
+.semi-hidden{
+    display: none;
+}
+.page-wrap-2 {
+    margin-bottom: -165px;
+}
+.minus-custom{
+    padding-top: 8px;
+    padding-bottom: 9px;
+}
+.text-force-right{
+    text-align: right !important;
+}
+.imw-60{
+	max-width: 60px;
+    width: 60px;
+}
+.no-image{
+    background: #FFF;
+    text-align: center;
+}
+.txtDelete {
+    /*color: #ed6969;*/
+}
+.no-img-ext{
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px;
+}
+.no-image{
+    background: #FFF;
+}
+.no-hover:hover{
+    cursor: default !important;
+    background: rgba(255, 255, 255, 0) !important;
+    color: #555555 !important;
+}

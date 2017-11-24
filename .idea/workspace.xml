@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fc3df307-4941-456d-b3fd-c12b3905687b" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/SecurityConfig.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/domain/common/bean/handler/QWebBeanFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/domain/common/exception/ErrorException.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/domain/common/util/BeanUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/domain/common/util/PropertiesGenerator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/src/main/webapp/WEB-INF/resources/img/logo-2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/SecurityConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/common/bean/handler/QWebBeanFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/common/constant/CodeConst$Customer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/common/constant/CodeConst$StringDefault.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/common/exception/ErrorException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/common/util/BeanUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/common/util/PropertiesGenerator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/SecurityConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/common/bean/handler/QWebBeanFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/common/constant/CodeConst$Customer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/common/constant/CodeConst$StringDefault.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/common/exception/ErrorException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/common/util/BeanUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/common/util/PropertiesGenerator.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/.idea/dataSources/a2032ffb-ffc5-4564-aa00-befbea29f82f/_metadata_/metadata" afterPath="$PROJECT_DIR$/Quizz/.idea/dataSources/a2032ffb-ffc5-4564-aa00-befbea29f82f/_metadata_/metadata" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/.idea/dataSources/a2032ffb-ffc5-4564-aa00-befbea29f82f/_metadata_/metadata.keystream" afterPath="$PROJECT_DIR$/Quizz/.idea/dataSources/a2032ffb-ffc5-4564-aa00-befbea29f82f/_metadata_/metadata.keystream" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/.idea/dataSources/a2032ffb-ffc5-4564-aa00-befbea29f82f/_metadata_/metadata.keystream.len" afterPath="$PROJECT_DIR$/Quizz/.idea/dataSources/a2032ffb-ffc5-4564-aa00-befbea29f82f/_metadata_/metadata.keystream.len" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/.idea/dataSources/a2032ffb-ffc5-4564-aa00-befbea29f82f/_metadata_/metadata.len" afterPath="$PROJECT_DIR$/Quizz/.idea/dataSources/a2032ffb-ffc5-4564-aa00-befbea29f82f/_metadata_/metadata.len" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/.idea/dataSources/a2032ffb-ffc5-4564-aa00-befbea29f82f/_metadata_/metadata_i" afterPath="$PROJECT_DIR$/Quizz/.idea/dataSources/a2032ffb-ffc5-4564-aa00-befbea29f82f/_metadata_/metadata_i" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/.idea/dataSources/a2032ffb-ffc5-4564-aa00-befbea29f82f/_metadata_/metadata_i.len" afterPath="$PROJECT_DIR$/Quizz/.idea/dataSources/a2032ffb-ffc5-4564-aa00-befbea29f82f/_metadata_/metadata_i.len" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/resources/favicon.ico" afterPath="$PROJECT_DIR$/Quizz/src/main/resources/favicon.ico" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/webapp/WEB-INF/resources/img/favicon.ico" afterPath="$PROJECT_DIR$/Quizz/src/main/webapp/WEB-INF/resources/img/favicon.ico" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/webapp/WEB-INF/resources/img/icon-404.png" afterPath="$PROJECT_DIR$/Quizz/src/main/webapp/WEB-INF/resources/img/icon-404.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/QuizApplication.class" afterPath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/QuizApplication.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/WebConfig$1.class" afterPath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/WebConfig$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/WebConfig$2.class" afterPath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/WebConfig$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/WebConfig.class" afterPath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/WebConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/controller/base/BaseControllerWeb.class" afterPath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/controller/base/BaseControllerWeb.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/common/constant/CodeConst.class" afterPath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/common/constant/CodeConst.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/common/constant/SequenceConst.class" afterPath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/common/constant/SequenceConst.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/common/util/JspUtil.class" afterPath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/common/util/JspUtil.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/repository/impl/UserRepositoryImpl.class" afterPath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/repository/impl/UserRepositoryImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/repository/interfaces/UserRepository.class" afterPath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/repository/interfaces/UserRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/QuizApplication.class" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/QuizApplication.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/WebConfig$1.class" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/WebConfig$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/WebConfig$2.class" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/WebConfig$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/WebConfig.class" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/WebConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/controller/base/BaseControllerWeb.class" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/controller/base/BaseControllerWeb.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/common/constant/CodeConst.class" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/common/constant/CodeConst.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/common/constant/SequenceConst.class" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/common/constant/SequenceConst.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/common/util/JspUtil.class" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/common/util/JspUtil.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/repository/impl/UserRepositoryImpl.class" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/repository/impl/UserRepositoryImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/repository/interfaces/UserRepository.class" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/repository/interfaces/UserRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/resources/img/favicon.ico" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/resources/img/favicon.ico" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/resources/img/logo-2.png" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/resources/img/logo-2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/.idea/workspace.xml" afterPath="$PROJECT_DIR$/Quizz/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/pom.xml" afterPath="$PROJECT_DIR$/Quizz/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/QuizApplication.java" afterPath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/QuizApplication.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/WebConfig.java" afterPath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/WebConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/controller/base/BaseController.java" afterPath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/controller/base/BaseController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/controller/base/BaseControllerRestful.java" afterPath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/controller/base/BaseControllerRestful.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/controller/base/BaseControllerWeb.java" afterPath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/controller/base/BaseControllerWeb.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/domain/common/constant/CodeConst.java" afterPath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/domain/common/constant/CodeConst.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/domain/common/constant/SequenceConst.java" afterPath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/domain/common/constant/SequenceConst.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/domain/common/util/JspUtil.java" afterPath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/domain/common/util/JspUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/domain/repository/impl/UserRepositoryImpl.java" afterPath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/domain/repository/impl/UserRepositoryImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/domain/repository/interfaces/UserRepository.java" afterPath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/domain/repository/interfaces/UserRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/Quizz/src/main/resources/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/resources/quizMessage_en.properties" afterPath="$PROJECT_DIR$/Quizz/src/main/resources/quizMessage_en.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/webapp/WEB-INF/resources/css/style.css" afterPath="$PROJECT_DIR$/Quizz/src/main/webapp/WEB-INF/resources/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/classes/application.properties" afterPath="$PROJECT_DIR$/Quizz/target/classes/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/classes/quizMessage_en.properties" afterPath="$PROJECT_DIR$/Quizz/target/classes/quizMessage_en.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/application.properties" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/quizMessage_en.properties" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/quizMessage_en.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/resources/css/style.css" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/resources/css/style.css" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="39" />
+    <option name="y" value="-4" />
+    <option name="width" value="1327" />
+    <option name="height" value="772" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fc3df307-4941-456d-b3fd-c12b3905687b" name="Default" comment="" />
+      <created>1510974214261</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1510974214261</updated>
+      <workItem from="1510974229005" duration="77000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="77000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="39" y="-4" width="1327" height="772" extended-state="6" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24980484" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+</project>

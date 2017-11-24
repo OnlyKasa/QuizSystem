@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="quizsystem@localhost" uuid="a2032ffb-ffc5-4564-aa00-befbea29f82f">
+    <data-source source="LOCAL" name="quizsystem@localhost" read-only="true" uuid="7793df22-66d7-41ec-bb32-eeeccc7edeb7">
       <driver-ref>postgresql</driver-ref>
-      <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/quizsystem</jdbc-url>
       <driver-properties>
