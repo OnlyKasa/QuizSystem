@@ -3,6 +3,7 @@ package com.ben.quiz.controller.base;
 import org.springframework.boot.autoconfigure.web.ErrorController;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -15,7 +16,7 @@ import java.io.IOException;
 /**
  * @Author QuangNV
  */
-@RestController
+@Controller
 public class BasicErrorController implements ErrorController {
 
     private static final String PATH = "/error";

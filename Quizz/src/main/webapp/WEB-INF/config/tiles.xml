@@ -37,4 +37,17 @@
         <put-attribute name="body" value="/WEB-INF/views/layouts/error.jsp" />
         <put-attribute name="footer" value="/WEB-INF/views/layouts/miniFooter.jsp" />
     </definition>
+
+    <definition name="login" extends="base-definition">
+        <put-attribute name="menu" value=""/>
+        <put-attribute name="title" value="Page login"/>
+        <put-attribute name="body" value="/WEB-INF/views/auth/login.jsp"/>
+    </definition>
+
+    <definition name="s101" extends="base-definition">
+        <put-attribute name="title" value="Page test"/>
+        <put-attribute name="body" value="/WEB-INF/views/student/s101.jsp"/>
+    </definition>
+
+
 </tiles-definitions>

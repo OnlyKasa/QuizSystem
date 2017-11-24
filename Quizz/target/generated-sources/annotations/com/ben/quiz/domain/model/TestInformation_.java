@@ -1,6 +1,7 @@
 package com.ben.quiz.domain.model;
 
 import javax.annotation.Generated;
+import javax.persistence.metamodel.CollectionAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
@@ -9,8 +10,11 @@ import javax.persistence.metamodel.StaticMetamodel;
 public abstract class TestInformation_ extends com.ben.quiz.domain.model.BaseEntity_ {
 
 	public static volatile SingularAttribute<TestInformation, Integer> iTestInformationPk;
+	public static volatile SingularAttribute<TestInformation, Integer> iExaminationInformationPk;
 	public static volatile SingularAttribute<TestInformation, ExaminationInformation> examinationInformationByIExaminationInformationPk;
+	public static volatile SingularAttribute<TestInformation, Integer> iStudentInformationPk;
 	public static volatile SingularAttribute<TestInformation, Integer> iTestInformationPkEk;
+	public static volatile CollectionAttribute<TestInformation, TestInformationDetail> testInformationDetailsByITestInformationPk;
 	public static volatile SingularAttribute<TestInformation, StudentInformation> studentInformationByIStudentInformationPk;
 	public static volatile SingularAttribute<TestInformation, Integer> iExaminationResultNumAnswerTrue;
 	public static volatile SingularAttribute<TestInformation, Double> fExaminationResultScore;

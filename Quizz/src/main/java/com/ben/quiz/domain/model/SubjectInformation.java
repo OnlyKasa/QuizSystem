@@ -2,15 +2,18 @@ package com.ben.quiz.domain.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
 
 @Entity
 @Table(name = "subject_information", schema = "public", catalog = "quizsystem")
 public class SubjectInformation extends BaseEntity implements Serializable {
-    private static final long serialVersionUID = -8952603756520797504L;
+    private static final long serialVersionUID = -5995867655798813062L;
     private int iSubjectInformationPk;
     private String strSubjectInformationName;
     private int iSubjectInformationCreditsNum;
     private Integer iSubjectInformationPkEk;
+    private Collection<ExaminationInformation> examinationInformationsByISubjectInformationPk;
+    private Collection<QuestionInformation> questionInformationsByISubjectInformationPk;
 
     @Id
     @Column(name = "i_subject_information_pk", nullable = false)
@@ -76,5 +79,23 @@ public class SubjectInformation extends BaseEntity implements Serializable {
         result = 31 * result + iSubjectInformationCreditsNum;
         result = 31 * result + (iSubjectInformationPkEk != null ? iSubjectInformationPkEk.hashCode() : 0);
         return result;
+    }
+
+    @OneToMany(mappedBy = "subjectInformationByISubjectInformationPk")
+    public Collection<ExaminationInformation> getExaminationInformationsByISubjectInformationPk() {
+        return examinationInformationsByISubjectInformationPk;
+    }
+
+    public void setExaminationInformationsByISubjectInformationPk(Collection<ExaminationInformation> examinationInformationsByISubjectInformationPk) {
+        this.examinationInformationsByISubjectInformationPk = examinationInformationsByISubjectInformationPk;
+    }
+
+    @OneToMany(mappedBy = "subjectInformationByISubjectInformationPk")
+    public Collection<QuestionInformation> getQuestionInformationsByISubjectInformationPk() {
+        return questionInformationsByISubjectInformationPk;
+    }
+
+    public void setQuestionInformationsByISubjectInformationPk(Collection<QuestionInformation> questionInformationsByISubjectInformationPk) {
+        this.questionInformationsByISubjectInformationPk = questionInformationsByISubjectInformationPk;
     }
 }

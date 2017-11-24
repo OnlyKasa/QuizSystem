@@ -32,7 +32,7 @@ public class HomeController extends BaseController {
 		return userService.handleHome(inModel);
 	}
 
-	@GetMapping(QuizTrasitionConst.TEMPLATE.HOME)
+	@GetMapping(QuizTrasitionConst.AUTH.LOG_IN)
 	public ModelAndView handleLoggedIn() throws QuizException {
 		return userService.handleLoggedIn();
 	}

@@ -29,17 +29,18 @@
         <div class="clearfix"></div>
         <section class="management-login container box-x2-small">
             <div class="management-login_logo">
-                <img src="${pageContext.request.contextPath}/img/logo-2.png" />
+                <img src="${pageContext.request.contextPath}/img/logo-2.png"/>
             </div>
+            <p id="txtErrorInform" class="message-error semi-hidden" ></p>
             <div class="mt40 relative">
                 <input maxlength="100" class="form-control-gray selectpicker" id="txtUsername"
                        placeholder="<spring:message code='LOGIN.label.name'/>" />
-                <p id="totUsername" class="message-error semi-hidden" />
+                <p id="txtUsernameErr" class="message-error semi-hidden" ></p>
             </div>
             <div class="mt20 relative">
                 <input type="password" class="form-control-gray" id="txtPassword" maxlength="100"
                        placeholder="<spring:message code='LOGIN.label.password'/>" />
-                <p id="totPassword" class="message-error semi-hidden" />
+                <p id="txtPasswordErr" class="message-error semi-hidden" > </p>
             </div>
 
             <div class="management-login_button row">
@@ -53,11 +54,11 @@
             </div>
 
             <div class="management-login_forget-pw">
-                <a class="txt-link txt-blue" href="${pageContext.request.contextPath}/auth/C102"><spring:message code='LOGIN.label.link.forgotPassword' /></a>
+                <a class="txt-link txt-blue" href="${pageContext.request.contextPath}/auth/forget"><spring:message code='LOGIN.label.link.forgotPassword' /></a>
             </div>
 
             <div class="mt30 txt-center">
-                <a href="${pageContext.request.contextPath}/auth/C103" class="txt-hover mr20"><spring:message code='LOGIN.label.link.env' /></a>
+                <a href="${pageContext.request.contextPath}/auth/recommend" class="txt-hover mr20"><spring:message code='LOGIN.label.link.env' /></a>
                 <a href="https://www.facebook.com/quanghi.95" class="txt-hover"><spring:message code='LOGIN.label.link.contact' /></a>
             </div>
         </section>
@@ -69,7 +70,7 @@
     <div class="footer__body">
         <div class="container">
             <p class="text">
-                <span class="display-xs">©2014-2017 Fanatic Computers Inc.</span>
+                <span class="display-xs">©2017 Ben Computers Inc.</span>
                 All Rights Reserved
             </p>
         </div>
@@ -90,7 +91,7 @@
 <script src="${pageContext.request.contextPath}/js/jscustom.js"></script>
 <script src="${pageContext.request.contextPath}/js/lib/jquery.redirect.js"></script>
 <script src="${pageContext.request.contextPath}/js/validationUtil.js"></script>
-<script src="${pageContext.request.contextPath}/js/auth/c101.js"></script>
 <script src="${pageContext.request.contextPath}/js/config.js"></script>
+<script src="${pageContext.request.contextPath}/js/auth/login.js"></script>
 </body>
 </html>

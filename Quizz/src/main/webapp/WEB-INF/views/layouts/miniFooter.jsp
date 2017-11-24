@@ -5,7 +5,7 @@
     <div class="footer__body">
         <div class="container">
             <p class="text">
-                <span class="display-xs">©2014-2017 Fanatic Computers Inc.</span>
+                <span class="display-xs">©2017 Ben Computers Inc.</span>
                 All Rights Reserved
             </p>
         </div>

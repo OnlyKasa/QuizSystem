@@ -1,6 +1,7 @@
 package com.ben.quiz.domain.model;
 
 import javax.annotation.Generated;
+import javax.persistence.metamodel.CollectionAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
@@ -12,6 +13,8 @@ public abstract class SubjectInformation_ extends com.ben.quiz.domain.model.Base
 	public static volatile SingularAttribute<SubjectInformation, Integer> iSubjectInformationCreditsNum;
 	public static volatile SingularAttribute<SubjectInformation, Integer> iSubjectInformationPkEk;
 	public static volatile SingularAttribute<SubjectInformation, String> strSubjectInformationName;
+	public static volatile CollectionAttribute<SubjectInformation, QuestionInformation> questionInformationsByISubjectInformationPk;
+	public static volatile CollectionAttribute<SubjectInformation, ExaminationInformation> examinationInformationsByISubjectInformationPk;
 
 }
 

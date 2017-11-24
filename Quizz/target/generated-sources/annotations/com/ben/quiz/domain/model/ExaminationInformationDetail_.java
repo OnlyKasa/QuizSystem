@@ -8,9 +8,12 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(ExaminationInformationDetail.class)
 public abstract class ExaminationInformationDetail_ extends com.ben.quiz.domain.model.BaseEntity_ {
 
+	public static volatile SingularAttribute<ExaminationInformationDetail, Integer> iExaminationInformationPk;
 	public static volatile SingularAttribute<ExaminationInformationDetail, Integer> iExaminationInformationDetailPkEk;
 	public static volatile SingularAttribute<ExaminationInformationDetail, Integer> iExaminationInformationDetailPk;
 	public static volatile SingularAttribute<ExaminationInformationDetail, ExaminationInformation> examinationInformationByIExaminationInformationPk;
+	public static volatile SingularAttribute<ExaminationInformationDetail, Integer> iStudentInformationPk;
+	public static volatile SingularAttribute<ExaminationInformationDetail, StudentInformation> studentInformationByIStudentInformationPk;
 
 }
 

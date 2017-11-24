@@ -2,17 +2,19 @@ package com.ben.quiz.domain.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
 
 @Entity
 @Table(name = "rate_of_difficulty", schema = "public", catalog = "quizsystem")
 public class RateOfDifficulty extends BaseEntity implements Serializable {
-    private static final long serialVersionUID = -5660510559481877660L;
+    private static final long serialVersionUID = 3932848242888195236L;
     private int iRateOfDifficultyPk;
     private Integer iNumQuestionLevel1;
     private Integer iNumQuestionLevel2;
     private Integer iNumQuestionLevel3;
     private Integer iNumQuestionLevel4;
     private Integer iRateOfDifficultyPkEk;
+    private Collection<ExaminationInformation> examinationInformationsByIRateOfDifficultyPk;
 
     @Id
     @Column(name = "i_rate_of_difficulty_pk", nullable = false)
@@ -105,5 +107,14 @@ public class RateOfDifficulty extends BaseEntity implements Serializable {
         result = 31 * result + (iNumQuestionLevel4 != null ? iNumQuestionLevel4.hashCode() : 0);
         result = 31 * result + (iRateOfDifficultyPkEk != null ? iRateOfDifficultyPkEk.hashCode() : 0);
         return result;
+    }
+
+    @OneToMany(mappedBy = "rateOfDifficultyByIRateOfDifficultyPk")
+    public Collection<ExaminationInformation> getExaminationInformationsByIRateOfDifficultyPk() {
+        return examinationInformationsByIRateOfDifficultyPk;
+    }
+
+    public void setExaminationInformationsByIRateOfDifficultyPk(Collection<ExaminationInformation> examinationInformationsByIRateOfDifficultyPk) {
+        this.examinationInformationsByIRateOfDifficultyPk = examinationInformationsByIRateOfDifficultyPk;
     }
 }

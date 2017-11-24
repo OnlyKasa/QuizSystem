@@ -34,7 +34,7 @@
         <div class="modal-content alert alert-danger" id="mdlContentGlobal">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 id="txtModalHeaderGlobal" class="modal-title">エラーが発生しました。</h4>
+                <h4 id="txtModalHeaderGlobal" class="modal-title">Have a error</h4>
             </div>
             <div class="modal-body" id="txtMsgErrorGlobal"></div>
         </div>
@@ -45,7 +45,7 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-body alert alert-success">
-                データを削除しました。
+                Delete success
             </div><!-- /.modal-body -->
         </div>
     </div>
@@ -55,7 +55,7 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-body alert alert-success">
-                データを更新しました。
+               Update success
             </div><!-- /.modal-body -->
         </div>
     </div>
@@ -65,7 +65,7 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-body alert alert-success">
-                データを登録しました。
+                Create success
             </div><!-- /.modal-body -->
         </div>
     </div>
@@ -84,7 +84,7 @@
         </section>
     </section>
     <div id="spinner" class="spinner" style="display:none;" class="modal fade" role="dialog">
-        <img id="img-spinner" src="${pageContext.request.contextPath}/img/loading.gif" alt="ロード中"/>
+        <img id="img-spinner" src="${pageContext.request.contextPath}/img/loading.gif"/>
     </div>
 	<tiles:insertAttribute name="footer" />
 <script>

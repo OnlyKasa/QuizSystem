@@ -26,7 +26,7 @@ CREATE TABLE "public".rate_of_difficulty (
 
 CREATE TABLE "public".student_information ( 
 	i_student_information_pk integer  NOT NULL,
-	i_student_information_code integer  NOT NULL,
+	i_student_information_code varchar(50) UNIQUE NOT NULL,
 	i_faculty_information_pk integer  ,
 	str_student_information_first_name varchar(30)  ,
 	str_student_information_last_name varchar(30)  ,

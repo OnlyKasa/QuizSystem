@@ -11,7 +11,6 @@ public class QuizTrasitionConst {
     public static final String DOMAIN_ROOT = "/";
     public static final String ERROR = "/error";
     public static final String HOME_PAGE = "home";
-
     /**
      * Common
      */
@@ -33,11 +32,17 @@ public class QuizTrasitionConst {
 
     }
 
+    public interface STUDENT{
 
+        public static final String ROOT = "/student";
+        public static String PAGE_TEST = STUDENT.ROOT + "/s101";
+    }
     public interface TEMPLATE {
 
         public static String HOME = "home";
-
+        public static String LOGIN = "login";
+        public static String LOGOUT = "logout";
+        public static String S101 = "s101";
     }
 
 }

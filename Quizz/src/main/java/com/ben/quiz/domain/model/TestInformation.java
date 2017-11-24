@@ -2,17 +2,21 @@ package com.ben.quiz.domain.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
 
 @Entity
 @Table(name = "test_information", schema = "public", catalog = "quizsystem")
 public class TestInformation extends BaseEntity implements Serializable {
-    private static final long serialVersionUID = -3032544100982809089L;
+    private static final long serialVersionUID = -2467038328910086539L;
     private int iTestInformationPk;
+    private Integer iStudentInformationPk;
     private Double fExaminationResultScore;
     private Integer iExaminationResultNumAnswerTrue;
     private Integer iTestInformationPkEk;
+    private int iExaminationInformationPk;
     private StudentInformation studentInformationByIStudentInformationPk;
     private ExaminationInformation examinationInformationByIExaminationInformationPk;
+    private Collection<TestInformationDetail> testInformationDetailsByITestInformationPk;
 
     @Id
     @Column(name = "i_test_information_pk", nullable = false)
@@ -22,6 +26,16 @@ public class TestInformation extends BaseEntity implements Serializable {
 
     public void setiTestInformationPk(int iTestInformationPk) {
         this.iTestInformationPk = iTestInformationPk;
+    }
+
+    @Basic
+    @Column(name = "i_student_information_pk", nullable = true)
+    public Integer getiStudentInformationPk() {
+        return iStudentInformationPk;
+    }
+
+    public void setiStudentInformationPk(Integer iStudentInformationPk) {
+        this.iStudentInformationPk = iStudentInformationPk;
     }
 
     @Basic
@@ -54,6 +68,16 @@ public class TestInformation extends BaseEntity implements Serializable {
         this.iTestInformationPkEk = iTestInformationPkEk;
     }
 
+    @Basic
+    @Column(name = "i_examination_information_pk", nullable = false)
+    public int getiExaminationInformationPk() {
+        return iExaminationInformationPk;
+    }
+
+    public void setiExaminationInformationPk(int iExaminationInformationPk) {
+        this.iExaminationInformationPk = iExaminationInformationPk;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -62,6 +86,9 @@ public class TestInformation extends BaseEntity implements Serializable {
         TestInformation that = (TestInformation) o;
 
         if (iTestInformationPk != that.iTestInformationPk) return false;
+        if (iExaminationInformationPk != that.iExaminationInformationPk) return false;
+        if (iStudentInformationPk != null ? !iStudentInformationPk.equals(that.iStudentInformationPk) : that.iStudentInformationPk != null)
+            return false;
         if (fExaminationResultScore != null ? !fExaminationResultScore.equals(that.fExaminationResultScore) : that.fExaminationResultScore != null)
             return false;
         if (iExaminationResultNumAnswerTrue != null ? !iExaminationResultNumAnswerTrue.equals(that.iExaminationResultNumAnswerTrue) : that.iExaminationResultNumAnswerTrue != null)
@@ -75,14 +102,16 @@ public class TestInformation extends BaseEntity implements Serializable {
     @Override
     public int hashCode() {
         int result = iTestInformationPk;
+        result = 31 * result + (iStudentInformationPk != null ? iStudentInformationPk.hashCode() : 0);
         result = 31 * result + (fExaminationResultScore != null ? fExaminationResultScore.hashCode() : 0);
         result = 31 * result + (iExaminationResultNumAnswerTrue != null ? iExaminationResultNumAnswerTrue.hashCode() : 0);
         result = 31 * result + (iTestInformationPkEk != null ? iTestInformationPkEk.hashCode() : 0);
+        result = 31 * result + iExaminationInformationPk;
         return result;
     }
 
     @ManyToOne
-    @JoinColumn(name = "i_student_information_pk", referencedColumnName = "i_student_information_pk")
+    @JoinColumn(name = "i_student_information_pk", referencedColumnName = "i_student_information_pk",insertable = false ,updatable = false)
     public StudentInformation getStudentInformationByIStudentInformationPk() {
         return studentInformationByIStudentInformationPk;
     }
@@ -92,12 +121,21 @@ public class TestInformation extends BaseEntity implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name = "i_examination_information_pk", referencedColumnName = "i_examination_information_pk", nullable = false)
+    @JoinColumn(name = "i_examination_information_pk", referencedColumnName = "i_examination_information_pk", nullable = false ,insertable = false ,updatable = false)
     public ExaminationInformation getExaminationInformationByIExaminationInformationPk() {
         return examinationInformationByIExaminationInformationPk;
     }
 
     public void setExaminationInformationByIExaminationInformationPk(ExaminationInformation examinationInformationByIExaminationInformationPk) {
         this.examinationInformationByIExaminationInformationPk = examinationInformationByIExaminationInformationPk;
+    }
+
+    @OneToMany(mappedBy = "testInformationByITestInformationPk")
+    public Collection<TestInformationDetail> getTestInformationDetailsByITestInformationPk() {
+        return testInformationDetailsByITestInformationPk;
+    }
+
+    public void setTestInformationDetailsByITestInformationPk(Collection<TestInformationDetail> testInformationDetailsByITestInformationPk) {
+        this.testInformationDetailsByITestInformationPk = testInformationDetailsByITestInformationPk;
     }
 }

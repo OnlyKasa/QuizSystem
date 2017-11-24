@@ -175,21 +175,4 @@ public class CodeConst {
 		public static Map<Long, Set<Long>> ACCOUNTS_MUST_LOG_OUT = new HashMap<>();
 	}
 
-	/**
-	 * User for Customer
-	 * 
-	 * @author QuangNV
-	 */
-	public interface Customer {
-		public static final String UPDATE = "update";
-		public static final String INSERT = "insert";
-		public static final String DELETE = "insert";
-	}
-
-	public static final String SUCCESS = "01";
-
-	public interface StringDefault {
-		static final String StringDefaultV1 = "..........................";
-		static final String StringDefaultV2 = "..................................................";
-	}
 }
