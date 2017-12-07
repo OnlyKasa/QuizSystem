@@ -11,6 +11,7 @@ public abstract class RateOfDifficulty_ extends com.ben.quiz.domain.model.BaseEn
 
 	public static volatile SingularAttribute<RateOfDifficulty, Integer> iRateOfDifficultyPk;
 	public static volatile CollectionAttribute<RateOfDifficulty, ExaminationInformation> examinationInformationsByIRateOfDifficultyPk;
+	public static volatile SingularAttribute<RateOfDifficulty, String> strRateDifficultyName;
 	public static volatile SingularAttribute<RateOfDifficulty, Integer> iNumQuestionLevel3;
 	public static volatile SingularAttribute<RateOfDifficulty, Integer> iNumQuestionLevel4;
 	public static volatile SingularAttribute<RateOfDifficulty, Integer> iRateOfDifficultyPkEk;

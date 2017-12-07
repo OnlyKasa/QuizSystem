@@ -82,7 +82,7 @@ public class FacultyInformRepositoryImpl extends BaseRepositoryImpl
         FacultyInformation facultyInformation = findOne(FacultyInformation.class,
                 iFacultyInformationPk);
         if(facultyInformation.getiFacultyInformationPkEk() == null){
-            throw  new QuizException(CodeConst.ErrorCode.Err_Deleted_record, CodeConst.ErrorMess.Err_Deleted_record);
+            throw  new QuizException(CodeConst.ErrorCode.Err_Deleted_Record, CodeConst.ErrorMess.Err_Deleted_Record);
         }
         return facultyInformation;
     }

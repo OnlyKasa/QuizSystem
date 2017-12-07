@@ -57,17 +57,16 @@ public class CodeConst {
 	 *
 	 */
 	public interface ErrorMess {
-	    public static final String  Err_Deleted_record = PropertiesUtil.getMessage("ERROR.EX.Deleted.record");
-
+	    public static final String Err_Deleted_Record = PropertiesUtil.getMessage("ERROR.EX.Deleted.Record");
+		public static final String Err_Not_Null = PropertiesUtil.getMessage("ERROR.EX.Not.Null");
 	}
 	public interface ErrorCode {
 		public static String errorCode = "error_code";
 		public static int success = 2000 ;
 		// record be deleted before
-		public static final int Err_Deleted_record = 1;
+		public static final int Err_Deleted_Record = 1;
+		public static final int Err_Not_Null = 2;
 
-		// system error
-		public static final int Err_system = 2;
 
 		// You are not a company!
 		public static final int ERR_003 = 3;

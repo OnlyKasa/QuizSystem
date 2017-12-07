@@ -6,7 +6,6 @@ import com.ben.quiz.domain.common.exception.QuizException;
 import com.ben.quiz.domain.common.util.SQLUtil;
 import com.ben.quiz.domain.dto.request.PagingReq;
 import com.ben.quiz.domain.dto.request.RateOfDifficultyReq;
-import com.ben.quiz.domain.model.FacultyInformation;
 import com.ben.quiz.domain.model.RateOfDifficulty;
 import com.ben.quiz.domain.model.RateOfDifficulty_;
 import com.ben.quiz.domain.repository.interfaces.RateOfDifficultyRepository;
@@ -59,7 +58,7 @@ public class RateOfDifficultyRepositoryImpl extends BaseRepositoryImpl implement
         RateOfDifficulty rateOfDifficulty = findOne(RateOfDifficulty.class,
                 iRateOfDifficultyPk);
         if(rateOfDifficulty.getiRateOfDifficultyPkEk() == null){
-            throw  new QuizException(CodeConst.ErrorCode.Err_Deleted_record, CodeConst.ErrorMess.Err_Deleted_record);
+            throw  new QuizException(CodeConst.ErrorCode.Err_Deleted_Record, CodeConst.ErrorMess.Err_Deleted_Record);
         }
         return rateOfDifficulty;
     }

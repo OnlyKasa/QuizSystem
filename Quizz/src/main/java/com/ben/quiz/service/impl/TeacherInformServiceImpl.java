@@ -1,15 +1,20 @@
 package com.ben.quiz.service.impl;
 
+import com.ben.quiz.domain.common.constant.AuthorityConst;
+import com.ben.quiz.domain.common.constant.CodeConst;
 import com.ben.quiz.domain.common.constant.SequenceConst;
 import com.ben.quiz.domain.common.exception.QuizException;
+import com.ben.quiz.domain.common.util.PasswordUtil;
 import com.ben.quiz.domain.dto.request.PagingReq;
 import com.ben.quiz.domain.dto.request.TeacherInformationSaveReq;
 import com.ben.quiz.domain.dto.request.TeacherInformationSearchReq;
 import com.ben.quiz.domain.dto.result.TeacherInformDto;
 import com.ben.quiz.domain.model.FacultyInformation;
+import com.ben.quiz.domain.model.Seiuser;
 import com.ben.quiz.domain.model.TeacherInformation;
 import com.ben.quiz.domain.repository.interfaces.FacultyInformRepository;
 import com.ben.quiz.domain.repository.interfaces.TeacherInformRepository;
+import com.ben.quiz.domain.repository.interfaces.UserRepository;
 import com.ben.quiz.domain.repository.interfaces.UtilRepository;
 import com.ben.quiz.service.interfaces.TeacherInformService;
 import org.modelmapper.ModelMapper;
@@ -28,15 +33,18 @@ public class TeacherInformServiceImpl implements TeacherInformService {
     private final FacultyInformRepository facultyInformRepository;
     private  ModelMapper modelMapper;
     private final UtilRepository utilRepository ;
+    private  final UserRepository userRepository;
     @Autowired
     public TeacherInformServiceImpl(TeacherInformRepository teacherInformRepository,
                                     FacultyInformRepository facultyInformRepository,
                                     UtilRepository utilRepository,
+                                    UserRepository userRepository,
                                     ModelMapper modelMapper) {
         this.teacherInformRepository = teacherInformRepository;
         this.facultyInformRepository = facultyInformRepository;
         this.modelMapper = modelMapper;
         this.utilRepository = utilRepository;
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -79,7 +87,17 @@ public class TeacherInformServiceImpl implements TeacherInformService {
     public TeacherInformation create(TeacherInformationSaveReq saveReq) throws QuizException {
         saveReq.setiTeacherInformationPk(
                 utilRepository.findSequenceNextval(SequenceConst.TEACHER_INFORMATION_SEQ).intValue());
-
+        if(saveReq.getUserId() == null || saveReq.getPassword()== null){
+           throw new QuizException(CodeConst.ErrorCode.Err_Not_Null, CodeConst.ErrorMess.Err_Not_Null);
+        }
+        Seiuser seiuser = new Seiuser();
+        if(!userRepository.isExistUserid(saveReq.getUserId())){
+            seiuser.setiTeacherInformationPk(saveReq.getiTeacherInformationPk());
+            seiuser.setUserId(saveReq.getUserId());
+            seiuser.setPassword(PasswordUtil.genSHAForPassword(saveReq.getPassword()));
+            seiuser.setTopMenu(AuthorityConst.TEA.CODE);
+            userRepository.add(seiuser);
+        }
 
         saveReq.setiTeacherInformationPkEk(saveReq.getiTeacherInformationPk());
         TeacherInformation teacherInformation = modelMapper.map(saveReq ,TeacherInformation.class);
@@ -100,7 +118,7 @@ public class TeacherInformServiceImpl implements TeacherInformService {
                     facultyInformRepository.findByID(saveReq.getiFacultyInformationPk()));
         }
         TeacherInformation teacherInformation = new TeacherInformation();
-
+        
         modelMapper.map(saveReq,teacherInformDto);
         modelMapper.map(teacherInformDto,teacherInformation);
         teacherInformation.setiTeacherInformationPkEk(teacherInformation.getiTeacherInformationPk());

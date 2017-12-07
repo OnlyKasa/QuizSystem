@@ -15,7 +15,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 
-@Repository("UserRepository")
+@Repository("userRepository")
 public class UserRepositoryImpl extends BaseRepositoryImpl implements UserRepository {
 
     @Override
@@ -53,24 +53,20 @@ public class UserRepositoryImpl extends BaseRepositoryImpl implements UserReposi
         }
 
     }
-//
-//    @Override
-//    public Seiuser findEmployeeSeiUserByUserId(String strUserId) throws GoovalException {
-//        final CriteriaBuilder builder = entityManager.getCriteriaBuilder();
-//        final CriteriaQuery<Seiuser> criteriaQuery = builder.createQuery(Seiuser.class);
-//        final Root<Seiuser> root = criteriaQuery.from(Seiuser.class);
-//        Predicate predicate = builder.and(
-//                builder.isNotNull(root.get(SeiUser_.iEmployeePk)),
-//                builder.equal(root.get(SeiUser_.userId), strUserId));
-//        criteriaQuery.where(predicate)
-//                .select(root);
-//
-//        final TypedQuery<Seiuser> typedQuery = entityManager.createQuery(criteriaQuery);
-//        try {
-//            return typedQuery.getSingleResult();
-//        } catch (NoResultException ex) {
-//            throw new GoovalException(CodeConst.ErrorCode.ERR_099, PropertiesUtil.getMessage(USER_NOT_EX));
-//        }
-//    }
+
+    @Override
+    public boolean isExistUserid(String username) throws QuizException {
+        final CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+        final CriteriaQuery<Long> criteriaQuery = builder.createQuery(Long.class);
+        final Root<Seiuser> root = criteriaQuery.from(Seiuser.class);
+        Predicate predicate = builder.and(
+                builder.equal(root.get(Seiuser_.userId), username));
+        criteriaQuery.select(builder.count(root.get(Seiuser_.userId)))
+                .where(predicate);
+        final TypedQuery<Long> typedQuery = entityManager.createQuery(criteriaQuery);
+
+        return typedQuery.getSingleResult() >0;
+    }
+
 
 }

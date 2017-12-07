@@ -122,7 +122,7 @@ public class TeacherInformRepositoryImpl extends BaseRepositoryImpl implements T
             tuple = query.getSingleResult();
             return convertToTeacherInformDto(tuple);
         }catch (Exception e){
-            throw new QuizException(CodeConst.ErrorCode.Err_Deleted_record, CodeConst.ErrorMess.Err_Deleted_record);
+            throw new QuizException(CodeConst.ErrorCode.Err_Deleted_Record, CodeConst.ErrorMess.Err_Deleted_Record);
         }
     }
 

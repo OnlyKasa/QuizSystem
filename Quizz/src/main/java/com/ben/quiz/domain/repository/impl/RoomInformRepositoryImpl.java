@@ -3,15 +3,11 @@ package com.ben.quiz.domain.repository.impl;
 import com.ben.quiz.domain.common.constant.CodeConst;
 import com.ben.quiz.domain.common.exception.QuizException;
 import com.ben.quiz.domain.common.util.SQLUtil;
-import com.ben.quiz.domain.dto.request.FacultyInformSearchReq;
 import com.ben.quiz.domain.dto.request.PagingReq;
 import com.ben.quiz.domain.dto.request.RoomInformationReq;
-import com.ben.quiz.domain.dto.result.FacultyInformDto;
 import com.ben.quiz.domain.dto.result.RoomInformDto;
 import com.ben.quiz.domain.model.ExaminationRoom;
 import com.ben.quiz.domain.model.ExaminationRoom_;
-import com.ben.quiz.domain.model.FacultyInformation;
-import com.ben.quiz.domain.model.FacultyInformation_;
 import com.ben.quiz.domain.repository.interfaces.RoomInformRepository;
 import org.springframework.stereotype.Repository;
 
@@ -78,7 +74,7 @@ public class RoomInformRepositoryImpl extends BaseRepositoryImpl implements Room
         ExaminationRoom examinationRoom = findOne(ExaminationRoom.class,
                 iExaminationRoomPk);
         if(examinationRoom.getiExaminationRoomPkEk() == null){
-            throw  new QuizException(CodeConst.ErrorCode.Err_Deleted_record, CodeConst.ErrorMess.Err_Deleted_record);
+            throw  new QuizException(CodeConst.ErrorCode.Err_Deleted_Record, CodeConst.ErrorMess.Err_Deleted_Record);
         }
         return examinationRoom;
     }

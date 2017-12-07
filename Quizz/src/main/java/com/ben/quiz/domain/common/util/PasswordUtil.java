@@ -16,7 +16,7 @@ public class PasswordUtil {
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             byte[] hash = digest.digest(value.getBytes("UTF-8"));
-            StringBuffer hexString = new StringBuffer();
+            StringBuilder hexString = new StringBuilder();
 
             for (int i = 0; i < hash.length; i++) {
                 String hex = Integer.toHexString(0xff & hash[i]);
@@ -43,12 +43,10 @@ public class PasswordUtil {
             md = MessageDigest.getInstance("SHA-256");
             md.update(password.getBytes("UTF-8")); // Change this to "UTF-16" if needed
 
-        } catch (NoSuchAlgorithmException e) {
-            Logger.getLogger(PasswordUtil.class).error(e);
-        } catch (UnsupportedEncodingException e) {
+        } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
             Logger.getLogger(PasswordUtil.class).error(e);
         }
-        byte[] digest = md.digest();
+        byte[] digest = md != null ? md.digest() : new byte[0];
         return String.format("%064x", new java.math.BigInteger(1, digest));
     }
 
