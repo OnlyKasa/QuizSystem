@@ -24,6 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Transactional
 @Service("teacher")
@@ -118,7 +119,18 @@ public class TeacherInformServiceImpl implements TeacherInformService {
                     facultyInformRepository.findByID(saveReq.getiFacultyInformationPk()));
         }
         TeacherInformation teacherInformation = new TeacherInformation();
-        
+        if(saveReq.getUserId() == null){
+            throw new QuizException(CodeConst.ErrorCode.Err_Not_Null, CodeConst.ErrorMess.Err_Not_Null);
+        }
+        Seiuser seiuser;
+        if(userRepository.isExistUserid(saveReq.getUserId())){
+            seiuser = userRepository.findSeiuserByUserid(saveReq.getUserId());
+            String oldPass = seiuser.getPassword() ;
+            if(!Objects.equals(oldPass, PasswordUtil.genSHAForPassword(saveReq.getPassword()))) {
+                seiuser.setPassword(PasswordUtil.genSHAForPassword(saveReq.getPassword()));
+                userRepository.save(seiuser);
+            }
+        }
         modelMapper.map(saveReq,teacherInformDto);
         modelMapper.map(teacherInformDto,teacherInformation);
         teacherInformation.setiTeacherInformationPkEk(teacherInformation.getiTeacherInformationPk());
