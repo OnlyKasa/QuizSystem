@@ -107,6 +107,8 @@ public class UserServiceImpl implements UserService {
                 // If not logged in, redirect to login page
                 return QuizTrasitionConst.AUTH.LOG_IN;
             }
+            // Check login
+            //		System.out.println(">>>>>>>>>> Account OK:" + getSUser().getStrUsername() + " >>>>>>>>>>>");
            inModel.put("fullname", sUser.getStrFullName());
             inModel.put("screenCode", sUser.getStrTopMenu());
             return QuizTrasitionConst.TEMPLATE.HOME;

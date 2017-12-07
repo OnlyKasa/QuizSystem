@@ -9,10 +9,8 @@ import java.io.Serializable;
 @Entity
 @Table(name = "test_information_detail", schema = "public", catalog = "quizsystem")
 public class TestInformationDetail extends BaseEntity implements Serializable {
-    private static final long serialVersionUID = -8659873741977132494L;
+    private static final long serialVersionUID = -3391231005634408177L;
     private int iTestInformationDetailPk;
-    private Integer iTestInformationPk;
-    private Integer iQuestionInformationPk;
     private String strStudentAnswer;
     private Integer iTestDetailInformationPkEk;
     private TestInformation testInformationByITestInformationPk;
@@ -32,26 +30,6 @@ public class TestInformationDetail extends BaseEntity implements Serializable {
 
     public void setiTestInformationDetailPk(int iTestInformationDetailPk) {
         this.iTestInformationDetailPk = iTestInformationDetailPk;
-    }
-
-    @Basic
-    @Column(name = "i_test_information_pk", nullable = true)
-    public Integer getiTestInformationPk() {
-        return iTestInformationPk;
-    }
-
-    public void setiTestInformationPk(Integer iTestInformationPk) {
-        this.iTestInformationPk = iTestInformationPk;
-    }
-
-    @Basic
-    @Column(name = "i_question_information_pk", nullable = true)
-    public Integer getiQuestionInformationPk() {
-        return iQuestionInformationPk;
-    }
-
-    public void setiQuestionInformationPk(Integer iQuestionInformationPk) {
-        this.iQuestionInformationPk = iQuestionInformationPk;
     }
 
     @Basic
@@ -82,10 +60,6 @@ public class TestInformationDetail extends BaseEntity implements Serializable {
         TestInformationDetail that = (TestInformationDetail) o;
 
         if (iTestInformationDetailPk != that.iTestInformationDetailPk) return false;
-        if (iTestInformationPk != null ? !iTestInformationPk.equals(that.iTestInformationPk) : that.iTestInformationPk != null)
-            return false;
-        if (iQuestionInformationPk != null ? !iQuestionInformationPk.equals(that.iQuestionInformationPk) : that.iQuestionInformationPk != null)
-            return false;
         if (strStudentAnswer != null ? !strStudentAnswer.equals(that.strStudentAnswer) : that.strStudentAnswer != null)
             return false;
         if (iTestDetailInformationPkEk != null ? !iTestDetailInformationPkEk.equals(that.iTestDetailInformationPkEk) : that.iTestDetailInformationPkEk != null)
@@ -97,15 +71,13 @@ public class TestInformationDetail extends BaseEntity implements Serializable {
     @Override
     public int hashCode() {
         int result = iTestInformationDetailPk;
-        result = 31 * result + (iTestInformationPk != null ? iTestInformationPk.hashCode() : 0);
-        result = 31 * result + (iQuestionInformationPk != null ? iQuestionInformationPk.hashCode() : 0);
         result = 31 * result + (strStudentAnswer != null ? strStudentAnswer.hashCode() : 0);
         result = 31 * result + (iTestDetailInformationPkEk != null ? iTestDetailInformationPkEk.hashCode() : 0);
         return result;
     }
 
     @ManyToOne
-    @JoinColumn(name = "i_test_information_pk", referencedColumnName = "i_test_information_pk",insertable = false ,updatable = false)
+    @JoinColumn(name = "i_test_information_pk", referencedColumnName = "i_test_information_pk")
     public TestInformation getTestInformationByITestInformationPk() {
         return testInformationByITestInformationPk;
     }
@@ -115,7 +87,7 @@ public class TestInformationDetail extends BaseEntity implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name = "i_question_information_pk", referencedColumnName = "i_question_information_pk",insertable = false ,updatable = false)
+    @JoinColumn(name = "i_question_information_pk", referencedColumnName = "i_question_information_pk")
     public QuestionInformation getQuestionInformationByIQuestionInformationPk() {
         return questionInformationByIQuestionInformationPk;
     }

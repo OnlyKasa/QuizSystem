@@ -5,18 +5,15 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Collection;
 
 @Entity
 @Table(name = "faculty_information", schema = "public", catalog = "quizsystem")
 public class FacultyInformation extends BaseEntity implements Serializable {
-    private static final long serialVersionUID = -4668360173111055052L;
+    private static final long serialVersionUID = 6284373736772264684L;
     private int iFacultyInformationPk;
     private String strFacultyInformationShortName;
     private String strFacultyInformationFullName;
     private Integer iFacultyInformationPkEk;
-    private Collection<StudentInformation> studentInformationsByIFacultyInformationPk;
-    private Collection<TeacherInformation> teacherInformationsByIFacultyInformationPk;
 
     @Id
     @GenericGenerator(
@@ -89,23 +86,5 @@ public class FacultyInformation extends BaseEntity implements Serializable {
         result = 31 * result + (strFacultyInformationFullName != null ? strFacultyInformationFullName.hashCode() : 0);
         result = 31 * result + (iFacultyInformationPkEk != null ? iFacultyInformationPkEk.hashCode() : 0);
         return result;
-    }
-
-    @OneToMany(mappedBy = "facultyInformationByIFacultyInformationPk")
-    public Collection<StudentInformation> getStudentInformationsByIFacultyInformationPk() {
-        return studentInformationsByIFacultyInformationPk;
-    }
-
-    public void setStudentInformationsByIFacultyInformationPk(Collection<StudentInformation> studentInformationsByIFacultyInformationPk) {
-        this.studentInformationsByIFacultyInformationPk = studentInformationsByIFacultyInformationPk;
-    }
-
-    @OneToMany(mappedBy = "facultyInformationByIFacultyInformationPk")
-    public Collection<TeacherInformation> getTeacherInformationsByIFacultyInformationPk() {
-        return teacherInformationsByIFacultyInformationPk;
-    }
-
-    public void setTeacherInformationsByIFacultyInformationPk(Collection<TeacherInformation> teacherInformationsByIFacultyInformationPk) {
-        this.teacherInformationsByIFacultyInformationPk = teacherInformationsByIFacultyInformationPk;
     }
 }

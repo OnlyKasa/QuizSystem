@@ -2,7 +2,6 @@ package com.ben.quiz.domain.repository.impl;
 
 import com.ben.quiz.domain.common.constant.CodeConst;
 import com.ben.quiz.domain.common.exception.QuizException;
-import com.ben.quiz.domain.common.util.PropertiesUtil;
 import com.ben.quiz.domain.model.Seiuser;
 import com.ben.quiz.domain.model.Seiuser_;
 import com.ben.quiz.domain.repository.interfaces.UserRepository;
@@ -18,26 +17,28 @@ import javax.persistence.criteria.Root;
 @Repository("userRepository")
 public class UserRepositoryImpl extends BaseRepositoryImpl implements UserRepository {
 
+//    @Override
+//    public Seiuser findSeiUserByUseridAndPassword(String userName, String passWord) throws GoovalException {
+//        final CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+//        final CriteriaQuery<Seiuser> criteriaQuery = builder.createQuery(Seiuser.class);
+//        final Root<Seiuser> SeiUserRoot = criteriaQuery.from(Seiuser.class);
+//        final Root<MEmployee> employeeRoot = criteriaQuery.from(MEmployee.class);
+//        Predicate predicate = builder.and(builder.equal(SeiUserRoot.get(SeiUser_.userId), userName),
+//                builder.equal(SeiUserRoot.get("password"), passWord),
+//                builder.equal(SeiUserRoot.get(SeiUser_.iEmployeePk), employeeRoot.get(MEmployee_.iEmployeePk)),
+//                builder.isNull(employeeRoot.get(MEmployee_.dtTosConfirm)));
+//        criteriaQuery.select(SeiUserRoot).where(predicate);
+//        final TypedQuery<Seiuser> typedQuery = entityManager.createQuery(criteriaQuery);
+//        try {
+//            return typedQuery.getSingleResult();
+//        } catch (NoResultException ex) {
+//            throw new GoovalException(CodeConst.ErrorCode.ERR_099, PropertiesUtil.getMessage(USER_NOT_EX));
+//        }
+//    }
+
+
     @Override
-    public Seiuser findSeiuserByUseridAndPassword(String userName, String passWord) throws QuizException {
-        final CriteriaBuilder builder = entityManager.getCriteriaBuilder();
-        final CriteriaQuery<Seiuser> criteriaQuery = builder.createQuery(Seiuser.class);
-        final Root<Seiuser> SeiUserRoot = criteriaQuery.from(Seiuser.class);
-        Predicate predicate = builder.and(builder.equal(SeiUserRoot.get(Seiuser_.userId), userName),
-                builder.equal(SeiUserRoot.get("password"), passWord));
-
-        criteriaQuery.select(SeiUserRoot).where(predicate);
-        final TypedQuery<Seiuser> typedQuery = entityManager.createQuery(criteriaQuery);
-        try {
-            return typedQuery.getSingleResult();
-        } catch (NoResultException ex) {
-            throw new QuizException(CodeConst.ErrorCode.ERR_099, PropertiesUtil.getMessage("USER.notExists"));
-        }
-    }
-
-
-    @Override
-    public Seiuser findSeiuserByUserid(String username) throws QuizException {
+    public Seiuser findSeiUserByUserId(String username) throws QuizException {
         final CriteriaBuilder builder = entityManager.getCriteriaBuilder();
         final CriteriaQuery<Seiuser> criteriaQuery = builder.createQuery(Seiuser.class);
         final Root<Seiuser> root = criteriaQuery.from(Seiuser.class);

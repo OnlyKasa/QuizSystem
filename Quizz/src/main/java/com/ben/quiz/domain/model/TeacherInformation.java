@@ -5,22 +5,17 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Collection;
 
 @Entity
 @Table(name = "teacher_information", schema = "public", catalog = "quizsystem")
 public class TeacherInformation extends BaseEntity implements Serializable {
-    private static final long serialVersionUID = 4722708012553249993L;
+    private static final long serialVersionUID = -2232639122558709739L;
     private int iTeacherInformationPk;
-    private Integer iFacultyInformationPk;
     private String strTeacherInformationFirstName;
     private String strTeacherInformationLastName;
     private Boolean bTeacherInformationGender;
     private String strTeacherInformationPhone;
     private Integer iTeacherInformationPkEk;
-    private Collection<ExaminationInformation> examinationInformationsByITeacherInformationPk;
-    private Collection<QuestionInformation> questionInformationsByITeacherInformationPk;
-    private Collection<Seiuser> seiusersByITeacherInformationPk;
     private FacultyInformation facultyInformationByIFacultyInformationPk;
 
     @Id
@@ -37,16 +32,6 @@ public class TeacherInformation extends BaseEntity implements Serializable {
 
     public void setiTeacherInformationPk(int iTeacherInformationPk) {
         this.iTeacherInformationPk = iTeacherInformationPk;
-    }
-
-    @Basic
-    @Column(name = "i_faculty_information_pk", nullable = true)
-    public Integer getiFacultyInformationPk() {
-        return iFacultyInformationPk;
-    }
-
-    public void setiFacultyInformationPk(Integer iFacultyInformationPk) {
-        this.iFacultyInformationPk = iFacultyInformationPk;
     }
 
     @Basic
@@ -107,8 +92,6 @@ public class TeacherInformation extends BaseEntity implements Serializable {
         TeacherInformation that = (TeacherInformation) o;
 
         if (iTeacherInformationPk != that.iTeacherInformationPk) return false;
-        if (iFacultyInformationPk != null ? !iFacultyInformationPk.equals(that.iFacultyInformationPk) : that.iFacultyInformationPk != null)
-            return false;
         if (strTeacherInformationFirstName != null ? !strTeacherInformationFirstName.equals(that.strTeacherInformationFirstName) : that.strTeacherInformationFirstName != null)
             return false;
         if (strTeacherInformationLastName != null ? !strTeacherInformationLastName.equals(that.strTeacherInformationLastName) : that.strTeacherInformationLastName != null)
@@ -126,7 +109,6 @@ public class TeacherInformation extends BaseEntity implements Serializable {
     @Override
     public int hashCode() {
         int result = iTeacherInformationPk;
-        result = 31 * result + (iFacultyInformationPk != null ? iFacultyInformationPk.hashCode() : 0);
         result = 31 * result + (strTeacherInformationFirstName != null ? strTeacherInformationFirstName.hashCode() : 0);
         result = 31 * result + (strTeacherInformationLastName != null ? strTeacherInformationLastName.hashCode() : 0);
         result = 31 * result + (bTeacherInformationGender != null ? bTeacherInformationGender.hashCode() : 0);
@@ -135,35 +117,8 @@ public class TeacherInformation extends BaseEntity implements Serializable {
         return result;
     }
 
-    @OneToMany(mappedBy = "teacherInformationByITeacherInformationPk")
-    public Collection<ExaminationInformation> getExaminationInformationsByITeacherInformationPk() {
-        return examinationInformationsByITeacherInformationPk;
-    }
-
-    public void setExaminationInformationsByITeacherInformationPk(Collection<ExaminationInformation> examinationInformationsByITeacherInformationPk) {
-        this.examinationInformationsByITeacherInformationPk = examinationInformationsByITeacherInformationPk;
-    }
-
-    @OneToMany(mappedBy = "teacherInformationByITeacherInformationPk")
-    public Collection<QuestionInformation> getQuestionInformationsByITeacherInformationPk() {
-        return questionInformationsByITeacherInformationPk;
-    }
-
-    public void setQuestionInformationsByITeacherInformationPk(Collection<QuestionInformation> questionInformationsByITeacherInformationPk) {
-        this.questionInformationsByITeacherInformationPk = questionInformationsByITeacherInformationPk;
-    }
-
-    @OneToMany(mappedBy = "teacherInformationByITeacherInformationPk")
-    public Collection<Seiuser> getSeiusersByITeacherInformationPk() {
-        return seiusersByITeacherInformationPk;
-    }
-
-    public void setSeiusersByITeacherInformationPk(Collection<Seiuser> seiusersByITeacherInformationPk) {
-        this.seiusersByITeacherInformationPk = seiusersByITeacherInformationPk;
-    }
-
     @ManyToOne
-    @JoinColumn(name = "i_faculty_information_pk", referencedColumnName = "i_faculty_information_pk",insertable = false ,updatable = false)
+    @JoinColumn(name = "i_faculty_information_pk", referencedColumnName = "i_faculty_information_pk")
     public FacultyInformation getFacultyInformationByIFacultyInformationPk() {
         return facultyInformationByIFacultyInformationPk;
     }

@@ -6,9 +6,11 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends BaseRepository {
-    Seiuser findSeiuserByUseridAndPassword(String username, String password) throws QuizException;
+//    Seiuser findSeiuserByUseridAndPassword(String username, String password) throws QuizException;
 
-    Seiuser findSeiuserByUserid(String username) throws QuizException;
+    Seiuser findSeiUserByUserId(String username) throws QuizException;
+
+//    Seiuser findEmployeeSeiuserByUserId(String username) throws QuizException;
 
     boolean isExistUserid(String username) throws QuizException ;
 }

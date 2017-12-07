@@ -2208,19 +2208,19 @@ textarea {
 
 .btn-light-green {
   background-color: #c0de96;
-  color: #2CC8F7; }
+  color: #599f00; }
   .btn-light-green:hover {
     color: #fff;
-    background-color: #2CC8F7; }
+    background-color: #599f00; }
   .btn-light-green:focus {
     color: #fff; }
 
 .btn-green {
-  background-color: #2CC8F7;
+  background-color: #67b800;
   color: #fff; }
   .btn-green:hover {
     color: #fff;
-    background-color: #2CC8F7; }
+    background-color: #599f00; }
   .btn-green:focus {
     color: #fff; }
 
@@ -2259,12 +2259,12 @@ textarea {
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
   -o-border-radius: 4px;
-  border: 2px solid #2CC8F7;
-  color: #2CC8F7;
+  border: 2px solid #67b800;
+  color: #67b800;
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
   .btn-stroke-green:hover {
-    background-color: #2CC8F7;
+    background-color: #67b800;
     color: #fff; }
 
 .btn-download {
@@ -2296,7 +2296,8 @@ textarea {
   padding: 4px 10px 3px; }
 
 .btn-radius {
-  border-radius: 20px;  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
   -o-border-radius: 20px; }
@@ -2356,11 +2357,11 @@ textarea {
     margin-top: 20px; }
 
 .btn-update {
-  background-color: #2CC8F7;
+  background-color: #67b800;
   color: #fff; }
   .btn-update:hover {
     color: #fff;
-    background-color: #2CC8F7; }
+    background-color: #599f00; }
   .btn-update:focus {
     color: #fff; }
 
@@ -2439,13 +2440,13 @@ textarea {
 
 .btn-addToCart {
   color: #fff;
-  background-color: #2CC8F7; }
+  background-color: #67b800; }
   .btn-addToCart .fa {
     font-size: 18px;
     margin-left: 7px; }
   .btn-addToCart:hover {
     color: #fff;
-    background-color: #2CC8F7; }
+    background-color: #599f00; }
   .btn-addToCart:focus {
     color: #fff; }
 
@@ -2512,10 +2513,10 @@ textarea {
       transition: all 250ms ease; }
     .radio input[type="radio"]:checked + .radio-label:before {
       background-color: #fff;
-      border: 6px solid #2CC8F7; }
+      border: 6px solid #79bb26; }
     .radio input[type="radio"]:focus + .radio-label:before {
       outline: none;
-      border-color: #2CC8F7; }
+      border-color: #79bb26; }
     .radio input[type="radio"]:disabled + .radio-label:before {
       border-color: #b4b4b4;
       background: #b4b4b4; }
@@ -2541,8 +2542,8 @@ textarea {
       opacity: 1;
       color: #fff; }
     .checkbox input:checked ~ label div {
-      background-color: #2CC8F7;
-      border-color: #2CC8F7; }
+      background-color: #67b800;
+      border-color: #67b800; }
   .checkbox label {
     padding-left: 0; }
     .checkbox label div {
@@ -2596,14 +2597,14 @@ textarea {
 
 /* Handle */
 .flexcroll::-webkit-scrollbar-thumb {
-  background: rgba(10, 30, 159, 0.5); }
+  background: rgba(103, 184, 0, 0.5); }
   .flexcroll::-webkit-scrollbar-thumb:hover {
-    background: #2CC8F7; }
+    background: #67b800; }
 
 .heading-1, .heading-2 {
   font-size: 23px;
-  font-family: Helvetica, Arial, sans-serif;
-  color: #2CC8F7;
+  font-family: "Meiryo-Bold", "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", Helvetica, Arial, sans-serif;
+  color: #67b800;
   text-align: center; }
   .heading-1.margin-bottom, .margin-bottom.heading-2 {
     margin-bottom: 30px; }
@@ -2688,7 +2689,7 @@ textarea {
   font-family: "Meiryo-Bold", "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", Helvetica, Arial, sans-serif;
   color: #6a6a6a; }
   .txt-bold.txt-green {
-    color: #2CC8F7; }
+    color: #67b800; }
 
 .txt-blue {
   color: #16abdb; }
@@ -2700,13 +2701,13 @@ a.txt-blue.border:hover {
   border-bottom: 1px solid #0189b6; }
 
 .txt-green {
-  color: #2CC8F7; }
+  color: #67b800; }
 
 a.txt-green:hover {
-  color: #2CC8F7; }
+  color: #599f00; }
 
 a.txt-green.border:hover {
-  border-bottom: 1px solid #2CC8F7; }
+  border-bottom: 1px solid #599f00; }
 
 .txt-red {
   color: #ed6969; }
@@ -2730,10 +2731,10 @@ a.txt-green.border:hover {
   -ms-transition: all 0.2s;
   -o-transition: all 0.2s; }
   .txt-link.txt-green {
-    border-bottom: 1px solid #2CC8F7; }
+    border-bottom: 1px solid #67b800; }
     .txt-link.txt-green:hover {
-      color: #2CC8F7;
-      border-bottom: 1px solid #2CC8F7; }
+      color: #599f00;
+      border-bottom: 1px solid #599f00; }
   .txt-link.txt-blue {
     border-bottom: 1px solid #16abdb; }
     .txt-link.txt-blue:hover {
@@ -3358,7 +3359,7 @@ a.txt-green.border:hover {
     /*color: $primary-color;*/ }
     .modal-success .modal-body.alert, #modal-approval-success .modal-body.alert {
       margin-bottom: 0;
-      color: #2CC8F7; }
+      color: #599f00; }
 
 @media screen and (min-width: 768px) {
   .modal .modal-content .box-medium {
@@ -3419,7 +3420,7 @@ a.txt-green.border:hover {
     padding: 2px 8px;
     background: transparent; }
     .pagination li a:hover, .pagination li a:focus {
-      background-color: #2CC8F7;
+      background-color: #67b800;
       color: #fff; }
   .pagination li.disabled a {
     background: transparent; }
@@ -3463,11 +3464,11 @@ a.txt-green.border:hover {
   transition: .4s; }
 
 input:checked + .slider {
-  background-color: #2CC8F7; }
+  background-color: #67b800; }
 
 input:focus + .slider {
-  -webkit-box-shadow: 0 0 1px #2CC8F7;
-  box-shadow: 0 0 1px #2CC8F7; }
+  -webkit-box-shadow: 0 0 1px #67b800;
+  box-shadow: 0 0 1px #67b800; }
 
 input:checked + .slider:before {
   -webkit-transform: translateX(36px);
@@ -3518,19 +3519,17 @@ input:checked + .slider:before {
   background-color: #c0de96; }
 
 .bg-green {
-  background-color: #2CC8F7;
+  background-color: #67b800;
   color: #fff; }
 
 /* Layouts style */
 .header-1 {
   width: 100%;
   padding: 15px 0 20px 0;
-  background-color: #2CC8F7;
+  background-color: #67b800;
   text-align: center; }
   .header-1 .logo {
-    display: inline-block;
-    width:280px;
-  }
+    display: inline-block; }
 
 .header-2 {
   background-color: #fff;
@@ -3571,7 +3570,7 @@ input:checked + .slider:before {
       border-top: 1px solid #d3ebb2;
       border-bottom: 0;
       display: block;
-      color: #2CC8F7;
+      color: #599f00;
       padding: 15px 0;
       background: transparent !important; }
       .header-2 .navbar-main li .sub-menu li a span {
@@ -3663,21 +3662,21 @@ input:checked + .slider:before {
         /*font-family:$font-bold, "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", 'ＭＳ Ｐゴシック', Helvetica, Arial, sans-serif;*/
         background: none;
         border: 0;
-        color: #2CC8F7; }
+        color: #599f00; }
       .header-2 .navbar-main li.active .sub-menu {
         display: none; }
         .header-2 .navbar-main li.active .sub-menu a {
           font-family: "Meiryo-Regular"; }
       .header-2 .navbar-main li.active:hover a {
         background: url(../img/menu-hover.png) no-repeat bottom center !important;
-        color: #2CC8F7; }
+        color: #599f00; }
       .header-2 .navbar-main li.active:hover .sub-menu a {
-        color: #2CC8F7; }
+        color: #599f00; }
       .header-2 .navbar-main li.active.clear-hover:hover a {
         background: none !important; }
       .header-2 .navbar-main li:hover a {
         background: url(../img/menu-hover.png) no-repeat bottom center;
-        color: #2CC8F7; }
+        color: #599f00; }
       .header-2 .navbar-main li:hover .sub-menu {
         display: block; }
       .header-2 .navbar-main li .sub-menu {
@@ -3784,13 +3783,14 @@ input:checked + .slider:before {
     align-items: center;
     height: 60px; }
     .header-2 .navbar-right li a:hover {
-      color: #2CC8F7; }
+      color: #599f00; }
   .header-2 .navbar-right li:first-child a {
     margin-left: 0; }
   .header-2 .navbar-right li:last-child a {
     border-bottom: 0; }
   .header-2 .navbar-right li.username .text-overflow {
     line-height: 25px;
+    max-width: 170px;
     display: inline-block;
     overflow: hidden;
     -o-text-overflow: ellipsis;
@@ -3831,18 +3831,18 @@ input:checked + .slider:before {
   color: #fff; }
   .footer__header {
     text-align: right;
-    color: #2CC8F7;
+    color: #599f00;
     font-weight: bold;
     padding: 10px 0;
     background-color: #c0de96; }
     .footer__header a {
-      color: #2CC8F7; }
+      color: #599f00; }
   .footer__body {
     font-size: 14px;
     text-align: center;
     height: 70px;
     padding: 0 10px;
-    background-color: #2CC8F7; }
+    background-color: #67b800; }
     .footer__body .text {
       margin-top: 20px; }
     .footer__body .display-xs {
@@ -4086,8 +4086,7 @@ input:checked + .slider:before {
   .management-login .box-shadow-radius {
     padding: 30px 15px; }
   .management-login_logo {
-      text-align: center;
-  }
+    text-align: center; }
   .management-login_button {
     margin-top: 20px; }
     .management-login_button .btn {
@@ -4175,7 +4174,7 @@ input:checked + .slider:before {
     font-size: 13px;
     border: 1px solid #e1e1e1; }
     .environment .table th {
-      background-color: #2CC8F7;
+      background-color: #67b800;
       color: #fff;
       font-size: 14px; }
     .environment .table th, .environment .table td {
@@ -4185,14 +4184,14 @@ input:checked + .slider:before {
       .environment .table td:first-child {
         border-left: 0; }
 
-@media screen and (min-width: 280px) {
+@media screen and (min-width: 768px) {
   .management-login {
     margin-top: 30px;
     padding: 0; }
     .management-login .box-shadow-radius {
       padding: 35px 30px; }
     .management-login_logo img {
-      width: 224px !important; }
+      width: 271px; }
   .management-reset-password {
     width: 790px;
     margin-left: auto;

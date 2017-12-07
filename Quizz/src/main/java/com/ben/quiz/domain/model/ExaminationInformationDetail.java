@@ -8,14 +8,11 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "examination_information_detail", schema = "public", catalog = "quizsystem")
-public class ExaminationInformationDetail  extends BaseEntity implements Serializable {
-    private static final long serialVersionUID = -4519399836976070223L;
+public class ExaminationInformationDetail extends BaseEntity implements Serializable {
+    private static final long serialVersionUID = -5859186290959780161L;
     private int iExaminationInformationDetailPk;
-    private Integer iExaminationInformationPk;
-    private Integer iStudentInformationPk;
     private Integer iExaminationInformationDetailPkEk;
     private ExaminationInformation examinationInformationByIExaminationInformationPk;
-    private StudentInformation studentInformationByIStudentInformationPk;
 
     @Id
     @GenericGenerator(
@@ -31,26 +28,6 @@ public class ExaminationInformationDetail  extends BaseEntity implements Seriali
 
     public void setiExaminationInformationDetailPk(int iExaminationInformationDetailPk) {
         this.iExaminationInformationDetailPk = iExaminationInformationDetailPk;
-    }
-
-    @Basic
-    @Column(name = "i_examination_information_pk", nullable = true)
-    public Integer getiExaminationInformationPk() {
-        return iExaminationInformationPk;
-    }
-
-    public void setiExaminationInformationPk(Integer iExaminationInformationPk) {
-        this.iExaminationInformationPk = iExaminationInformationPk;
-    }
-
-    @Basic
-    @Column(name = "i_student_information_pk", nullable = true)
-    public Integer getiStudentInformationPk() {
-        return iStudentInformationPk;
-    }
-
-    public void setiStudentInformationPk(Integer iStudentInformationPk) {
-        this.iStudentInformationPk = iStudentInformationPk;
     }
 
     @Basic
@@ -71,10 +48,6 @@ public class ExaminationInformationDetail  extends BaseEntity implements Seriali
         ExaminationInformationDetail that = (ExaminationInformationDetail) o;
 
         if (iExaminationInformationDetailPk != that.iExaminationInformationDetailPk) return false;
-        if (iExaminationInformationPk != null ? !iExaminationInformationPk.equals(that.iExaminationInformationPk) : that.iExaminationInformationPk != null)
-            return false;
-        if (iStudentInformationPk != null ? !iStudentInformationPk.equals(that.iStudentInformationPk) : that.iStudentInformationPk != null)
-            return false;
         if (iExaminationInformationDetailPkEk != null ? !iExaminationInformationDetailPkEk.equals(that.iExaminationInformationDetailPkEk) : that.iExaminationInformationDetailPkEk != null)
             return false;
 
@@ -84,29 +57,17 @@ public class ExaminationInformationDetail  extends BaseEntity implements Seriali
     @Override
     public int hashCode() {
         int result = iExaminationInformationDetailPk;
-        result = 31 * result + (iExaminationInformationPk != null ? iExaminationInformationPk.hashCode() : 0);
-        result = 31 * result + (iStudentInformationPk != null ? iStudentInformationPk.hashCode() : 0);
         result = 31 * result + (iExaminationInformationDetailPkEk != null ? iExaminationInformationDetailPkEk.hashCode() : 0);
         return result;
     }
 
     @ManyToOne
-    @JoinColumn(name = "i_examination_information_pk", referencedColumnName = "i_examination_information_pk",insertable = false ,updatable = false)
+    @JoinColumn(name = "i_examination_information_pk", referencedColumnName = "i_examination_information_pk")
     public ExaminationInformation getExaminationInformationByIExaminationInformationPk() {
         return examinationInformationByIExaminationInformationPk;
     }
 
     public void setExaminationInformationByIExaminationInformationPk(ExaminationInformation examinationInformationByIExaminationInformationPk) {
         this.examinationInformationByIExaminationInformationPk = examinationInformationByIExaminationInformationPk;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "i_student_information_pk", referencedColumnName = "i_student_information_pk",insertable = false ,updatable = false)
-    public StudentInformation getStudentInformationByIStudentInformationPk() {
-        return studentInformationByIStudentInformationPk;
-    }
-
-    public void setStudentInformationByIStudentInformationPk(StudentInformation studentInformationByIStudentInformationPk) {
-        this.studentInformationByIStudentInformationPk = studentInformationByIStudentInformationPk;
     }
 }

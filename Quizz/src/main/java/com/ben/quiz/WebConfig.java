@@ -1,13 +1,7 @@
 package com.ben.quiz;
 
 import com.ben.quiz.domain.common.bean.handler.QuizErrorPageRegistrar;
-import com.ben.quiz.domain.common.util.ResourceUtil;
-import org.apache.catalina.Context;
-import org.apache.catalina.startup.Tomcat;
 import org.modelmapper.ModelMapper;
-import org.modelmapper.convention.MatchingStrategies;
-import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer;
-import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.boot.web.servlet.ErrorPageRegistrar;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.support.ErrorPageFilter;
@@ -18,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -34,11 +29,16 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
-import org.apache.tomcat.util.descriptor.web.ContextResource;
-import javax.persistence.*;
-import javax.sql.DataSource;
-import java.util.Locale;
 
+import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaDelete;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.CriteriaUpdate;
+import javax.persistence.metamodel.Metamodel;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 
 @EnableWebMvc
 @Configuration
@@ -51,28 +51,6 @@ import java.util.Locale;
 })
 public class WebConfig extends WebMvcConfigurerAdapter {
 
-//
-//    @BeaninModel
-//    public TomcatEmbeddedServletContainerFactory tomcatFactory() {
-//        return new TomcatEmbeddedServletContainerFactory() {
-//            @Override
-//            protected TomcatEmbeddedServletContainer getTomcatEmbeddedServletContainer(
-//                    Tomcat tomcat) {
-//                tomcat.enableNaming();
-//                return super.getTomcatEmbeddedServletContainer(tomcat);
-//            }
-//            @Override
-//            protected void postProcessContext(Context context) {
-//                ContextResource resource = new ContextResource();
-//                ;
-//                resource.setName("jdbc/quizsystem");
-//                resource.setType(DataSource.class.getName());
-//                resource.setProperty("driverClassName", ResourceUtil.getProperty("application.properties","spring.datasource.driver-class-name"));
-//                resource.setProperty("url", ResourceUtil.getProperty("application.properties","spring.datasource.url"));
-//                context.getNamingResources().addResource(resource);
-//            }
-//        };
-//    }
     @Bean
     public FilterRegistrationBean corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
@@ -204,6 +182,14 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         return resolver;
     }
 
+    /*
+     * (non-Javadoc)
+     *
+     * @see
+     * org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter#
+     * addInterceptors(org.springframework.web.servlet.config.annotation.
+     * InterceptorRegistry)
+     */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();
@@ -226,10 +212,271 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Bean
     public ModelMapper modelMapper() {
-        ModelMapper modelMapper = new ModelMapper();
-        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-        return modelMapper;
+        return new ModelMapper();
     }
 
+    @Bean
+    public EntityManager entityManager(){
+        return new EntityManager() {
+            @Override
+            public void persist(Object o) {
+
+            }
+
+            @Override
+            public <T> T merge(T t) {
+                return null;
+            }
+
+            @Override
+            public void remove(Object o) {
+
+            }
+
+            @Override
+            public <T> T find(Class<T> aClass, Object o) {
+                return null;
+            }
+
+            @Override
+            public <T> T find(Class<T> aClass, Object o, Map<String, Object> map) {
+                return null;
+            }
+
+            @Override
+            public <T> T find(Class<T> aClass, Object o, LockModeType lockModeType) {
+                return null;
+            }
+
+            @Override
+            public <T> T find(Class<T> aClass, Object o, LockModeType lockModeType, Map<String, Object> map) {
+                return null;
+            }
+
+            @Override
+            public <T> T getReference(Class<T> aClass, Object o) {
+                return null;
+            }
+
+            @Override
+            public void flush() {
+
+            }
+
+            @Override
+            public void setFlushMode(FlushModeType flushModeType) {
+
+            }
+
+            @Override
+            public FlushModeType getFlushMode() {
+                return null;
+            }
+
+            @Override
+            public void lock(Object o, LockModeType lockModeType) {
+
+            }
+
+            @Override
+            public void lock(Object o, LockModeType lockModeType, Map<String, Object> map) {
+
+            }
+
+            @Override
+            public void refresh(Object o) {
+
+            }
+
+            @Override
+            public void refresh(Object o, Map<String, Object> map) {
+
+            }
+
+            @Override
+            public void refresh(Object o, LockModeType lockModeType) {
+
+            }
+
+            @Override
+            public void refresh(Object o, LockModeType lockModeType, Map<String, Object> map) {
+
+            }
+
+            @Override
+            public void clear() {
+
+            }
+
+            @Override
+            public void detach(Object o) {
+
+            }
+
+            @Override
+            public boolean contains(Object o) {
+                return false;
+            }
+
+            @Override
+            public LockModeType getLockMode(Object o) {
+                return null;
+            }
+
+            @Override
+            public void setProperty(String s, Object o) {
+
+            }
+
+            @Override
+            public Map<String, Object> getProperties() {
+                return null;
+            }
+
+            @Override
+            public Query createQuery(String s) {
+                return null;
+            }
+
+            @Override
+            public <T> TypedQuery<T> createQuery(CriteriaQuery<T> criteriaQuery) {
+                return null;
+            }
+
+            @Override
+            public Query createQuery(CriteriaUpdate criteriaUpdate) {
+                return null;
+            }
+
+            @Override
+            public Query createQuery(CriteriaDelete criteriaDelete) {
+                return null;
+            }
+
+            @Override
+            public <T> TypedQuery<T> createQuery(String s, Class<T> aClass) {
+                return null;
+            }
+
+            @Override
+            public Query createNamedQuery(String s) {
+                return null;
+            }
+
+            @Override
+            public <T> TypedQuery<T> createNamedQuery(String s, Class<T> aClass) {
+                return null;
+            }
+
+            @Override
+            public Query createNativeQuery(String s) {
+                return null;
+            }
+
+            @Override
+            public Query createNativeQuery(String s, Class aClass) {
+                return null;
+            }
+
+            @Override
+            public Query createNativeQuery(String s, String s1) {
+                return null;
+            }
+
+            @Override
+            public StoredProcedureQuery createNamedStoredProcedureQuery(String s) {
+                return null;
+            }
+
+            @Override
+            public StoredProcedureQuery createStoredProcedureQuery(String s) {
+                return null;
+            }
+
+            @Override
+            public StoredProcedureQuery createStoredProcedureQuery(String s, Class... classes) {
+                return null;
+            }
+
+            @Override
+            public StoredProcedureQuery createStoredProcedureQuery(String s, String... strings) {
+                return null;
+            }
+
+            @Override
+            public void joinTransaction() {
+
+            }
+
+            @Override
+            public boolean isJoinedToTransaction() {
+                return false;
+            }
+
+            @Override
+            public <T> T unwrap(Class<T> aClass) {
+                return null;
+            }
+
+            @Override
+            public Object getDelegate() {
+                return null;
+            }
+
+            @Override
+            public void close() {
+
+            }
+
+            @Override
+            public boolean isOpen() {
+                return false;
+            }
+
+            @Override
+            public EntityTransaction getTransaction() {
+                return null;
+            }
+
+            @Override
+            public EntityManagerFactory getEntityManagerFactory() {
+                return null;
+            }
+
+            @Override
+            public CriteriaBuilder getCriteriaBuilder() {
+                return null;
+            }
+
+            @Override
+            public Metamodel getMetamodel() {
+                return null;
+            }
+
+            @Override
+            public <T> EntityGraph<T> createEntityGraph(Class<T> aClass) {
+                return null;
+            }
+
+            @Override
+            public EntityGraph<?> createEntityGraph(String s) {
+                return null;
+            }
+
+            @Override
+            public EntityGraph<?> getEntityGraph(String s) {
+                return null;
+            }
+
+            @Override
+            public <T> List<EntityGraph<? super T>> getEntityGraphs(Class<T> aClass) {
+                return null;
+            }
+        };
+    }
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 }
 

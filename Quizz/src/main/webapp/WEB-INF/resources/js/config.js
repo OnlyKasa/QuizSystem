@@ -6,7 +6,10 @@ const btnTimeout = 100000;
 var rowPerPage = 20;
 var rowPerPageModal = 20;
 const popupTimeout = 3000;
+var globalData = [];
+var globalPrefuctureData = [];
 var pageCount = 1;
+var postalCodeApi = 'http://geoapi.heartrails.com/api/json?method=searchByPostal&postal=';
 
 
 const defaultHeader = {

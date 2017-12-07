@@ -7,7 +7,8 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
-@Import({WebConfig.class})
+@Import({WebConfig.class,SecurityConfig.class})
+
 public class QuizApplication extends SpringBootServletInitializer {
 
     @Override
