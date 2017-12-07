@@ -31,6 +31,33 @@ public class SUser extends BaseEntity implements Serializable {
     private String strPasswordHash;
     private Long dtTosConfirm;
     private String strTopMenu;
+    private Integer iStudentInformationPk ;
+    private Integer iTeacherInformationPk ;
+    private String screenCode;
+
+    public Integer getiStudentInformationPk() {
+        return iStudentInformationPk;
+    }
+
+    public void setiStudentInformationPk(Integer iStudentInformationPk) {
+        this.iStudentInformationPk = iStudentInformationPk;
+    }
+
+    public Integer getiTeacherInformationPk() {
+        return iTeacherInformationPk;
+    }
+
+    public void setiTeacherInformationPk(Integer iTeacherInformationPk) {
+        this.iTeacherInformationPk = iTeacherInformationPk;
+    }
+
+    public String getScreenCode() {
+        return screenCode;
+    }
+
+    public void setScreenCode(String screenCode) {
+        this.screenCode = screenCode;
+    }
 
     public String getStrTopMenu() {
         return strTopMenu;

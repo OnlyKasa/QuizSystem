@@ -5,14 +5,16 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
 
 @Entity
 @Table(name = "examination_room", schema = "public", catalog = "quizsystem")
-public class ExaminationRoom extends BaseEntity implements Serializable {
-    private static final long serialVersionUID = -2166181014264686934L;
+public class ExaminationRoom extends BaseEntity implements Serializable{
+    private static final long serialVersionUID = 5909099065795052836L;
     private int iExaminationRoomPk;
     private String strExaminationRoomName;
     private Integer iExaminationRoomPkEk;
+    private Collection<ExaminationInformation> examinationInformationsByIExaminationRoomPk;
 
     @Id
     @GenericGenerator(
@@ -72,5 +74,14 @@ public class ExaminationRoom extends BaseEntity implements Serializable {
         result = 31 * result + (strExaminationRoomName != null ? strExaminationRoomName.hashCode() : 0);
         result = 31 * result + (iExaminationRoomPkEk != null ? iExaminationRoomPkEk.hashCode() : 0);
         return result;
+    }
+
+    @OneToMany(mappedBy = "examinationRoomByIExaminationRoomPk")
+    public Collection<ExaminationInformation> getExaminationInformationsByIExaminationRoomPk() {
+        return examinationInformationsByIExaminationRoomPk;
+    }
+
+    public void setExaminationInformationsByIExaminationRoomPk(Collection<ExaminationInformation> examinationInformationsByIExaminationRoomPk) {
+        this.examinationInformationsByIExaminationRoomPk = examinationInformationsByIExaminationRoomPk;
     }
 }

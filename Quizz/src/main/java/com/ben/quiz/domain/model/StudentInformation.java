@@ -6,18 +6,23 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.Collection;
 
 @Entity
 @Table(name = "student_information", schema = "public", catalog = "quizsystem")
 public class StudentInformation extends BaseEntity implements Serializable {
-    private static final long serialVersionUID = 4219646419311988501L;
+    private static final long serialVersionUID = 978512725467939282L;
     private int iStudentInformationPk;
-    private int iStudentInformationCode;
+    private String iStudentInformationCode;
+    private Integer iFacultyInformationPk;
     private String strStudentInformationFirstName;
     private String strStudentInformationLastName;
     private Date dtStudentInformationBirthday;
     private Integer iStudentInformationPkEk;
+    private Collection<ExaminationInformationDetail> examinationInformationDetailsByIStudentInformationPk;
+    private Collection<Seiuser> seiusersByIStudentInformationPk;
     private FacultyInformation facultyInformationByIFacultyInformationPk;
+    private Collection<TestInformation> testInformationsByIStudentInformationPk;
 
     @Id
     @GenericGenerator(
@@ -36,13 +41,23 @@ public class StudentInformation extends BaseEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "i_student_information_code", nullable = false)
-    public int getiStudentInformationCode() {
+    @Column(name = "i_student_information_code", nullable = false, length = 50)
+    public String getiStudentInformationCode() {
         return iStudentInformationCode;
     }
 
-    public void setiStudentInformationCode(int iStudentInformationCode) {
+    public void setiStudentInformationCode(String iStudentInformationCode) {
         this.iStudentInformationCode = iStudentInformationCode;
+    }
+
+    @Basic
+    @Column(name = "i_faculty_information_pk", nullable = true)
+    public Integer getiFacultyInformationPk() {
+        return iFacultyInformationPk;
+    }
+
+    public void setiFacultyInformationPk(Integer iFacultyInformationPk) {
+        this.iFacultyInformationPk = iFacultyInformationPk;
     }
 
     @Basic
@@ -93,7 +108,10 @@ public class StudentInformation extends BaseEntity implements Serializable {
         StudentInformation that = (StudentInformation) o;
 
         if (iStudentInformationPk != that.iStudentInformationPk) return false;
-        if (iStudentInformationCode != that.iStudentInformationCode) return false;
+        if (iStudentInformationCode != null ? !iStudentInformationCode.equals(that.iStudentInformationCode) : that.iStudentInformationCode != null)
+            return false;
+        if (iFacultyInformationPk != null ? !iFacultyInformationPk.equals(that.iFacultyInformationPk) : that.iFacultyInformationPk != null)
+            return false;
         if (strStudentInformationFirstName != null ? !strStudentInformationFirstName.equals(that.strStudentInformationFirstName) : that.strStudentInformationFirstName != null)
             return false;
         if (strStudentInformationLastName != null ? !strStudentInformationLastName.equals(that.strStudentInformationLastName) : that.strStudentInformationLastName != null)
@@ -109,7 +127,8 @@ public class StudentInformation extends BaseEntity implements Serializable {
     @Override
     public int hashCode() {
         int result = iStudentInformationPk;
-        result = 31 * result + iStudentInformationCode;
+        result = 31 * result + (iStudentInformationCode != null ? iStudentInformationCode.hashCode() : 0);
+        result = 31 * result + (iFacultyInformationPk != null ? iFacultyInformationPk.hashCode() : 0);
         result = 31 * result + (strStudentInformationFirstName != null ? strStudentInformationFirstName.hashCode() : 0);
         result = 31 * result + (strStudentInformationLastName != null ? strStudentInformationLastName.hashCode() : 0);
         result = 31 * result + (dtStudentInformationBirthday != null ? dtStudentInformationBirthday.hashCode() : 0);
@@ -117,13 +136,40 @@ public class StudentInformation extends BaseEntity implements Serializable {
         return result;
     }
 
+    @OneToMany(mappedBy = "studentInformationByIStudentInformationPk")
+    public Collection<ExaminationInformationDetail> getExaminationInformationDetailsByIStudentInformationPk() {
+        return examinationInformationDetailsByIStudentInformationPk;
+    }
+
+    public void setExaminationInformationDetailsByIStudentInformationPk(Collection<ExaminationInformationDetail> examinationInformationDetailsByIStudentInformationPk) {
+        this.examinationInformationDetailsByIStudentInformationPk = examinationInformationDetailsByIStudentInformationPk;
+    }
+
+    @OneToMany(mappedBy = "studentInformationByIStudentInformationPk")
+    public Collection<Seiuser> getSeiusersByIStudentInformationPk() {
+        return seiusersByIStudentInformationPk;
+    }
+
+    public void setSeiusersByIStudentInformationPk(Collection<Seiuser> seiusersByIStudentInformationPk) {
+        this.seiusersByIStudentInformationPk = seiusersByIStudentInformationPk;
+    }
+
     @ManyToOne
-    @JoinColumn(name = "i_faculty_information_pk", referencedColumnName = "i_faculty_information_pk")
+    @JoinColumn(name = "i_faculty_information_pk", referencedColumnName = "i_faculty_information_pk",insertable = false ,updatable = false)
     public FacultyInformation getFacultyInformationByIFacultyInformationPk() {
         return facultyInformationByIFacultyInformationPk;
     }
 
     public void setFacultyInformationByIFacultyInformationPk(FacultyInformation facultyInformationByIFacultyInformationPk) {
         this.facultyInformationByIFacultyInformationPk = facultyInformationByIFacultyInformationPk;
+    }
+
+    @OneToMany(mappedBy = "studentInformationByIStudentInformationPk")
+    public Collection<TestInformation> getTestInformationsByIStudentInformationPk() {
+        return testInformationsByIStudentInformationPk;
+    }
+
+    public void setTestInformationsByIStudentInformationPk(Collection<TestInformation> testInformationsByIStudentInformationPk) {
+        this.testInformationsByIStudentInformationPk = testInformationsByIStudentInformationPk;
     }
 }

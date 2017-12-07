@@ -34,10 +34,11 @@ public class BaseControllerWeb extends BaseController {
 			return redirect(QuizTrasitionConst.DOMAIN_ROOT);
 		}
 		inModel.put("fullname", getSUser().getStrFullName());
+		inModel.put("screencode",getSUser().getStrTopMenu());
 		try {
 			return (String) Class.forName("com.ben.quiz.domain.common.constant.QuizTrasitionConst$TEMPLATE").getDeclaredField(controllerName).get(null);
 		} catch (Exception e) {
-			return null;
+			return redirect(QuizTrasitionConst.ERROR);
 		}
 	}
 	public String getDefaultPageMap(Map<String, Object> inModel, String controllerName){
@@ -48,10 +49,11 @@ public class BaseControllerWeb extends BaseController {
 			return redirect(QuizTrasitionConst.DOMAIN_ROOT);
 		}
 		inModel.put("fullname", getSUser().getStrFullName());
+		inModel.put("screencode",getSUser().getStrTopMenu());
 		try {
 			return (String) Class.forName("com.ben.quiz.domain.common.constant.QuizTrasitionConst$TEMPLATE").getDeclaredField(controllerName).get(null);
 		} catch (Exception e) {
-			return null;
+			return redirect(QuizTrasitionConst.ERROR);
 		}
 	}
 

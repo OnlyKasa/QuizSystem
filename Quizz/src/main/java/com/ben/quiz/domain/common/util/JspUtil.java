@@ -2,9 +2,6 @@ package com.ben.quiz.domain.common.util;
 
 import com.ben.quiz.domain.common.constant.CommonConst;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;

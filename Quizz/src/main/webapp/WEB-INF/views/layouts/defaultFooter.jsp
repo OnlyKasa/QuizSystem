@@ -11,7 +11,7 @@
     <div class="footer__body">
         <div class="container">
             <p class="text">
-                <span class="display-xs">©2014-2017 Fanatic Computers Inc.</span>
+                <span class="display-xs">©2017 Ben Computers Inc.</span>
                 All Rights Reserved
             </p>
         </div>
@@ -34,6 +34,7 @@
 <script src="${pageContext.request.contextPath}/js/lib/bootstrap-datepicker.ja.js" charset="UTF-8"></script>
 <script src="${pageContext.request.contextPath}/js/lib/custom-file-input.js"></script>
 <script src="${pageContext.request.contextPath}/js/jscustom.js"></script>
+<script src="${pageContext.request.contextPath}/js/mystyle.js"></script>
 <script src="${pageContext.request.contextPath}/js/lib/datatables.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/lib/jquery.redirect.js"></script>
 <script src="${pageContext.request.contextPath}/js/validationUtil.js"></script>

@@ -9,9 +9,6 @@ import java.io.Serializable;
 @Entity
 public class Seiuser extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 4400480016892813146L;
-
-    public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder();
-
     private String userId;
     private String password;
     private String topMenu;
@@ -93,6 +90,28 @@ public class Seiuser extends BaseEntity implements Serializable {
         int result = userId != null ? userId.hashCode() : 0;
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (topMenu != null ? topMenu.hashCode() : 0);
+        result = 31 * result + (iStudentInformationPk != null ? iStudentInformationPk.hashCode() : 0);
+        result = 31 * result + (iTeacherInformationPk != null ? iTeacherInformationPk.hashCode() : 0);
         return result;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "i_student_information_pk", referencedColumnName = "i_student_information_pk" ,insertable = false ,updatable = false)
+    public StudentInformation getStudentInformationByIStudentInformationPk() {
+        return studentInformationByIStudentInformationPk;
+    }
+
+    public void setStudentInformationByIStudentInformationPk(StudentInformation studentInformationByIStudentInformationPk) {
+        this.studentInformationByIStudentInformationPk = studentInformationByIStudentInformationPk;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "i_teacher_information_pk", referencedColumnName = "i_teacher_information_pk",insertable = false ,updatable = false)
+    public TeacherInformation getTeacherInformationByITeacherInformationPk() {
+        return teacherInformationByITeacherInformationPk;
+    }
+
+    public void setTeacherInformationByITeacherInformationPk(TeacherInformation teacherInformationByITeacherInformationPk) {
+        this.teacherInformationByITeacherInformationPk = teacherInformationByITeacherInformationPk;
     }
 }
