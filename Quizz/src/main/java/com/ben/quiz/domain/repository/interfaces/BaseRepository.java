@@ -10,7 +10,7 @@ import java.util.List;
  * A repository that persist BaseEntities
  *
  * @author LaurentiuM
- * @version createdOn: 12/27/17
+ * @version createdOn: 10/27/17
  */
 public interface BaseRepository {
     /**

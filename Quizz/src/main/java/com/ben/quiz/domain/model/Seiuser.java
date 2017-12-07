@@ -1,5 +1,8 @@
 package com.ben.quiz.domain.model;
 
+import com.ben.quiz.domain.common.constant.SequenceConst;
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.io.Serializable;
 

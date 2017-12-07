@@ -1,7 +1,7 @@
 /**
  * Utility functions
  *
- * Created: AnhNT
+ * Created: QuangNV
  */
 
 function getFileName(input) {

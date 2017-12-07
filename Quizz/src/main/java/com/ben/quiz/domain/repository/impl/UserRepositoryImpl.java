@@ -15,7 +15,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 
-@Repository
+@Repository("UserRepository")
 public class UserRepositoryImpl extends BaseRepositoryImpl implements UserRepository {
 
     @Override

@@ -3,6 +3,7 @@ package com.ben.quiz.domain.repository.impl;
 import com.ben.quiz.domain.common.exception.QuizException;
 import com.ben.quiz.domain.model.BaseEntity;
 import com.ben.quiz.domain.repository.interfaces.BaseRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
@@ -20,9 +21,11 @@ import java.util.List;
  * @version createdOn: 12/10/17
  */
 public class BaseRepositoryImpl implements BaseRepository {
-
     @Autowired
     EntityManager entityManager;
+    @Autowired
+    ModelMapper modelMapper ;
+
 
     /**
      * Find all BaseEntities entities.

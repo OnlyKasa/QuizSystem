@@ -1,5 +1,9 @@
 package com.ben.quiz.domain.model;
 
+import com.ben.quiz.domain.common.constant.SequenceConst;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
@@ -9,6 +13,7 @@ import java.util.Collection;
 public class RateOfDifficulty extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 3932848242888195236L;
     private int iRateOfDifficultyPk;
+    private String strRateDifficultyName;
     private Integer iNumQuestionLevel1;
     private Integer iNumQuestionLevel2;
     private Integer iNumQuestionLevel3;
@@ -17,6 +22,12 @@ public class RateOfDifficulty extends BaseEntity implements Serializable {
     private Collection<ExaminationInformation> examinationInformationsByIRateOfDifficultyPk;
 
     @Id
+    @GenericGenerator(
+            name = SequenceConst.RATE_OF_DIFFICULTY_SEQ_GEN,
+            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator", parameters = {
+            @Parameter(name = "initial_value", value = "1"),
+            @Parameter(name = "sequence_name", value = SequenceConst.RATE_OF_DIFFICULTY_SEQ)}
+    )
     @Column(name = "i_rate_of_difficulty_pk", nullable = false)
     public int getiRateOfDifficultyPk() {
         return iRateOfDifficultyPk;
@@ -24,6 +35,16 @@ public class RateOfDifficulty extends BaseEntity implements Serializable {
 
     public void setiRateOfDifficultyPk(int iRateOfDifficultyPk) {
         this.iRateOfDifficultyPk = iRateOfDifficultyPk;
+    }
+
+    @Basic
+    @Column(name = "str_rate_difficulty_name", nullable = false)
+    public String getStrRateDifficultyName() {
+        return strRateDifficultyName;
+    }
+
+    public void setStrRateDifficultyName(String strRateDifficultyName) {
+        this.strRateDifficultyName = strRateDifficultyName;
     }
 
     @Basic

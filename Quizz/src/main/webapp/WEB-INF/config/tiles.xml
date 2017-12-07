@@ -49,5 +49,13 @@
         <put-attribute name="body" value="/WEB-INF/views/student/s101.jsp"/>
     </definition>
 
+    <definition name="t101" extends="base-definition">
+        <put-attribute name="title" value="Page examination"/>
+        <put-attribute name="body" value="/WEB-INF/views/teacher/t101.jsp"/>
+    </definition>
 
+    <definition name="t101_1" extends="base-definition">
+        <put-attribute name="title" value="Page examination detail"/>
+        <put-attribute name="body" value="/WEB-INF/views/teacher/t101_1.jsp"/>
+    </definition>
 </tiles-definitions>

@@ -217,6 +217,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         return new QuizErrorPageRegistrar();
     }
 
+    @Bean
     @ResponseStatus(HttpStatus.NOT_FOUND)  // 404
     @ExceptionHandler(DataIntegrityViolationException.class)
     public String handleConflict() {

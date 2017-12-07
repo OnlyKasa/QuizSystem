@@ -21,7 +21,15 @@ $(document).ready(function(){
     backModalfromApproval();
 
 });
+function openNav() {
+    document.getElementById("mySidenav").style.width = "auto";
+    document.getElementById("mainContainer").style.marginLeft = "auto";
+}
 
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("mainContainer").style.marginLeft= "auto";
+}
 /*function showMenuList(event){
      $('.table-calendar .ordered .sub-ordered').hide();
     var orderTarget = event.currentTarget;
@@ -356,7 +364,7 @@ function checkSize(){
 }
 
 $('.bootstrap-calendar-1').datepicker({
-    language: "en",
+    language :"vi",
     orientation: "bottom auto",
     toggleActive: true,
     format: "yyyy-mm-dd",

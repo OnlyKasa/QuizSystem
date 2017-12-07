@@ -1,5 +1,7 @@
 package com.ben.quiz.domain.common.constant;
 
+import com.ben.quiz.domain.common.util.PropertiesUtil;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -54,13 +56,19 @@ public class CodeConst {
 	 * @author QuangNV
 	 *
 	 */
+	public interface ErrorMess {
+	    public static final String  Err_Deleted_record = PropertiesUtil.getMessage("ERROR.EX.Deleted.record");
+
+	}
 	public interface ErrorCode {
 		public static String errorCode = "error_code";
 		public static int success = 2000 ;
-		// Your username is not correct!
-		public static final int ERR_001 = 1;
-		// You are not a company!
-		public static final int ERR_002 = 2;
+		// record be deleted before
+		public static final int Err_Deleted_record = 1;
+
+		// system error
+		public static final int Err_system = 2;
+
 		// You are not a company!
 		public static final int ERR_003 = 3;
 		// Your username or password is not correct!

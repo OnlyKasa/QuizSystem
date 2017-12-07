@@ -13,8 +13,8 @@ import com.ben.quiz.domain.model.SUser;
 import com.ben.quiz.domain.model.Seiuser;
 import com.ben.quiz.domain.model.StudentInformation;
 import com.ben.quiz.domain.model.TeacherInformation;
-import com.ben.quiz.domain.repository.interfaces.StudentRepository;
-import com.ben.quiz.domain.repository.interfaces.TeacherRepository;
+import com.ben.quiz.domain.repository.interfaces.StudentInformRepository;
+import com.ben.quiz.domain.repository.interfaces.TeacherInformRepository;
 import com.ben.quiz.domain.repository.interfaces.UserRepository;
 import com.ben.quiz.service.interfaces.UserService;
 import org.apache.log4j.Logger;
@@ -33,14 +33,21 @@ import java.util.Map;
 @Transactional
 public class UserServiceImpl implements UserService {
 
-    @Autowired
     private SUser sUser;
+    private final UserRepository userRepository ;
+    private final StudentInformRepository studentRepository ;
+    private final TeacherInformRepository teacherRepository ;
+
     @Autowired
-    private UserRepository userRepository ;
-    @Autowired
-    private StudentRepository studentRepository ;
-    @Autowired
-    private TeacherRepository teacherRepository ;
+    public UserServiceImpl(SUser sUser,
+                           UserRepository userRepository,
+                           StudentInformRepository studentRepository,
+                           TeacherInformRepository teacherRepository) {
+        this.sUser = sUser;
+        this.userRepository = userRepository;
+        this.studentRepository = studentRepository;
+        this.teacherRepository = teacherRepository;
+    }
 
     @Override
     @Transactional(readOnly = true)

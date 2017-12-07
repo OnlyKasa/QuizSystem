@@ -1,5 +1,8 @@
 package com.ben.quiz.domain.model;
 
+import com.ben.quiz.domain.common.constant.SequenceConst;
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
@@ -14,6 +17,12 @@ public class ExaminationRoom extends BaseEntity implements Serializable{
     private Collection<ExaminationInformation> examinationInformationsByIExaminationRoomPk;
 
     @Id
+    @GenericGenerator(
+            name = SequenceConst.EXAMINATION_ROOM_SEQ_GEN,
+            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator", parameters = {
+            @org.hibernate.annotations.Parameter(name = "initial_value", value = "1"),
+            @org.hibernate.annotations.Parameter(name = "sequence_name", value = SequenceConst.EXAMINATION_ROOM_SEQ)}
+    )
     @Column(name = "i_examination_room_pk", nullable = false)
     public int getiExaminationRoomPk() {
         return iExaminationRoomPk;

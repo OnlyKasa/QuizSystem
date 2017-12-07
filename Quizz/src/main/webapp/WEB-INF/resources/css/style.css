@@ -3597,7 +3597,7 @@ input:checked + .slider:before {
       padding-right: 0; }
     .header-2 .navbar-right .user-access .dropdown-menu {
       padding: 0; }
-  .header-2 .navbar-right li:last-child a {
+  .header-2 .eadernavbar-right li:last-child a {
     border-bottom: 1px solid #e1e1e1; }
   .header-2 .navbar-right li a {
     border-top: 1px solid #d7d7d7;
@@ -4202,7 +4202,15 @@ input:checked + .slider:before {
     .management-reset-password.C-107 {
       width: 560px; }
   .terms-of-service-content .terms-body {
-    height: 270px; } }
+    height: 270px; }
+  .caption-menu{
+    display : none;
+  }
+  .navbar_cus {
+    z-index: 1;
+  }
+
+}
 
 @media screen and (min-width: 992px) {
   .management-login {
@@ -4212,7 +4220,10 @@ input:checked + .slider:before {
   .management-employee-4.box-medium {
     width: 740px; }
   .management-company-info-2.box-x-medium {
-    width: 930px; } }
+    width: 930px; }
+  .caption-menu{
+    display : inline-block;
+  }}
 
 @media screen and (min-width: 1200px) {
   .management-login {
@@ -4220,7 +4231,11 @@ input:checked + .slider:before {
   .environment .table {
     width: 100%; }
   .management-reset-password {
-    margin-top: 50px; } }
+    margin-top: 50px; }
+  .caption-menu{
+    display : inline-block;
+  }
+}
 
 @media screen and (min-width: 1800px) {
   .management-login {
@@ -4241,4 +4256,61 @@ input:checked + .slider:before {
         .terms-of-service-content .terms-body .last-child {
           margin-bottom: 20px; }
   .environment {
-    margin-top: 90px; } }
+    margin-top: 90px; }
+  .caption-menu{
+    display : inline-block;
+  }}
+/*my custom */
+.navbar_cus {
+  overflow: hidden;
+  background-color: #f5f5f5;
+  position:fixed;
+  right: 0;
+  min-width:15px;
+  max-width: 70px;
+  width: 7%;
+}
+.navbar_cus .menu{
+  cursor:pointer;
+  text-align: center;
+  margin-top:2px;
+  transition: margin-left 0.5s;
+}
+.navbar_cus .menu i{
+  font-size:170%;
+  color: #0d9486 ;
+}
+#mainContainer {
+  transition: margin-left 0.7s;
+  padding: 16px;
+}
+.sidenav {
+  height: 100%;
+  min-height: 340px;
+  width: 0;
+  position: fixed;
+  top: 150px;
+  right: 0;
+  background-color: #f5f5f5;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  z-index: 2;
+}
+
+.sidenav p {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 15px;
+  margin-left: 50px;
+}

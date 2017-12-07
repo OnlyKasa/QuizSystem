@@ -10,22 +10,10 @@ public class CommonConst {
 	/** Session key constant: login failure status */
 	public static final String SESION_KEY_LOGIN_FAIL_STATUS = "LOGIN_FAIL_STATUS";
 
-	/** The URL of the screen after the authentication is failure */
-	public static final String REDIRECT_FAILURE_URL = "../C101";
-
-	/** The URL of the screen message alert lock account */
-
-	public static final String REDIRECT_LOCKED_ACCOUNT = "../C105/init";
 
 	/** The URL of the TOP screen after the authentication is successful */
 	public static final String REDIRECT_TOP_URL = "patient_registration/HP03/init";
 
-	/** The URL of the screen after logout */
-	public static final String REDIRECT_LOGOUT_URL = "C101/init";
-
-	/** The URL of the screen change password */
-
-	public static final String REDIRECT_CHANGEPASS_URL = "../C104/init";
 
 	/** Authentication failure state constant value */
 	public static final String LOGIN_FAIL_STATUS_VALUE = "1";

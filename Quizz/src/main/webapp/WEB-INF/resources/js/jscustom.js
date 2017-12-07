@@ -1,10 +1,3 @@
-/*
- * common.js
- *
- *  version --- 3.6
- *  updated --- 2011/09/06
- */
-/* !stack ------------------------------------------------------------------- */
 
 jQuery(document).ready(function($) {
 	addCss();

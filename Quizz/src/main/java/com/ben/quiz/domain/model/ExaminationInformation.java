@@ -1,5 +1,8 @@
 package com.ben.quiz.domain.model;
 
+import com.ben.quiz.domain.common.constant.SequenceConst;
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -26,6 +29,12 @@ public class ExaminationInformation  extends BaseEntity implements Serializable 
     private Collection<TestInformation> testInformationsByIExaminationInformationPk;
 
     @Id
+    @GenericGenerator(
+            name = SequenceConst.EXAMINATION_INFORMATION_SEQ_GEN,
+            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator", parameters = {
+            @org.hibernate.annotations.Parameter(name = "initial_value", value = "1"),
+            @org.hibernate.annotations.Parameter(name = "sequence_name", value = SequenceConst.EXAMINATION_INFORMATION_SEQ)}
+    )
     @Column(name = "i_examination_information_pk", nullable = false)
     public int getiExaminationInformationPk() {
         return iExaminationInformationPk;
