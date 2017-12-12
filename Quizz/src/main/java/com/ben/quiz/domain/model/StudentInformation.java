@@ -14,9 +14,9 @@ public class StudentInformation extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 978512725467939282L;
     private int iStudentInformationPk;
     private String iStudentInformationCode;
-    private Integer iFacultyInformationPk;
     private String strStudentInformationFirstName;
     private String strStudentInformationLastName;
+    private Integer iFacultyInformationPk;
     private Date dtStudentInformationBirthday;
     private Integer iStudentInformationPkEk;
     private Collection<ExaminationInformationDetail> examinationInformationDetailsByIStudentInformationPk;

@@ -50,7 +50,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional
     public Long actLogin(UserLoginReq request) throws QuizException {
         try {
             String strUsername = request.getUserid();
@@ -139,6 +139,11 @@ public class UserServiceImpl implements UserService {
             Logger.getLogger(UserServiceImpl.class).error(ex);
             return JspUtil.redirect(QuizTrasitionConst.ERROR,request);
         }
+    }
+
+    @Override
+    public SUser getUserLogin() throws QuizException {
+        return sUser;
     }
 
     @Override

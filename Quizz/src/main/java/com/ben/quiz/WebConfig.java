@@ -51,28 +51,6 @@ import java.util.Locale;
 })
 public class WebConfig extends WebMvcConfigurerAdapter {
 
-//
-//    @BeaninModel
-//    public TomcatEmbeddedServletContainerFactory tomcatFactory() {
-//        return new TomcatEmbeddedServletContainerFactory() {
-//            @Override
-//            protected TomcatEmbeddedServletContainer getTomcatEmbeddedServletContainer(
-//                    Tomcat tomcat) {
-//                tomcat.enableNaming();
-//                return super.getTomcatEmbeddedServletContainer(tomcat);
-//            }
-//            @Override
-//            protected void postProcessContext(Context context) {
-//                ContextResource resource = new ContextResource();
-//                ;
-//                resource.setName("jdbc/quizsystem");
-//                resource.setType(DataSource.class.getName());
-//                resource.setProperty("driverClassName", ResourceUtil.getProperty("application.properties","spring.datasource.driver-class-name"));
-//                resource.setProperty("url", ResourceUtil.getProperty("application.properties","spring.datasource.url"));
-//                context.getNamingResources().addResource(resource);
-//            }
-//        };
-//    }
     @Bean
     public FilterRegistrationBean corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

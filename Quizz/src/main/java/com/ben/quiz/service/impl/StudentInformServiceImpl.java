@@ -48,22 +48,22 @@ public class StudentInformServiceImpl implements StudentInformService {
         this.utilRepository = utilRepository;
         this.userRepository = userRepository;
     }
-
+    @Transactional(readOnly = true)
     @Override
     public List<StudentInformDto> search(StudentInformationSearchReq searchReq, PagingReq pagingReq) throws QuizException {
         return studentInformRepository.search(searchReq,pagingReq);
     }
-
+    @Transactional(readOnly = true)
     @Override
     public long count(StudentInformationSearchReq searchReq) throws QuizException {
         return studentInformRepository.count(searchReq);
     }
-
+    @Transactional(readOnly = true)
     @Override
     public StudentInformDto findByID(Integer iStudentInformationPk) throws QuizException {
         return studentInformRepository.findByID(iStudentInformationPk);
     }
-
+    @Transactional(readOnly = true)
     @Override
     public List<StudentInformDto> findByFacultyPk(Integer iFacultyInformationPk) throws QuizException {
         FacultyInformation facultyInformation = facultyInformRepository.findByID(iFacultyInformationPk);
@@ -85,7 +85,7 @@ public class StudentInformServiceImpl implements StudentInformService {
     }
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional
     public StudentInformation create(StudentInformationSaveReq saveReq) throws QuizException {
         saveReq.setiStudentInformationPk(
                 utilRepository.findSequenceNextval(SequenceConst.STUDENT_INFORMATION_SEQ).intValue());
@@ -111,7 +111,7 @@ public class StudentInformServiceImpl implements StudentInformService {
     }
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional
     public StudentInformation update(StudentInformationSaveReq studentInformationSaveReq) throws QuizException {
         StudentInformDto studentInformDto = studentInformRepository.findByID(
                 studentInformationSaveReq.getiStudentInformationPk());
@@ -141,7 +141,7 @@ public class StudentInformServiceImpl implements StudentInformService {
     }
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional
     public void delete(Integer iStudentInformationPk) throws QuizException {
         TeacherInformation teacherInformation = modelMapper.map(studentInformRepository.findByID(
                 iStudentInformationPk),TeacherInformation.class);

@@ -36,22 +36,22 @@ public class FacultyInformServiceImpl implements FacultyInformService {
         this.modelMapper = modelMapper;
     }
 
-
+    @Transactional(readOnly = true)
     @Override
     public List<FacultyInformDto> search(FacultyInformSearchReq searchReq, PagingReq pagingReq) throws QuizException {
         return facultyInformRepository.search(searchReq,pagingReq);
     }
-
+    @Transactional(readOnly = true)
     @Override
     public long count(FacultyInformSearchReq searchReq) throws QuizException {
         return facultyInformRepository.count(searchReq);
     }
-
+    @Transactional(readOnly = true)
     @Override
     public FacultyInformDto findByID(Integer iFacultyInformationPk) throws QuizException {
         return modelMapper.map(facultyInformRepository.findByID(iFacultyInformationPk),FacultyInformDto.class);
     }
-    @Transactional(readOnly = true)
+    @Transactional
     @Override
     public FacultyInformation create(FacultyInformationSaveReq saveReq) throws QuizException {
         saveReq.setiFacultyInformationPk(
@@ -61,7 +61,7 @@ public class FacultyInformServiceImpl implements FacultyInformService {
 
         return facultyInformRepository.add(facultyInformation);
     }
-    @Transactional(readOnly = true)
+    @Transactional
     @Override
     public FacultyInformation update(FacultyInformationSaveReq saveReq) throws QuizException {
         FacultyInformation facultyInformation = facultyInformRepository.findByID(
@@ -71,7 +71,7 @@ public class FacultyInformServiceImpl implements FacultyInformService {
         facultyInformation.setiFacultyInformationPkEk(facultyInformation.getiFacultyInformationPk());
         return facultyInformRepository.save(facultyInformation);
     }
-    @Transactional(readOnly = true)
+    @Transactional
     @Override
     public void delete(Integer iFacultyInformationPk) throws QuizException {
         FacultyInformation facultyInformation = facultyInformRepository.findByID(

@@ -29,22 +29,25 @@ public class RateOfDifficultyServiceImpl implements RateOfDifficultyService{
         this.rateOfDifficultyRepository = rateOfDifficultyRepository;
         this.modelMapper = modelMapper;
     }
-
+    @Transactional(readOnly = true)
     @Override
     public List<RateOfDifficulty> search(RateOfDifficultyReq searchReq, PagingReq pagingReq) throws QuizException {
         return rateOfDifficultyRepository.search(searchReq,pagingReq);
     }
 
+    @Transactional(readOnly = true)
     @Override
     public long count(RateOfDifficultyReq searchReq) throws QuizException {
         return rateOfDifficultyRepository.count(searchReq);
     }
 
+    @Transactional(readOnly = true)
     @Override
     public RateOfDifficulty findByID(Integer iRateOfDifficultyPk) throws QuizException {
         return rateOfDifficultyRepository.findByID(iRateOfDifficultyPk);
     }
-    @Transactional(readOnly = true)
+
+    @Transactional
     @Override
     public RateOfDifficulty create(RateOfDifficultyReq saveReq) throws QuizException {
         saveReq.setiRateOfDifficultyPk(
@@ -54,7 +57,7 @@ public class RateOfDifficultyServiceImpl implements RateOfDifficultyService{
 
         return rateOfDifficultyRepository.add(rateOfDifficulty);
     }
-    @Transactional(readOnly = true)
+    @Transactional
     @Override
     public RateOfDifficulty update(RateOfDifficultyReq saveReq) throws QuizException {
         RateOfDifficulty rateOfDifficulty = rateOfDifficultyRepository.findByID(
@@ -64,7 +67,7 @@ public class RateOfDifficultyServiceImpl implements RateOfDifficultyService{
         rateOfDifficulty.setiRateOfDifficultyPkEk(rateOfDifficulty.getiRateOfDifficultyPk());
         return rateOfDifficultyRepository.save(rateOfDifficulty);
     }
-    @Transactional(readOnly = true)
+    @Transactional
     @Override
     public void delete(Integer iRateOfDifficultyPk) throws QuizException {
         RateOfDifficulty facultyInformation = rateOfDifficultyRepository.findByID(

@@ -1,170 +1,197 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
-<%@ page session="false"%>
+<%@ page session="true"%>
 <%@ page isELIgnored="false"%>
 
-    <div class="navbar_cus">
-        <div class ="menu" onclick="openNav()">
-            <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>
-            <p class="caption-menu">Chi tiết<p>
-        </div>
-    </div>
-    <h1 class="heading-1 margin-bottom background"><span>NAME OF TEST</span></h1>
-    <section class="form-search form-style">
-        <div class="btn-box-toggle">
-            <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
-            <div class="caption pl5">
-                 Question 1
+<section class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4 box-left">
+            <div class="box-infor mb20">
+                <h5 class="title-box">Thông tin cơ bản</h5>
+                <div class="box-infor-common">
+                    <div class="item-info">
+                        <div class="row">
+                            <div class="col-xs-5 clear-pr">
+                                <label>Tên môn thi:</label>
+                            </div>
+                            <div class="col-xs-7 clear-pl5">
+                                <span>Pháp luật đại cương</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item-info">
+                        <div class="row">
+                            <div class="col-xs-5 clear-pr">
+                                <label>Ngày thi:</label>
+                            </div>
+                            <div class="col-xs-7 clear-pl5">
+                                <span>20/12/2017</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item-info">
+                        <div class="row">
+                            <div class="col-xs-5 clear-pr">
+                                <label>Thời gian làm bài:</label>
+                            </div>
+                            <div class="col-xs-7 clear-pl5">
+                                <span>120 phút</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item-info">
+                        <div class="row">
+                            <div class="col-xs-5 clear-pr">
+                                <label>Thời gian còn lại:</label>
+                            </div>
+                            <div class="col-xs-7 clear-pl5">
+                                <div class="range-time">
+                                    <span class="num-hour">02</span>
+                                    <span>:</span>
+                                    <span class="num-min">00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <i class="fa fa-check-square pl5 ml5" style="color: #0d9486" aria-hidden="true"></i>
-        </div>
-        <div class="box-toggle">
-            <center>
-                <div class="question">
-                    Question : Tiếng việt thì như thế nào ?
-                </div>
-                <br>
-                <div class="answer">
-                    <table border="1px">
-                        <colgroup>
-                            <col width="10%" />
-                        </colgroup>
-                        <tr>
-                            <th ></th>
-                            <th ></th>
-                        </tr>
-                        <tr>
-                            <td>
-                                Đáp án A :
-                            </td>
-                            <td class="txt-center">
-                                Tiếng việt có ổn không là như thế nào.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Đáp án B :
-                            </td>
-                            <td class="txt-center">
-                                Tiếng việt có ổn không là như thế nào.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Đáp án C :
-                            </td>
-                            <td class="txt-center">
-                                Tiếng việt có ổn không là như thế nào.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Đáp án D :
-                            </td>
-                            <td class="txt-center">
-                                Tiếng việt có ổn không là như thế nào.
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </center>
-        </div>
-    </section>
-    <br>
-    <section class="form-search form-style">
-        <span class="btn-box-toggle">
-            <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
-            <div class="caption pl5" >Question 1</div>
-             <i class="fa fa-check-square pl5 ml5"  aria-hidden="true"></i>
-        </span>
-    </section>
-    <br>
-    <section class="form-search form-style">
-        <span class="btn-box-toggle">
-            <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
-            <div class="caption pl5" >Question 2</div>
-        </span>
-    </section>
-    <br>
-    <section class="form-search form-style">
-        <span class="btn-box-toggle">
-            <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
-            <div class="caption pl5">Question 3</div>
-        </span>
-    </section>
-    <br>
-    <section class="form-search form-style">
-        <span class="btn-box-toggle">
-            <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
-            <div class="caption pl5" >Question 4</div>
-        </span>
-    </section>
-    <br>
-    <section class="form-search form-style">
-        <span class="btn-box-toggle">
-            <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
-            <div class="caption pl5">Question 5</div>
-        </span>
-    </section>
-    <br>
-    <section class="form-search form-style">
-        <span class="btn-box-toggle">
-            <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
-            <div class="caption pl5">Question 6</div>
-        </span>
-    </section>
-    <br>
-    <section class="form-search form-style">
-        <span class="btn-box-toggle">
-            <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
-            <div class="caption pl5">Question 7</div>
-        </span>
-    </section><br>
-    <section class="form-search form-style">
-        <span class="btn-box-toggle">
-            <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
-            <div class="caption pl5">Question 8</div>
-        </span>
-    </section><br>
-    <section class="form-search form-style">
-        <span class="btn-box-toggle">
-            <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
-            <div class="caption pl5">Question 9</div>
-        </span>
-    </section>
-    <br>
-    <section class="form-search form-style">
-        <span class="btn-box-toggle">
-            <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
-            <div class="caption pl5">Question 10</div>
-        </span>
-    </section>
-    <br>
-    <section class="form-search form-style">
-        <span class="btn-box-toggle">
-            <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
-            <div class="caption pl5">Question 11</div>
-        </span>
-    </section>
-    <br>
-    <div class="layout main-btn txt-center mt30">
 
-        <button onclick="btnSubmit();" class="btn btn-green btn-radius mt-xs">SUBMIT</button>
-        <a class="btn btn-gray btn-radius"
-           onclick="redirectPage('store','M28');"
-           href="#">
-            <i class="fa fa-arrow-left" aria-hidden="true"></i>
-            BACK
-        </a>
+            <div class="box-infor box-infor-question">
+                <h5 class="title-box">Danh sách câu hỏi</h5>
+                <ul class="list-question list-inline">
+                    <li>
+                        <button class="btn btn-number" type="">1</button>
+                    </li>
+                    <li>
+                        <button class="btn btn-number" type="">2</button>
+                    </li>
+                    <li>
+                        <button class="btn btn-number" type="">3</button>
+                    </li>
+                    <li>
+                        <button class="btn btn-number" type="">4</button>
+                    </li>
+                    <li>
+                        <button class="btn btn-number" type="">5</button>
+                    </li>
+                    <li>
+                        <button class="btn btn-number" type="">6</button>
+                    </li>
+                    <li>
+                        <button class="btn btn-number" type="">7</button>
+                    </li>
+                    <li>
+                        <button class="btn btn-number" type="">8</button>
+                    </li>
+                    <li>
+                        <button class="btn btn-number" type="">9</button>
+                    </li>
+                    <li>
+                        <button class="btn btn-number" type="">10</button>
+                    </li>
+                    <li>
+                        <button class="btn btn-number" type="">100</button>
+                    </li>
+                    <li>
+                        <button class="btn btn-number" type="">499</button>
+                    </li>
+                    <li>
+                        <button class="btn btn-number" type="">499</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-8 col-md-8 box-right">
+            <div class="category-question">
+                <div class="box-item-question">
+                    <div class="head-box">
+                        <span class="txt-bold">Câu 1: </span>
+                        <span class="content-question">
+									Quy phạm pháp luật là gì? Phân tích cấu trúc của quy phạm pháp luật? (Hãy lấy ví dụ minh họa).
+								</span>
+                    </div>
+                    <div class="body-box">
+                        <div class="answer">
+                            <div class="radio">
+                                <input id="radio-1" name="radio" type="radio">
+                                <label for="radio-1" class="radio-label">Là những quy tắc, chuẩn mực chung mang tính bắt buộc phải thi hành đối với tất cả tổ chức, cá nhân có liên quan, và được ban hành bởi các cơ quan Nhà nước có thẩm quyền.</label>
+                            </div>
+                        </div>
+                        <div class="answer">
+                            <div class="radio">
+                                <input id="radio-2" name="radio" type="radio">
+                                <label for="radio-2" class="radio-label">Là những quy tắc, chuẩn mực chung mang tính bắt buộc phải thi hành đối với tất cả tổ chức, cá nhân có liên quan, và được ban hành bởi các cơ quan Nhà nước có thẩm quyền.</label>
+                            </div>
+                        </div>
+                        <div class="answer">
+                            <div class="radio">
+                                <input id="radio-3" name="radio" type="radio">
+                                <label for="radio-3" class="radio-label">Là những quy tắc, chuẩn mực chung mang tính bắt buộc phải thi hành đối với tất cả tổ chức, cá nhân có liên quan, và được ban hành bởi các cơ quan Nhà nước có thẩm quyền.</label>
+                            </div>
+                        </div>
+                        <div class="answer">
+                            <div class="radio">
+                                <input id="radio-4" name="radio" type="radio">
+                                <label for="radio-4" class="radio-label">Là những quy tắc, chuẩn mực chung mang tính bắt buộc phải thi hành đối với tất cả tổ chức, cá nhân có liên quan, và được ban hành bởi các cơ quan Nhà nước có thẩm quyền.</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box-item-question">
+                    <div class="head-box">
+                        <span class="txt-bold">Câu 2: </span>
+                        <span class="content-question">
+									Quy phạm pháp luật là gì? Phân tích cấu trúc của quy phạm pháp luật? (Hãy lấy ví dụ minh họa).
+								</span>
+                    </div>
+                    <div class="body-box">
+                        <div class="answer">
+                            <div class="checkbox">
+                                <input id="checkbox-1" name="radio" type="checkbox">
+                                <label for="checkbox-1" class="checkbox-label"><div><i class="fa fa-check"></i></div>Là những quy tắc, chuẩn mực chung mang tính bắt buộc phải thi hành đối với tất cả tổ chức, cá nhân có liên quan, và được ban hành bởi các cơ quan Nhà nước có thẩm quyền.</label>
+                            </div>
+                        </div>
+                        <div class="answer">
+                            <div class="checkbox">
+                                <input id="checkbox-2" name="radio" type="checkbox">
+                                <label for="checkbox-2" class="checkbox-label"><div><i class="fa fa-check"></i></div>Là những quy tắc, chuẩn mực chung mang tính bắt buộc phải thi hành đối với tất cả tổ chức, cá nhân có liên quan, và được ban hành bởi các cơ quan Nhà nước có thẩm quyền.</label>
+                            </div>
+                        </div>
+                        <div class="answer">
+                            <div class="checkbox">
+                                <input id="checkbox-3" name="radio" type="checkbox">
+                                <label for="checkbox-3" class="checkbox-label"><div><i class="fa fa-check"></i></div>Là những quy tắc, chuẩn mực chung mang tính bắt buộc phải thi hành đối với tất cả tổ chức, cá nhân có liên quan, và được ban hành bởi các cơ quan Nhà nước có thẩm quyền.</label>
+                            </div>
+                        </div>
+                        <div class="answer">
+                            <div class="checkbox">
+                                <input id="checkbox-4" name="radio" type="checkbox">
+                                <label for="checkbox-4" class="checkbox-label"><div><i class="fa fa-check"></i></div>Là những quy tắc, chuẩn mực chung mang tính bắt buộc phải thi hành đối với tất cả tổ chức, cá nhân có liên quan, và được ban hành bởi các cơ quan Nhà nước có thẩm quyền.</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box-item-question">
+                    <div class="head-box">
+                        <span class="txt-bold">Câu 3: </span>
+                        <span class="content-question">
+									Quy phạm pháp luật là gì? Phân tích cấu trúc của quy phạm pháp luật? (Hãy lấy ví dụ minh họa).
+								</span>
+                    </div>
+                    <div class="body-box">
+                        <div class="answer">
+                            <textarea class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-<div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
-    <p>Name of test</p>
-    <p>abcxynznnnnnn</p>
-    <p>Tong thoi gian thi</p>
-    <p>90 phut</p>
-    <p>Thoi gian con lai</p>
-    <p>nowwww()</p>
-</div>
+</section><!-- /.container -->

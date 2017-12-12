@@ -31,22 +31,22 @@ public class RoomInformServiceImpl implements RoomInformService{
         this.utilRepository = utilRepository;
         this.modelMapper = modelMapper;
     }
-
+    @Transactional(readOnly = true)
     @Override
     public List<RoomInformDto> search(RoomInformationReq searchReq, PagingReq pagingReq) throws QuizException {
         return roomInformRepository.search(searchReq,pagingReq);
     }
-
+    @Transactional(readOnly = true)
     @Override
     public long count(RoomInformationReq searchReq) throws QuizException {
         return roomInformRepository.count(searchReq);
     }
-
+    @Transactional(readOnly = true)
     @Override
     public RoomInformDto findByID(Integer iExaminationRoomPk) throws QuizException {
         return modelMapper.map(roomInformRepository.findByID(iExaminationRoomPk),RoomInformDto.class);
     }
-    @Transactional(readOnly = true)
+    @Transactional
     @Override
     public ExaminationRoom create(RoomInformationReq saveReq) throws QuizException {
         saveReq.setiExaminationRoomPk(
@@ -55,7 +55,7 @@ public class RoomInformServiceImpl implements RoomInformService{
         ExaminationRoom examinationRoom = modelMapper.map(saveReq ,ExaminationRoom.class);
         return roomInformRepository.add(examinationRoom);
     }
-    @Transactional(readOnly = true)
+    @Transactional
     @Override
     public ExaminationRoom update(RoomInformationReq saveReq) throws QuizException {
         ExaminationRoom examinationRoom = roomInformRepository.findByID(
@@ -65,7 +65,7 @@ public class RoomInformServiceImpl implements RoomInformService{
         examinationRoom.setiExaminationRoomPkEk(examinationRoom.getiExaminationRoomPk());
         return roomInformRepository.save(examinationRoom);
     }
-    @Transactional(readOnly = true)
+    @Transactional
     @Override
     public void delete(Integer iExaminationRoomPk) throws QuizException {
         ExaminationRoom examinationRoom = roomInformRepository.findByID(

@@ -4314,3 +4314,88 @@ input:checked + .slider:before {
   font-size: 15px;
   margin-left: 50px;
 }
+/*begin for test page*/
+.box-left{
+    margin-bottom: 30px;
+}
+.box-infor .title-box{
+    background: #2b4560;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 3px 3px 0 0;
+}
+
+.box-infor-common{
+    background: #fff;
+    border-radius: 3px;
+    padding: 15px;
+}
+.range-time{
+    display: inline-block;
+    color: red;
+    font-weight: bold;
+    background: #ccc;
+    padding: 3px 10px;
+    border-radius: 3px;
+}
+
+.box-infor-question .list-question {
+    background: #fff;
+    padding: 15px;
+    margin: 0;
+    border-radius: 0 0 3px 3px;
+}
+.box-infor-question .list-question .btn-number {
+    padding: 5px;
+    min-width: 40px;
+    margin-bottom: 7px;
+}
+
+
+/*style box-right  */
+
+
+.category-question .box-item-question{
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+.category-question .body-box {
+    padding: 10px 0;
+}
+.category-question .radio,.category-question .checkbox {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.category-question .radio label,.category-question .checkbox label {
+    position: relative;
+    padding-left: 25px;
+}
+.category-question .radio input[type="radio"] + .radio-label::before{
+    position: absolute;
+    top: 3px;
+    left: 0;
+    margin: 0;
+}
+.category-question .checkbox label div{
+    position: absolute;
+    top: 3px;
+    left: 0;
+}
+.category-question textarea.form-control{
+    min-height: 100px;
+}
+
+@media screen and (min-width: 768px) {
+    .box-left{
+        margin-bottom: 0px;
+    }
+    .category-question {
+        max-height: 500px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+}
+/*end test page*/

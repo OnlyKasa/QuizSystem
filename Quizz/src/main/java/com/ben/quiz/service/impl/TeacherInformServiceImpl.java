@@ -40,29 +40,29 @@ public class TeacherInformServiceImpl implements TeacherInformService {
                                     FacultyInformRepository facultyInformRepository,
                                     UtilRepository utilRepository,
                                     UserRepository userRepository,
-                                    ModelMapper modelMapper) {
+                                    ModelMapper modelMapper) throws QuizException {
         this.teacherInformRepository = teacherInformRepository;
         this.facultyInformRepository = facultyInformRepository;
         this.modelMapper = modelMapper;
         this.utilRepository = utilRepository;
         this.userRepository = userRepository;
     }
-
+    @Transactional(readOnly = true)
     @Override
     public List<TeacherInformDto> search(TeacherInformationSearchReq searchReq, PagingReq pagingReq) throws QuizException {
         return teacherInformRepository.search(searchReq,pagingReq);
     }
-
+    @Transactional(readOnly = true)
     @Override
     public long count(TeacherInformationSearchReq searchReq) throws QuizException {
         return teacherInformRepository.count(searchReq);
     }
-
+    @Transactional(readOnly = true)
     @Override
     public TeacherInformDto findByID(Integer iTeacherInformationPk) throws QuizException {
         return teacherInformRepository.findByID(iTeacherInformationPk);
     }
-
+    @Transactional(readOnly = true)
     @Override
     public List<TeacherInformDto> findByFacultyPk(Integer iFacultyInformationPk) throws QuizException {
         FacultyInformation facultyInformation = facultyInformRepository.findByID(iFacultyInformationPk);
@@ -78,12 +78,13 @@ public class TeacherInformServiceImpl implements TeacherInformService {
                                                        FacultyInformation facultyInformation){
         TeacherInformDto teacherInformDto =new TeacherInformDto();
         modelMapper.map(teacherInformation,teacherInformDto);
+        teacherInformDto.setFacultyInformationByIFacultyInformationPk(facultyInformation);
         modelMapper.map(facultyInformation,teacherInformDto);
         return teacherInformDto;
     }
 
 
-    @Transactional(readOnly = true)
+    @Transactional
     @Override
     public TeacherInformation create(TeacherInformationSaveReq saveReq) throws QuizException {
         saveReq.setiTeacherInformationPk(
@@ -108,7 +109,7 @@ public class TeacherInformServiceImpl implements TeacherInformService {
         }
         return teacherInformRepository.add(teacherInformation);
     }
-    @Transactional(readOnly = true)
+    @Transactional
     @Override
     public TeacherInformation update(TeacherInformationSaveReq saveReq) throws QuizException {
         TeacherInformDto teacherInformDto = teacherInformRepository.findByID(
@@ -116,7 +117,7 @@ public class TeacherInformServiceImpl implements TeacherInformService {
         if((saveReq.getiFacultyInformationPk() != 0) || saveReq.getiFacultyInformationPk() !=null)
         {
             teacherInformDto.setFacultyInformationByIFacultyInformationPk(
-                    facultyInformRepository.findByID(saveReq.getiFacultyInformationPk()));
+                    facultyInformRepository.findOne(FacultyInformation.class,saveReq.getiFacultyInformationPk()));
         }
         TeacherInformation teacherInformation = new TeacherInformation();
         if(saveReq.getUserId() == null){
@@ -136,7 +137,7 @@ public class TeacherInformServiceImpl implements TeacherInformService {
         teacherInformation.setiTeacherInformationPkEk(teacherInformation.getiTeacherInformationPk());
         return teacherInformRepository.save(teacherInformation);
     }
-    @Transactional(readOnly = true)
+    @Transactional
     @Override
     public void delete(Integer iTeacherInformationPk) throws QuizException {
         TeacherInformation teacherInformation = modelMapper.map(teacherInformRepository.findByID(

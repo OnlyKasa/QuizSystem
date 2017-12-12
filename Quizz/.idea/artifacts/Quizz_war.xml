@@ -3,6 +3,11 @@
     <output-path>$PROJECT_DIR$/../out/target</output-path>
     <root id="archive" name="quiz.war">
       <element id="artifact" artifact-name="Quizz:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="jpa-descriptors" facet="Quizz/jpa/JPA" />
+        </element>
+      </element>
     </root>
   </artifact>
 </component>

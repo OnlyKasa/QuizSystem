@@ -18,6 +18,7 @@ public class TeacherInformation extends BaseEntity implements Serializable {
     private Boolean bTeacherInformationGender;
     private String strTeacherInformationPhone;
     private Integer iTeacherInformationPkEk;
+
     private Collection<ExaminationInformation> examinationInformationsByITeacherInformationPk;
     private Collection<QuestionInformation> questionInformationsByITeacherInformationPk;
     private Collection<Seiuser> seiusersByITeacherInformationPk;

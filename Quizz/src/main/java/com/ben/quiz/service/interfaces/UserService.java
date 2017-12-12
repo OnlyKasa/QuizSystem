@@ -2,6 +2,7 @@ package com.ben.quiz.service.interfaces;
 
 import com.ben.quiz.domain.common.exception.QuizException;
 import com.ben.quiz.domain.dto.request.UserLoginReq;
+import com.ben.quiz.domain.model.SUser;
 import com.ben.quiz.domain.model.Seiuser;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,4 +21,6 @@ public interface UserService extends UserDetailsService {
     ModelAndView handleLoggedIn()throws QuizException;
 
     String handleLogout(HttpServletRequest request)throws QuizException;
+
+    SUser getUserLogin() throws  QuizException ;
 }

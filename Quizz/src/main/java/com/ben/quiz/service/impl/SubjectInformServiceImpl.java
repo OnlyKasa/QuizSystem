@@ -34,25 +34,25 @@ public class SubjectInformServiceImpl implements SubjectInformService {
         this.utilRepository = utilRepository;
         this.modelMapper = modelMapper;
     }
-
+    @Transactional(readOnly = true)
     @Override
     public List<SubjectInformationDto> search(SubjectInformationSearchReq searchReq,
                                               PagingReq pagingReq) throws QuizException {
         return subjectInformRepository.search(searchReq,pagingReq);
     }
-
+    @Transactional(readOnly = true)
     @Override
     public long count(SubjectInformationSearchReq searchReq) throws QuizException {
         return subjectInformRepository.count(searchReq);
     }
-
+    @Transactional(readOnly = true)
     @Override
     public SubjectInformationDto findByID(Integer iSubjectInformationPk) throws QuizException {
         return subjectInformRepository.findByID(iSubjectInformationPk);
     }
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional
     public SubjectInformation create(SubjectInformationSaveReq saveReq) throws QuizException {
         saveReq.setiSubjectInformationPk(
                 utilRepository.findSequenceNextval(SequenceConst.SUBJECT_INFORMATION_SEQ).intValue());
@@ -65,7 +65,7 @@ public class SubjectInformServiceImpl implements SubjectInformService {
     }
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional
     public SubjectInformation update(SubjectInformationSaveReq saveReq) throws QuizException {
         SubjectInformationDto subjectInformationDto = subjectInformRepository.findByID(
                 saveReq.getiSubjectInformationPk());
@@ -76,7 +76,7 @@ public class SubjectInformServiceImpl implements SubjectInformService {
     }
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional
     public void delete(Integer iSubjectInformationPk) throws QuizException {
         SubjectInformation subjectInformation = modelMapper.map(subjectInformRepository.findByID(
                 iSubjectInformationPk),SubjectInformation.class);
