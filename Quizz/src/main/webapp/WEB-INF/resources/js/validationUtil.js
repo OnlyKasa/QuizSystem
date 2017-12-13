@@ -29,14 +29,18 @@ var validUtil = {
                 case validTypeOnPress:
                     break;
                 default:
+                    validUtil.hideError('#'+id);
+                    let selector = $('#'+id);
                     lstValidFunc.push(function(){
-                        if(validUtil.isValueIsEmpty($('#'+id).val())){
-                            validUtil.disposeTooltip(validUtil.getNullMessage($('#'+id))
-                                , validUtil.getToolTipAttr($('#'+id)));
+                        if(validUtil.isValueIsEmpty(selector.val())){
+                            validUtil.disposeTooltip(validUtil.getNullMessage(selector)
+                                , validUtil.getToolTipAttr(selector));
+                            validUtil.showError('#'+id, validUtil.getNullMessage(selector));
                             formIsOK = false;
-                            $('#'+id).focus();
+                            selector.focus();
                         }
                     });
+                    break;
             }
         });
         //For min-max validation
@@ -50,22 +54,27 @@ var validUtil = {
                     validUtil.makeValidationOnPress($(this));
                     break;
                 default:
+                    validUtil.hideError('#'+id);
+                    let selector = $('#'+id);
                     lstValidFunc.push(function(){
                         var value = '';
-                        if(!validUtil.isValueIsEmpty($('#'+id).val())){
+                        if(!validUtil.isValueIsEmpty(selector.val())){
                             value = $('#' + id).val().trim();
                         }
                         if(value.length < min || value.length > max){
-                            validUtil.disposeTooltip(validUtil.getInvalidMessage($('#'+id))
-                                , validUtil.getToolTipAttr($('#'+id)));
+                            validUtil.disposeTooltip(validUtil.getInvalidMessage(selector)
+                                , validUtil.getToolTipAttr(selector));
+                            validUtil.showError('#'+id, validUtil.getNullMessage(selector));
                             formIsOK = false;
-                            $('#'+id).focus();
+                            selector.focus();
                         }
                     });
+                    break;
             }
         });
         //And for other
         $( "#"+formId).submit(function() {
+
             formIsOK = true;
             for(var i = lstValidFunc.length - 1 ; i >= 0;i--){
                 lstValidFunc[i]();
@@ -89,22 +98,35 @@ var validUtil = {
             }
         });
     },
+    showError: function (inputId ,messagerError) {
+        $(inputId).addClass("input-error");
+        $(inputId).focus();
+        let errSelector = inputId +"Err";
+        $(errSelector).css("display", "block");
+        $(errSelector).text(messagerError);
+    },
+    hideError:function (inputId) {
+        let errSelector = inputId +"Err";
+        $(inputId).removeClass("input-error");
+        $(errSelector).css("display", "none");
+    },
+
     makeValidationOnSubmit: function (input) {
         switch(validUtil.getInputTypeAttr(input)) {
             case inputTypeCombobox:
-                validUtil.preValidInputSelecionValidation(input);
+                validUtil.preventInputSelecionValidation(input);
                 break;
             case inputTypeMask:
-                validUtil.preValidInputMaskValidation(input);
+                validUtil.preventInputMaskValidation(input);
                 break;
             case inputTypeDatetime:
-                validUtil.preValidInputDateValidation(input);
+                validUtil.preventInputDateValidation(input);
                 break;
             case inputTypeNumber:
-                validUtil.preValidInputNumberValidation(input);
+                validUtil.preventInputNumberValidation(input);
                 break;
             default:
-                validUtil.preValidInputTextValidation(input);
+                validUtil.preventInputTextValidation(input);
         }
     },
     makeValidationOnPress: function (input) {
@@ -301,9 +323,9 @@ var validUtil = {
         $('#tot'+inputID).css('display','block');
         return false;
     },
-    validInput: function (inputID, messageCode) {
+    validInput: function (inputID, message) {
         if(validUtil.isValueIsEmpty($('#txt'+inputID).val())){
-            validUtil.disposeTooltip(getMessage(messageCode), 'tot'+inputID);
+            validUtil.disposeTooltip(message, 'tot'+inputID);
             $('#tot'+inputID).parent().addClass('relative');
             validUtil.makeRed(inputID);
             return '#txt'+inputID;
