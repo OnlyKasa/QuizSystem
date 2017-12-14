@@ -9,6 +9,106 @@ const popupTimeout = 3000;
 var pageCount = 1;
 
 
+function caculatorNumberQuestionForExamination(studentNumber,numberQuestOfOneTest,percentMatch) {
+
+    let matchQuestionNumberOfOneTest = Math.floor((percentMatch/100) * numberQuestOfOneTest);
+    let notMatchQuestionNumberOfOneTest  = numberQuestOfOneTest - matchQuestionNumberOfOneTest ;
+    if(notMatchQuestionNumberOfOneTest === 0){
+        return numberQuestOfOneTest * studentNumber ;
+    }
+    let testsNumber= 0 ;
+    let numberQuestionForExamination = numberQuestOfOneTest ;
+    if(notMatchQuestionNumberOfOneTest < matchQuestionNumberOfOneTest ||
+        notMatchQuestionNumberOfOneTest === matchQuestionNumberOfOneTest){
+        while (testsNumber < (studentNumber +1)){
+            testsNumber = 0 ;
+            let matchQuestionGroup = Math.floor(numberQuestionForExamination / matchQuestionNumberOfOneTest);
+            for(let i = 1 ; i < matchQuestionGroup ;i++){
+                //TODO nested : not match question and match question.
+                let notMatchQuestionGroup = Math.floor(numberQuestionForExamination - i * notMatchQuestionNumberOfOneTest)
+                    / notMatchQuestionNumberOfOneTest ;
+                testsNumber += notMatchQuestionGroup ;
+            }
+            numberQuestionForExamination +=1 ;
+        }
+    }
+}
+/**
+    Method : getListQuestionForStudents
+    Return : list question for student
+    Parameter : objQuestionOfExamination is min list for getting count(testsOfStudentList) = studentNumber
+ */
+
+function getListQuestionForStudents(objQuestionOfExamination,studentNumber,numberQuestOfOneTest,percentMatch) {
+    let matchQuestionNumberOfOneTests = Math.floor((percentMatch/100) * numberQuestOfOneTest);
+    let notMatchQuestionNumberOfOneTests  = numberQuestOfOneTest - matchQuestionNumberOfOneTests ;
+
+    let testsOfStudentList = [];
+    let objQuestionOfExaminationCopy = objQuestionOfExamination;
+    let oldMatch = [] ;
+    while (objQuestionOfExamination.length >= numberQuestOfOneTest){
+        let testsList = [];
+        let resultMatch = randomGetFromList(objQuestionOfExaminationCopy,matchQuestionNumberOfOneTests);
+        testsList = copyElement(resultMatch.listChild,testsList);
+        let resultNotMatch = randomGetFromList(resultMatch.listObject,notMatchQuestionNumberOfOneTests,oldMatch);
+        testsList = copyElement(resultNotMatch.listChild,testsList);
+
+        //gan lai tap hop cau hoi
+        oldMatch = resultMatch.listChild;
+        objQuestionOfExamination= resultNotMatch.listObject ;
+        objQuestionOfExamination = copyElement(resultMatch.listChild,objQuestionOfExamination);
+        //Ket thuc gan lai tap hop cau hoi
+
+        testsOfStudentList.push(testsList);
+    }
+
+    return testsOfStudentList ;
+}
+
+/*
+* ECMAScript 2016  with includes of array
+* */
+function copyElement(res,dic) {
+    if(typeof res =="object" && typeof dic =="object")
+        for (let i= 0 ; i< res.length ;i++){
+            if(!dic.includes(res[i])){
+                dic.push(res[i]);
+            }
+        }
+    return dic ;
+}
+function remove(array, element) {
+    const index = array.indexOf(element);
+
+    if (index !== -1) {
+        array.splice(index, 1);
+    }
+}
+
+function randomGetFromList(object, elementNumber , notInObject) {
+    let notInObjectCopy =[];
+    if(typeof notInObject == "object" )
+        notInObjectCopy= notInObject ;
+    let result =[];
+    let check = 0 ;
+
+    while(typeof object == "object" && (!(object.length < elementNumber)) && check < elementNumber)
+    {
+        let indexRandom =Math.floor((Math.random() * object.length) + 1) - 1;
+        if(!notInObjectCopy.includes(object[indexRandom])){
+            result.push(object[indexRandom]) ;
+            remove(object,object[indexRandom]);
+            check ++ ;
+        }
+
+    }
+
+    return {
+        listChild : result,
+        listObject : object
+    }
+}
+
 const defaultHeader = {
     'Authorization' : 'Basic T21pbmV4dDpPbWluZXh0MjAxNw==',
     'Content-Type' : 'application/json'
