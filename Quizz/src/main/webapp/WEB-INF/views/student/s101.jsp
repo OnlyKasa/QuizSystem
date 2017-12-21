@@ -62,7 +62,7 @@
 
             <div class="box-infor box-infor-question">
                 <h5 class="title-box">Danh sách câu hỏi</h5>
-                <ul class="list-question list-inline">
+                <ul class="list-question list-inline" >
                     <li>
                         <button class="btn btn-number" type="">1</button>
                     </li>

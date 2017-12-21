@@ -78,3 +78,6 @@
     var screenCode = "${screenCode}" ;
 </script>
 <script src="${pageContext.request.contextPath}/js/auth/menu.js"></script>
+<li class="normal last-child">
+    <a>システム管理</a>
+</li>

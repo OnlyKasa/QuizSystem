@@ -384,11 +384,11 @@ $('.bootstrap-calendar-2').datepicker({
     todayHighlight: true
 });
 
-$('.bootstrap-calendar-3').datepicker({
+$('.bootstrap-calendar-3').datetimepicker({
     language: "en",
     orientation: "bottom auto",
     toggleActive: true,
-    format: "mm",
+    format: "yy-mm-dd",
     startView: 1,
     minViewMode: 1,
     maxViewMode: 1,

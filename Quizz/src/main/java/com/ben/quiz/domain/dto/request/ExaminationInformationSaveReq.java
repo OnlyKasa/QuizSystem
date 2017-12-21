@@ -1,8 +1,5 @@
 package com.ben.quiz.domain.dto.request;
 
-import com.ben.quiz.domain.common.validation.Max;
-
-import javax.persistence.criteria.CriteriaBuilder;
 import java.sql.Timestamp;
 import java.util.List;
 

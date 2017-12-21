@@ -497,6 +497,10 @@ textarea {
 .pa15 {
   padding: 15px !important; }
 
+.pa20{
+  padding: 20px !important;
+}
+
 .pa30 {
   padding: 30px !important; }
 
@@ -3977,8 +3981,14 @@ input:checked + .slider:before {
     width: 60%; }
   .col-md-61_6p {
     width: 61.6%; }
+    .col-md-61p {
+    width: 61%; }
   .col-md-65p {
     width: 65%; }
+    .col-md-66p {
+    width: 66%; }
+    .col-md-67p {
+    width: 67%; }
   .col-md-68p {
     width: 68%; }
   .col-md-69p {
@@ -4356,6 +4366,10 @@ input:checked + .slider:before {
 
 /*style box-right  */
 
+.select{
+  background: #2CC8F7;
+
+}
 
 .category-question .box-item-question{
     background: #fff;
