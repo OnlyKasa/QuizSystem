@@ -1,0 +1,449 @@
+/* BOX-STYLE */
+.box-padding{
+	padding:15px;
+}
+
+.box-white{
+	background-color:#fff;
+}
+
+.box-shadow{
+	display: block;
+	@include add-box-shadow(0, 1px, 2px, rgba(0,0,0,.2));
+	background-color:#fff;
+}
+
+.box-shadow-radius{
+	@extend .box-shadow;
+	@include add-border-radius(5px);
+}
+
+.box-gray-input{
+	@include add-border-radius(5px);
+	background-color:#f1f1f1;
+	line-height:34px;
+	padding:0 12px;
+	color:#707070;
+}
+
+.box-input{
+	@include add-border-radius(5px);
+	padding:0 12px;
+	line-height:34px;
+	color:#707070;
+	border:1px solid #b7b7b7;
+}
+
+.box-input-2{
+	border-bottom:1px solid #e1e1e1;
+	padding:0 3px;
+	line-height:$box-input-height;
+	min-height:$box-input-height;
+}
+
+.box-input-3{
+	@include add-border-radius(5px);
+	border:1px solid #ccc;
+	padding:0 12px;
+	min-height:32px;
+
+	&.lh-2{
+		line-height: 31px;
+	}
+}
+
+.box-detail{
+	.box-header{
+		text-align: center;
+		font-size: 15px;
+		font-family:$font-bold, "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", 'ＭＳ Ｐゴシック', Helvetica, Arial, sans-serif;
+		color:$text-color-1;
+		margin-bottom: 10px;
+	}
+
+	.box-body{
+		overflow:hidden;
+	}
+}
+
+.box-style{
+	.box-header{
+		font-size: 15px;
+		padding:10px 15px 7px 20px;
+		border-bottom:1px solid #e1e1e1;
+		font-family:$font-bold, "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", 'ＭＳ Ｐゴシック', Helvetica, Arial, sans-serif;
+		color:$text-color-1;
+	}
+
+	.box-body{
+		padding:15px;
+	}
+}
+
+.box-style-1{
+	overflow:hidden;
+
+	.box-content{
+		
+	}
+
+	.heading{
+		padding:15px 30px;
+		background-color:$dark-gray-color;
+		color: #fff;
+		border-top:1px solid #ebebeb;
+		font-weight: bold;
+	}
+
+	.paragraph{
+		padding:15px 30px;
+	}
+}
+
+.box-calendar{
+	.box-minus{
+		text-align: center;
+		font-size: 13px;
+		line-height: 30px;
+		color: #707070;
+		height: 32px;
+	    display: flex;
+	    display: -webkit-flex;
+	    justify-content: center;
+	    -webkit-justify-content:center;
+	    align-items: center;
+	    -webkit-align-items: center;
+	}
+}
+
+.box-reservation{
+	.form-style{
+		.form-control{
+			height: 30px;
+		}
+
+		.lh{
+			line-height: 32px;
+		}
+	}
+
+	&-img{
+		width: 100%;
+	}
+
+	&-content{
+		.tags{
+			margin-top: 20px;
+		}
+
+		.title{
+			font-size: 15px;
+			margin-top: 20px;
+			font-family:$font-bold, "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", 'ＭＳ Ｐゴシック', Helvetica, Arial, sans-serif;
+
+			.title-small{
+				font-size: 14px;
+				border-bottom: 1px solid #acacac;
+				margin-right: 5px;
+			}
+		}
+
+		.price{
+			font-size: 14px;
+			margin-top: 20px;
+			color: $primary-color;
+		}
+
+		.status{
+			font-size: 14px;
+			margin-top: 5px;
+			color: $red-color;
+		}
+	}
+
+	&-date{
+		font-size: 13px;
+		margin-top: 10px;
+	}
+
+	&-setting{
+		margin-top:20px;
+		padding-top:15px;
+		border-top:1px solid #e1e1e1;
+
+		.price{
+			color: $primary-color;
+			margin-top: 20px;
+		}
+
+		&.form-style{
+			.mt{
+				margin-top: 10px;
+			}
+		}
+	}
+}
+
+.box-download{
+	margin-bottom:20px;
+}
+
+.box-radius{
+	@include add-border-radius(5px);
+}
+
+.box-border{
+	padding:15px;
+	border:1px solid #e1e1e1;
+}
+
+.box-gray{
+	padding:15px;
+	background-color:#f4f4f4;
+}
+
+.box-gray-radius{
+	@extend .box-gray;
+	@include add-border-radius(5px);
+}
+
+.box-center{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.box-group{
+	text-align:center;
+
+	.box-header{
+		background-color:$primary-color;
+		color: #fff;
+		padding:0 15px;
+		min-height: 35px;
+		line-height: 35px;
+		@include add-border-radius-all(5px,5px,0,0);
+	}
+
+	.box-body{
+		background-color:#fff;
+		min-height: 35px;
+		line-height: 35px;
+		@include add-border-radius-all(0,0,5px,5px);
+	}
+}
+
+.box-toggle{
+	margin-top: 20px;
+}
+
+.box-list{
+	margin-top:15px;
+	padding:8px;
+
+	.box-header{
+		font-family:$font-bold, "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", 'ＭＳ Ｐゴシック', Helvetica, Arial, sans-serif;
+		padding:2px 15px 7px;
+		font-size: 14px;
+		color:$text-color-1;
+		border-bottom:1px solid #e1e1e1;
+		margin:0 -8px 15px;
+
+		&.txt-red{
+			color: $red-color;
+		}
+	}
+}
+
+.box-list-2{
+	padding:10px 15px 15px;
+	@include add-border-radius(5px);
+	@include add-box-shadow(0, 1px, 2px, rgba(0,0,0,.2));
+	background-color:#fff;
+
+	.box-header{
+		padding-bottom:5px;
+
+		.box-title{
+			font-size:15px;
+			font-family:$font-bold, "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", 'ＭＳ Ｐゴシック', Helvetica, Arial, sans-serif;
+			color:$text-color-1;
+			padding-left:5px;
+		}
+
+		.page-number{
+			float:right;
+			padding-right:5px;
+			font-size: 13px;
+		}
+	}
+}
+
+.box-chart{
+	border:1px solid #ccc;
+
+
+	.box-caption{
+		text-align: center;
+		padding:5px;
+		background-color:#ebebeb;
+	}
+}
+
+@media screen and(min-width:$tablet){
+	.box-calendar{
+		.box-1{
+			&.clear-pr-sm{
+				.form-control{
+					@include add-border-radius-all(4px, 0, 0, 4px);
+				}
+			}
+		}
+
+		.box-2{
+			&.clear-pl-sm{
+				.form-control{
+					@include add-border-radius-all(0, 4px, 4px, 0);
+				}
+			}
+		}
+
+		.box-minus{
+			border-top:1px solid #ccc;
+			border-bottom:1px solid #ccc;
+			@include add-background-gradient(top, #fff, #f1f1f1);
+		}
+	}
+
+	.box-style-1{
+		.heading{
+			text-align: right;
+		}
+
+		.paragraph{
+			padding:15px 30px;
+		}
+	}
+
+	.box-reservation{
+		&-content{
+			padding-left: 0;
+
+			.tags{
+				margin-top: 5px;
+			}
+		}
+	}
+
+	.box-x2-small{
+		margin-left: auto;
+		margin-right: auto;
+		width:400px;
+	}
+
+	.box-x-small{
+		margin-left: auto;
+		margin-right: auto;
+		width:500px;
+	}
+
+	.box-small{
+		margin-left: auto;
+		margin-right: auto;
+		width:600px;
+	}
+
+	.box-medium{
+		margin-left: auto;
+		margin-right: auto;
+		width:720px;
+	}
+
+	.box-group{
+		.box-header{
+			@include add-border-radius-all(5px,0,0,5px);
+		}
+
+		.box-body{
+			border:1px solid #e1e1e1;
+			@include add-border-radius-all(0,5px,5px,0);
+		}
+	}
+}/* tablet */
+
+@media screen and(min-width:$desktop-md){
+	.box-x-medium{
+		margin-left: auto;
+		margin-right: auto;
+		width:820px;
+	}
+
+	.box-padding{
+		padding:20px;
+	}
+
+	.box-large{
+		margin-left: auto;
+		margin-right: auto;
+		width:900px;
+	}
+
+	.box-reservation{
+
+		&-content{
+			.title{
+				font-size: 17px;
+
+				.title-small{
+					margin-right: 10px;
+				}
+			}
+
+			.status{
+				margin-top: 10px;
+			}
+		}
+
+		&-left{
+			border-right:1px solid #e1e1e1;
+		}
+
+		&-setting{
+			
+			margin-top:0;
+			padding-top:0;
+			border-top:0;
+
+			.form-label{
+				line-height: 30px;
+			}
+
+			.form-2, .form-3{
+				margin-top: 10px;
+			}
+
+			.price{
+				margin-top: 10px;
+				.display{
+					display: block;
+					margin-left: -9px;
+				}
+			}
+		}
+	}
+
+	.box-gray{
+		padding:30px;
+	}
+}/* desktop-md */
+
+@media screen and(min-width:$desktop-lg){
+	.box-large{
+		width: 970px;
+	}
+
+	.box-reservation{
+		&-setting{
+			padding-left:30px;
+		}
+	}
+}

@@ -1,38 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f707173f-5c7e-43cc-bbd5-1609bfc7c2f5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/imageERD.html" afterPath="$PROJECT_DIR$/docs/imageERD.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/imageERD.html.tar.gz" afterPath="$PROJECT_DIR$/docs/imageERD.html.tar.gz" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/imageERD.html.zip" afterPath="$PROJECT_DIR$/docs/imageERD.html.zip" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/imageERD.svg" afterPath="$PROJECT_DIR$/docs/imageERD.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/quizsystemDB.dbs" afterPath="$PROJECT_DIR$/docs/quizsystemDB.dbs" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/quizsystemDB.dbs.bak" afterPath="$PROJECT_DIR$/docs/quizsystemDB.dbs.bak" />
+    <list default="true" id="fc3df307-4941-456d-b3fd-c12b3905687b" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/SecurityConfig.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/domain/common/bean/handler/QWebBeanFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/domain/common/exception/ErrorException.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/domain/common/util/BeanUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/domain/common/util/PropertiesGenerator.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/src/main/webapp/WEB-INF/resources/img/logo-2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/SecurityConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/common/bean/handler/QWebBeanFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/common/constant/CodeConst$Customer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/common/constant/CodeConst$StringDefault.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/common/exception/ErrorException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/common/util/BeanUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/common/util/PropertiesGenerator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/SecurityConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/common/bean/handler/QWebBeanFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/common/constant/CodeConst$Customer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/common/constant/CodeConst$StringDefault.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/common/exception/ErrorException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/common/util/BeanUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/common/util/PropertiesGenerator.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/.idea/dataSources/a2032ffb-ffc5-4564-aa00-befbea29f82f/_metadata_/metadata" afterPath="$PROJECT_DIR$/Quizz/.idea/dataSources/a2032ffb-ffc5-4564-aa00-befbea29f82f/_metadata_/metadata" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/.idea/dataSources/a2032ffb-ffc5-4564-aa00-befbea29f82f/_metadata_/metadata.keystream" afterPath="$PROJECT_DIR$/Quizz/.idea/dataSources/a2032ffb-ffc5-4564-aa00-befbea29f82f/_metadata_/metadata.keystream" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/.idea/dataSources/a2032ffb-ffc5-4564-aa00-befbea29f82f/_metadata_/metadata.keystream.len" afterPath="$PROJECT_DIR$/Quizz/.idea/dataSources/a2032ffb-ffc5-4564-aa00-befbea29f82f/_metadata_/metadata.keystream.len" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/.idea/dataSources/a2032ffb-ffc5-4564-aa00-befbea29f82f/_metadata_/metadata.len" afterPath="$PROJECT_DIR$/Quizz/.idea/dataSources/a2032ffb-ffc5-4564-aa00-befbea29f82f/_metadata_/metadata.len" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/.idea/dataSources/a2032ffb-ffc5-4564-aa00-befbea29f82f/_metadata_/metadata_i" afterPath="$PROJECT_DIR$/Quizz/.idea/dataSources/a2032ffb-ffc5-4564-aa00-befbea29f82f/_metadata_/metadata_i" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/.idea/dataSources/a2032ffb-ffc5-4564-aa00-befbea29f82f/_metadata_/metadata_i.len" afterPath="$PROJECT_DIR$/Quizz/.idea/dataSources/a2032ffb-ffc5-4564-aa00-befbea29f82f/_metadata_/metadata_i.len" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/resources/favicon.ico" afterPath="$PROJECT_DIR$/Quizz/src/main/resources/favicon.ico" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/webapp/WEB-INF/resources/img/favicon.ico" afterPath="$PROJECT_DIR$/Quizz/src/main/webapp/WEB-INF/resources/img/favicon.ico" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/webapp/WEB-INF/resources/img/icon-404.png" afterPath="$PROJECT_DIR$/Quizz/src/main/webapp/WEB-INF/resources/img/icon-404.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/QuizApplication.class" afterPath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/QuizApplication.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/WebConfig$1.class" afterPath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/WebConfig$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/WebConfig$2.class" afterPath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/WebConfig$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/WebConfig.class" afterPath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/WebConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/controller/base/BaseControllerWeb.class" afterPath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/controller/base/BaseControllerWeb.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/common/constant/CodeConst.class" afterPath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/common/constant/CodeConst.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/common/constant/SequenceConst.class" afterPath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/common/constant/SequenceConst.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/common/util/JspUtil.class" afterPath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/common/util/JspUtil.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/repository/impl/UserRepositoryImpl.class" afterPath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/repository/impl/UserRepositoryImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/repository/interfaces/UserRepository.class" afterPath="$PROJECT_DIR$/Quizz/target/classes/com/ben/quiz/domain/repository/interfaces/UserRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/QuizApplication.class" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/QuizApplication.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/WebConfig$1.class" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/WebConfig$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/WebConfig$2.class" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/WebConfig$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/WebConfig.class" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/WebConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/controller/base/BaseControllerWeb.class" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/controller/base/BaseControllerWeb.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/common/constant/CodeConst.class" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/common/constant/CodeConst.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/common/constant/SequenceConst.class" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/common/constant/SequenceConst.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/common/util/JspUtil.class" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/common/util/JspUtil.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/repository/impl/UserRepositoryImpl.class" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/repository/impl/UserRepositoryImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/repository/interfaces/UserRepository.class" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/com/ben/quiz/domain/repository/interfaces/UserRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/resources/img/favicon.ico" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/resources/img/favicon.ico" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/resources/img/logo-2.png" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/resources/img/logo-2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/.idea/workspace.xml" afterPath="$PROJECT_DIR$/Quizz/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/pom.xml" afterPath="$PROJECT_DIR$/Quizz/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/QuizApplication.java" afterPath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/QuizApplication.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/WebConfig.java" afterPath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/WebConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/controller/base/BaseController.java" afterPath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/controller/base/BaseController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/controller/base/BaseControllerRestful.java" afterPath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/controller/base/BaseControllerRestful.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/controller/base/BaseControllerWeb.java" afterPath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/controller/base/BaseControllerWeb.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/domain/common/constant/CodeConst.java" afterPath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/domain/common/constant/CodeConst.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/domain/common/constant/SequenceConst.java" afterPath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/domain/common/constant/SequenceConst.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/domain/common/util/JspUtil.java" afterPath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/domain/common/util/JspUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/domain/repository/impl/UserRepositoryImpl.java" afterPath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/domain/repository/impl/UserRepositoryImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/domain/repository/interfaces/UserRepository.java" afterPath="$PROJECT_DIR$/Quizz/src/main/java/com/ben/quiz/domain/repository/interfaces/UserRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/Quizz/src/main/resources/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/resources/quizMessage_en.properties" afterPath="$PROJECT_DIR$/Quizz/src/main/resources/quizMessage_en.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/src/main/webapp/WEB-INF/resources/css/style.css" afterPath="$PROJECT_DIR$/Quizz/src/main/webapp/WEB-INF/resources/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/classes/application.properties" afterPath="$PROJECT_DIR$/Quizz/target/classes/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/classes/quizMessage_en.properties" afterPath="$PROJECT_DIR$/Quizz/target/classes/quizMessage_en.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/application.properties" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/quizMessage_en.properties" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/classes/quizMessage_en.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/resources/css/style.css" afterPath="$PROJECT_DIR$/Quizz/target/quiz/WEB-INF/resources/css/style.css" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -54,6 +101,7 @@
     <option name="width" value="1327" />
     <option name="height" value="772" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -70,31 +118,15 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="QuizSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="QuizSystem" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
+      <pane id="ProjectPane" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="nodejs_interpreter_path" value="/usr/bin/node" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/docs" />
-    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -196,17 +228,17 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f707173f-5c7e-43cc-bbd5-1609bfc7c2f5" name="Default" comment="" />
-      <created>1507964784850</created>
+      <changelist id="fc3df307-4941-456d-b3fd-c12b3905687b" name="Default" comment="" />
+      <created>1510974214261</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1507964784850</updated>
-      <workItem from="1507964788131" duration="136000" />
+      <updated>1510974214261</updated>
+      <workItem from="1510974229005" duration="77000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136000" />
+    <option name="totallyTimeSpent" value="77000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="39" y="-4" width="1327" height="772" extended-state="6" />
@@ -223,7 +255,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21477015" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24980484" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -248,31 +280,5 @@
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>
