@@ -67,12 +67,12 @@ public class ExaminationInformRepositoryImpl extends BaseRepositoryImpl
 
     private ExaminationInformationDto convertToExaminationInformDto(Tuple tuple){
         ExaminationInformationDto examinationInformationDto = new ExaminationInformationDto();
-        modelMapper.map(tuple.get(0),examinationInformationDto);
-        examinationInformationDto.setRateOfDifficultyByIRateOfDifficultyPk((RateOfDifficulty)tuple.get(1));
-        examinationInformationDto.setTeacherInformationByITeacherInformationPk((TeacherInformation) tuple.get(2));
-        examinationInformationDto.setSubjectInformationByISubjectInformationPk((SubjectInformation) tuple.get(3));
-        examinationInformationDto.setExaminationRoomByIExaminationRoomPk((ExaminationRoom) tuple.get(4));
-        return examinationInformationDto ;
+        for(int i= 0 ;i< tuple.toArray().length;i++){
+            if(tuple.get(i) !=null){
+                modelMapper.map(tuple.get(i),examinationInformationDto);
+            }
+        }
+        return examinationInformationDto;
     }
 
     private List<Predicate> createPredicateForSearchAndCount(CriteriaBuilder criteriaBuilder,
@@ -88,26 +88,35 @@ public class ExaminationInformRepositoryImpl extends BaseRepositoryImpl
                 criteriaBuilder.lower(entityRoot.get(ExaminationInformation_.strExaminationInformationCode)),
                 SQLUtil.AllLike(searchReq.getStrExaminationInformationCode())));
 
-        predicates.add(criteriaBuilder.like(
-                criteriaBuilder.lower(room.get(ExaminationRoom_.strExaminationRoomName)),
-                SQLUtil.AllLike(searchReq.getStrExaminationRoomName())));
-
-        predicates.add(criteriaBuilder.like(
-                criteriaBuilder.lower(difficulty.get(RateOfDifficulty_.strRateDifficultyName)),
-                SQLUtil.AllLike(searchReq.getStrRateDifficultyName())));
-
-        predicates.add(criteriaBuilder.like(
-                criteriaBuilder.lower(teacher.get(TeacherInformation_.strTeacherInformationFirstName)),
-                SQLUtil.AllLike(searchReq.getStrTeacherInformationFirstName())));
-        predicates.add(criteriaBuilder.like(
-                criteriaBuilder.lower(teacher.get(TeacherInformation_.strTeacherInformationLastName)),
-                SQLUtil.AllLike(searchReq.getStrTeacherInformationLastName())));
-        predicates.add(criteriaBuilder.like(
-                criteriaBuilder.lower(subject.get(SubjectInformation_.strSubjectInformationName)),
-                SQLUtil.AllLike(searchReq.getStrSubjectInformationName())));
-
-        predicates.add(criteriaBuilder.equal(entityRoot.get(ExaminationInformation_.dtExaminationDay),
-              searchReq.getDtExaminationDay()));
+        if(!searchReq.getStrExaminationRoomName().equals("")) {
+            predicates.add(criteriaBuilder.like(
+                    criteriaBuilder.lower(room.get(ExaminationRoom_.strExaminationRoomName)),
+                    SQLUtil.AllLike(searchReq.getStrExaminationRoomName())));
+        }
+        if(!searchReq.getStrRateDifficultyName().equals("")) {
+            predicates.add(criteriaBuilder.like(
+                    criteriaBuilder.lower(difficulty.get(RateOfDifficulty_.strRateDifficultyName)),
+                    SQLUtil.AllLike(searchReq.getStrRateDifficultyName())));
+        }
+        if(!searchReq.getStrTeacherInformationFirstName().equals("")) {
+            predicates.add(criteriaBuilder.like(
+                    criteriaBuilder.lower(teacher.get(TeacherInformation_.strTeacherInformationFirstName)),
+                    SQLUtil.AllLike(searchReq.getStrTeacherInformationFirstName())));
+        }
+        if(!searchReq.getStrTeacherInformationLastName().equals("")) {
+            predicates.add(criteriaBuilder.like(
+                    criteriaBuilder.lower(teacher.get(TeacherInformation_.strTeacherInformationLastName)),
+                    SQLUtil.AllLike(searchReq.getStrTeacherInformationLastName())));
+        }
+        if(!searchReq.getStrSubjectInformationName().equals("")) {
+            predicates.add(criteriaBuilder.like(
+                    criteriaBuilder.lower(subject.get(SubjectInformation_.strSubjectInformationName)),
+                    SQLUtil.AllLike(searchReq.getStrSubjectInformationName())));
+        }
+        if(searchReq.getDtExaminationDay() != null) {
+            predicates.add(criteriaBuilder.equal(entityRoot.get(ExaminationInformation_.dtExaminationDay),
+                    searchReq.getDtExaminationDay()));
+        }
         return predicates ;
     }
     @Override

@@ -19,42 +19,51 @@ public class ExaminationInformationDto {
     private int iTestInformationTime;
     private Integer iExaminationInformationPkEk;
 
+    private String strExaminationRoomName;
+    private String strSubjectInformationName;
+    private String strTeacherInformationFirstName;
+    private String strTeacherInformationLastName;
+    private String strRateDifficultyName;
 
-    private ExaminationRoom examinationRoomByIExaminationRoomPk;
-    private SubjectInformation subjectInformationByISubjectInformationPk;
-    private TeacherInformation teacherInformationByITeacherInformationPk;
-    private RateOfDifficulty rateOfDifficultyByIRateOfDifficultyPk;
 
-    public ExaminationRoom getExaminationRoomByIExaminationRoomPk() {
-        return examinationRoomByIExaminationRoomPk;
+    public String getStrExaminationRoomName() {
+        return strExaminationRoomName;
     }
 
-    public void setExaminationRoomByIExaminationRoomPk(ExaminationRoom examinationRoomByIExaminationRoomPk) {
-        this.examinationRoomByIExaminationRoomPk = examinationRoomByIExaminationRoomPk;
+    public void setStrExaminationRoomName(String strExaminationRoomName) {
+        this.strExaminationRoomName = strExaminationRoomName;
     }
 
-    public SubjectInformation getSubjectInformationByISubjectInformationPk() {
-        return subjectInformationByISubjectInformationPk;
+    public String getStrSubjectInformationName() {
+        return strSubjectInformationName;
     }
 
-    public void setSubjectInformationByISubjectInformationPk(SubjectInformation subjectInformationByISubjectInformationPk) {
-        this.subjectInformationByISubjectInformationPk = subjectInformationByISubjectInformationPk;
+    public void setStrSubjectInformationName(String strSubjectInformationName) {
+        this.strSubjectInformationName = strSubjectInformationName;
     }
 
-    public TeacherInformation getTeacherInformationByITeacherInformationPk() {
-        return teacherInformationByITeacherInformationPk;
+    public String getStrTeacherInformationFirstName() {
+        return strTeacherInformationFirstName;
     }
 
-    public void setTeacherInformationByITeacherInformationPk(TeacherInformation teacherInformationByITeacherInformationPk) {
-        this.teacherInformationByITeacherInformationPk = teacherInformationByITeacherInformationPk;
+    public void setStrTeacherInformationFirstName(String strTeacherInformationFirstName) {
+        this.strTeacherInformationFirstName = strTeacherInformationFirstName;
     }
 
-    public RateOfDifficulty getRateOfDifficultyByIRateOfDifficultyPk() {
-        return rateOfDifficultyByIRateOfDifficultyPk;
+    public String getStrTeacherInformationLastName() {
+        return strTeacherInformationLastName;
     }
 
-    public void setRateOfDifficultyByIRateOfDifficultyPk(RateOfDifficulty rateOfDifficultyByIRateOfDifficultyPk) {
-        this.rateOfDifficultyByIRateOfDifficultyPk = rateOfDifficultyByIRateOfDifficultyPk;
+    public void setStrTeacherInformationLastName(String strTeacherInformationLastName) {
+        this.strTeacherInformationLastName = strTeacherInformationLastName;
+    }
+
+    public String getStrRateDifficultyName() {
+        return strRateDifficultyName;
+    }
+
+    public void setStrRateDifficultyName(String strRateDifficultyName) {
+        this.strRateDifficultyName = strRateDifficultyName;
     }
 
     public int getiExaminationInformationPk() {

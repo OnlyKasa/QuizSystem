@@ -4,6 +4,7 @@
     <!-- Base Definition -->
     <definition name="base-definition"
                 template="/WEB-INF/views/layouts/default.jsp">
+        <put-attribute name="template" value="/WEB-INF/views/layouts/template.jsp" />
         <put-attribute name="header" value="/WEB-INF/views/layouts/defaultHeader.jsp" />
         <put-attribute name="menu" value="/WEB-INF/views/layouts/defaultMenu.jsp" />
         <put-attribute name="title" value="Quiz" />
@@ -58,4 +59,25 @@
         <put-attribute name="title" value="Page examination detail"/>
         <put-attribute name="body" value="/WEB-INF/views/teacher/t101_1.jsp"/>
     </definition>
+
+    <definition name="a101" extends="base-definition">
+        <put-attribute name="title" value="Page examination"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/examination/examination_list.jsp"/>
+    </definition>
+
+    <definition name="a101_1" extends="base-definition">
+        <put-attribute name="title" value="Page edit examination"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/examination/examination_edit.jsp"/>
+    </definition>
+
+    <definition name="a101_2" extends="base-definition">
+        <put-attribute name="title" value="Page create examination"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/examination/examination_create.jsp"/>
+    </definition>
+
+    <definition name="a101_3" extends="base-definition">
+        <put-attribute name="title" value="Page create examination"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/examination/student_list.jsp"/>
+    </definition>
+
 </tiles-definitions>

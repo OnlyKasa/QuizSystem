@@ -12,11 +12,12 @@ import com.ben.quiz.service.interfaces.ExaminationInformService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
+@Transactional
 @Service("examinationService")
 public class ExaminationInformServiceImpl implements ExaminationInformService {
 
@@ -56,20 +57,24 @@ public class ExaminationInformServiceImpl implements ExaminationInformService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<ExaminationInformationDto> search(ExaminationInformationSearchReq searchReq, PagingReq pagingReq) throws QuizException {
         return examinationInformRepository.search(searchReq,pagingReq);
     }
 
+    @Transactional(readOnly = true)
     @Override
     public long count(ExaminationInformationSearchReq searchReq) throws QuizException {
         return examinationInformRepository.count(searchReq);
     }
 
+    @Transactional(readOnly = true)
     @Override
     public ExaminationInformationDto findByID(Integer iExaminationInformationPk) throws QuizException {
         return examinationInformRepository.findByID(iExaminationInformationPk);
     }
 
+    @Transactional(readOnly = true)
     @Override
     public List<ExaminationInformationDto> findByDifficultyPk(Integer iRateOfDifficultyPk) throws QuizException {
         List<ExaminationInformationDto> examinationInformationDtos = new ArrayList<>();
@@ -90,6 +95,7 @@ public class ExaminationInformServiceImpl implements ExaminationInformService {
         return examinationInformationDto;
     }
 
+    @Transactional(readOnly = true)
     @Override
     public List<ExaminationInformationDto> findBySubjectPk(Integer iSubjectInformationPk) throws QuizException {
         List<ExaminationInformationDto> examinationInformationDtos = new ArrayList<>();
@@ -110,7 +116,7 @@ public class ExaminationInformServiceImpl implements ExaminationInformService {
         return examinationInformationDto;
     }
 
-
+    @Transactional(readOnly = true)
     @Override
     public List<ExaminationInformationDto> findByTeacherPk(Integer iTeacherInformationPk) throws QuizException {
         List<ExaminationInformationDto> examinationInformationDtos = new ArrayList<>();
@@ -132,7 +138,7 @@ public class ExaminationInformServiceImpl implements ExaminationInformService {
     }
 
 
-
+    @Transactional(readOnly = true)
     @Override
     public List<ExaminationInformationDto> findByRoomPk(Integer iExaminationRoomPk) throws QuizException {
         List<ExaminationInformationDto> examinationInformationDtos = new ArrayList<>();
@@ -197,6 +203,7 @@ public class ExaminationInformServiceImpl implements ExaminationInformService {
         return examinationInformRepository.save(examinationInformation);
     }
 
+    @Transactional
     @Override
     public void delete(Integer iExaminationInformationPk) throws QuizException {
         ExaminationInformation examinationInformation = modelMapper.map(examinationInformRepository.findByID(

@@ -26,7 +26,7 @@ public class SQLUtil {
         if (param == null) {
             return "%%";
         } else {
-            return "%" + URLDecoder.decode(param) + "%";
+            return "%" + URLDecoder.decode(param ) + "%";
         }
     }
 

@@ -34,7 +34,7 @@
         <div class="modal-content alert alert-danger" id="mdlContentGlobal">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 id="txtModalHeaderGlobal" class="modal-title">Have a error</h4>
+                <h4 id="txtModalHeaderGlobal" class="modal-title">Có lỗi xảy ra. Xin thử lại.</h4>
             </div>
             <div class="modal-body" id="txtMsgErrorGlobal"></div>
         </div>
@@ -45,7 +45,7 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-body alert alert-success">
-                Delete success
+               Xóa thành công bản ghi.
             </div><!-- /.modal-body -->
         </div>
     </div>
@@ -55,7 +55,7 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-body alert alert-success">
-               Update success
+               Cập nhật thành công.
             </div><!-- /.modal-body -->
         </div>
     </div>
@@ -65,7 +65,7 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-body alert alert-success">
-                Create success
+               Tạo mới thành công.
             </div><!-- /.modal-body -->
         </div>
     </div>
@@ -75,6 +75,7 @@
     var contextPath = "${pageContext.request.contextPath}";
 </script>
     <section class="page-wrap-2">
+        <tiles:insertAttribute name="template"/>
         <header class="header">
             <tiles:insertAttribute name="header" />
             <tiles:insertAttribute name="menu" />

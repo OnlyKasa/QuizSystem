@@ -21,7 +21,8 @@ public class BaseControllerWeb extends BaseController {
     @Autowired
     private UserService userService;
 
-    private SUser getUser() throws QuizException {
+
+    protected SUser getUser() throws QuizException {
         return userService.getUserLogin();
     }
     //Make default page map
