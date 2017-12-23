@@ -18,11 +18,12 @@ var inputTypeCombobox = "selection";
 //Valid func
 var lstValidFunc = [];
 var formIsOK = false;
+const defaultMessNull = "Trường này là trường bắt buộc ko được để trống.";
 //Library
 var validUtil = {
     autoValidation: function (formId, submitFunc){
         //For null validation
-        $("#"+formId+" input["+tagNullable+"='false']").each(function(){
+        $("#"+formId+" input["+tagNullable+"='false']").each(function(index,item){
             var nullValidType = validUtil.getNullValidTypeAttr($(this));
             var id = this.id;
             switch(nullValidType) {
@@ -73,7 +74,7 @@ var validUtil = {
             }
         });
         //And for other
-        $( "#"+formId).submit(function() {
+        $( "#"+formId).submit(function(event) {
 
             formIsOK = true;
             for(var i = lstValidFunc.length - 1 ; i >= 0;i--){
@@ -270,6 +271,10 @@ var validUtil = {
         return input.attr("input-type");
     },
     getNullMessage: function (input){
+        console.log( typeof  input.attr(tagNullMessage));
+        if(input.attr(tagNullMessage) == "" || typeof  input.attr(tagNullMessage) =="undefined"){
+            return defaultMessNull ;
+        }
         return input.attr(tagNullMessage);
     },
     getInvalidMessage: function (input){

@@ -14,7 +14,7 @@ import java.util.Objects;
 @RequestMapping(QuizTrasitionConst.ADMIN.PAGE_ROOM_EDIT)
 public class Room_edit extends BaseControllerWeb {
 
-    @RequestMapping("/ID/{iExaminationRoomPk}")
+    @RequestMapping("/{iExaminationRoomPk}")
     public String prepareEdit(Map<String, Object> inModel,
                               @PathVariable(value = "iExaminationRoomPk") Integer iExaminationRoomPk) throws QuizException {
         if(Objects.equals( getUser().getStrTopMenu(), "ADM")

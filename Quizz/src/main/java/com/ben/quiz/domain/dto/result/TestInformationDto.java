@@ -3,6 +3,8 @@ package com.ben.quiz.domain.dto.result;
 import com.ben.quiz.domain.model.ExaminationInformation;
 import com.ben.quiz.domain.model.StudentInformation;
 
+import java.sql.Timestamp;
+
 public class TestInformationDto {
     private int iTestInformationPk;
     private Integer iStudentInformationPk;
@@ -11,9 +13,14 @@ public class TestInformationDto {
     private Integer iTestInformationPkEk;
     private int iExaminationInformationPk;
 
+    private String iStudentInformationCode;
+    private String strStudentInformationFirstName;
+    private String strStudentInformationLastName;
 
-    private StudentInformation studentInformationByIStudentInformationPk;
-    private ExaminationInformation examinationInformationByIExaminationInformationPk;
+    private String strExaminationInformationCode;
+    private Timestamp dtExaminationDay;
+    private int iTestInformationTime;
+
 
     public int getiTestInformationPk() {
         return iTestInformationPk;
@@ -63,19 +70,52 @@ public class TestInformationDto {
         this.iExaminationInformationPk = iExaminationInformationPk;
     }
 
-    public StudentInformation getStudentInformationByIStudentInformationPk() {
-        return studentInformationByIStudentInformationPk;
+
+    public String getiStudentInformationCode() {
+        return iStudentInformationCode;
     }
 
-    public void setStudentInformationByIStudentInformationPk(StudentInformation studentInformationByIStudentInformationPk) {
-        this.studentInformationByIStudentInformationPk = studentInformationByIStudentInformationPk;
+    public void setiStudentInformationCode(String iStudentInformationCode) {
+        this.iStudentInformationCode = iStudentInformationCode;
     }
 
-    public ExaminationInformation getExaminationInformationByIExaminationInformationPk() {
-        return examinationInformationByIExaminationInformationPk;
+    public String getStrStudentInformationFirstName() {
+        return strStudentInformationFirstName;
     }
 
-    public void setExaminationInformationByIExaminationInformationPk(ExaminationInformation examinationInformationByIExaminationInformationPk) {
-        this.examinationInformationByIExaminationInformationPk = examinationInformationByIExaminationInformationPk;
+    public void setStrStudentInformationFirstName(String strStudentInformationFirstName) {
+        this.strStudentInformationFirstName = strStudentInformationFirstName;
+    }
+
+    public String getStrStudentInformationLastName() {
+        return strStudentInformationLastName;
+    }
+
+    public void setStrStudentInformationLastName(String strStudentInformationLastName) {
+        this.strStudentInformationLastName = strStudentInformationLastName;
+    }
+
+    public String getStrExaminationInformationCode() {
+        return strExaminationInformationCode;
+    }
+
+    public void setStrExaminationInformationCode(String strExaminationInformationCode) {
+        this.strExaminationInformationCode = strExaminationInformationCode;
+    }
+
+    public Timestamp getDtExaminationDay() {
+        return dtExaminationDay;
+    }
+
+    public void setDtExaminationDay(Timestamp dtExaminationDay) {
+        this.dtExaminationDay = dtExaminationDay;
+    }
+
+    public int getiTestInformationTime() {
+        return iTestInformationTime;
+    }
+
+    public void setiTestInformationTime(int iTestInformationTime) {
+        this.iTestInformationTime = iTestInformationTime;
     }
 }

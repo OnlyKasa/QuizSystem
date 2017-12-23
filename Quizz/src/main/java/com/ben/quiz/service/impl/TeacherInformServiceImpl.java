@@ -78,7 +78,6 @@ public class TeacherInformServiceImpl implements TeacherInformService {
                                                        FacultyInformation facultyInformation){
         TeacherInformDto teacherInformDto =new TeacherInformDto();
         modelMapper.map(teacherInformation,teacherInformDto);
-        teacherInformDto.setFacultyInformationByIFacultyInformationPk(facultyInformation);
         modelMapper.map(facultyInformation,teacherInformDto);
         return teacherInformDto;
     }
@@ -114,15 +113,12 @@ public class TeacherInformServiceImpl implements TeacherInformService {
     public TeacherInformation update(TeacherInformationSaveReq saveReq) throws QuizException {
         TeacherInformDto teacherInformDto = teacherInformRepository.findByID(
                 saveReq.getiTeacherInformationPk());
-        if((saveReq.getiFacultyInformationPk() != 0) || saveReq.getiFacultyInformationPk() !=null)
-        {
-            teacherInformDto.setFacultyInformationByIFacultyInformationPk(
-                    facultyInformRepository.findOne(FacultyInformation.class,saveReq.getiFacultyInformationPk()));
-        }
+
         TeacherInformation teacherInformation = new TeacherInformation();
         if(saveReq.getUserId() == null){
             throw new QuizException(CodeConst.ErrorCode.Err_Not_Null, CodeConst.ErrorMess.Err_Not_Null);
         }
+
         Seiuser seiuser;
         if(userRepository.isExistUserid(saveReq.getUserId())){
             seiuser = userRepository.findSeiuserByUserid(saveReq.getUserId());
@@ -134,6 +130,11 @@ public class TeacherInformServiceImpl implements TeacherInformService {
         }
         modelMapper.map(saveReq,teacherInformDto);
         modelMapper.map(teacherInformDto,teacherInformation);
+        if((saveReq.getiFacultyInformationPk() != 0) || saveReq.getiFacultyInformationPk() !=null)
+        {
+            teacherInformation.setFacultyInformationByIFacultyInformationPk(
+                    facultyInformRepository.findOne(FacultyInformation.class,saveReq.getiFacultyInformationPk()));
+        }
         teacherInformation.setiTeacherInformationPkEk(teacherInformation.getiTeacherInformationPk());
         return teacherInformRepository.save(teacherInformation);
     }

@@ -132,7 +132,7 @@ function redirectPage(categoryName ,pageName, data){
         strData = data;
     }
     $.redirect(contextPath + "/" + categoryName + "/"
-        + pageName, strData);
+        + pageName+"/"+ strData);
     //New version - not use yet, only use on spa (single page application)
     // $( "#mainContainer" ).load( contextPath + "/" + categoryName + "/" + pageName
     //     , data );
@@ -145,12 +145,12 @@ function countFrom(rowPerPage, currentPage){
 }
 var iLoading;
 function showLoading(){
-    iLoading = 1;
-    setTimeout(function(){
-        if(iLoading==1) {
-            $('#spinner').modal('show');
-        }
-    }, 500);
+    // iLoading = 1;
+    // setTimeout(function(){
+    //     if(iLoading==1) {
+    //         $('#spinner').modal('show');
+    //     }
+    // }, 500);
 }
 
 function getLstInt(data, column){
@@ -508,5 +508,14 @@ function download(url) {
 function formatNormalDateTime(date) {
   return (date + ":00").replace(/\//g,"-") ;
 }
+function reFormatDateTime(date) {
+   var year =  new Date(date).getFullYear();
+   var month = new Date(date).getMonth() + 1;
+   var day = new Date(date).getDate();
+   var hour = new Date(date).getHours();
+   var min = new Date(date).getMinutes();
 
+   return year +"/" +month+"/"+ day + " " + hour +":" + min;
+
+}
 

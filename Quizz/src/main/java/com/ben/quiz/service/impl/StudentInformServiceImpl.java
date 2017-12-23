@@ -115,11 +115,7 @@ public class StudentInformServiceImpl implements StudentInformService {
     public StudentInformation update(StudentInformationSaveReq studentInformationSaveReq) throws QuizException {
         StudentInformDto studentInformDto = studentInformRepository.findByID(
                 studentInformationSaveReq.getiStudentInformationPk());
-        if((studentInformationSaveReq.getiFacultyInformationPk() != 0) || studentInformationSaveReq.getiFacultyInformationPk() !=null)
-        {
-            studentInformDto.setFacultyInformationByIFacultyInformationPk(
-                    facultyInformRepository.findByID(studentInformationSaveReq.getiFacultyInformationPk()));
-        }
+
         StudentInformation studentInformation = new StudentInformation();
         if(studentInformationSaveReq.getUserId() == null){
             throw new QuizException(CodeConst.ErrorCode.Err_Not_Null, CodeConst.ErrorMess.Err_Not_Null);
@@ -136,6 +132,11 @@ public class StudentInformServiceImpl implements StudentInformService {
         }
         modelMapper.map(studentInformationSaveReq,studentInformDto);
         modelMapper.map(studentInformDto,studentInformation);
+        if((studentInformationSaveReq.getiFacultyInformationPk() != 0) || studentInformationSaveReq.getiFacultyInformationPk() !=null)
+        {
+            studentInformation.setFacultyInformationByIFacultyInformationPk(
+                    facultyInformRepository.findByID(studentInformationSaveReq.getiFacultyInformationPk()));
+        }
         studentInformation.setiStudentInformationPkEk(studentInformation.getiStudentInformationPk());
         return studentInformRepository.save(studentInformation);
     }

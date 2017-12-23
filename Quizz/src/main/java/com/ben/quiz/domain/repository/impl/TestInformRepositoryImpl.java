@@ -53,12 +53,8 @@ public class TestInformRepositoryImpl extends BaseRepositoryImpl implements Test
     private TestInformationDto convertToTestInformDto(Tuple tuple){
         TestInformationDto questionInformDto = new TestInformationDto();
         modelMapper.map(tuple.get(0),questionInformDto);
-        questionInformDto.setExaminationInformationByIExaminationInformationPk(
-                (ExaminationInformation) tuple.get(2)
-        );
-        questionInformDto.setStudentInformationByIStudentInformationPk(
-                (StudentInformation)tuple.get(1)
-        );
+        modelMapper.map(tuple.get(1),questionInformDto);
+        modelMapper.map(tuple.get(2),questionInformDto);
         return questionInformDto ;
     }
     private List<Predicate> createPredicateForSearchAndCount(CriteriaBuilder criteriaBuilder,

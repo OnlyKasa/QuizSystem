@@ -32,7 +32,7 @@ var ExaminationList = function () {
         $("#sub_menu_examination").addClass("sub-active");
 
         search() ;
-        $("#btnSeach").click(function () {
+        $("#btnSearch").click(function () {
             search() ;
         });
 

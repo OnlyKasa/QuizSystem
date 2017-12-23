@@ -128,20 +128,20 @@ public class QuestionInformServiceImpl implements QuestionInformService {
     public QuestionInformation update(QuestionInformSaveReq saveReq) throws QuizException {
         QuestionInformDto questionInformDto = questionInformRepository.findByID(
                 saveReq.getiTeacherInformationPk());
-        if((saveReq.getiSubjectInformationPk() != 0) || saveReq.getiSubjectInformationPk() !=null)
-        {
-            questionInformDto.setSubjectInformationByISubjectInformationPk(
-                    subjectInformRepository.findOne(SubjectInformation.class,saveReq.getiSubjectInformationPk()));
-        }
-        if((saveReq.getiTeacherInformationPk() != 0) || saveReq.getiTeacherInformationPk() !=null)
-        {
-            questionInformDto.setTeacherInformationByITeacherInformationPk(
-                    teacherInformRepository.findOne(TeacherInformation.class,saveReq.getiSubjectInformationPk()));
-        }
         QuestionInformation questionInformation = new QuestionInformation();
 
         modelMapper.map(saveReq,questionInformDto);
         modelMapper.map(questionInformDto,questionInformation);
+        if((saveReq.getiSubjectInformationPk() != 0) || saveReq.getiSubjectInformationPk() !=null)
+        {
+            questionInformation.setSubjectInformationByISubjectInformationPk(
+                    subjectInformRepository.findOne(SubjectInformation.class,saveReq.getiSubjectInformationPk()));
+        }
+        if((saveReq.getiTeacherInformationPk() != 0) || saveReq.getiTeacherInformationPk() !=null)
+        {
+            questionInformation.setTeacherInformationByITeacherInformationPk(
+                    teacherInformRepository.findOne(TeacherInformation.class,saveReq.getiSubjectInformationPk()));
+        }
         questionInformation.setiQuestionInformationPkEk(questionInformation.getiQuestionInformationPk());
         return teacherInformRepository.save(questionInformation);
     }

@@ -14,7 +14,7 @@ import java.util.Objects;
 @RequestMapping(QuizTrasitionConst.ADMIN.PAGE_TEACHER_EDIT)
 public class Teacher_edit extends BaseControllerWeb {
 
-    @RequestMapping("/ID/{iTeacherInformationPk}")
+    @RequestMapping("/{iTeacherInformationPk}")
     public String prepareEdit(Map<String, Object> inModel,
                               @PathVariable(value = "iTeacherInformationPk") Integer iTeacherInformationPk) throws QuizException {
 

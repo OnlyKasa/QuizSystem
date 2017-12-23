@@ -91,7 +91,7 @@ public class TestInformServiceImpl implements TestInformService {
                                                        StudentInformation studentInformation){
         TestInformationDto testInformationDto =new TestInformationDto();
         modelMapper.map(testInformation,testInformationDto);
-        testInformationDto.setStudentInformationByIStudentInformationPk(studentInformation);
+        testInformation.setStudentInformationByIStudentInformationPk(studentInformation);
         modelMapper.map(studentInformation,testInformationDto);
         return testInformationDto;
     }
@@ -99,7 +99,6 @@ public class TestInformServiceImpl implements TestInformService {
                                                                  ExaminationInformation examinationInformation){
         TestInformationDto testInformationDto =new TestInformationDto();
         modelMapper.map(testInformation,testInformationDto);
-        testInformationDto.setExaminationInformationByIExaminationInformationPk(examinationInformation);
         modelMapper.map(examinationInformation,testInformationDto);
         return testInformationDto;
     }
@@ -130,18 +129,18 @@ public class TestInformServiceImpl implements TestInformService {
         TestInformationDto testInformationDto = testInformRepository.findByID(
                 saveReq.getiTestInformationPk());
 
+        modelMapper.map(saveReq,testInformationDto);
+        modelMapper.map(testInformationDto,testInformation);
         if((saveReq.getiStudentInformationPk() != 0) || saveReq.getiStudentInformationPk() !=null)
         {
-            testInformationDto.setStudentInformationByIStudentInformationPk(
+            testInformation.setStudentInformationByIStudentInformationPk(
                     studentInformRepository.findOne(StudentInformation.class,saveReq.getiStudentInformationPk()));
         }
         if((saveReq.getiExaminationInformationPk() != 0) || saveReq.getiExaminationInformationPk() !=null)
         {
-            testInformationDto.setExaminationInformationByIExaminationInformationPk(
+            testInformation.setExaminationInformationByIExaminationInformationPk(
                     examinationInformRepository.findOne(ExaminationInformation.class,saveReq.getiExaminationInformationPk()));
         }
-        modelMapper.map(saveReq,testInformationDto);
-        modelMapper.map(testInformationDto,testInformation);
         testInformation.setiTestInformationPkEk(testInformation.getiTestInformationPk());
         UpdateListQuestionForTestInformation(saveReq.getListiQuestionInformationPk(),
                 saveReq.getListDeleteiQuestionInformationPk(),saveReq.getiTestInformationPk());

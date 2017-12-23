@@ -55,14 +55,14 @@
         </div>
 
         <div class="col-xs-12 col-sm-2 col-button float-r mt">
-            <button class="btn btn-search btn-green w100p btn-fa" id="btnSeach"><i class="fa fa-search" aria-hidden="true"></i>Tìm kiếm</button>
+            <button class="btn btn-search btn-green w100p btn-fa" id="btnSearch"><i class="fa fa-search" aria-hidden="true"></i>Tìm kiếm</button>
         </div>
     </div>
 </section><!-- /.form-search -->
 
 <div class="row row-small layout mt20">
     <div class="col-xs-12 col-sm-inline padding-small">
-        <button class="btn btn-blue btn-reponsive btn-medium float-l" onclick="redirectPage('examination','a101_2');">Thêm mới</button>
+        <button class="btn btn-blue btn-reponsive btn-medium float-l" onclick="redirectPage('admin','a101_2');">Thêm mới</button>
     </div>
 
     <p id="txtPageCount" class="float-r txt-small mt15 mr5"></p>
@@ -185,7 +185,7 @@
             <div class="modal-footer">
                 <div class="btn-modal">
                     <button class="btn btn-green"
-                            onclick="redirectPage('examination','a101_1','{{iExaminationInformationPk}}');">Sửa</button>
+                            onclick="redirectPage('admin','a101_1','{{iExaminationInformationPk}}');">Sửa</button>
                 </div>
                 <div class="btn-modal">
                     <button type="button" class="btn btn-detail-delete btn-gray"
@@ -303,7 +303,7 @@
 
         <td class="txt-center">
             <button class="btn btn-update btn-small"
-                    onclick="redirectPage('examination','a101_1','{{iExaminationInformationPk}}');" >Sửa</button><br/>
+                    onclick="redirectPage('admin','a101_1','{{iExaminationInformationPk}}');" >Sửa</button><br/>
             <button class="btn btn-delete btn-small mt5" onclick="ExaminationList.showDelete();">Xóa</button>
         </td>
     </tr>

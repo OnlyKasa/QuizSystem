@@ -22,10 +22,6 @@ public class QuestionInformDto {
     private String strTeacherInformationLastName;
 
 
-    private TeacherInformation teacherInformationByITeacherInformationPk;
-    private SubjectInformation subjectInformationByISubjectInformationPk;
-
-
     public String getStrSubjectInformationName() {
         return strSubjectInformationName;
     }
@@ -146,19 +142,4 @@ public class QuestionInformDto {
         this.strTrueAnswer = strTrueAnswer;
     }
 
-    public TeacherInformation getTeacherInformationByITeacherInformationPk() {
-        return teacherInformationByITeacherInformationPk;
-    }
-
-    public void setTeacherInformationByITeacherInformationPk(TeacherInformation teacherInformationByITeacherInformationPk) {
-        this.teacherInformationByITeacherInformationPk = teacherInformationByITeacherInformationPk;
-    }
-
-    public SubjectInformation getSubjectInformationByISubjectInformationPk() {
-        return subjectInformationByISubjectInformationPk;
-    }
-
-    public void setSubjectInformationByISubjectInformationPk(SubjectInformation subjectInformationByISubjectInformationPk) {
-        this.subjectInformationByISubjectInformationPk = subjectInformationByISubjectInformationPk;
-    }
 }

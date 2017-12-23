@@ -61,7 +61,7 @@
         <a href="${pageContext.request.contextPath}/admin/a108">Quản lý phòng thi</a>
     </li>
     <li  id="menu_faculty" class="last-child">
-        <a href="${pageContext.request.contextPath}/admin/a109">Quản lý thông tin khoa</a>
+        <a href="${pageContext.request.contextPath}/admin/a109">Quản lý khoa</a>
     </li>
 </script>
 <script id="templateMenuStudent" type="text/template7">

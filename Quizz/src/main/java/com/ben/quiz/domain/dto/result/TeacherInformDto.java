@@ -15,15 +15,8 @@ public class TeacherInformDto {
     private String strFacultyInformationShortName;
     private String strFacultyInformationFullName;
 
-    private FacultyInformation facultyInformationByIFacultyInformationPk;
 
-    public FacultyInformation getFacultyInformationByIFacultyInformationPk() {
-        return facultyInformationByIFacultyInformationPk;
-    }
 
-    public void setFacultyInformationByIFacultyInformationPk(FacultyInformation facultyInformationByIFacultyInformationPk) {
-        this.facultyInformationByIFacultyInformationPk = facultyInformationByIFacultyInformationPk;
-    }
 
 
     public String getStrFacultyInformationShortName() {

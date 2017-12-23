@@ -16,7 +16,6 @@ public class StudentInformDto {
     private String strFacultyInformationShortName;
     private String strFacultyInformationFullName;
 
-    private FacultyInformation facultyInformationByIFacultyInformationPk;
 
 
     public int getiStudentInformationPk() {
@@ -91,13 +90,6 @@ public class StudentInformDto {
         this.strFacultyInformationFullName = strFacultyInformationFullName;
     }
 
-    public FacultyInformation getFacultyInformationByIFacultyInformationPk() {
-        return facultyInformationByIFacultyInformationPk;
-    }
-
-    public void setFacultyInformationByIFacultyInformationPk(FacultyInformation facultyInformationByIFacultyInformationPk) {
-        this.facultyInformationByIFacultyInformationPk = facultyInformationByIFacultyInformationPk;
-    }
 }
 
 
