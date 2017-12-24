@@ -79,8 +79,15 @@
 
     <definition name="a101_3" extends="base-definition">
         <put-attribute name="menu" value=""/>
-        <put-attribute name="title" value="Page create examination"/>
-        <put-attribute name="body" value="/WEB-INF/views/admin/examination/student_list.jsp"/>
+        <put-attribute name="title" value="Page detail examination"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/examination/examination_detail.jsp"/>
     </definition>
+
+    <definition name="a101_4" extends="base-definition">
+        <put-attribute name="menu" value=""/>
+        <put-attribute name="title" value="Page create student list"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/examination/student_list_create.jsp"/>
+    </definition>
+
 
 </tiles-definitions>

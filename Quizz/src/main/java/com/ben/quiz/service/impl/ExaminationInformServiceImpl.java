@@ -213,6 +213,16 @@ public class ExaminationInformServiceImpl implements ExaminationInformService {
         examinationInformRepository.save(examinationInformation);
     }
 
+    @Override
+    public List<ExaminationInformationDetail> findDetailExamination(Integer iExaminationInformationPk,PagingReq pagingReq) throws QuizException {
+        return examinationInformDetailRepository.findByExamination(iExaminationInformationPk,pagingReq);
+    }
+
+    @Override
+    public Long countDetailExamination(Integer iExaminationInformationPk) throws QuizException {
+        return examinationInformDetailRepository.countByExamination(iExaminationInformationPk);
+    }
+
     private void CreateDetailExamination(List<Integer> ListiStudentInformationPk,
                                          Integer iExaminationInformationPk) throws QuizException {
 

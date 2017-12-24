@@ -136,6 +136,61 @@ public class QuestionInformRepositoryImpl extends BaseRepositoryImpl implements 
     }
 
     @Override
+    public List<QuestionInformDto> findBySubjectID(Integer iSubjectInformationPk, PagingReq pagingReq) throws QuizException {
+        final CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        final CriteriaQuery<Tuple> criteriaQuery = criteriaBuilder.createQuery(Tuple.class);
+        final Root<QuestionInformation> entityRoot = criteriaQuery.from(QuestionInformation.class);
+        final Join<QuestionInformation,TeacherInformation>
+                teacher = entityRoot.join(QuestionInformation_.teacherInformationByITeacherInformationPk,
+                JoinType.LEFT);
+        final Join<QuestionInformation,SubjectInformation>
+                subject = entityRoot.join(QuestionInformation_.subjectInformationByISubjectInformationPk,
+                JoinType.LEFT);
+
+        List<Predicate> predicates = new ArrayList<>() ;
+        predicates.add(criteriaBuilder.equal(entityRoot.get(QuestionInformation_.iSubjectInformationPk),
+                iSubjectInformationPk));
+        predicates.add(criteriaBuilder.isNotNull(entityRoot.get(QuestionInformation_.iQuestionInformationPkEk)));
+
+        criteriaQuery.multiselect(entityRoot,
+                teacher,subject)
+                .where(predicates.toArray(new Predicate[predicates.size()]));
+
+        final TypedQuery<Tuple> query = entityManager.createQuery(criteriaQuery);
+        List<Tuple> examinationRooms = query.getResultList();
+        if (pagingReq.getPage() > 0) {
+            query.setFirstResult((pagingReq.getPage() - 1) * pagingReq.getRowPerPage());
+            query.setMaxResults(pagingReq.getRowPerPage());
+        }
+        return examinationRooms.stream()
+                .map(this::convertToQuestionInformDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public Long countBySubjectID(Integer iSubjectInformationPk) throws QuizException {
+        final CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        final CriteriaQuery<Long> criteriaQuery = criteriaBuilder.createQuery(Long.class);
+        final Root<QuestionInformation> entityRoot = criteriaQuery.from(QuestionInformation.class);
+        final Join<QuestionInformation,TeacherInformation>
+                teacher = entityRoot.join(QuestionInformation_.teacherInformationByITeacherInformationPk,
+                JoinType.LEFT);
+        final Join<QuestionInformation,SubjectInformation>
+                subject = entityRoot.join(QuestionInformation_.subjectInformationByISubjectInformationPk,
+                JoinType.LEFT);
+        List<Predicate> predicates = new ArrayList<>() ;
+
+        predicates.add(criteriaBuilder.equal(entityRoot.get(QuestionInformation_.iSubjectInformationPk),
+                iSubjectInformationPk));
+        predicates.add(criteriaBuilder.isNotNull(entityRoot.get(QuestionInformation_.iQuestionInformationPkEk)));
+
+        criteriaQuery.select(criteriaBuilder.count(entityRoot))
+                .where(predicates.toArray(new Predicate[predicates.size()]));
+        final TypedQuery<Long> query = entityManager.createQuery(criteriaQuery);
+        return query.getSingleResult();
+    }
+
+    @Override
     public QuestionInformation create(QuestionInformSaveReq saveReq) throws QuizException {
         return null;
     }

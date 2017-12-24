@@ -2,6 +2,7 @@ package com.ben.quiz.domain.repository.impl;
 
 import com.ben.quiz.domain.common.constant.CodeConst;
 import com.ben.quiz.domain.common.exception.QuizException;
+import com.ben.quiz.domain.dto.request.PagingReq;
 import com.ben.quiz.domain.dto.result.StudentInformDto;
 import com.ben.quiz.domain.model.ExaminationInformation;
 import com.ben.quiz.domain.model.ExaminationInformationDetail;
@@ -47,12 +48,44 @@ public class ExaminationInformDetailRepositoryImpl extends BaseRepositoryImpl
     }
 
     @Override
-    public List<ExaminationInformationDetail> findByExamination(Integer iExaminationInformationPk) throws QuizException {
+    public List<ExaminationInformationDetail> findByExamination(Integer iExaminationInformationPk, PagingReq pagingReq) throws QuizException {
 
-        ExaminationInformation examinationInformation = examinationInformRepository.findOne(ExaminationInformation.class,iExaminationInformationPk);
+        final CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        final CriteriaQuery<ExaminationInformationDetail> criteriaQuery = criteriaBuilder.createQuery(ExaminationInformationDetail.class);
+        final Root<ExaminationInformationDetail> entityRoot = criteriaQuery.from(ExaminationInformationDetail.class);
 
-        return (List<ExaminationInformationDetail>)
-                examinationInformation.getExaminationInformationDetailsByIExaminationInformationPk();
+        List<Predicate> predicates = new ArrayList<>() ;
+        predicates.add(criteriaBuilder.equal(entityRoot.get(ExaminationInformationDetail_.iExaminationInformationPk),
+                iExaminationInformationPk));
+        predicates.add(criteriaBuilder.isNotNull(entityRoot.get(ExaminationInformationDetail_.iExaminationInformationDetailPkEk)));
+
+        criteriaQuery.select(entityRoot)
+                .where(predicates.toArray(new Predicate[predicates.size()]));
+
+        final TypedQuery<ExaminationInformationDetail> query = entityManager.createQuery(criteriaQuery);
+        if (pagingReq.getPage() > 0) {
+            query.setFirstResult((pagingReq.getPage() - 1) * pagingReq.getRowPerPage());
+            query.setMaxResults(pagingReq.getRowPerPage());
+        }
+        return query.getResultList();
+
+    }
+
+    @Override
+    public long countByExamination(Integer iExaminationInformationPk) throws QuizException {
+        final CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        final CriteriaQuery<Long> criteriaQuery = criteriaBuilder.createQuery(Long.class);
+        final Root<ExaminationInformationDetail> entityRoot = criteriaQuery.from(ExaminationInformationDetail.class);
+
+        List<Predicate> predicates = new ArrayList<>() ;
+        predicates.add(criteriaBuilder.equal(entityRoot.get(ExaminationInformationDetail_.iExaminationInformationPk),
+                iExaminationInformationPk));
+        predicates.add(criteriaBuilder.isNotNull(entityRoot.get(ExaminationInformationDetail_.iExaminationInformationDetailPkEk)));
+
+        criteriaQuery.select(criteriaBuilder.count(entityRoot))
+                .where(predicates.toArray(new Predicate[predicates.size()]));
+        final TypedQuery<Long> query = entityManager.createQuery(criteriaQuery);
+        return query.getSingleResult();
     }
 
     @Override

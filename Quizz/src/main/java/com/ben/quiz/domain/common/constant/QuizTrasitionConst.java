@@ -48,10 +48,12 @@ public class QuizTrasitionConst {
 
     public interface ADMIN{
         public static final String ROOT = "/admin";
-        public static String PAGE_STUDENT_LIST_FOR_EXAMINATION = ADMIN.ROOT + "/a101_3";
         public static String PAGE_EXAMINATION_LIST = ADMIN.ROOT + "/a101";
         public static String PAGE_EXAMINATION_EDIT = ADMIN.ROOT + "/a101_1";
         public static String PAGE_EXAMINATION_CREATE = ADMIN.ROOT + "/a101_2";
+        public static String PAGE_EXAMINATION_DETAIL= ADMIN.ROOT + "/a101_3";
+        public static String PAGE_LIST_STUDENT_CREATE= ADMIN.ROOT + "/a101_4";
+
 
         public static String PAGE_DIFFICULTY_LIST =  ADMIN.ROOT + "/a102";
         public static String PAGE_DIFFICULTY_EDIT =  ADMIN.ROOT + "/a102_1";
@@ -98,6 +100,7 @@ public class QuizTrasitionConst {
         public static String A101_1 = "a101_1";
         public static String A101_2 = "a101_2";
         public static String A101_3 = "a101_3";
+        public static String A101_4 = "a101_4";
 
         public static String A102 = "a102";
         public static String A102_1 = "a102_1";

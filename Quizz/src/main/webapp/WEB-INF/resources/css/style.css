@@ -962,18 +962,6 @@ textarea {
   .custom-mt {
     margin-top: 28px !important; } }
 
-@font-face {
-  font-family: 'Meiryo-Regular';
-  src: url("../fonts/Meiryo.eot?#iefix") format("embedded-opentype"), url("../fonts/Meiryo.woff") format("woff"), url("../fonts/Meiryo.ttf") format("truetype"), url("../fonts/Meiryo.svg#Meiryo") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'Meiryo-Bold';
-  src: url("../fonts/Meiryo-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Meiryo-Bold.woff") format("woff"), url("../fonts/Meiryo-Bold.ttf") format("truetype"), url("../fonts/Meiryo-Bold.svg#Meiryo-Bold") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
 /* Modules style */
 .menu-page {
   text-align: center; }

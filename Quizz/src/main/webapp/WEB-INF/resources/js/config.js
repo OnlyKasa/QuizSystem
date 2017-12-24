@@ -9,29 +9,32 @@ const popupTimeout = 3000;
 var pageCount = 1;
 const noData = "Không tìm thấy dữ liệu";
 
-function caculatorNumberQuestionForExamination(studentNumber,numberQuestOfOneTest,percentMatch) {
-
-    let matchQuestionNumberOfOneTest = Math.floor((percentMatch/100) * numberQuestOfOneTest);
+function calculatorNumberQuestionForExamination(studentNumber,numberQuestOfOneTest,percentMatch) {
+    if(percentMatch > 100 ){
+        percentMatch = 99;
+    }
+    let matchQuestionNumberOfOneTest = (percentMatch/100) * numberQuestOfOneTest;
     let notMatchQuestionNumberOfOneTest  = numberQuestOfOneTest - matchQuestionNumberOfOneTest ;
-    if(notMatchQuestionNumberOfOneTest === 0){
+    if(matchQuestionNumberOfOneTest === 0){
         return numberQuestOfOneTest * studentNumber ;
     }
     let testsNumber= 0 ;
-    let numberQuestionForExamination = numberQuestOfOneTest ;
+    let numberQuestionForExamination = numberQuestOfOneTest - 1 ;
     if(notMatchQuestionNumberOfOneTest < matchQuestionNumberOfOneTest ||
         notMatchQuestionNumberOfOneTest === matchQuestionNumberOfOneTest){
-        while (testsNumber < (studentNumber +1)){
+        while (testsNumber < studentNumber){
+            numberQuestionForExamination +=1;
             testsNumber = 0 ;
             let matchQuestionGroup = Math.floor(numberQuestionForExamination / matchQuestionNumberOfOneTest);
-            for(let i = 1 ; i < matchQuestionGroup ;i++){
+            for(let i = 1 ; i < matchQuestionGroup + 1 ;i++){
                 //TODO nested : not match question and match question.
                 let notMatchQuestionGroup = Math.floor(numberQuestionForExamination - i * notMatchQuestionNumberOfOneTest)
                     / notMatchQuestionNumberOfOneTest ;
                 testsNumber += notMatchQuestionGroup ;
             }
-            numberQuestionForExamination +=1 ;
         }
     }
+    return numberQuestionForExamination;
 }
 /**
     Method : getListQuestionForStudents
@@ -39,7 +42,7 @@ function caculatorNumberQuestionForExamination(studentNumber,numberQuestOfOneTes
     Parameter : objQuestionOfExamination is min list for getting count(testsOfStudentList) = studentNumber
  */
 
-function getListQuestionForStudents(objQuestionOfExamination,studentNumber,numberQuestOfOneTest,percentMatch) {
+function getListQuestionForStudents(objQuestionOfExamination,numberQuestOfOneTest,percentMatch) {
     let matchQuestionNumberOfOneTests = Math.floor((percentMatch/100) * numberQuestOfOneTest);
     let notMatchQuestionNumberOfOneTests  = numberQuestOfOneTest - matchQuestionNumberOfOneTests ;
 
@@ -131,11 +134,16 @@ function redirectPage(categoryName ,pageName, data){
     if(typeof data != 'undefined'){
         strData = data;
     }
-    $.redirect(contextPath + "/" + categoryName + "/"
-        + pageName+"/"+ strData);
-    //New version - not use yet, only use on spa (single page application)
-    // $( "#mainContainer" ).load( contextPath + "/" + categoryName + "/" + pageName
-    //     , data );
+
+    if(typeof data =="object"){
+       let  url = contextPath + "/" + categoryName + "/"
+            + pageName;
+        $.redirect(url,data);
+    }else{
+        let url =contextPath + "/" + categoryName + "/"
+            + pageName+"/"+ strData ;
+        $.redirect(url);
+    }
 }
 function countPage(rowCount, rowPerPage){
     return Math.ceil(rowCount / rowPerPage);

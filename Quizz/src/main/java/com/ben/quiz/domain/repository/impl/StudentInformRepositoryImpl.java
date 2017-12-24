@@ -82,12 +82,13 @@ public class StudentInformRepositoryImpl extends BaseRepositoryImpl implements S
                                                              StudentInformationSearchReq searchReq){
         List<Predicate>  predicates = new ArrayList<>();
         predicates.add(criteriaBuilder.isNotNull(entityRoot.get(StudentInformation_.iStudentInformationPkEk)));
-        predicates.add(criteriaBuilder.like(
-                criteriaBuilder.lower(entityRoot.get(StudentInformation_.strStudentInformationFirstName)),
-                SQLUtil.AllLike(searchReq.getStrStudentInformationFirstName())));
-        predicates.add(criteriaBuilder.like(
-                criteriaBuilder.lower(entityRoot.get(StudentInformation_.strStudentInformationLastName)),
-                SQLUtil.AllLike(searchReq.getStrStudentInformationLastName())));
+        predicates.add(criteriaBuilder.or(
+                criteriaBuilder.like(criteriaBuilder.lower(entityRoot.get(StudentInformation_.strStudentInformationFirstName)),
+                SQLUtil.AllLike(searchReq.getStrStudentInformationFirstName())),
+
+                criteriaBuilder.like(criteriaBuilder.lower(entityRoot.get(StudentInformation_.strStudentInformationLastName)),
+                SQLUtil.AllLike(searchReq.getStrStudentInformationLastName()))));
+
         predicates.add(criteriaBuilder.like(
                 criteriaBuilder.lower(facultyInformationRoot.get(FacultyInformation_.strFacultyInformationShortName)),
                 SQLUtil.AllLike(searchReq.getStrFacultyInformationShortName())));

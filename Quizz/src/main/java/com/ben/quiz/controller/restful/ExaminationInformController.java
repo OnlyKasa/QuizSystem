@@ -6,6 +6,7 @@ import com.ben.quiz.domain.dto.request.*;
 import com.ben.quiz.domain.dto.result.ExaminationInformationDto;
 import com.ben.quiz.domain.dto.result.FacultyInformDto;
 import com.ben.quiz.domain.model.ExaminationInformation;
+import com.ben.quiz.domain.model.ExaminationInformationDetail;
 import com.ben.quiz.domain.model.FacultyInformation;
 import com.ben.quiz.service.interfaces.ExaminationInformService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,17 @@ public class ExaminationInformController {
 
     @Autowired
     private ExaminationInformService examinationInformService ;
+
+
+    @GetMapping("/findDetailExamination/{iExaminationInformationPk}")
+    public List<ExaminationInformationDetail>  findDetailExamination(@PathVariable("iExaminationInformationPk") Integer iExaminationInformationPk, PagingReq pagingReq)throws QuizException{
+        return  examinationInformService.findDetailExamination(iExaminationInformationPk,pagingReq);
+    }
+
+    @GetMapping("/countDetailExamination/{iExaminationInformationPk}")
+    public long countDetailExamination(@PathVariable("iExaminationInformationPk")Integer iExaminationInformationPk)throws QuizException{
+        return  examinationInformService.countDetailExamination(iExaminationInformationPk);
+    }
 
     @GetMapping("/search")
     public List<ExaminationInformationDto> search(@Valid ExaminationInformationSearchReq examinationInformationSearchReq,

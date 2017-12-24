@@ -1,5 +1,5 @@
 package com.ben.quiz.domain.model;
-
+//TODO sua lai out put list ban ghi
 import com.ben.quiz.domain.common.constant.SequenceConst;
 import org.hibernate.annotations.GenericGenerator;
 

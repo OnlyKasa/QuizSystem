@@ -94,7 +94,7 @@
                 <th class="last-child"></th>
             </tr>
 
-            <tbody id="table_content" >
+            <tbody id="table-content" >
 
             </tbody>
         </table>

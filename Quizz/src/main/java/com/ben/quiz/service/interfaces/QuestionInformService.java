@@ -20,6 +20,10 @@ public interface QuestionInformService {
 
     List<QuestionInformDto> findBySubjectInformationPk(Integer iSubjectInformationPk) throws QuizException;
 
+    List<QuestionInformDto>findBySubjectID(Integer iSubjectInformationPk,
+                                           PagingReq pagingReq) throws QuizException;
+    Long countBySubjectID(Integer iSubjectInformationPk) throws QuizException;
+
     QuestionInformation create(QuestionInformSaveReq saveReq) throws QuizException ;
 
     QuestionInformation update(QuestionInformSaveReq saveReq) throws QuizException ;

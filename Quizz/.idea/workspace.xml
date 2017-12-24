@@ -5,39 +5,40 @@
       <artifact name="Quizz:war" />
     </artifacts-to-build>
   </component>
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/admin/student_list_create.js" line="166" mnemonic="1" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e653a0a-7bf5-4e82-8a23-ce371779c0d8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/restful/DifficultyInformController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/admin/examination_create.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/admin/examination_edit.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/examination/Examination_edit.java" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/examination/Examination_edit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/faculty/Faculty_edit.java" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/faculty/Faculty_edit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/question/Question_edit.java" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/question/Question_edit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/room/Room_edit.java" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/room/Room_edit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/student/Student_edit.java" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/student/Student_edit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/subject/Subject_edit.java" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/subject/Subject_edit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/teacher/Teacher_edit.java" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/teacher/Teacher_edit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/dto/result/QuestionInformDto.java" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/dto/result/QuestionInformDto.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/dto/result/StudentInformDto.java" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/dto/result/StudentInformDto.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/dto/result/TeacherInformDto.java" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/dto/result/TeacherInformDto.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/dto/result/TestInformationDto.java" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/dto/result/TestInformationDto.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/repository/impl/TestInformRepositoryImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/repository/impl/TestInformRepositoryImpl.java" />
+    <list default="true" id="5e653a0a-7bf5-4e82-8a23-ce371779c0d8" name="Default" comment="ky thi">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/examination/Examination_detail.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/examination/Student_list_create.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/restful/QuestionInformController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/admin/examination_detail.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/admin/student_list_create.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/examination_detail.jsp" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/student_list.jsp" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/restful/ExaminationInformController.java" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/restful/ExaminationInformController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/common/constant/QuizTrasitionConst.java" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/common/constant/QuizTrasitionConst.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/model/ExaminationInformationDetail.java" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/model/ExaminationInformationDetail.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/repository/impl/ExaminationInformDetailRepositoryImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/repository/impl/ExaminationInformDetailRepositoryImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/repository/impl/QuestionInformRepositoryImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/repository/impl/QuestionInformRepositoryImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/repository/impl/StudentInformRepositoryImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/repository/impl/StudentInformRepositoryImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/repository/interfaces/ExaminationInformDetailRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/repository/interfaces/ExaminationInformDetailRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/repository/interfaces/QuestionInformRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/repository/interfaces/QuestionInformRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ben/quiz/service/impl/ExaminationInformServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/service/impl/ExaminationInformServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ben/quiz/service/impl/QuestionInformServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/service/impl/QuestionInformServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ben/quiz/service/impl/StudentInformServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/service/impl/StudentInformServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ben/quiz/service/impl/TeacherInformServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/service/impl/TeacherInformServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ben/quiz/service/impl/TestInformServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/service/impl/TestInformServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ben/quiz/service/interfaces/ExaminationInformService.java" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/service/interfaces/ExaminationInformService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ben/quiz/service/interfaces/QuestionInformService.java" afterPath="$PROJECT_DIR$/src/main/java/com/ben/quiz/service/interfaces/QuestionInformService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/config/tiles.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/config/tiles.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css/base/_typography.css" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css/base/_typography.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css/style.css" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/admin/examination_list.js" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/admin/examination_list.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/config.js" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/template.js" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/template.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/validationUtil.js" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/validationUtil.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/examination_create.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/examination_create.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/examination_edit.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/examination_edit.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/scss/base/_typography.scss" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/scss/base/_typography.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/examination_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/examination_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/student_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/student_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/layouts/defaultMenu.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/layouts/defaultMenu.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/layouts/template.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/layouts/template.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/student_list_create.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/student_list_create.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -55,31 +56,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="student_list.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/student_list.jsp">
+      <file leaf-file-name="student_list_create.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/admin/student_list_create.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state relative-caret-position="350">
+              <caret line="187" column="0" lean-forward="true" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="examination_create.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/examination_create.jsp">
+      <file leaf-file-name="student_list_create.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/student_list_create.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-56">
-              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state relative-caret-position="215">
+              <caret line="40" column="82" lean-forward="false" selection-start-line="40" selection-start-column="74" selection-end-line="40" selection-end-column="82" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="template.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/template.js">
+      <file leaf-file-name="examination_list.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/admin/examination_list.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="198" column="1" lean-forward="true" selection-start-line="198" selection-start-column="1" selection-end-line="198" selection-end-column="1" />
+            <state relative-caret-position="378">
+              <caret line="99" column="5" lean-forward="true" selection-start-line="83" selection-start-column="3" selection-end-line="99" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -91,32 +92,13 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Jsp File" />
-        <option value="JavaScript File" />
         <option value="Class" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>contextPath</find>
-      <find>colspan</find>
-      <find>template7</find>
-      <find>displayDeleted</find>
-      <find>in</find>
-      <find>row</find>
-      <find>Previous</find>
-      <find>Next</find>
-      <find>iExaminationInformationPk</find>
-      <find>showDetail</find>
-      <find>iRateOfDifficultyPk</find>
-      <find>strSubjectInformation</find>
-      <find>strTeacherInformationP</find>
-      <find>template-popup-teacher</find>
-      <find>Template7</find>
-      <find>btn-form</find>
-      <find>modal-list</find>
-      <find>redirectPage</find>
-      <find>btnConfirm</find>
       <find>&lt;script&gt;</find>
       <find>readonly</find>
       <find>00</find>
@@ -128,6 +110,25 @@
       <find>table_content_difficulty</find>
       <find>-</find>
       <find>_</find>
+      <find>findDetailExamination</find>
+      <find>table_content</find>
+      <find>@font</find>
+      <find>strQuestion</find>
+      <find>col-button</find>
+      <find>iRateDifficultyPk</find>
+      <find>iRateOfDifficultyPk</find>
+      <find>action</find>
+      <find>table-que</find>
+      <find>btnConfirm</find>
+      <find>messEror</find>
+      <find>table-question</find>
+      <find>change</find>
+      <find>class=&quot;col-number&quot;</find>
+      <find>iQuestionInformationLevel</find>
+      <find>percentMatch</find>
+      <find>strFacultyInformationFullName</find>
+      <find>at</find>
+      <find>template</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -152,40 +153,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/faculty/faculty_create.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/common/constant/QuizTrasitionConst.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/faculty/Faculty_create.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/faculty/Faculty_list.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/teacher/Teacher_list.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/difficulty/Difficulty_create.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/difficulty/Difficulty_edit.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/difficulty/Difficulty_list.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/examination/examination_create.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/examination/examination_edit.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/examination/examination_list.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/question/Question_create.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/question/Question_list.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/room/Room_create.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/room/Room_list.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/student/Student_create.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/student/Student_list.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/subject/Subject_create.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/subject/Subject_list.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/teacher/Teacher_create.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/tests/tests_list.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/dto/result/QuestionInformDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/dto/result/TeacherInformDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/dto/result/StudentInformDto.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/admin/examination_list.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/examination_list.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/service/impl/QuestionInformServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/repository/impl/TestInformRepositoryImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/dto/result/TestInformationDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/service/impl/TeacherInformServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/service/impl/TestInformServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/service/impl/StudentInformServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/restful/DifficultyInformController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/validationUtil.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/admin/examination_create.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/examination/Examination_edit.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/faculty/Faculty_edit.java" />
@@ -195,14 +173,37 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/subject/Subject_edit.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/teacher/Teacher_edit.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/admin/examination_edit.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/config.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/examination_edit.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/config/tiles.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/layouts/defaultMenu.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/template.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/student_list.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/examination_create.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/layouts/template.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/student_list.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/examination/Examination_.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/repository/interfaces/ExaminationInformDetailRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/repository/impl/ExaminationInformDetailRepositoryImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/service/impl/ExaminationInformServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/admin/examination_list.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/repository/interfaces/QuestionInformRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/repository/impl/QuestionInformRepositoryImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/service/interfaces/QuestionInformService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/service/impl/QuestionInformServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/restful/QuestionInformController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/common/constant/QuizTrasitionConst.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/examination/Examination_detail.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/config/tiles.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/validationUtil.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/lib/jquery.redirect.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/examination_detail.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/config.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/examination/Student_list_create.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/admin/examination_detail.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/service/interfaces/ExaminationInformService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/restful/ExaminationInformController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/model/ExaminationInformationDetail.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/repository/impl/StudentInformRepositoryImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/student_list_create.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/admin/student_list_create.js" />
       </list>
     </option>
   </component>
@@ -546,6 +547,26 @@
               <item name="Quizz" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="quiz" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Quizz" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Quizz" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="quiz" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Quizz" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Quizz" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -726,11 +747,11 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ben.quiz.controller.admin.examination" />
       <recent name="com.ben.quiz.domain.repository.impl" />
       <recent name="com.ben.quiz.domain.repository.interfaces" />
       <recent name="com.ben.quiz.domain.common.validation" />
       <recent name="com.ben.quiz.domain.common.util" />
-      <recent name="com.ben.quiz.controller.base" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.ben.quiz.domain.common.constant" />
@@ -1026,12 +1047,20 @@
       <workItem from="1513750751114" duration="6864000" />
       <workItem from="1513855904141" duration="8118000" />
       <workItem from="1513880956189" duration="2028000" />
-      <workItem from="1513911920993" duration="70897000" />
+      <workItem from="1513911920993" duration="125323000" />
     </task>
+    <task id="LOCAL-00001" summary="ky thi">
+      <created>1514021643538</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1514021643539</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="476934000" />
+    <option name="totallyTimeSpent" value="531360000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="39" y="-4" width="1327" height="772" extended-state="6" />
@@ -1042,27 +1071,27 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4449649" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43091336" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43091336" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24980484" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2490242" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17961165" sideWeight="0.8680718" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.110032365" sideWeight="0.8680718" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27022654" sideWeight="0.49414518" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32580644" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.8996764" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.75728154" sideWeight="0.49102265" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32741934" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30097088" sideWeight="0.66042155" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.32006246" sideWeight="0.5112903" order="9" side_tool="true" content_ui="tabs" x="39" y="52" width="1327" height="716" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3286495" sideWeight="0.48076922" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3208431" sideWeight="0.48076922" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32983795" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25995317" sideWeight="0.5192308" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4364261" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21233411" sideWeight="0.5095694" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1083,10 +1112,12 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
+    <MESSAGE value="ky thi" />
+    <option name="LAST_COMMIT_MESSAGE" value="ky thi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="58" />
+      <option name="time" value="74" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
@@ -1095,268 +1126,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/dto/result/FacultyInformDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/dto/result/RoomInformDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/model/StudentInformation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="17" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/dto/result/TeacherInformDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/dto/result/QuestionInformDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/auth/menu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/dto/result/SubjectInformationDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="4" column="37" lean-forward="false" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/dto/result/StudentInformDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="7" column="37" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/model/SubjectInformation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="15" column="45" lean-forward="false" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/model/RateOfDifficulty.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="15" column="40" lean-forward="false" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/service/impl/QuestionInformServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="140" column="9" lean-forward="true" selection-start-line="140" selection-start-column="9" selection-end-line="140" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/repository/impl/TestInformRepositoryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="56" column="35" lean-forward="false" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/dto/result/TestInformationDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/service/impl/TeacherInformServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="133" column="9" lean-forward="true" selection-start-line="133" selection-start-column="9" selection-end-line="133" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/service/impl/TestInformServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="103" column="5" lean-forward="true" selection-start-line="103" selection-start-column="5" selection-end-line="103" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/service/impl/StudentInformServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="135" column="9" lean-forward="true" selection-start-line="135" selection-start-column="9" selection-end-line="135" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/examination/Examination_create.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="26" column="1" lean-forward="true" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/dto/result/RateOfDifficultyDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/lib/jquery.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="1" column="2814" lean-forward="false" selection-start-line="1" selection-start-column="2814" selection-end-line="1" selection-end-column="2814" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/lib/template7.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="14" column="6701" lean-forward="false" selection-start-line="14" selection-start-column="6701" selection-end-line="14" selection-end-column="6701" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/restful/DifficultyInformController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="32" column="23" lean-forward="true" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/restful/FacultyInformController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="48" column="5" lean-forward="true" selection-start-line="22" selection-start-column="3" selection-end-line="48" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/dto/request/ExaminationInformationSaveReq.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="14" column="48" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="14" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/admin/examination_list.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/validationUtil.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="13" column="29" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="29" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/repository/impl/ExaminationInformDetailRepositoryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/model/ExaminationInformation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="15" column="48" lean-forward="false" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/idea.jar!/resources/html5-schema/html5/web-forms.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="34" column="24" lean-forward="false" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/common/constant/QuizTrasitionConst.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/faculty/Faculty_list.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/faculty/Faculty_edit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/question/Question_edit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/room/Room_edit.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
@@ -1413,55 +1182,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/examination_list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-383">
-          <caret line="189" column="39" lean-forward="true" selection-start-line="189" selection-start-column="39" selection-end-line="189" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/admin/examination_create.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="146" column="23" lean-forward="true" selection-start-line="146" selection-start-column="23" selection-end-line="146" selection-end-column="23" />
-          <folding>
-            <marker date="1514018002388" expanded="true" signature="11322:11329" ph="«" />
-            <marker date="1514018002388" expanded="true" signature="11486:11493" ph="«" />
-            <marker date="1514018002388" expanded="true" signature="11742:11781" ph="..." />
-            <marker date="1514018002388" expanded="true" signature="12340:12379" ph="..." />
-            <marker date="1514018002388" expanded="true" signature="13442:13481" ph="..." />
-            <marker date="1514018002388" expanded="true" signature="14386:14425" ph="..." />
-            <marker date="1514018002388" expanded="true" signature="15791:15830" ph="..." />
-            <marker date="1514018002388" expanded="true" signature="16926:16933" ph="»" />
-            <marker date="1514018002388" expanded="true" signature="17085:17092" ph="»" />
-            <marker date="1514018002388" expanded="true" signature="17258:17265" ph="«" />
-            <marker date="1514018002388" expanded="true" signature="17345:17384" ph="..." />
-            <marker date="1514018002388" expanded="true" signature="17525:17532" ph="»" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/examination_edit.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="273" column="9" lean-forward="true" selection-start-line="273" selection-start-column="9" selection-end-line="273" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/config/tiles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="71" column="17" lean-forward="true" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -1474,34 +1198,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/admin/examination_edit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-58">
-          <caret line="36" column="23" lean-forward="true" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/restful/RoomInformController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/student_list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/examination_create.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-56">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1516,8 +1216,348 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/template.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="198" column="1" lean-forward="true" selection-start-line="198" selection-start-column="1" selection-end-line="198" selection-end-column="1" />
+        <state relative-caret-position="289">
+          <caret line="172" column="2" lean-forward="true" selection-start-line="172" selection-start-column="2" selection-end-line="172" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/examination_create.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-56">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/dto/result/SubjectInformationDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="6" column="45" lean-forward="false" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/dto/result/StudentInformDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="16" column="48" lean-forward="false" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/examination_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="274" column="0" lean-forward="true" selection-start-line="274" selection-start-column="0" selection-end-line="274" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/repository/impl/ExaminationInformRepositoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="149" column="39" lean-forward="true" selection-start-line="146" selection-start-column="6" selection-end-line="149" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/repository/impl/ExaminationInformDetailRepositoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="74" column="34" lean-forward="false" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/repository/interfaces/ExaminationInformDetailRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="13" column="84" lean-forward="false" selection-start-line="13" selection-start-column="84" selection-end-line="13" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/QuizApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/model/QuestionInformation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="15" column="41" lean-forward="false" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/repository/impl/QuestionInformRepositoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="170" column="32" lean-forward="false" selection-start-line="170" selection-start-column="16" selection-end-line="170" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/repository/interfaces/QuestionInformRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="20" column="78" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="20" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/service/impl/ExaminationInformServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="219" column="0" lean-forward="true" selection-start-line="219" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/service/interfaces/QuestionInformService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="24" column="78" lean-forward="false" selection-start-line="24" selection-start-column="78" selection-end-line="24" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/restful/QuestionInformController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="27" column="33" lean-forward="false" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/common/constant/QuizTrasitionConst.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="104" column="42" lean-forward="false" selection-start-line="104" selection-start-column="42" selection-end-line="104" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/examination/Examination_detail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="13" column="64" lean-forward="false" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/config/tiles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="90" column="4" lean-forward="true" selection-start-line="90" selection-start-column="4" selection-end-line="90" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/dto/request/PagingReq.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/model/RateOfDifficulty.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="16" column="38" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/restful/DifficultyInformController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="37" column="16" lean-forward="true" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/service/impl/QuestionInformServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="115" column="0" lean-forward="true" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/validationUtil.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="72" column="23" lean-forward="true" selection-start-line="72" selection-start-column="23" selection-end-line="72" selection-end-column="23" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/jscustom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-14">
+          <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/dto/result/QuestionInformDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="9" column="45" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/lib/jquery.redirect.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/admin/examination_edit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="29" column="75" lean-forward="true" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/examination_detail.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="218" column="60" lean-forward="false" selection-start-line="218" selection-start-column="47" selection-end-line="218" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/admin/examination/Student_list_create.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="80" column="16" lean-forward="true" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="16" />
+          <folding>
+            <marker date="1514106955506" expanded="true" signature="11409:11416" ph="«" />
+            <marker date="1514106955506" expanded="true" signature="11573:11580" ph="«" />
+            <marker date="1514106955506" expanded="true" signature="11829:11868" ph="..." />
+            <marker date="1514106955506" expanded="true" signature="12427:12466" ph="..." />
+            <marker date="1514106955506" expanded="true" signature="13529:13568" ph="..." />
+            <marker date="1514106955506" expanded="true" signature="14473:14512" ph="..." />
+            <marker date="1514106955506" expanded="true" signature="15878:15917" ph="..." />
+            <marker date="1514106955506" expanded="true" signature="17013:17020" ph="»" />
+            <marker date="1514106955506" expanded="true" signature="17172:17179" ph="»" />
+            <marker date="1514106955506" expanded="true" signature="17345:17352" ph="«" />
+            <marker date="1514106955506" expanded="true" signature="17432:17471" ph="..." />
+            <marker date="1514106955506" expanded="true" signature="17612:17619" ph="»" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/model/ExaminationInformation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/model/ExaminationInformationDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="10" column="38" lean-forward="true" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/controller/restful/ExaminationInformController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/service/interfaces/ExaminationInformService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/examination_list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1288">
+          <caret line="214" column="46" lean-forward="true" selection-start-line="214" selection-start-column="46" selection-end-line="214" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/admin/examination_detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="86" column="28" lean-forward="true" selection-start-line="86" selection-start-column="28" selection-end-line="86" selection-end-column="28" />
+          <folding>
+            <element signature="e#5856#5898#0" expanded="false" />
+            <element signature="e#5945#5984#0" expanded="false" />
+            <element signature="e#6524#6850#0" expanded="false" />
+            <element signature="e#6881#7294#0" expanded="false" />
+            <element signature="e#7339#7483#0" expanded="false" />
+            <element signature="e#7511#7553#0" expanded="false" />
+            <element signature="e#7580#7749#0" expanded="false" />
+            <element signature="e#8286#8644#0" expanded="false" />
+            <element signature="e#9595#9745#0" expanded="false" />
+            <element signature="e#9782#9824#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ben/quiz/domain/repository/impl/StudentInformRepositoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="90" column="8" lean-forward="true" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/admin/examination_list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="99" column="5" lean-forward="true" selection-start-line="83" selection-start-column="3" selection-end-line="99" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/examination/student_list_create.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="40" column="82" lean-forward="false" selection-start-line="40" selection-start-column="74" selection-end-line="40" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/admin/student_list_create.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="187" column="0" lean-forward="true" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
           <folding />
         </state>
       </provider>

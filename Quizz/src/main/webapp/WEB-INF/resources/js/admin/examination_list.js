@@ -67,7 +67,7 @@ var ExaminationList = function () {
 
     }
     function cleanTable(){
-        $("#table_content").html("<tr><td colspan='2'>"+noData+"</td></tr>");
+        $("#table-content").html("<tr><td colspan='2'>"+noData+"</td></tr>");
         $("#txtPageCount").empty();
         $("#txtPageNavigator").empty();
     }
@@ -82,13 +82,13 @@ var ExaminationList = function () {
     }
 
     function searchSuccess(res) {
-        $("#table_content").empty();
+        $("#table-content").empty();
         let data = $.map(res, function (value) {
             return [value];
         });
         for (let i = 0; i < data.length; i++) {
             data[i]["index"] = (((page.currentPage - 1) * page.rowPerPage) + i + 1).toString();
-            $("#table_content").append(template7.compileList(data[i]));
+            $("#table-content").append(template7.compileList(data[i]));
         }
         countIndexExamination()
     }
@@ -139,7 +139,8 @@ var ExaminationList = function () {
         init : init,
         deleteOne: deleteOne,
         showDetail: showDetail,
-        showDelete: showDelete
+        showDelete: showDelete,
+        changePage : changePage
     }
 }();
 

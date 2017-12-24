@@ -6,6 +6,8 @@ import com.ben.quiz.domain.dto.request.ExaminationInformationSearchReq;
 import com.ben.quiz.domain.dto.request.PagingReq;
 import com.ben.quiz.domain.dto.result.ExaminationInformationDto;
 import com.ben.quiz.domain.model.ExaminationInformation;
+import com.ben.quiz.domain.model.ExaminationInformationDetail;
+import com.ben.quiz.domain.model.ExaminationInformationDetail_;
 
 import java.util.List;
 
@@ -26,4 +28,7 @@ public interface ExaminationInformService {
     ExaminationInformation update(ExaminationInformationSaveReq saveReq) throws QuizException ;
 
     void delete( Integer iExaminationInformationPk)throws QuizException ;
+
+    List<ExaminationInformationDetail> findDetailExamination(Integer iExaminationInformationPk, PagingReq pagingReq)throws QuizException;
+    Long countDetailExamination(Integer iExaminationInformationPk) throws QuizException;
 }

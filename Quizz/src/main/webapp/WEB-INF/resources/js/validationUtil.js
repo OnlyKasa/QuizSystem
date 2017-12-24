@@ -62,10 +62,11 @@ var validUtil = {
                         if(!validUtil.isValueIsEmpty(selector.val())){
                             value = $('#' + id).val().trim();
                         }
-                        if(value.length < min || value.length > max){
+                        if(value < min || value > max){
                             validUtil.disposeTooltip(validUtil.getInvalidMessage(selector)
                                 , validUtil.getToolTipAttr(selector));
-                            validUtil.showError('#'+id, validUtil.getNullMessage(selector));
+                            let mess = "Dữ liệu phải nằm trong khoàng : " + min +"đến :"+max ;
+                            validUtil.showError('#'+id,mess);
                             formIsOK = false;
                             selector.focus();
                         }

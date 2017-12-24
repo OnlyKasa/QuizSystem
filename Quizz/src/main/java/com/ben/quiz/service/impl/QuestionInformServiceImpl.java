@@ -103,6 +103,17 @@ public class QuestionInformServiceImpl implements QuestionInformService {
         }
         return questionInformDtos;
     }
+
+    @Override
+    public List<QuestionInformDto> findBySubjectID(Integer iSubjectInformationPk, PagingReq pagingReq) throws QuizException {
+        return questionInformRepository.findBySubjectID(iSubjectInformationPk,pagingReq);
+    }
+
+    @Override
+    public Long countBySubjectID(Integer iSubjectInformationPk) throws QuizException {
+        return questionInformRepository.countBySubjectID(iSubjectInformationPk);
+    }
+
     @Transactional
     @Override
     public QuestionInformation create(QuestionInformSaveReq saveReq) throws QuizException {
