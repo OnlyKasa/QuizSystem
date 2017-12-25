@@ -226,5 +226,4 @@
         <put-attribute name="body" value="/WEB-INF/views/admin/faculty/faculty_detail.jsp"/>
     </definition>
 
-
 </tiles-definitions>
