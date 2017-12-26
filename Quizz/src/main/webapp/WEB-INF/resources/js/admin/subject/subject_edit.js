@@ -1,4 +1,4 @@
-var ExaminationEdit= function () {
+var SubjectCreate = function () {
 
     let template7 ={
         confirmUpdate: Template7.compile($("#templateConfirm").html())
@@ -71,5 +71,5 @@ var ExaminationEdit= function () {
 }();
 
 $(document).ready(function () {
-    ExaminationEdit.init();
+    SubjectCreate.init();
 });

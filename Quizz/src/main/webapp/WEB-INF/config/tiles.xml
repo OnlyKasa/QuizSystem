@@ -104,7 +104,7 @@
     <definition name="a102_2" extends="base-definition">
         <put-attribute name="menu" value=""/>
         <put-attribute name="title" value="Page detail examination"/>
-        <put-attribute name="body" value="/WEB-INF/views/admin/difficulty/difficulty_detail.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/difficulty/difficulty_list.jsp"/>
     </definition>
     <definition name="a103" extends="base-definition">
         <put-attribute name="menu" value=""/>
@@ -138,7 +138,7 @@
     <definition name="a104_2" extends="base-definition">
         <put-attribute name="menu" value=""/>
         <put-attribute name="title" value="Page detail examination"/>
-        <put-attribute name="body" value="/WEB-INF/views/admin/question/question_detail.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/question/question_list.jsp"/>
     </definition>
     <definition name="a105" extends="base-definition">
         <put-attribute name="menu" value=""/>
@@ -155,7 +155,7 @@
     <definition name="a105_2" extends="base-definition">
         <put-attribute name="menu" value=""/>
         <put-attribute name="title" value="Page detail examination"/>
-        <put-attribute name="body" value="/WEB-INF/views/admin/subject/subject_detail.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/subject/subject_list.jsp"/>
     </definition>
     <definition name="a106" extends="base-definition">
         <put-attribute name="menu" value=""/>
@@ -172,7 +172,7 @@
     <definition name="a106_2" extends="base-definition">
         <put-attribute name="menu" value=""/>
         <put-attribute name="title" value="Page detail examination"/>
-        <put-attribute name="body" value="/WEB-INF/views/admin/student/student_detail.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/student/student_list.jsp"/>
     </definition>
     <definition name="a107" extends="base-definition">
         <put-attribute name="menu" value=""/>
@@ -189,7 +189,7 @@
     <definition name="a107_3" extends="base-definition">
         <put-attribute name="menu" value=""/>
         <put-attribute name="title" value="Page detail examination"/>
-        <put-attribute name="body" value="/WEB-INF/views/admin/teacher/teacher_detail.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/teacher/teacher_list.jsp"/>
     </definition>
     <definition name="a108" extends="base-definition">
         <put-attribute name="menu" value=""/>
@@ -206,7 +206,7 @@
     <definition name="a108_2" extends="base-definition">
         <put-attribute name="menu" value=""/>
         <put-attribute name="title" value="Page detail examination"/>
-        <put-attribute name="body" value="/WEB-INF/views/admin/room/room_detail.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/room/room_list.jsp"/>
     </definition>
     <definition name="a109" extends="base-definition">
         <put-attribute name="menu" value=""/>
@@ -223,7 +223,7 @@
     <definition name="a109_2" extends="base-definition">
         <put-attribute name="menu" value=""/>
         <put-attribute name="title" value="Page detail examination"/>
-        <put-attribute name="body" value="/WEB-INF/views/admin/faculty/faculty_detail.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/faculty/faculty_list.jsp"/>
     </definition>
 
 </tiles-definitions>
