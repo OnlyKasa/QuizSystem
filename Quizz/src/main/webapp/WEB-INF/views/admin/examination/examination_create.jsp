@@ -240,7 +240,7 @@
 
                             <tr>
                                 <th>Tên gíao viên tổ chức</th>
-                                <td>{{strTeacherInformationFirstName}} {{strTeacherInformationLastName}}</td>
+                                <td>{{strTeacherInformationName}}</td>
                             </tr>
 
                             <tr>
@@ -254,7 +254,7 @@
                             </tr>
                             <tr>
                                 <th>Phòng thi</th>
-                                <td>{{strExaminationRoom}}</td>
+                                <td>{{strExaminationRoomName}}</td>
                             </tr>
 
                         </table>

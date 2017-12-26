@@ -5,13 +5,13 @@ var QuestionEdit = function () {
     };
 
     let url = {
-      urlUpdate : contextPath + "/examination/update",
-      urlFindOne : contextPath + "/examination/find/ID" + iExaminationInformationPk
+      urlUpdate : contextPath + "/question/update",
+      urlFindOne : contextPath + "/question/find/ID" + iQuestionInformationPk
     };
     function init() {
         console.log("inint");
         $("#btnConfirm").click(function () {
-            validUtil.autoValidation("form-update-teacher","submit");
+            validUtil.autoValidation("form-update-question","submit");
         });
 
         loadOld();
@@ -22,27 +22,59 @@ var QuestionEdit = function () {
         executeGetNew(url.urlFindOne,findSuccess, findError);
     }
     function findSuccess(res) {
-        $("#strExaminationInformationCode").val(res.strExaminationInformationCode);
-        $("#strExaminationRoomName").val(res.strExaminationRoomName);
+
+        $("#iQuestionInformationLevel").val(res.iQuestionInformationLevel);
+
+        $("#strQuestionContentInformation").val(res.strQuestionContentInformation);
+
+        $("#strAnswer1").val(res.strAnswer1);
+        $("#strAnswer2").val(res.strAnswer2);
+        $("#strAnswer3").val(res.strAnswer3);
+        $("#strAnswer4").val(res.strAnswer4);
+        $("#strAnswer5").val(res.strAnswer5);
+
+        if(res.strTrueAnswer == res.strAnswer1){
+            $("#check-strAnswer1").prop("checked", true);
+        }
+        if(res.strTrueAnswer == res.strAnswer2){
+            $("#check-strAnswer2").prop("checked", true);
+        }if(res.strTrueAnswer == res.strAnswer3){
+            $("#check-strAnswer3").prop("checked", true);
+        }
+        if(res.strTrueAnswer == res.strAnswer4){
+            $("#check-strAnswer4").prop("checked", true);
+        }
+        if(res.strTrueAnswer == res.strAnswer5){
+            $("#check-strAnswer5").prop("checked", true);
+        }
+
         $("#strSubjectInformationName").val(res.strSubjectInformationName);
+        $("#strSubjectInformationName").attr("iSubjectInformationPk", res.iTeacherInformationPk);
+
         if(res.strTeacherInformationFirstName != null || res.strTeacherInformationLastName != null)
             $("#strTeacherInformationName").val(res.strTeacherInformationFirstName +" "+ res.strTeacherInformationLastName);
-        $("#dtExaminationDay").val(reFormatDateTime(res.dtExaminationDay));
-        $("#strRateDifficultyName").val(res.strRateDifficultyName);
-        $("#iTestInformationTime").val(res.iTestInformationTime);
+        $("#strTeacherInformationName").attr("iTeacherInformationPk", res.iTeacherInformationPk);
+
+
     }
     function findError(err) {
         display(err.responseText);
     }
     function submit() {
         let newdata = {
-            strExaminationInformationCode:$("#strExaminationInformationCode").val().trim() ,
-            iExaminationRoomPk:  $("#strExaminationRoomName").attr("iExaminationRoomPk").trim(),
+            iQuestionInformationLevel:$("#iQuestionInformationLevel").val(),
+            strQuestionContentInformation:  $("#strQuestionContentInformation").val().trim(),
             iSubjectInformationPk: $("#strSubjectInformationName").attr("iSubjectInformationPk").trim(),
             iTeacherInformationPk: $("#strTeacherInformationName").attr("iTeacherInformationPk").trim(),
-            dtExaminationDay:formatNormalDateTime($("#dtExaminationDay").val()),
-            iRateOfDifficultyPk: $("#strRateDifficultyName").attr("iRateOfDifficultyPk").trim(),
-            iTestInformationTime: $("#iTestInformationTime").val().trim()
+            strAnswer1: $("#strAnswer1").val().trim(),
+            strAnswer2: $("#strAnswer2").val().trim(),
+            strAnswer3: $("#strAnswer3").val().trim(),
+            strAnswer4: $("#strAnswer4").val().trim(),
+            strAnswer5: $("#strAnswer5").val().trim(),
+            strTrueAnswer: $("#strAnswer"+check).val().trim(),
+            strSubjectInformationName:$("#strSubjectInformationName").val().trim(),
+            strTeacherInformationName:$("#strTeacherInformationName").val().trim(),
+            vcQuestionInformationLevel:$("#iQuestionInformationLevel :checked").text()
         };
 
         $("#modal-confirm").modal("show");
@@ -58,7 +90,7 @@ var QuestionEdit = function () {
 
 
     function updateSuccess() {
-        displayUpdated("admin","a101");
+        displayUpdated("admin","a104");
     }
 
     function updateError(err) {

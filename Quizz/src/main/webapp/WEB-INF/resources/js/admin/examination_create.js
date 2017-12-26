@@ -23,7 +23,13 @@ var ExaminationCreate = function () {
             iTeacherInformationPk: $("#strTeacherInformationName").attr("iTeacherInformationPk").trim(),
             dtExaminationDay:formatNormalDateTime($("#dtExaminationDay").val()),
             iRateOfDifficultyPk: $("#strRateDifficultyName").attr("iRateOfDifficultyPk").trim(),
-            iTestInformationTime: $("#iTestInformationTime").val().trim()
+            iTestInformationTime: $("#iTestInformationTime").val().trim(),
+
+            strExaminationRoomName: $("#strExaminationRoomName").val().trim(),
+            strSubjectInformationName:$("#strSubjectInformationName").val().trim(),
+            strRateDifficultyName:$("#strRateDifficultyName").val().trim(),
+            strTeacherInformationName:$("#strTeacherInformationName").val().trim()
+
         };
 
         $("#modal-confirm").modal("show");

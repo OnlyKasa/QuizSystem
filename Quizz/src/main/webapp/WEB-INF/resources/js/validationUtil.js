@@ -44,6 +44,27 @@ var validUtil = {
                     break;
             }
         });
+        $("#"+formId+" textarea["+tagNullable+"='false']").each(function(index,item){
+            var nullValidType = validUtil.getNullValidTypeAttr($(this));
+            var id = this.id;
+            switch(nullValidType) {
+                case validTypeOnPress:
+                    break;
+                default:
+                    validUtil.hideError('#'+id);
+                    let selector = $('#'+id);
+                    lstValidFunc.push(function(){
+                        if(validUtil.isValueIsEmpty(selector.val())){
+                            validUtil.disposeTooltip(validUtil.getNullMessage(selector)
+                                , validUtil.getToolTipAttr(selector));
+                            validUtil.showError('#'+id, validUtil.getNullMessage(selector));
+                            formIsOK = false;
+                            selector.focus();
+                        }
+                    });
+                    break;
+            }
+        });
         //For min-max validation
         $("#"+formId+" input[min]").each(function(){
             var validType = validUtil.getValidTypeAttr($(this));

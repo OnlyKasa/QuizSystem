@@ -24,11 +24,18 @@ var ExaminationEdit= function () {
     function findSuccess(res) {
         $("#strExaminationInformationCode").val(res.strExaminationInformationCode);
         $("#strExaminationRoomName").val(res.strExaminationRoomName);
+        $("#strExaminationRoomName").attr("iExaminationRoomPk", res.iExaminationRoomPk);
+
         $("#strSubjectInformationName").val(res.strSubjectInformationName);
+        $("#strSubjectInformationName").attr("iSubjectInformationPk", res.iTeacherInformationPk);
+
         if(res.strTeacherInformationFirstName != null || res.strTeacherInformationLastName != null)
             $("#strTeacherInformationName").val(res.strTeacherInformationFirstName +" "+ res.strTeacherInformationLastName);
+        $("#strTeacherInformationName").attr("iTeacherInformationPk", res.iTeacherInformationPk);
+
         $("#dtExaminationDay").val(reFormatDateTime(res.dtExaminationDay));
         $("#strRateDifficultyName").val(res.strRateDifficultyName);
+        $("#strRateDifficultyName").attr("iRateOfDifficultyPk", res.iRateOfDifficultyPk);
         $("#iTestInformationTime").val(res.iTestInformationTime);
     }
     function findError(err) {
@@ -42,7 +49,13 @@ var ExaminationEdit= function () {
             iTeacherInformationPk: $("#strTeacherInformationName").attr("iTeacherInformationPk").trim(),
             dtExaminationDay:formatNormalDateTime($("#dtExaminationDay").val()),
             iRateOfDifficultyPk: $("#strRateDifficultyName").attr("iRateOfDifficultyPk").trim(),
-            iTestInformationTime: $("#iTestInformationTime").val().trim()
+            iTestInformationTime: $("#iTestInformationTime").val().trim(),
+
+            strExaminationRoomName: $("#strExaminationRoomName").val().trim(),
+            strSubjectInformationName:$("#strSubjectInformationName").val().trim(),
+            strRateDifficultyName:$("#strRateDifficultyName").val().trim(),
+            strTeacherInformationName:$("#strTeacherInformationName").val().trim()
+
         };
 
         $("#modal-confirm").modal("show");

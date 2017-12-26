@@ -5,25 +5,32 @@ var QuestionCreate = function () {
     };
 
     let url = {
-      urlAdd : contextPath + "/examination/create"
+      urlAdd : contextPath + "/question/create"
     };
     function init() {
         $("#btnConfirm").click(function () {
-            validUtil.autoValidation("form-create-teacher","submit");
+            validUtil.autoValidation("form-create-question","submit");
         });
 
     }
 
 
     function submit() {
+        let check = $('input[name="checkTrue"]:checked').val();
         let newdata = {
-            strExaminationInformationCode:$("#strExaminationInformationCode").val().trim() ,
-            iExaminationRoomPk:  $("#strExaminationRoomName").attr("iExaminationRoomPk").trim(),
+            iQuestionInformationLevel:$("#iQuestionInformationLevel").val(),
+            strQuestionContentInformation:  $("#strQuestionContentInformation").val().trim(),
             iSubjectInformationPk: $("#strSubjectInformationName").attr("iSubjectInformationPk").trim(),
             iTeacherInformationPk: $("#strTeacherInformationName").attr("iTeacherInformationPk").trim(),
-            dtExaminationDay:formatNormalDateTime($("#dtExaminationDay").val()),
-            iRateOfDifficultyPk: $("#strRateDifficultyName").attr("iRateOfDifficultyPk").trim(),
-            iTestInformationTime: $("#iTestInformationTime").val().trim()
+            strAnswer1: $("#strAnswer1").val().trim(),
+            strAnswer2: $("#strAnswer2").val().trim(),
+            strAnswer3: $("#strAnswer3").val().trim(),
+            strAnswer4: $("#strAnswer4").val().trim(),
+            strAnswer5: $("#strAnswer5").val().trim(),
+            strTrueAnswer: $("#strAnswer"+check).val().trim(),
+            strSubjectInformationName:$("#strSubjectInformationName").val().trim(),
+            strTeacherInformationName:$("#strTeacherInformationName").val().trim(),
+            vcQuestionInformationLevel:$("#iQuestionInformationLevel :checked").text()
         };
 
         $("#modal-confirm").modal("show");
@@ -39,7 +46,7 @@ var QuestionCreate = function () {
 
 
     function addSuccess() {
-        displayCreated("admin","a101");
+        displayCreated("admin","a104");
     }
 
     function addError(err) {
