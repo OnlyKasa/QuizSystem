@@ -1,8 +1,5 @@
 package com.ben.quiz.domain.dto.result;
 
-import com.ben.quiz.domain.model.ExaminationInformation;
-import com.ben.quiz.domain.model.StudentInformation;
-
 import java.sql.Timestamp;
 
 public class TestInformationDto {

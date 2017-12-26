@@ -51,12 +51,6 @@ var ExaminationDetail = function () {
     function init(){
         loadOldExamination();
         loadOldDetailExamination();
-        setTimeout(function () {
-            loadQuestion();
-        },1000);
-        setTimeout(function () {
-            loadDifficulty();
-        },1000);
 
 
         $("#btnAddStudent").click(function () {
@@ -74,12 +68,15 @@ var ExaminationDetail = function () {
             calculatorNumberQuestion();
         });
 
+        console.log({iExaminationInformationPk :iExaminationInformationPk,
+            numberStudent: $("#numberStudent").val(), percentMatch:$("#numberPercent").val()});
         $("#btnRepageAddStudent").click(function () {
             if(!($("#numQuestionLv1").html()< curentDetail.numQuestionLv1)
             && !($("#numQuestionLv2").html()< curentDetail.numQuestionLv2)
                 && !($("#numQuestionLv3").html()< curentDetail.numQuestionLv3)
                 && !($("#numQuestionLv4").html()< curentDetail.numQuestionLv4)
             ){
+
                 redirectPage("admin","a101_4",{iExaminationInformationPk :iExaminationInformationPk,
                     numberStudent: $("#numberStudent").val(), percentMatch:$("#numberPercent").val()});
             }else
@@ -157,6 +154,8 @@ var ExaminationDetail = function () {
             $("#btnAddStudent").attr('disabled','disabled');
             $("#preventAddStudent").html("Kỳ thi đã được diễn ra.");
         }
+        loadQuestion();
+        loadDifficulty();
     }
     function findError(err) {
         display(err.responseText);

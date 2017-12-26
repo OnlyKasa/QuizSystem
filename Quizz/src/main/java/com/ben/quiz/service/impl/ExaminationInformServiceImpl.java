@@ -1,11 +1,15 @@
 package com.ben.quiz.service.impl;
 
+import com.ben.quiz.domain.common.constant.CodeConst;
 import com.ben.quiz.domain.common.constant.SequenceConst;
 import com.ben.quiz.domain.common.exception.QuizException;
+import com.ben.quiz.domain.dto.request.CreateListTestsReq;
 import com.ben.quiz.domain.dto.request.ExaminationInformationSaveReq;
 import com.ben.quiz.domain.dto.request.ExaminationInformationSearchReq;
 import com.ben.quiz.domain.dto.request.PagingReq;
+import com.ben.quiz.domain.dto.result.ExaminationInformationDetailDto;
 import com.ben.quiz.domain.dto.result.ExaminationInformationDto;
+import com.ben.quiz.domain.dto.result.TestInformationDetailDto;
 import com.ben.quiz.domain.model.*;
 import com.ben.quiz.domain.repository.interfaces.*;
 import com.ben.quiz.service.interfaces.ExaminationInformService;
@@ -30,7 +34,8 @@ public class ExaminationInformServiceImpl implements ExaminationInformService {
     private TeacherInformRepository teacherInformRepository;
     private RateOfDifficultyRepository rateOfDifficultyRepository;
     private StudentInformRepository studentInformRepository;
-    private ExaminationInformDetailRepository examinationInformDetailRepository;
+    private TestInformRepository testInformRepository;
+    private final TestInformationDetailRepository testInformationDetailRepository ;
 
 
     @Autowired
@@ -43,7 +48,7 @@ public class ExaminationInformServiceImpl implements ExaminationInformService {
                                         TeacherInformRepository teacherInformRepository,
                                         RateOfDifficultyRepository rateOfDifficultyRepository,
                                         StudentInformRepository studentInformRepository,
-                                        ExaminationInformDetailRepository examinationInformDetailRepository) {
+                                        TestInformRepository testInformRepository, TestInformationDetailRepository testInformationDetailRepository) {
         this.modelMapper = modelMapper;
         this.utilRepository = utilRepository;
         this.userRepository = userRepository;
@@ -53,7 +58,8 @@ public class ExaminationInformServiceImpl implements ExaminationInformService {
         this.teacherInformRepository = teacherInformRepository;
         this.rateOfDifficultyRepository = rateOfDifficultyRepository;
         this.studentInformRepository = studentInformRepository;
-        this.examinationInformDetailRepository = examinationInformDetailRepository;
+        this.testInformRepository = testInformRepository;
+        this.testInformationDetailRepository = testInformationDetailRepository;
     }
 
     @Override
@@ -182,9 +188,6 @@ public class ExaminationInformServiceImpl implements ExaminationInformService {
             examinationInformation.setTeacherInformationByITeacherInformationPk(
                     teacherInformRepository.findOne(TeacherInformation.class,saveReq.getiTeacherInformationPk()));
         }
-
-
-        CreateDetailExamination(saveReq.getListiStudentInformationPk(),saveReq.getiExaminationInformationPk());
         return examinationInformRepository.add(examinationInformation);
     }
 
@@ -196,13 +199,77 @@ public class ExaminationInformServiceImpl implements ExaminationInformService {
 
         modelMapper.map(saveReq,examinationInformation);
         modelMapper.map(examinationInformationDto,examinationInformation);
+        
         examinationInformation.setiExaminationInformationPkEk(examinationInformation.getiExaminationInformationPk());
-        UpdateListStudentForExaminationInformation(saveReq.getListiStudentInformationPk(),
-                saveReq.getListDeleteiStudentInformationPk(),
-                saveReq.getiExaminationInformationPk());
         return examinationInformRepository.save(examinationInformation);
     }
 
+    @Override
+    public void createStudentAndTest(CreateListTestsReq saveReq) throws QuizException {
+
+        for (Integer idStudent:saveReq.getiStudentInformationPk()
+             ) {
+            DeleteTest(idStudent,saveReq.getiExaminationInformationPk());
+
+            TestInformation testInformation = testInformRepository.add(generateTestInformation(idStudent,saveReq.getiExaminationInformationPk()));
+
+            for (List<Integer> idQuestion:saveReq.getiQuestionInformationPk()
+                 ) {
+                generateTestInformationDetail(idQuestion,testInformation.getiTestInformationPk());
+            }
+        }
+    }
+    private void generateTestInformationDetail(List<Integer> iQuestionInformations,Integer iTestInformationPk ){
+
+        for (Integer iQuestionInformation:iQuestionInformations
+             ) {
+            TestInformationDetail testInformationDetail = new TestInformationDetail();
+            testInformationDetail.setiQuestionInformationPk(iQuestionInformation);
+            testInformationDetail.setiTestInformationDetailPk(iTestInformationPk);
+            testInformationDetail.setiTestInformationDetailPk(utilRepository.findSequenceNextval(SequenceConst.TEST_INFORMATION_DETAIL_SEQ).intValue());
+            testInformationDetail.setiTestDetailInformationPkEk(testInformationDetail.getiTestInformationDetailPk());
+            testInformationDetailRepository.add(testInformationDetail);
+        }
+    }
+    private void DeleteTest(Integer iStudentInformationPk,Integer iExaminationInformationPk) throws QuizException {
+        try {
+            ExaminationInformationDetailDto result = testInformRepository.findByStudentPkAndExaminationPk(iStudentInformationPk, iExaminationInformationPk);
+
+            DeleteDetailTest(result.getiTestInformationPk());
+            testInformRepository.delete(TestInformation.class,result.getiTestInformationPk());
+        }catch (QuizException e){
+            if(e.getErrorCode() != CodeConst.ErrorCode.Err_Deleted_Record){
+                throw new QuizException(e.getErrorCode(),"Error system");
+            }
+        }
+    }
+
+    private void DeleteDetailTest(Integer iTestInformationPk) throws QuizException {
+       List<TestInformationDetailDto> results = testInformationDetailRepository.findByTestInformationPk(iTestInformationPk);
+        for (TestInformationDetailDto result: results
+             ) {
+            testInformationDetailRepository.delete(TestInformationDetail.class,result.getiTestInformationDetailPk());
+        }
+    }
+
+    private TestInformation generateTestInformation(Integer iStudentInformationPk,Integer iExaminationInformationPk) throws QuizException {
+        TestInformation testInformation = new TestInformation();
+        testInformation.setiTestInformationPk(
+                utilRepository.findSequenceNextval(SequenceConst.TEST_INFORMATION_SEQ).intValue());
+
+        testInformation.setiTestInformationPkEk(testInformation.getiTestInformationPk());
+
+        testInformation.setiExaminationInformationPk(iExaminationInformationPk);
+
+        testInformation.setiStudentInformationPk(iStudentInformationPk);
+
+        testInformation.setStudentInformationByIStudentInformationPk(studentInformRepository.findOne(StudentInformation.class,iStudentInformationPk));
+
+        testInformation.setExaminationInformationByIExaminationInformationPk(
+                examinationInformRepository.findOne(ExaminationInformation.class,
+                        iExaminationInformationPk));
+        return testInformation ;
+    }
     @Transactional
     @Override
     public void delete(Integer iExaminationInformationPk) throws QuizException {
@@ -214,56 +281,12 @@ public class ExaminationInformServiceImpl implements ExaminationInformService {
     }
 
     @Override
-    public List<ExaminationInformationDetail> findDetailExamination(Integer iExaminationInformationPk,PagingReq pagingReq) throws QuizException {
-        return examinationInformDetailRepository.findByExamination(iExaminationInformationPk,pagingReq);
+    public List<ExaminationInformationDetailDto> findDetailExamination(Integer iExaminationInformationPk, PagingReq pagingReq) throws QuizException {
+        return testInformRepository.findTestByExaminationID(iExaminationInformationPk,pagingReq);
     }
 
     @Override
     public Long countDetailExamination(Integer iExaminationInformationPk) throws QuizException {
-        return examinationInformDetailRepository.countByExamination(iExaminationInformationPk);
-    }
-
-    private void CreateDetailExamination(List<Integer> ListiStudentInformationPk,
-                                         Integer iExaminationInformationPk) throws QuizException {
-
-        for (Integer iStudentInformationPk :ListiStudentInformationPk) {
-            ExaminationInformationDetail examinationInformationDetail = new ExaminationInformationDetail();
-            examinationInformationDetail.setiExaminationInformationDetailPk(
-                    utilRepository.findSequenceNextval(SequenceConst.EXAMINATION_INFORMATION_DETAIL_SEQ).intValue()
-            );
-            examinationInformationDetail.setiExaminationInformationDetailPkEk(examinationInformationDetail.getiExaminationInformationDetailPk());
-            StudentInformation studentInformation = modelMapper.map(studentInformRepository.findByID(iStudentInformationPk),
-                    StudentInformation.class);
-
-            examinationInformationDetail.setStudentInformationByIStudentInformationPk(studentInformation);
-            examinationInformationDetail.setiStudentInformationPk(studentInformation.getiStudentInformationPk());
-            ExaminationInformation examinationInformation = modelMapper.map(examinationInformRepository.findByID(iExaminationInformationPk),
-                    ExaminationInformation.class);
-
-            examinationInformationDetail.setExaminationInformationByIExaminationInformationPk(examinationInformation);
-            examinationInformationDetail.setiStudentInformationPk(examinationInformation.getiExaminationInformationPk());
-
-            examinationInformDetailRepository.add(examinationInformationDetail);
-        }
-
-    }
-
-    private void UpdateListStudentForExaminationInformation(List<Integer> listAddiStudentInformationPk,
-                                                      List<Integer> listDeleteiStudentInformationPk,
-                                                      Integer iExaminationInformationPk) throws QuizException {
-
-        if(listAddiStudentInformationPk.size() != 0){
-            CreateDetailExamination(listAddiStudentInformationPk,iExaminationInformationPk);
-        }
-        if(listDeleteiStudentInformationPk.size() != 0){
-            for (Integer iStudentInformationPk :listDeleteiStudentInformationPk) {
-                ExaminationInformationDetail examinationInformationDetail =
-                        examinationInformDetailRepository.findByStudentPkAndExaminationPk(iStudentInformationPk,
-                                iExaminationInformationPk);
-                //TODO :  if error , may be result have 2 record
-                examinationInformationDetail.setiExaminationInformationDetailPkEk(null);
-                examinationInformDetailRepository.save(examinationInformationDetail);
-            }
-        }
+        return testInformRepository.countTestByExaminationID(iExaminationInformationPk);
     }
 }

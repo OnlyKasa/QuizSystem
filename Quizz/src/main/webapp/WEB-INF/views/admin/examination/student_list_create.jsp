@@ -79,18 +79,61 @@
     <div class="clearfix"></div>
 </nav>
 
-
 <div id="modal-detail" class="modal modal-style-1 fade" role="dialog">
+    <div class="modal-dialog box-medium">
+        <!-- Modal content-->
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title heading-1">Chi tiết thêm mới</h4>
+            </div>
+
+            <div class="modal-body">
+                    <div class="box-shadow-radius overflow-h">
+                        <div class="scrollx-xs">
+                            <table class="table-border-2 table-short table-xs th-nomarl">
+                                <colgroup>
+                                    <col class="col-number" />
+                                    <col />
+                                    <col />
+                                    <col />
+                                    <col class="col-button" />
+                                </colgroup>
+                                <tr>
+                                    <th class="first-child">STT</th>
+                                    <th><a>Mã sinh viên </a></th>
+                                    <th><a>Họ và tên sinh viên</a></th>
+                                    <th><a>Tên khoa</a></th>
+                                    <th class="last-child">
+                                    </th>
+                                </tr>
+                                <tbody id="table-confirm-content"></tbody>
+                              </table>
+                        </div><!-- /.scroll -->
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <div class="btn-modal">
+                    <button class="btn btn-delete btn-confirm btn-medium btn-fa" id="confirm-add" >
+                        Xác nhận
+                    </button>
+                </div>
+                <div class="btn-modal">
+                    <button type="button" class="btn btn-gray btn-medium" data-dismiss="modal">Hủy bỏ</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
 
 
 <script id="template-student-content" type="text/template7">
     <tr>
-        <td class="txt-center">1</td>
+        <td class="txt-center">{{index}}</td>
         <td>
-            <a class="txt-green border" data-toggle="modal" data-target="#modal-detail" id="showDetail('{{iStudentInformationPk}}');">
-                {{strStudentInformationCode}}
-            </a>
+            {{strStudentInformationCode}}
         </td>
         <td>{{strStudentInformationFirstName}} {{strStudentInformationLastName}}</td>
         <td>{{strFacultyInformationFullName}}</td>
@@ -106,4 +149,4 @@
     var numberStudent = ${numberStudent};
     var percentMatch = ${percentMatch};
 </script>
-<script src="${pageContext.request.contextPath}/js/admin/examination_detail.js"></script>
+<script src="${pageContext.request.contextPath}/js/admin/student_list_create.js"></script>

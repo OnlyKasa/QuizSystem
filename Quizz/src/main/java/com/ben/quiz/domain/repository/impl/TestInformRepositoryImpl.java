@@ -5,6 +5,7 @@ import com.ben.quiz.domain.common.exception.QuizException;
 import com.ben.quiz.domain.common.util.SQLUtil;
 import com.ben.quiz.domain.dto.request.PagingReq;
 import com.ben.quiz.domain.dto.request.TestInformationSearchReq;
+import com.ben.quiz.domain.dto.result.ExaminationInformationDetailDto;
 import com.ben.quiz.domain.dto.result.TestInformationDto;
 import com.ben.quiz.domain.model.*;
 import com.ben.quiz.domain.repository.interfaces.TestInformRepository;
@@ -130,4 +131,80 @@ public class TestInformRepositoryImpl extends BaseRepositoryImpl implements Test
             throw new QuizException(CodeConst.ErrorCode.Err_Deleted_Record, CodeConst.ErrorMess.Err_Deleted_Record);
         }
     }
+
+    @Override
+    public List<ExaminationInformationDetailDto> findTestByExaminationID(Integer iExaminationInformationPk,
+                                                                   PagingReq pagingReq) throws QuizException {
+        final CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        final CriteriaQuery<TestInformation> criteriaQuery = criteriaBuilder.createQuery(TestInformation.class);
+        final Root<TestInformation> entityRoot = criteriaQuery.from(TestInformation.class);
+
+        List<Predicate> predicates = new ArrayList<>() ;
+        predicates.add(criteriaBuilder.equal(entityRoot.get(TestInformation_.iExaminationInformationPk),
+                iExaminationInformationPk));
+        predicates.add(criteriaBuilder.isNotNull(entityRoot.get(TestInformation_.iTestInformationPkEk)));
+
+        criteriaQuery.select(entityRoot)
+                .where(predicates.toArray(new Predicate[predicates.size()]));
+
+        final TypedQuery<TestInformation> query = entityManager.createQuery(criteriaQuery);
+        if (pagingReq.getPage() > 0) {
+            query.setFirstResult((pagingReq.getPage() - 1) * pagingReq.getRowPerPage());
+            query.setMaxResults(pagingReq.getRowPerPage());
+        }
+        List<ExaminationInformationDetailDto>examinationInformationDetailDtos = new ArrayList<>() ;
+        List<TestInformation> testInformations = query.getResultList();
+        for (TestInformation testInformation:testInformations) {
+            examinationInformationDetailDtos.add(convertToDto(testInformation));
+        }
+
+        return examinationInformationDetailDtos;
+    }
+
+    @Override
+    public long countTestByExaminationID(Integer iExaminationInformationPk) throws QuizException {
+        final CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        final CriteriaQuery<Long> criteriaQuery = criteriaBuilder.createQuery(Long.class);
+        final Root<TestInformation> entityRoot = criteriaQuery.from(TestInformation.class);
+
+        List<Predicate> predicates = new ArrayList<>() ;
+        predicates.add(criteriaBuilder.equal(entityRoot.get(TestInformation_.iExaminationInformationPk),
+                iExaminationInformationPk));
+        predicates.add(criteriaBuilder.isNotNull(entityRoot.get(TestInformation_.iTestInformationPkEk)));
+
+        criteriaQuery.select(criteriaBuilder.count(entityRoot))
+                .where(predicates.toArray(new Predicate[predicates.size()]));
+        final TypedQuery<Long> query = entityManager.createQuery(criteriaQuery);
+        return query.getSingleResult();
+    }
+
+    @Override
+    public ExaminationInformationDetailDto findByStudentPkAndExaminationPk(Integer iStudentInformationPk, Integer iExaminationInformationPk) throws QuizException {
+        final CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        final CriteriaQuery<TestInformation> criteriaQuery = criteriaBuilder.createQuery(TestInformation.class);
+        final Root<TestInformation> entityRoot = criteriaQuery.from(TestInformation.class);
+
+        List<Predicate> predicates = new ArrayList<>() ;
+        predicates.add(criteriaBuilder.equal(entityRoot.get(TestInformation_.iStudentInformationPk),
+                iStudentInformationPk));
+        predicates.add(criteriaBuilder.equal(entityRoot.get(TestInformation_.iExaminationInformationPk),
+                iExaminationInformationPk));
+        predicates.add(criteriaBuilder.isNotNull(entityRoot.get(TestInformation_.iTestInformationPkEk)));
+
+        criteriaQuery.select(entityRoot)
+                .where(predicates.toArray(new Predicate[predicates.size()]));
+
+        final TypedQuery<TestInformation> query = entityManager.createQuery(criteriaQuery);
+        try {
+            return (convertToDto( query.getSingleResult()));
+        }catch (Exception e){
+            throw new QuizException(CodeConst.ErrorCode.Err_Deleted_Record, CodeConst.ErrorMess.Err_Deleted_Record);
+        }
+    }
+
+    private ExaminationInformationDetailDto convertToDto(TestInformation testInformation){
+      return   modelMapper.map(testInformation,ExaminationInformationDetailDto.class);
+    }
+
+
 }

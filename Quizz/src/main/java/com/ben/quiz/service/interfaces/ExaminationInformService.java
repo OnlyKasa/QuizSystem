@@ -1,13 +1,13 @@
 package com.ben.quiz.service.interfaces;
 
 import com.ben.quiz.domain.common.exception.QuizException;
+import com.ben.quiz.domain.dto.request.CreateListTestsReq;
 import com.ben.quiz.domain.dto.request.ExaminationInformationSaveReq;
 import com.ben.quiz.domain.dto.request.ExaminationInformationSearchReq;
 import com.ben.quiz.domain.dto.request.PagingReq;
+import com.ben.quiz.domain.dto.result.ExaminationInformationDetailDto;
 import com.ben.quiz.domain.dto.result.ExaminationInformationDto;
 import com.ben.quiz.domain.model.ExaminationInformation;
-import com.ben.quiz.domain.model.ExaminationInformationDetail;
-import com.ben.quiz.domain.model.ExaminationInformationDetail_;
 
 import java.util.List;
 
@@ -26,9 +26,9 @@ public interface ExaminationInformService {
     ExaminationInformation create(ExaminationInformationSaveReq saveReq) throws QuizException ;
 
     ExaminationInformation update(ExaminationInformationSaveReq saveReq) throws QuizException ;
-
+    void createStudentAndTest(CreateListTestsReq saveReq) throws QuizException;
     void delete( Integer iExaminationInformationPk)throws QuizException ;
 
-    List<ExaminationInformationDetail> findDetailExamination(Integer iExaminationInformationPk, PagingReq pagingReq)throws QuizException;
+    List<ExaminationInformationDetailDto> findDetailExamination(Integer iExaminationInformationPk, PagingReq pagingReq)throws QuizException;
     Long countDetailExamination(Integer iExaminationInformationPk) throws QuizException;
 }

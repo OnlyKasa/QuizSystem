@@ -87,7 +87,7 @@
 
 <script id="template-table-student" type="text/template7">
     <tr>
-        <td class="txt-center">1</td>
+        <td class="txt-center">{{}}</td>
         <td>
             {{strStudentInformationCode}}
         </td>

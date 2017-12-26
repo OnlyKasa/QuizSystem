@@ -5,6 +5,7 @@ import com.ben.quiz.domain.common.exception.QuizException;
 import com.ben.quiz.domain.dto.request.PagingReq;
 import com.ben.quiz.domain.dto.request.TestInformationSaveReq;
 import com.ben.quiz.domain.dto.request.TestInformationSearchReq;
+import com.ben.quiz.domain.dto.result.TestInformationDetailDto;
 import com.ben.quiz.domain.dto.result.TestInformationDto;
 import com.ben.quiz.domain.model.*;
 import com.ben.quiz.domain.repository.interfaces.*;
@@ -118,7 +119,6 @@ public class TestInformServiceImpl implements TestInformService {
             testInformation.setExaminationInformationByIExaminationInformationPk(
                     examinationInformRepository.findOne(ExaminationInformation.class,saveReq.getiExaminationInformationPk()));
         }
-        CreateListQuestionForTestInformation(saveReq.getListiQuestionInformationPk(),saveReq.getiTestInformationPk());
         return testInformRepository.add(testInformation);
     }
 
@@ -142,8 +142,7 @@ public class TestInformServiceImpl implements TestInformService {
                     examinationInformRepository.findOne(ExaminationInformation.class,saveReq.getiExaminationInformationPk()));
         }
         testInformation.setiTestInformationPkEk(testInformation.getiTestInformationPk());
-        UpdateListQuestionForTestInformation(saveReq.getListiQuestionInformationPk(),
-                saveReq.getListDeleteiQuestionInformationPk(),saveReq.getiTestInformationPk());
+
         return testInformRepository.save(testInformation);
     }
 
@@ -155,46 +154,6 @@ public class TestInformServiceImpl implements TestInformService {
 
         testInformation.setiTestInformationPkEk(null);
         testInformRepository.save(testInformation);
-    }
-
-    private void CreateListQuestionForTestInformation(List<Integer> listiQuestionInformationPk,
-                                                      Integer iTestInformationPk) throws QuizException {
-        for (Integer iQuestionInformationPk :listiQuestionInformationPk) {
-            TestInformationDetail testInformationDetail = new TestInformationDetail();
-            testInformationDetail.setiTestInformationDetailPk(
-                    utilRepository.findSequenceNextval(SequenceConst.TEST_INFORMATION_DETAIL_SEQ).intValue()
-            );
-            testInformationDetail.setiTestDetailInformationPkEk(testInformationDetail.getiTestInformationDetailPk());
-            QuestionInformation questionInformation = modelMapper.map(questionInformRepository.findByID(iQuestionInformationPk),
-                    QuestionInformation.class);
-
-            testInformationDetail.setQuestionInformationByIQuestionInformationPk(questionInformation);
-            testInformationDetail.setiQuestionInformationPk(questionInformation.getiQuestionInformationPk());
-            TestInformation testInformation = modelMapper.map(examinationInformRepository.findByID(iTestInformationPk),
-                    TestInformation.class);
-
-            testInformationDetail.setTestInformationByITestInformationPk(testInformation);
-            testInformationDetail.setiTestInformationPk(testInformation.getiTestInformationPk());
-            testInformationDetailRepository.add(testInformationDetail);
-        }
-
-    }
-    private void UpdateListQuestionForTestInformation(List<Integer> listAddiQuestionInformationPk,
-                                                      List<Integer> listDeleteiQuestionInformationPk,
-                                                      Integer iTestInformationPk) throws QuizException {
-
-        if(listAddiQuestionInformationPk.size() != 0){
-            CreateListQuestionForTestInformation(listAddiQuestionInformationPk,iTestInformationPk);
-        }
-        if(listDeleteiQuestionInformationPk.size() != 0){
-            for (Integer iQuestionInformationPk :listDeleteiQuestionInformationPk) {
-                TestInformationDetail testInformationDetail =
-                        testInformationDetailRepository.findByQuestionPkAndTestInformPk(iQuestionInformationPk,iTestInformationPk);
-                //TODO :  if error , may be result have 2 record
-                testInformationDetail.setiTestDetailInformationPkEk(null);
-                testInformationDetailRepository.save(testInformationDetail);
-            }
-        }
     }
 
 

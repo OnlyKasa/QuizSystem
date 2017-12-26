@@ -122,7 +122,7 @@
 
             <div class="row row-small layout mt20 pa20">
                 <div class="col-xs-12 col-sm-inline padding-small">
-                    <button class="btn btn-green">Danh sách sinh viên</button>
+                    <button class="btn btn-green"  onclick="redirectPage('admin','a101_3','{{iExaminationInformationPk}}')">Danh sách sinh viên</button>
                 </div>
             </div>
             <div class="modal-body">
@@ -214,7 +214,7 @@
 
             <div class="row row-small layout mt20 pa20">
                 <div class="col-xs-12 col-sm-inline padding-small">
-                    <button class="btn btn-green">Danh sách sinh viên</button>
+                    <button class="btn btn-green" onclick="redirectPage('admin','a101_3','{{iExaminationInformationPk}}')">Danh sách sinh viên</button>
                 </div>
             </div>
             <div class="modal-body">

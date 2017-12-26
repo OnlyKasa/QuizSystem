@@ -138,7 +138,7 @@
 
 <script type="text/template7" id="template-table-question">
     <tr>
-        <td class="txt-center">1</td>
+        <td class="txt-center">{{index}}</td>
         <td>
             <a class="txt-green border" data-toggle="modal" data-target="#modal-detail">
                {{strQuestionContentInformation}}

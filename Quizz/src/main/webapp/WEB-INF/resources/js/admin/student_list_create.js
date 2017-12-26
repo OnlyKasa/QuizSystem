@@ -20,7 +20,9 @@ var StudentListCreate= function () {
         urlFindOneExamination : contextPath + "/examination/find/ID" + iExaminationInformationPk,
         urlListOldStudentInExamination : contextPath + "/findDetailExamination/"+ iExaminationInformationPk,
         urlCountStudent:contextPath+"/student/count",
-        urlSearchStudent:contextPath +"/student/search"
+        urlSearchStudent:contextPath +"/student/search",
+        urlFindStudentById: contextPath+"/student/find/ID",
+        urlAddTestAndStudent: contextPath +"/createStudentAndTest"
     };
 
     let page = {
@@ -40,24 +42,35 @@ var StudentListCreate= function () {
 
     function init() {
         loadOldExamination();
-        setTimeout(function () {
-            loadDifficulty();
-        },1000);
-        setTimeout(function () {
-            findQuestion();
-        },3000);
         getListStudentOld();
-
         search() ;
         $("#btnSearch").click(function () {
             search() ;
         });
+
+        $("#add-list").click(function () {
+            $("#modal-detail").modal("show");
+            if(listStudentChecked.length == 0){
+                $("#table-confirm-content").html("<tr><td colspan='2'>"+noData+"</td></tr>");
+                $("#confirm-add").attr("disabled","disabled");
+            }
+            for(let i = 0 ; i< listStudentChecked.length;i++){
+                let iStudentInformationPk = listStudentChecked[i];
+                executeGetNew(url.urlFindStudentById + iStudentInformationPk,findSuccessStudent,display )
+            }
+
+
+            $("#confirm-add").click(function () {
+                showLoading();
+                AddStudentAndTests();
+            });
+        })
     }
 
     function search() {
         inputSearch ={
             strStudentInformationCode: $("#strStudentInformationCode").val(),
-            strFacultyInformationName : $("#strFacultyInformationName").val(),
+            strFacultyInformationFullName : $("#strFacultyInformationFullName").val(),
             strStudentInformationFirstName:$("#strStudentInformationName").val(),
             strStudentInformationLastName:$("#strStudentInformationName").val()
         };
@@ -65,8 +78,9 @@ var StudentListCreate= function () {
     }
 
     function count(inputSearch){
+        console.log(url.urlCountStudent +"?"+ paramEncode(inputSearch));
         executeGetNew(url.urlCountStudent +"?"+ paramEncode(inputSearch),countSuccess,display);
-    };
+    }
     function countSuccess(res){
         if(res >0 ){
             changePage();
@@ -106,6 +120,7 @@ var StudentListCreate= function () {
             data[i]["index"] = (((page.currentPage - 1) * page.rowPerPage) + i + 1).toString();
 
             $("#table-content").append(template7.compileList(data[i]));
+
             if(checkChecked(data[i].iStudentInformationPk)){
                 $("#checkbox-"+data[i].iStudentInformationPk).attr("checked","checked")
             }
@@ -115,9 +130,8 @@ var StudentListCreate= function () {
                     if(!checkChecked(data[i].iStudentInformationPk)){
                         if(listStudentChecked.length > numberStudent){
                             display(mess);
-                            return;
-                        }
-                        listStudentChecked.push(data[i].iStudentInformationPk);
+                        }else
+                            listStudentChecked.push(data[i].iStudentInformationPk);
                     }
                 }else{
                     let index = listStudentChecked.indexOf(data[i].iStudentInformationPk);
@@ -134,10 +148,12 @@ var StudentListCreate= function () {
                     if(!checkChecked(data[i].iStudentInformationPk)){
                         if(listStudentChecked.length > numberStudent){
                             display(mess);
-                            return;
+                            break;
+                        }else {
+                            $("#checkbox-"+data[i].iStudentInformationPk)[0].checked = true;
+                            listStudentChecked.push(data[i].iStudentInformationPk);
                         }
-                        $("#checkbox-"+data[i].iStudentInformationPk)[0].checked = true;
-                        listStudentChecked.push(data[i].iStudentInformationPk);
+
                     }
                 }
             }
@@ -154,18 +170,26 @@ var StudentListCreate= function () {
             }
         });
         countIndexExamination();
-        $("#add-list").click(function () {
-            AddStudentAndTests();
-        })
     }
-    
-    function AddStudentAndTests() {
-        listStudentChecked , listTestForStudent;
-        for(let i =0 ;i< listTestForStudent.length;i++){
 
-        }
+    function findSuccessStudent (res) {
+        $("#table-confirm-content").append(template7.compileList(res));
     }
-    
+    function AddStudentAndTests() {
+        let list = randomGetFromList(listTestForStudent,listStudentChecked.length).listChild;
+
+        let data= {
+        iStudentInformationPk:listStudentChecked,
+        iExaminationInformationPk:iExaminationInformationPk,
+        iQuestionInformationPk:list
+        };
+        let new_data = JSON.stringify(data);
+        executePostNewNon(url.urlAddTestAndStudent,new_data,AddSuccess,display);
+
+    }
+    function AddSuccess () {
+        displayCreated("admin","a101");
+    }
     function searchError(err) {
         display(err.responseText)
     }
@@ -191,7 +215,6 @@ var StudentListCreate= function () {
             display("Có lỗi xảy ra với dữ liệu của kỳ thi. Kiểm tra lại trường đánh giá độ khó.");
             return
         }
-
         executeGetNew(url.urlFindDifficulty +iRateOfDifficultyPk,findSuccessDifficulty,findErrorDifficulty);
 
     }
@@ -223,16 +246,16 @@ var StudentListCreate= function () {
     function findQuestionSuccess(res) {
         for(let i=0 ;i< res.length;i++){
             if(res[i].iQuestionInformationLevel = 1){
-                listQuestionLv1.push(res[i]);
+                listQuestionLv1.push(res[i].iStudentInformationPk);
             }
             if(res[i].iQuestionInformationLevel = 2){
-                listQuestionLv2.push(res[i]);
+                listQuestionLv2.push(res[i].iStudentInformationPk);
             }
             if(res[i].iQuestionInformationLevel = 3){
-                listQuestionLv3.push(res[i]);
+                listQuestionLv3.push(res[i].iStudentInformationPk);
             }
             if(res[i].iQuestionInformationLevel = 4){
-                listQuestionLv4.push(res[i]);
+                listQuestionLv4.push(res[i].iStudentInformationPk);
             }
         }
         listTestsLv1 = getListQuestionForStudents(listQuestionLv1,examination.numQuestionLv1,percentMatch);
@@ -261,6 +284,8 @@ var StudentListCreate= function () {
     function findSuccess(res) {
         iSubjectInformationPk =res.iSubjectInformationPk ;
         iRateOfDifficultyPk =res.iRateOfDifficultyPk;
+        loadDifficulty();
+        findQuestion();
     }
     
     function findError(err) {
