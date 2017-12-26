@@ -5,11 +5,11 @@ var FacultyCreate = function () {
     };
 
     let url = {
-      urlAdd : contextPath + "/examination/create"
+      urlAdd : contextPath + "/faculty/create"
     };
     function init() {
         $("#btnConfirm").click(function () {
-            validUtil.autoValidation("form-create-teacher","submit");
+            validUtil.autoValidation("form-create-faculty","submit");
         });
 
     }
@@ -17,13 +17,8 @@ var FacultyCreate = function () {
 
     function submit() {
         let newdata = {
-            strExaminationInformationCode:$("#strExaminationInformationCode").val().trim() ,
-            iExaminationRoomPk:  $("#strExaminationRoomName").attr("iExaminationRoomPk").trim(),
-            iSubjectInformationPk: $("#strSubjectInformationName").attr("iSubjectInformationPk").trim(),
-            iTeacherInformationPk: $("#strTeacherInformationName").attr("iTeacherInformationPk").trim(),
-            dtExaminationDay:formatNormalDateTime($("#dtExaminationDay").val()),
-            iRateOfDifficultyPk: $("#strRateDifficultyName").attr("iRateOfDifficultyPk").trim(),
-            iTestInformationTime: $("#iTestInformationTime").val().trim()
+            strFacultyInformationShortName:$("#strFacultyInformationShortName").val().trim() ,
+            strFacultyInformationFullName:  $("#strFacultyInformationFullName").val().trim()
         };
 
         $("#modal-confirm").modal("show");
@@ -39,7 +34,7 @@ var FacultyCreate = function () {
 
 
     function addSuccess() {
-        displayCreated("admin","a101");
+        displayCreated("admin","a109");
     }
 
     function addError(err) {

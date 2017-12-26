@@ -109,6 +109,10 @@ var DifficultyList = function () {
         $("#modal-delete").modal("show");
         $("#modal-delete").html(template7.compileModalDelete(res));
     }
+
+    function getError(err) {
+        display(err.responseText);
+    }
     return{
         init : init,
         deleteOne: deleteOne,

@@ -5,13 +5,13 @@ var FacultyEdit = function () {
     };
 
     let url = {
-      urlUpdate : contextPath + "/examination/update",
-      urlFindOne : contextPath + "/examination/find/ID" + iExaminationInformationPk
+      urlUpdate : contextPath + "/faculty/update",
+      urlFindOne : contextPath + "/faculty/find/ID" + iFacultyInformationPk
     };
     function init() {
         console.log("inint");
         $("#btnConfirm").click(function () {
-            validUtil.autoValidation("form-update-teacher","submit");
+            validUtil.autoValidation("form-update-faculty","submit");
         });
 
         loadOld();
@@ -22,27 +22,16 @@ var FacultyEdit = function () {
         executeGetNew(url.urlFindOne,findSuccess, findError);
     }
     function findSuccess(res) {
-        $("#strExaminationInformationCode").val(res.strExaminationInformationCode);
-        $("#strExaminationRoomName").val(res.strExaminationRoomName);
-        $("#strSubjectInformationName").val(res.strSubjectInformationName);
-        if(res.strTeacherInformationFirstName != null || res.strTeacherInformationLastName != null)
-            $("#strTeacherInformationName").val(res.strTeacherInformationFirstName +" "+ res.strTeacherInformationLastName);
-        $("#dtExaminationDay").val(reFormatDateTime(res.dtExaminationDay));
-        $("#strRateDifficultyName").val(res.strRateDifficultyName);
-        $("#iTestInformationTime").val(res.iTestInformationTime);
+        $("#strFacultyInformationShortName").val(res.strFacultyInformationShortName);
+        $("#strFacultyInformationFullName").val(res.strFacultyInformationFullName);
     }
     function findError(err) {
         display(err.responseText);
     }
     function submit() {
         let newdata = {
-            strExaminationInformationCode:$("#strExaminationInformationCode").val().trim() ,
-            iExaminationRoomPk:  $("#strExaminationRoomName").attr("iExaminationRoomPk").trim(),
-            iSubjectInformationPk: $("#strSubjectInformationName").attr("iSubjectInformationPk").trim(),
-            iTeacherInformationPk: $("#strTeacherInformationName").attr("iTeacherInformationPk").trim(),
-            dtExaminationDay:formatNormalDateTime($("#dtExaminationDay").val()),
-            iRateOfDifficultyPk: $("#strRateDifficultyName").attr("iRateOfDifficultyPk").trim(),
-            iTestInformationTime: $("#iTestInformationTime").val().trim()
+            strFacultyInformationShortName:$("#strFacultyInformationShortName").val().trim() ,
+            strFacultyInformationFullName:  $("#strFacultyInformationFullName").val().trim(),
         };
 
         $("#modal-confirm").modal("show");
@@ -58,7 +47,7 @@ var FacultyEdit = function () {
 
 
     function updateSuccess() {
-        displayUpdated("admin","a101");
+        displayUpdated("admin","a109");
     }
 
     function updateError(err) {
