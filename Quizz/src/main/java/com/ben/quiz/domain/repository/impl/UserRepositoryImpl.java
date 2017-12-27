@@ -55,6 +55,42 @@ public class UserRepositoryImpl extends BaseRepositoryImpl implements UserReposi
     }
 
     @Override
+    public Seiuser findSeiuserByiStudentPk(Integer iStudentInformationPk) throws QuizException {
+
+            final CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+            final CriteriaQuery<Seiuser> criteriaQuery = builder.createQuery(Seiuser.class);
+            final Root<Seiuser> root = criteriaQuery.from(Seiuser.class);
+            Predicate predicate = builder.and(
+                    builder.equal(root.get(Seiuser_.iStudentInformationPk), iStudentInformationPk));
+            criteriaQuery.select(root)
+                    .where(predicate);
+            final TypedQuery<Seiuser> typedQuery = entityManager.createQuery(criteriaQuery);
+            try {
+                return typedQuery.getSingleResult();
+            } catch (NoResultException ex) {
+                throw new QuizException(CodeConst.ErrorCode.ERR_099, CodeConst.Authentication.LOGIN_ERROR_USER_NOT_EXISTS);
+            }
+
+    }
+
+    @Override
+    public Seiuser findSeiuserByiTeacherPk(Integer iTeacherInformationPk) throws QuizException {
+        final CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+        final CriteriaQuery<Seiuser> criteriaQuery = builder.createQuery(Seiuser.class);
+        final Root<Seiuser> root = criteriaQuery.from(Seiuser.class);
+        Predicate predicate = builder.and(
+                builder.equal(root.get(Seiuser_.iTeacherInformationPk), iTeacherInformationPk));
+        criteriaQuery.select(root)
+                .where(predicate);
+        final TypedQuery<Seiuser> typedQuery = entityManager.createQuery(criteriaQuery);
+        try {
+            return typedQuery.getSingleResult();
+        } catch (NoResultException ex) {
+            throw new QuizException(CodeConst.ErrorCode.ERR_099, CodeConst.Authentication.LOGIN_ERROR_USER_NOT_EXISTS);
+        }
+    }
+
+    @Override
     public boolean isExistUserid(String username) throws QuizException {
         final CriteriaBuilder builder = entityManager.getCriteriaBuilder();
         final CriteriaQuery<Long> criteriaQuery = builder.createQuery(Long.class);

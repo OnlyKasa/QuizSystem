@@ -184,7 +184,7 @@
                 </div>
                 <div class="btn-modal">
                     <button type="button" class="btn btn-detail-delete btn-gray"
-                            onclick="ExaminationList.showDelete();" >Xóa</button>
+                            onclick="ExaminationList.showDelete('{{iQuestionInformationPk}}');" >Xóa</button>
                 </div>
                 <div class="btn-modal">
                     <button type="button" class="btn btn-gray" data-dismiss="modal">Trở lại</button>
@@ -309,7 +309,7 @@
         <td class="txt-center">
             <button class="btn btn-update btn-small"
                     onclick="redirectPage('admin','a104_1','{{iQuestionInformationPk}}');" >Sửa</button><br/>
-            <button class="btn btn-delete btn-small mt5" onclick="QuestionList.showDelete();">Xóa</button>
+            <button class="btn btn-delete btn-small mt5" onclick="QuestionList.showDelete('{{iQuestionInformationPk}}');">Xóa</button>
         </td>
     </tr>
 </script>

@@ -1,7 +1,5 @@
 package com.ben.quiz.domain.dto.result;
 
-import com.ben.quiz.domain.model.FacultyInformation;
-
 import java.sql.Date;
 
 public class StudentInformDto {
@@ -15,8 +13,6 @@ public class StudentInformDto {
 
     private String strFacultyInformationShortName;
     private String strFacultyInformationFullName;
-
-
 
     public int getiStudentInformationPk() {
         return iStudentInformationPk;

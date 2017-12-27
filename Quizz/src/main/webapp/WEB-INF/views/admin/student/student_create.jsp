@@ -4,16 +4,17 @@
 <%@ page session="false"%>
 <%@ page isELIgnored="false"%>
 
-<h1 class="heading-1 margin-bottom background"><span>Thêm mới kỳ thi</span></h1>
+<h1 class="heading-1 margin-bottom background"><span>Thêm mới sinh viên</span></h1>
 
-<div class="box-x-medium">
-    <form id="form-create-teacher" action="javascript:void(0);">
+<div class="box-x-medium">strFacultyInformationShortName
+    <form id="form-create-student" action="javascript:void(0);">
         <section class="form-border box-shadow-radius mt-default">
-            <h3 class="heading-3">Thông tin kỳ thi</h3>
+            <h3 class="heading-3">Thông tin sinh viên</h3>
+
             <div class="form-content first-child row">
                 <div class="col-xs-9 col-sm-4 col-md-30p">
                     <div class="form-label">
-                        <label>Mã kỳ thi</label>
+                        <label>Mã sinh viên</label>
                     </div>
                 </div>
 
@@ -24,17 +25,16 @@
                 </div>
 
                 <div class="col-xs-12 col-sm-7 col-md-65p">
-                    <input class="form-control" type="text" nullable="false" id="strExaminationInformationCode"/>
-                    <p class="message-error" id="strExaminationInformationCodeErr"> </p>
+                    <input class="form-control" type="text" readonly="readonly" value="Tự sinh sau khi lưu"
+                           id="iStudentInformationCode"/>
                 </div>
-
             </div>
 
 
             <div class="form-content first-child row">
                 <div class="col-xs-9 col-sm-4 col-md-30p">
                     <div class="form-label">
-                        <label>Ngày giờ tổ chức thi</label>
+                        <label>Họ sinh viên</label>
                     </div>
                 </div>
 
@@ -45,15 +45,14 @@
                 </div>
 
                 <div class="col-xs-12 col-sm-7 col-md-65p">
-                    <input id="dtExaminationDay" class="form-control bootstrap-calendar-3" type="text" nullable="false"/>
-                    <p class="message-error" id="dtExaminationDayErr"> </p>
+                    <input class="form-control" type="text" id="strStudentInformationLastName" nullable="false"/>
+                    <p class="message-error" id="strStudentInformationLastNameErr"> </p>
                 </div>
-
             </div>
             <div class="form-content first-child row">
                 <div class="col-xs-9 col-sm-4 col-md-30p">
                     <div class="form-label">
-                        <label>Thời gian làm bài</label>
+                        <label>Tên sinh viên</label>
                     </div>
                 </div>
 
@@ -64,18 +63,37 @@
                 </div>
 
                 <div class="col-xs-12 col-sm-7 col-md-65p">
-                    <input id="iTestInformationTime" class="form-control" type="text" input-type="number" valid="true" nullable="false"/>
-                    <p class="message-error" id="iTestInformationTimeErr"> </p>
+                    <input class="form-control" type="text" id="strStudentInformationFirstName" nullable="false"/>
+                    <p class="message-error" id="strStudentInformationFirstNameErr"> </p>
+                </div>
+            </div>
+
+            <div class="form-content first-child row">
+                <div class="col-xs-9 col-sm-4 col-md-30p">
+                    <div class="form-label">
+                        <label>Ngày sinh</label>
+                    </div>
+                </div>
+
+                <div class="col-xs-3 col-sm-1 col-md-5p clear-p-sm">
+                    <div class="form-required form-required-sm">
+                        <span class="required ">yc</span>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-7 col-md-65p">
+                    <input class="form-control bootstrap-calendar-1" type="text" id="dtStudentInformationBirthday" nullable="false"/>
+                    <p class="message-error" id="dtStudentInformationBirthdayErr"> </p>
                 </div>
             </div>
         </section><!-- /.form-border -->
         <section class="form-border box-shadow-radius mt-default">
-            <h3 class="heading-3">Thông tin thêm cho kỳ thi</h3>
+            <h3 class="heading-3">Thông tin thêm cho sinh viên</h3>
 
             <div class="form-content last-child row">
                 <div class="col-xs-9 col-sm-4 col-md-30p">
                     <div class="form-label">
-                        <label>Giáo viên tổ chức </label>
+                        <label>Khoa</label>
                     </div>
                 </div>
 
@@ -88,99 +106,21 @@
                 <div class="col-xs-12 col-sm-7 col-md-65p">
                     <div class="row">
                         <div class="col-xs-8 col-sm-9 col-lg-80p">
-                            <input  id="strTeacherInformationName" class="form-control" type="text" readonly="readonly" nullable="false" />
-                            <p class="message-error" id="strTeacherInformationNameErr"> </p>
+                            <input  id="strFacultyInformationName" class="form-control" type="text" readonly="readonly" nullable="false" />
+                            <p class="message-error" id="strFacultyInformationNameErr"> </p>
                         </div>
 
                         <div class="col-xs-4 col-sm-3 col-lg-20p clear-p-l">
-                            <button class="btn btn-green btn-form w100p" onclick="showTeacher();">Lựa chọn</button>
+                            <button class="btn btn-green btn-form w100p"type="button" onclick="showFaculty();">Lựa chọn</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="form-content last-child row">
-                <div class="col-xs-9 col-sm-4 col-md-30p">
-                    <div class="form-label">
-                        <label>Môn học</label>
-                    </div>
-                </div>
-
-                <div class="col-xs-3 col-sm-1 col-md-5p clear-p-sm">
-                    <div class="form-required form-required-sm">
-                        <span class="required">yc</span>
-                    </div>
-                </div>
-
-                <div class="col-xs-12 col-sm-7 col-md-65p">
-                    <div class="row">
-                        <div class="col-xs-8 col-sm-9 col-lg-80p">
-                            <input id="strSubjectInformationName" class="form-control" type="text" readonly="readonly" nullable="false" />
-                            <p class="message-error" id="strSubjectInformationNameErr"> </p>
-                        </div>
-
-                        <div class="col-xs-4 col-sm-3 col-lg-20p clear-p-l">
-                            <button class="btn btn-green btn-form w100p" onclick="showSubject();">Lựa chọn</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-content last-child row">
-                <div class="col-xs-9 col-sm-4 col-md-30p">
-                    <div class="form-label">
-                        <label>Phòng thi </label>
-                    </div>
-                </div>
-
-                <div class="col-xs-3 col-sm-1 col-md-5p clear-p-sm">
-                    <div class="form-required form-required-sm">
-                        <span class="required">yc</span>
-                    </div>
-                </div>
-
-                <div class="col-xs-12 col-sm-7 col-md-65p">
-                    <div class="row">
-                        <div class="col-xs-8 col-sm-9 col-lg-80p">
-                            <input  id="strExaminationRoomName" class="form-control" type="text" readonly="readonly" nullable="false" />
-                            <p class="message-error" id="strExaminationRoomNameErr"> </p>
-                        </div>
-
-                        <div class="col-xs-4 col-sm-3 col-lg-20p clear-p-l">
-                            <button class="btn btn-green btn-form w100p" onclick="showRoom();">Lựa chọn</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-content last-child row">
-                <div class="col-xs-9 col-sm-4 col-md-30p">
-                    <div class="form-label">
-                        <label>Độ khó kỳ thi</label>
-                    </div>
-                </div>
-
-                <div class="col-xs-3 col-sm-1 col-md-5p clear-p-sm">
-                    <div class="form-required form-required-sm">
-                        <span class="required">yc</span>
-                    </div>
-                </div>
-
-                <div class="col-xs-12 col-sm-7 col-md-65p">
-                    <div class="row">
-                        <div class="col-xs-8 col-sm-9 col-lg-80p">
-                            <input id="strRateDifficultyName" class="form-control" type="text" readonly="readonly" nullable="false" />
-                            <p class="message-error" id="strRateDifficultyNameErr"> </p>
-                        </div>
-
-                        <div class="col-xs-4 col-sm-3 col-lg-20p clear-p-l">
-                            <button class="btn btn-green btn-form w100p" onclick="showDifficulty();">Lựa chọn</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <div class="layout main-btn txt-center mt30">
                 <button class="btn btn-green btn-radius" id="btnConfirm">Xác nhận</button>
-                <button class="btn btn-gray btn-radius mt-xs" onclick="redirectPage('admin','a101')">Trỏ về </button>
+                <button class="btn btn-gray btn-radius mt-xs" onclick="redirectPage('admin','a106')" type="button">Trở về </button>
             </div>
         </section>
     </form>
@@ -199,11 +139,11 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title heading-1">Bạn có chắc chắn muốn tạo kỳ thi？</h4>
+                <h4 class="modal-title heading-1">Bạn có chắc chắn muốn tạo sinh viên ？</h4>
             </div>
 
             <div class="modal-body">
-                <h4 class="heading-4 txt-center mb15">Thông tin kỳ thi</h4>
+                <h4 class="heading-4 txt-center mb15">Thông tin sinh viên</h4>
 
                 <div class="box-shadow-radius overflow-h">
                     <div class="scrollx-xs">
@@ -213,18 +153,22 @@
                             </colgroup>
 
                             <tr>
-                                <th>Mã kỳ thi</th>
-                                <td>{{strExaminationInformationCode}}</td>
+                                <th>Mã sinh viên</th>
+                                <td>Mã tự sinh có dạng SV*****</td>
+                            </tr>
+                            <tr>
+                                <th>Họ sinh viên </th>
+                                <td>{{strStudentInformationLastName}}</td>
+                            </tr>
+                            <tr>
+                                <th>Tên sinh viên </th>
+                                <td>{{strStudentInformationFirstName}}</td>
+                            </tr>
+                            <tr>
+                                <th>Ngày sinh </th>
+                                <td>{{dtStudentInformationBirthday}}</td>
                             </tr>
 
-                            <tr>
-                                <th>Ngày / giờ tổ chức thi</th>
-                                <td>{{dtExaminationDay}}</td>
-                            </tr>
-                            <tr>
-                                <th>Thời gian làm bài thi</th>
-                                <td>{{iTestInformationTime}}</td>
-                            </tr>
                         </table>
                     </div>
                 </div>
@@ -237,26 +181,10 @@
                             <colgroup>
                                 <col class="col-xs-5 col-sm-4" />
                             </colgroup>
-
                             <tr>
-                                <th>Tên gíao viên tổ chức</th>
-                                <td>{{strTeacherInformationFirstName}} {{strTeacherInformationLastName}}</td>
+                                <th>Khoa</th>
+                                <td>{{strFacultyInformationName}}</td>
                             </tr>
-
-                            <tr>
-                                <th>Môn học</th>
-                                <td>{{strSubjectInformationName}}</td>
-                            </tr>
-
-                            <tr>
-                                <th>Tên độ khó</th>
-                                <td>{{strRateDifficultyName}}</td>
-                            </tr>
-                            <tr>
-                                <th>Phòng thi</th>
-                                <td>{{strExaminationRoom}}</td>
-                            </tr>
-
                         </table>
                     </div><!-- /.scroll -->
                 </div><!-- /.box-shadow-radius -->
@@ -275,7 +203,7 @@
 </script>
 
 
-<script src="${pageContext.request.contextPath}/js/admin/examination_create.js"></script>
+<script src="${pageContext.request.contextPath}/js/admin/student/student_create.js"></script>
 
 
 

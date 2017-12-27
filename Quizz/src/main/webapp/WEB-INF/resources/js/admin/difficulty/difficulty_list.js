@@ -103,8 +103,7 @@ var DifficultyList = function () {
     }
 
 
-    function showDelete() {
-        let iExaminationInformationPk = $("#iExaminationInformationPk").html();
+    function showDelete(iExaminationInformationPk) {
         executeGetNew(url.detailURL + iExaminationInformationPk,getSuccessDelete, getError)
     }
     function getSuccessDelete(res) {

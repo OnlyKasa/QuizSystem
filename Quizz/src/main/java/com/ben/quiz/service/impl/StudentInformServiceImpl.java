@@ -27,7 +27,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-@Transactional
 @Service("studentService")
 public class StudentInformServiceImpl implements StudentInformService {
 
@@ -89,25 +88,25 @@ public class StudentInformServiceImpl implements StudentInformService {
     public StudentInformation create(StudentInformationSaveReq saveReq) throws QuizException {
         saveReq.setiStudentInformationPk(
                 utilRepository.findSequenceNextval(SequenceConst.STUDENT_INFORMATION_SEQ).intValue());
-        if(saveReq.getUserId() == null || saveReq.getPassword()== null){
-            throw new QuizException(CodeConst.ErrorCode.Err_Not_Null, CodeConst.ErrorMess.Err_Not_Null);
-        }
+        saveReq.setiStudentInformationCode("SV"+saveReq.getiStudentInformationPk());
+        saveReq.setUserId(saveReq.getiStudentInformationCode());
+        saveReq.setPassword(saveReq.getiStudentInformationCode());
+
+
+        saveReq.setiStudentInformationPkEk(saveReq.getiStudentInformationPk());
+        StudentInformation studentInformation = modelMapper.map(saveReq ,StudentInformation.class);
+
+        StudentInformation studentInformation1 = studentInformRepository.add(studentInformation);
         Seiuser seiuser = new Seiuser();
         if(!userRepository.isExistUserid(saveReq.getUserId())){
             seiuser.setiStudentInformationPk(saveReq.getiStudentInformationPk());
+            seiuser.setiTeacherInformationPk(null);
             seiuser.setUserId(saveReq.getUserId());
             seiuser.setPassword(PasswordUtil.genSHAForPassword(saveReq.getPassword()));
             seiuser.setTopMenu(AuthorityConst.STU.CODE);
             userRepository.add(seiuser);
         }
-
-        saveReq.setiStudentInformationPkEk(saveReq.getiStudentInformationPkEk());
-        StudentInformation studentInformation = modelMapper.map(saveReq ,StudentInformation.class);
-        if((saveReq.getiFacultyInformationPk() != 0) || saveReq.getiFacultyInformationPk() !=null) {
-            studentInformation.setFacultyInformationByIFacultyInformationPk(
-                    facultyInformRepository.findByID(saveReq.getiFacultyInformationPk()));
-        }
-        return studentInformRepository.add(studentInformation);
+        return studentInformation1;
     }
 
     @Override
@@ -117,26 +116,19 @@ public class StudentInformServiceImpl implements StudentInformService {
                 studentInformationSaveReq.getiStudentInformationPk());
 
         StudentInformation studentInformation = new StudentInformation();
-        if(studentInformationSaveReq.getUserId() == null){
-            throw new QuizException(CodeConst.ErrorCode.Err_Not_Null, CodeConst.ErrorMess.Err_Not_Null);
-        }
-        Seiuser seiuser;
-        if(userRepository.isExistUserid(studentInformationSaveReq.getUserId())){
-            seiuser = userRepository.findSeiuserByUserid(studentInformationSaveReq.getUserId());
-            String oldPass = seiuser.getPassword() ;
-            if(!Objects.equals(oldPass, PasswordUtil.genSHAForPassword(studentInformationSaveReq.getPassword()))) {
-                seiuser.setPassword(PasswordUtil.genSHAForPassword(studentInformationSaveReq.getPassword()));
-                userRepository.save(seiuser);
+        if(studentInformationSaveReq.getPassword()!= null){
+            Seiuser seiuser;
+            if(userRepository.isExistUserid(studentInformationSaveReq.getiStudentInformationCode())){
+                seiuser = userRepository.findSeiuserByUserid(studentInformationSaveReq.getiStudentInformationCode());
+                String oldPass = seiuser.getPassword() ;
+                if(!Objects.equals(oldPass, PasswordUtil.genSHAForPassword(studentInformationSaveReq.getPassword()))) {
+                    seiuser.setPassword(PasswordUtil.genSHAForPassword(studentInformationSaveReq.getPassword()));
+                    userRepository.save(seiuser);
+                }
             }
-
         }
         modelMapper.map(studentInformationSaveReq,studentInformDto);
         modelMapper.map(studentInformDto,studentInformation);
-        if((studentInformationSaveReq.getiFacultyInformationPk() != 0) || studentInformationSaveReq.getiFacultyInformationPk() !=null)
-        {
-            studentInformation.setFacultyInformationByIFacultyInformationPk(
-                    facultyInformRepository.findByID(studentInformationSaveReq.getiFacultyInformationPk()));
-        }
         studentInformation.setiStudentInformationPkEk(studentInformation.getiStudentInformationPk());
         return studentInformRepository.save(studentInformation);
     }

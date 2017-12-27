@@ -1,12 +1,9 @@
 package com.ben.quiz.domain.dto.request;
 
 
-import com.ben.quiz.domain.common.validation.SpecialCharactersUserInformation;
-
 import javax.validation.constraints.NotNull;
 public class UserLoginReq {
 
-    @SpecialCharactersUserInformation(name="UserName")
     @NotNull
     private String userid;
 

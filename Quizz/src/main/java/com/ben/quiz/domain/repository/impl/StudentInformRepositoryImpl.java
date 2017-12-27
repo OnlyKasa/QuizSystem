@@ -7,11 +7,10 @@ import com.ben.quiz.domain.dto.request.PagingReq;
 import com.ben.quiz.domain.dto.request.StudentInformationSaveReq;
 import com.ben.quiz.domain.dto.request.StudentInformationSearchReq;
 import com.ben.quiz.domain.dto.result.StudentInformDto;
-import com.ben.quiz.domain.model.FacultyInformation;
-import com.ben.quiz.domain.model.FacultyInformation_;
-import com.ben.quiz.domain.model.StudentInformation;
-import com.ben.quiz.domain.model.StudentInformation_;
+import com.ben.quiz.domain.model.*;
 import com.ben.quiz.domain.repository.interfaces.StudentInformRepository;
+import com.ben.quiz.domain.repository.interfaces.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.Tuple;
@@ -23,6 +22,9 @@ import java.util.stream.Collectors;
 
 @Repository("studentRepository")
 public class StudentInformRepositoryImpl extends BaseRepositoryImpl implements StudentInformRepository {
+
+    @Autowired
+    private UserRepository userRepository;
     @Override
     public List<StudentInformDto> search(StudentInformationSearchReq searchReq, PagingReq pagingReq) throws QuizException {
         final CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
@@ -31,6 +33,8 @@ public class StudentInformRepositoryImpl extends BaseRepositoryImpl implements S
         final Join<StudentInformation,FacultyInformation>
                 faculty = entityRoot.join(StudentInformation_.facultyInformationByIFacultyInformationPk
                 , JoinType.LEFT);
+
+
 
         List<Predicate>  predicates = createPredicateForSearchAndCount(criteriaBuilder,
                 entityRoot,
@@ -99,9 +103,11 @@ public class StudentInformRepositoryImpl extends BaseRepositoryImpl implements S
         predicates.add(criteriaBuilder.like(
                 criteriaBuilder.lower(entityRoot.get(StudentInformation_.iStudentInformationCode)),
                 SQLUtil.AllLike(searchReq.getiStudentInformationCode())));
+        if(  searchReq.getDtStudentInformationBirthday() != null){
         predicates.add(criteriaBuilder.equal(
                 entityRoot.get(StudentInformation_.dtStudentInformationBirthday),
                 searchReq.getDtStudentInformationBirthday()));
+        }
 
         return predicates ;
     }

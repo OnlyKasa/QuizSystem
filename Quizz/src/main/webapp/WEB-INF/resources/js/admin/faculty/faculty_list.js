@@ -107,8 +107,7 @@ var FacultyList = function () {
     }
 
 
-    function showDelete() {
-        let iFacultyInformationPk = $("#iFacultyInformationPk").html();
+    function showDelete(iFacultyInformationPk) {
         executeGetNew(url.detailURL + iFacultyInformationPk,getSuccessDelete, getError)
     }
     function getSuccessDelete(res) {

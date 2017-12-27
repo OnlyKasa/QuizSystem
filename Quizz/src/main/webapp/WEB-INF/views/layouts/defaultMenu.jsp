@@ -39,11 +39,11 @@
 </div>
 
 <script id="templateMenuAdmin" type="text/template7">
-    <li id="menu_teacher"  class="first-child">
-        <a href="${pageContext.request.contextPath}/admin/a106">Quản lý giáo viên</a>
+    <li id="menu_student"  class="first-child">
+        <a href="${pageContext.request.contextPath}/admin/a106">Quản lý sinh viên</a>
     </li>
-    <li  id="menu_student" class="normal">
-        <a href="${pageContext.request.contextPath}/admin/a107">Quản lý sinh viên</a>
+    <li  id="menu_teacher" class="normal">
+        <a href="${pageContext.request.contextPath}/admin/a107">Quản lý giáo viên </a>
     </li>
     <li  id="menu_examination" class="normal">
         <a>Quản lý kỳ thi</a>
@@ -74,7 +74,7 @@
 </script>
 <script id="templateMenuTeacher" type="text/template7">
     <li  id="menu_student" class="normal">
-        <a href="${pageContext.request.contextPath}/admin/a107">Quản lý sinh viên</a>
+        <a href="${pageContext.request.contextPath}/admin/a106">Quản lý sinh viên</a>
     </li>
     <li  id="menu_examination" class="normal">
         <a>Quản lý kỳ thi</a>

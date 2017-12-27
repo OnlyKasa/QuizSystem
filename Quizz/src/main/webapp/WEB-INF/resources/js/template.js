@@ -71,7 +71,8 @@ function selectTeacher(iTeacherInformationPk){
     for (var i = 0; i < listTeacher.length; i++) {
         if (listTeacher[i].iTeacherInformationPk == iTeacherInformationPk) {
             $("#strTeacherInformationName").attr("iTeacherInformationPk", listTeacher[i].iTeacherInformationPk);
-            $("#strTeacherInformationName").val(listTeacher[i].strTeacherInformationFirstName+" "+listTeacher[i].strTeacherInformationLastName);
+            $("#strTeacherInformationName").val(
+                listTeacher[i].strTeacherInformationFirstName+" "+listTeacher[i].strTeacherInformationLastName);
             $("#strTeacherInformationNameErr").css("display", "none");
             $("#modal-list").modal("hide");
             return;
@@ -134,7 +135,7 @@ function changePageY(page){
     executeGetNew(urlSearchSubject,searchSuccessY,searchErrorY);
 }
 function searchSuccessY(res) {
-    listTeacher = res;
+    listSubject = res;
     $("#table-content-subject").empty();
     let data = $.map(res, function (value) {
         return [value];
@@ -155,7 +156,7 @@ function searchErrorY(err) {
 function selectSubject(iSubjectInformationPk){
     for (var i = 0; i < listSubject.length; i++) {
         if (listSubject[i].iSubjectInformationPk == iSubjectInformationPk) {
-            $("#strSubjectInformationName").attr("iTeacherInformationPk", listTeacher[i].iSubjectInformationPk);
+            $("#strSubjectInformationName").attr("iSubjectInformationPk", listSubject[i].iSubjectInformationPk);
             $("#strSubjectInformationName").val(listSubject[i].strSubjectInformationName);
             $("#strSubjectInformationNameErr").css("display", "none");
             $("#modal-list").modal("hide");
@@ -321,4 +322,89 @@ function selectRoom(iExaminationRoomPk){
         }
     }
 }
+///Faculty -----------
+var pageF = {
+    currentPage : 1,
+    rowCount : 0,
+    rowPerPage : rowPerPage,
+    pageCount: 0
+};
+var listFaculty ;
+urlCountFaculty = contextPath + "/faculty/count";
+urlSearchFaculty= contextPath + "/faculty/search";
+
+compilePopUpFaculty = Template7.compile($("#template-popup-faculty").html());
+compileContenTableFaculty = Template7.compile($("#template-content-table-faculty").html());
+
+function showFaculty() {
+
+    $("#modal-list").modal("show");
+    $("#modal-list").html(compilePopUpFaculty());
+    countSubject();
+}
+function countSubject() {
+    executeGetNew(urlCountFaculty,countSuccessF, countErrorF)
+}
+function countSuccessF(res) {
+    if(res > 0){
+        changePageF();
+        pageF.rowCount = res;
+        pageF.pageCount = Math.ceil(pageF.rowCount / pageF.rowPerPage);
+
+    }else{
+        clearDataF();
+    }
+
+}
+
+function countErrorF(err) {
+    $("#modal-list").modal("hide");
+    display(err.responseText);
+}
+function clearDataF() {
+    $("#table-content-faculty").empty();
+    $("#table-content-faculty").html("<tr><td colspan='2'>"+noData+"</td></tr>");
+    $("#txtPageCountF").empty();
+    $("#txtPageNavigatorF").empty();
+}
+function changePageF(page){
+    if(typeof page =="undefined"){
+        pageF.currentPage = 1;
+    }
+    executeGetNew(urlSearchFaculty,searchSuccessF,searchErrorF);
+}
+function searchSuccessF(res) {
+    listFaculty = res;
+    $("#table-content-faculty").empty();
+    let data = $.map(res, function (value) {
+        return [value];
+    });
+    for (let i = 0; i < data.length; i++) {
+        $("#table-content-faculty").append(compileContenTableFaculty(data[i]));
+    }
+    countIndexFaculty()
+}
+function countIndexFaculty() {
+    countIndex(pageF.rowCount, pageF.rowPerPage, pageF.currentPage, 'txtPageCountF', 'txtPageNavigatorF',"changePageF");
+}
+function searchErrorF(err) {
+
+    display(err.responseText);
+}
+
+function selectFaculty(iFacultyInformationPk){
+    for (var i = 0; i < listFaculty.length; i++) {
+        if (listFaculty[i].iFacultyInformationPk == iFacultyInformationPk) {
+            $("#strFacultyInformationFullName").attr("iFacultyInformationPk", listFaculty[i].iFacultyInformationPk);
+            $("#strFacultyInformationFullName").val(
+                listFaculty[i].strFacultyInformationFullName
+            );
+            $("#strFacultyInformationFullName").css("display", "none");
+            $("#modal-list").modal("hide");
+            return;
+        }
+    }
+}
+
+
 

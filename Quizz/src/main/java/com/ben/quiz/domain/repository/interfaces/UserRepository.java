@@ -10,5 +10,9 @@ public interface UserRepository extends BaseRepository {
 
     Seiuser findSeiuserByUserid(String username) throws QuizException;
 
+    Seiuser findSeiuserByiStudentPk(Integer iStudentInformationPk)throws QuizException;
+
+    Seiuser findSeiuserByiTeacherPk(Integer iTeacherInformationPk)throws QuizException;
+
     boolean isExistUserid(String username) throws QuizException ;
 }

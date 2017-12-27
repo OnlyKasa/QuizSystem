@@ -49,7 +49,7 @@
             </div>
             <div class="layout main-btn txt-center mt30">
                 <button class="btn btn-green btn-radius" id="btnConfirm">Xác nhận</button>
-                <button class="btn btn-gray btn-radius mt-xs" onclick="redirectPage('admin','a109')">Trỏ về </button>
+                <button class="btn btn-gray btn-radius mt-xs" onclick="redirectPage('admin','a109')" type="button">Trở về </button>
             </div>
         </section><!-- /.form-border -->
     </form>

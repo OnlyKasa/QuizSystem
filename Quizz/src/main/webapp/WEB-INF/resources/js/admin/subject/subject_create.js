@@ -18,7 +18,7 @@ var SubjectCreate = function () {
 
     function submit() {
         let newdata = {
-            strStudentInformationName:$("#strStudentInformationName").val().trim() ,
+            strSubjectInformationName:$("#strSubjectInformationName").val().trim() ,
             iSubjectInformationCreditsNum: $("#iSubjectInformationCreditsNum").val().trim()
         };
 
@@ -43,7 +43,7 @@ var SubjectCreate = function () {
     }
 
     return{
-        init : init
+        init : init, submit: submit
     }
 }();
 

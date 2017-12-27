@@ -143,7 +143,7 @@
         <td class="txt-center">
             <button class="btn btn-update btn-small"
                     onclick="redirectPage('admin','a105_1','{{iSubjectInformationPk}}');" >Sửa</button><br/>
-            <button class="btn btn-delete btn-small mt5" onclick="SubjectList.showDelete();">Xóa</button>
+            <button class="btn btn-delete btn-small mt5" onclick="SubjectList.showDelete('{{iSubjectInformationPk}}');">Xóa</button>
         </td>
     </tr>
 </script>

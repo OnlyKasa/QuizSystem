@@ -104,8 +104,7 @@ var RoomList = function () {
     }
 
 
-    function showDelete() {
-        let iExaminationRoomPk = $("#iExaminationRoomPk").html();
+    function showDelete(iExaminationRoomPk) {
         executeGetNew(url.detailURL + iExaminationRoomPk,getSuccessDelete, getError)
     }
     function getSuccessDelete(res) {

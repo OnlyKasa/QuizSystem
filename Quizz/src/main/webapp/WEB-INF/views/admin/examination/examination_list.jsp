@@ -189,7 +189,7 @@
                 </div>
                 <div class="btn-modal">
                     <button type="button" class="btn btn-detail-delete btn-gray"
-                            onclick="ExaminationList.showDelete();" >Xóa</button>
+                            onclick="ExaminationList.showDelete('{{iExaminationInformationPk}}');" >Xóa</button>
                 </div>
                 <div class="btn-modal">
                     <button type="button" class="btn btn-gray" data-dismiss="modal">Trở lại</button>
@@ -290,7 +290,7 @@
     <tr>
         <td class="txt-center">{{index}}</td>
         <td>
-            <a class="txt-green border" onclick="ExaminationList.showDetail();">
+            <a class="txt-green border" onclick="ExaminationList.showDetail('{{iExaminationInformationPk}}');">
                 {{strExaminationInformationCode}}
             </a>
             <a style="display:none" id="iExaminationInformationPk">{{iExaminationInformationPk}}</a>
@@ -304,7 +304,7 @@
         <td class="txt-center">
             <button class="btn btn-update btn-small"
                     onclick="redirectPage('admin','a101_1','{{iExaminationInformationPk}}');" >Sửa</button><br/>
-            <button class="btn btn-delete btn-small mt5" onclick="ExaminationList.showDelete();">Xóa</button>
+            <button class="btn btn-delete btn-small mt5" onclick="ExaminationList.showDelete('{{iExaminationInformationPk}}');">Xóa</button>
         </td>
     </tr>
 </script>

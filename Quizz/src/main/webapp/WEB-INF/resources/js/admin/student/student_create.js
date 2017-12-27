@@ -5,26 +5,24 @@ var StudentCreate = function () {
     };
 
     let url = {
-      urlAdd : contextPath + "/examination/create"
+      urlAdd : contextPath + "/student/create"
     };
     function init() {
-        validUtil.autoValidation("form-create-teacher",StudentCreate.submit);
+        validUtil.autoValidation("form-create-student",StudentCreate.submit);
         $("#btnConfirm").click(function () {
-            validUtil.autoValidation("form-create-teacher",StudentCreate.submit);
+            validUtil.autoValidation("form-create-student",StudentCreate.submit);
         });
-
     }
 
 
     function submit() {
+
         let newdata = {
-            strExaminationInformationCode:$("#strExaminationInformationCode").val().trim() ,
-            iExaminationRoomPk:  $("#strExaminationRoomName").attr("iExaminationRoomPk").trim(),
-            iSubjectInformationPk: $("#strSubjectInformationName").attr("iSubjectInformationPk").trim(),
-            iTeacherInformationPk: $("#strTeacherInformationName").attr("iTeacherInformationPk").trim(),
-            dtExaminationDay:formatNormalDateTime($("#dtExaminationDay").val()),
-            iRateOfDifficultyPk: $("#strRateDifficultyName").attr("iRateOfDifficultyPk").trim(),
-            iTestInformationTime: $("#iTestInformationTime").val().trim()
+            strStudentInformationLastName:  $("#strStudentInformationLastName").val().trim(),
+            iFacultyInformationPk: $("#strFacultyInformationName").attr("iFacultyInformationPk").trim(),
+            strFacultyInformationName : $("#strFacultyInformationName").val().trim(),
+            strStudentInformationFirstName: $("#strStudentInformationFirstName").val().trim(),
+            dtStudentInformationBirthday:$("#dtStudentInformationBirthday").val()
         };
 
         $("#modal-confirm").modal("show");
@@ -32,15 +30,11 @@ var StudentCreate = function () {
 
         $("#btnAdd").click(function () {
             let data = JSON.stringify(newdata);
-
             executePostNew(url.urlAdd,data,addSuccess, addError);
-
         });
     }
-
-
     function addSuccess() {
-        displayCreated("admin","a101");
+        displayCreated("admin","a106");
     }
 
     function addError(err) {

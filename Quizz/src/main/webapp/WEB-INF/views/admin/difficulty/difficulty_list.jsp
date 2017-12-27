@@ -147,7 +147,7 @@
         <td class="txt-center">
             <button class="btn btn-update btn-small"
                     onclick="redirectPage('admin','a102_1','{{iRateOfDifficultyPk}}');" >Sửa</button><br/>
-            <button class="btn btn-delete btn-small mt5" onclick="DifficultyList.showDelete();">Xóa</button>
+            <button class="btn btn-delete btn-small mt5" onclick="DifficultyList.showDelete('{{iRateOfDifficultyPk}}');">Xóa</button>
         </td>
     </tr>
 </script>

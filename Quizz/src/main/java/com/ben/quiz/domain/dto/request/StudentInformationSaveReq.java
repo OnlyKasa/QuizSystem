@@ -14,8 +14,6 @@ public class StudentInformationSaveReq {
     private Date dtStudentInformationBirthday;
     private Integer iStudentInformationPkEk;
 
-    private FacultyInformation facultyInformationByIFacultyInformationPk;
-
     private String userId ;
     private String password;
 
@@ -93,11 +91,4 @@ public class StudentInformationSaveReq {
         this.iStudentInformationPkEk = iStudentInformationPkEk;
     }
 
-    public FacultyInformation getFacultyInformationByIFacultyInformationPk() {
-        return facultyInformationByIFacultyInformationPk;
-    }
-
-    public void setFacultyInformationByIFacultyInformationPk(FacultyInformation facultyInformationByIFacultyInformationPk) {
-        this.facultyInformationByIFacultyInformationPk = facultyInformationByIFacultyInformationPk;
-    }
 }

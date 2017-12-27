@@ -246,5 +246,57 @@
         <td>{{strExaminationRoomName}}</td>
     </tr>
 </script>
+<script type="text/template7" id="template-popup-faculty">
+<div class="modal-dialog box-medium">
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title heading-1">Thông tin khoa</h4>
+        </div>
 
+        <div class="modal-body">
+            <p id="txtPageCountF" class="txt-small txt-right"></p>
+            <div class="box-shadow-radius overflow-h mt10">
+                <div class="scrollx-xs">
+                    <table class="table-border-1 table-center table-xs th-nomarl">
+                        <colgroup>
+                            <col width="8%" />
+                            <col width="35%" />
+                        </colgroup>
+
+                        <thead>
+                        <tr>
+                            <th>Chọn</th>
+                            <th><a>Tên viết tắt</a></th>
+                            <th><a>Tên khoa</a></th>
+                        </tr>
+                        </thead>
+                        <tbody id="table-content-faculty"></tbody>
+                    </table>
+                </div><!-- /.scroll -->
+            </div><!-- /.bõ-shadow-radius -->
+            <nav aria-label="Page navigation">
+                <ul id="txtPageNavigatorF" class="pagination float-r"></ul>
+                <div class="clearfix"></div>
+            </nav>
+
+        </div><!-- /.modal-body -->
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-gray" data-dismiss="modal">Trở lại</button>
+        </div>
+    </div>
+</div>
+</script>
+<script type="text/template7" id="template-content-table-faculty">
+    <tr>
+        <td class="txt-center">
+            <a class="txt-green border" href="#"
+               onclick="selectFaculty('{{iFacultyInformationPk}}')">Chọn</a>
+        </td>
+        <td>{{strFacultyInformationShortName}}</td>
+        <td>{{strFacultyInformationFullName}}</td>
+    </tr>
+</script>
 <script src="${pageContext.request.contextPath}/js/template.js"></script>

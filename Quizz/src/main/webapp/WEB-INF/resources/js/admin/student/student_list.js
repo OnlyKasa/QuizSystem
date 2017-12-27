@@ -1,16 +1,15 @@
-var ExaminationList = function () {
+var StudentList = function () {
 
 
     let template7 = {
-        compileList : Template7.compile($("#table-template-examination-list").html()) ,
-        compileModalDetail : Template7.compile($("#template-detail-examination-list").html()),
-        compileModalDelete : Template7.compile($("#template-delete-examination-list").html())
+        compileList : Template7.compile($("#table-template-student-list").html()) ,
+        compileModalDelete : Template7.compile($("#template-delete-student-list").html())
     };
     let url = {
-        countListURL : contextPath + "/examination/count",
-        searchListURL : contextPath + "/examination/search",
-        deleteURL : contextPath + "/examination/delete/",
-        detailURL : contextPath + "/examination/find/ID"
+        countListURL : contextPath + "/student/count",
+        searchListURL : contextPath + "/student/search",
+        deleteURL : contextPath + "/student/delete/",
+        detailURL : contextPath + "/student/find/ID"
     };
 
     let page = {
@@ -28,29 +27,21 @@ var ExaminationList = function () {
 
     function init() {
         inputSearch="";
-        $("#menu_examination").addClass("active");
-        $("#sub_menu_examination").addClass("sub-active");
+        $("#menu_student").addClass("active");
 
         search() ;
         $("#btnSearch").click(function () {
             search() ;
         });
-
-
     }
     //==========================================================list==========
     function search() {
         inputSearch ={
-            strExaminationInformationCode: $("#strExaminationInformationCode").val(),
-            strRateDifficultyName: $("#strRateDifficultyName").val(),
-            strExaminationRoomName : $("#strExaminationRoomName").val(),
-            strSubjectInformationName :$("#strSubjectInformationName").val(),
-            strTeacherInformationFirstName:$("#strTeacherInformationFirstName").val(),
-            strTeacherInformationLastName:$("#strTeacherInformationLastName").val()
+            iStudentInformationCode: $("#iStudentInformationCode").val(),
+            strStudentInformationFirstName: $("#strStudentInformationFirstName").val(),
+            strStudentInformationLastName : $("#strStudentInformationLastName").val()
         };
-        if($("#dtExaminationDay").val() != ""){
-          inputSearch["dtExaminationDay"] = formatNormalDateTime($("#dtExaminationDay").val());
-        }
+
         count(inputSearch);
     }
     function count(inputSearch){
@@ -90,21 +81,21 @@ var ExaminationList = function () {
             data[i]["index"] = (((page.currentPage - 1) * page.rowPerPage) + i + 1).toString();
             $("#table-content").append(template7.compileList(data[i]));
         }
-        countIndexExamination()
+        countIndexStudent()
     }
     function searchError(err) {
         display(err.responseText)
     }
-    function countIndexExamination() {
-        countIndex(page.rowCount, page.rowPerPage, page.currentPage, 'txtPageCount', 'txtPageNavigator',"ExaminationList.changePage");
+    function countIndexStudent() {
+        countIndex(page.rowCount, page.rowPerPage, page.currentPage, 'txtPageCount', 'txtPageNavigator',"StudentList.changePage");
     }
 
-    function deleteOne(iExaminationInformationPk) {
-        executeDeleteNew(url.deleteURL + iExaminationInformationPk,deleteSuccess,deleteError);
+    function deleteOne(iStudentInforamtionPk) {
+        executeDeleteNew(url.deleteURL + iStudentInforamtionPk,deleteSuccess,deleteError);
     }
 
     function deleteSuccess() {
-        displayDeleted("admin","a101");
+        displayDeleted("admin","a106");
     }
     function deleteError(err) {
         display(err.responseText);
@@ -112,33 +103,23 @@ var ExaminationList = function () {
 
     //===========================================Show detail
 
-    function showDetail() {
-        console.log("asdasd");
-        let iExaminationInformationPk = $("#iExaminationInformationPk").html();
-        executeGetNew(url.detailURL + iExaminationInformationPk,getSuccessDetail, getError)
-    }
 
-    function getSuccessDetail(res) {
-        $("#modal-detail").modal("show");
-        $("#modal-detail").html(template7.compileModalDetail(res))
-    }
     function getError(err) {
         display(err.responseText);
     }
 
 
-    function showDelete() {
-        let iExaminationInformationPk = $("#iExaminationInformationPk").html();
-        executeGetNew(url.detailURL + iExaminationInformationPk,getSuccessDelete, getError)
+    function showDelete(iStudentInformationPk) {
+        executeGetNew(url.detailURL + iStudentInformationPk,getSuccessDelete, getError)
     }
     function getSuccessDelete(res) {
+        console.log(res);
         $("#modal-delete").modal("show");
         $("#modal-delete").html(template7.compileModalDelete(res));
     }
     return{
         init : init,
         deleteOne: deleteOne,
-        showDetail: showDetail,
         showDelete: showDelete,
         changePage : changePage
     }
@@ -146,6 +127,6 @@ var ExaminationList = function () {
 
 
 $(document).ready(function () {
-    ExaminationList.init() ;
+    StudentList.init() ;
 });
 

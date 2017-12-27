@@ -105,8 +105,7 @@ var SubjectList = function () {
 
 
 
-    function showDelete() {
-        let iSubjectInformationPk = $("#iSubjectInformationPk").html();
+    function showDelete(iSubjectInformationPk) {
         executeGetNew(url.detailURL + iSubjectInformationPk,getSuccessDelete, getError)
     }
     function getSuccessDelete(res) {

@@ -109,8 +109,7 @@ var QuestionList = function () {
 
     //===========================================Show detail
 
-    function showDetail() {
-        let iQuestionInformationPk = $("#iQuestionInformationPk").html();
+    function showDetail(iQuestionInformationPk) {
         executeGetNew(url.detailURL + iQuestionInformationPk,getSuccessDetail, getError)
     }
 
@@ -123,8 +122,7 @@ var QuestionList = function () {
     }
 
 
-    function showDelete() {
-        let iQuestionInformationPk = $("#iQuestionInformationPk").html();
+    function showDelete(iQuestionInformationPk) {
         executeGetNew(url.detailURL + iQuestionInformationPk,getSuccessDelete, getError)
     }
     function getSuccessDelete(res) {

@@ -112,9 +112,7 @@ var ExaminationList = function () {
 
     //===========================================Show detail
 
-    function showDetail() {
-        console.log("asdasd");
-        let iExaminationInformationPk = $("#iExaminationInformationPk").html();
+    function showDetail(iExaminationInformationPk) {
         executeGetNew(url.detailURL + iExaminationInformationPk,getSuccessDetail, getError)
     }
 
@@ -127,8 +125,7 @@ var ExaminationList = function () {
     }
 
 
-    function showDelete() {
-        let iExaminationInformationPk = $("#iExaminationInformationPk").html();
+    function showDelete(iExaminationInformationPk) {
         executeGetNew(url.detailURL + iExaminationInformationPk,getSuccessDelete, getError)
     }
     function getSuccessDelete(res) {

@@ -192,7 +192,7 @@
                         </div>
 
                         <div class="col-xs-4 col-sm-3 col-lg-20p clear-p-l">
-                            <button class="btn btn-green btn-form w100p"
+                            <button class="btn btn-green btn-form w100p" type="button"
                                    onclick="showTeacher();">Lựa chọn</button>
                         </div>
                     </div>
@@ -221,7 +221,7 @@
                         </div>
 
                         <div class="col-xs-4 col-sm-3 col-lg-20p clear-p-l">
-                            <button class="btn btn-green btn-form w100p" onclick="showSubject();">Lựa chọn</button>
+                            <button class="btn btn-green btn-form w100p" type="button" onclick="showSubject();">Lựa chọn</button>
                         </div>
                     </div>
                 </div>
@@ -229,7 +229,7 @@
 
             <div class="layout main-btn txt-center mt30">
                 <button class="btn btn-green btn-radius" id="btnConfirm">Xác nhận</button>
-                <button class="btn btn-gray btn-radius mt-xs" onclick="redirectPage('admin','a104')">Trỏ về </button>
+                <button class="btn btn-gray btn-radius mt-xs" onclick="redirectPage('admin','a104')" type="button">Trở về </button>
             </div>
         </section>
     </form>
