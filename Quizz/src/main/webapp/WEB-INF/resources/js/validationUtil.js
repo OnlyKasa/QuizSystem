@@ -22,8 +22,9 @@ const defaultMessNull = "Trường này là trường bắt buộc ko được �
 //Library
 var validUtil = {
     autoValidation: function (formId, submitFunc){
+        let oldLeng= 0;
         //For null validation
-        $("#"+formId+" input["+tagNullable+"='false']").each(function(index,item){
+        $("#"+formId+" input["+tagNullable+"='false']").each(function(){
             var nullValidType = validUtil.getNullValidTypeAttr($(this));
             var id = this.id;
             switch(nullValidType) {
@@ -34,8 +35,6 @@ var validUtil = {
                     let selector = $('#'+id);
                     lstValidFunc.push(function(){
                         if(validUtil.isValueIsEmpty(selector.val())){
-                            validUtil.disposeTooltip(validUtil.getNullMessage(selector)
-                                , validUtil.getToolTipAttr(selector));
                             validUtil.showError('#'+id, validUtil.getNullMessage(selector));
                             formIsOK = false;
                             selector.focus();
@@ -44,7 +43,7 @@ var validUtil = {
                     break;
             }
         });
-        $("#"+formId+" textarea["+tagNullable+"='false']").each(function(index,item){
+        $("#"+formId+" textarea["+tagNullable+"='false']").each(function(){
             var nullValidType = validUtil.getNullValidTypeAttr($(this));
             var id = this.id;
             switch(nullValidType) {
@@ -55,8 +54,6 @@ var validUtil = {
                     let selector = $('#'+id);
                     lstValidFunc.push(function(){
                         if(validUtil.isValueIsEmpty(selector.val())){
-                            validUtil.disposeTooltip(validUtil.getNullMessage(selector)
-                                , validUtil.getToolTipAttr(selector));
                             validUtil.showError('#'+id, validUtil.getNullMessage(selector));
                             formIsOK = false;
                             selector.focus();
@@ -69,8 +66,8 @@ var validUtil = {
         $("#"+formId+" input[min]").each(function(){
             var validType = validUtil.getValidTypeAttr($(this));
             var id = this.id;
-            var min = validUtil.getMinAttr($(this));
-            var max = validUtil.getMaxAttr($(this));
+            var min = parseInt(validUtil.getMinAttr($(this)));
+            var max = parseInt(validUtil.getMaxAttr($(this)));
             switch(validType) {
                 case validTypeOnPress:
                     validUtil.makeValidationOnPress($(this));
@@ -79,14 +76,13 @@ var validUtil = {
                     validUtil.hideError('#'+id);
                     let selector = $('#'+id);
                     lstValidFunc.push(function(){
-                        var value = '';
+                        var value = 0;
                         if(!validUtil.isValueIsEmpty(selector.val())){
                             value = $('#' + id).val().trim();
+                            value =parseInt(value);
                         }
-                        if(value < min || value > max){
-                            validUtil.disposeTooltip(validUtil.getInvalidMessage(selector)
-                                , validUtil.getToolTipAttr(selector));
-                            let mess = "Dữ liệu phải nằm trong khoàng : " + min +"đến :"+max ;
+                        if(value != 0 && ((value < min) ||  (value > max))){
+                            let mess = "Dữ liệu phải nằm trong khoàng : " + min +" đến :"+max ;
                             validUtil.showError('#'+id,mess);
                             formIsOK = false;
                             selector.focus();
@@ -99,11 +95,15 @@ var validUtil = {
         $( "#"+formId).submit(function(event) {
 
             formIsOK = true;
-            for(var i = lstValidFunc.length - 1 ; i >= 0;i--){
-                lstValidFunc[i]();
+
+            for(var i =  lstValidFunc.length -1 ; i >= oldLeng ;i --){
+
+                    lstValidFunc[i]();
             }
+            oldLeng =  lstValidFunc.length - 1;
             event.preventDefault();
             if(formIsOK){
+
                 submitFunc();
             }
         });

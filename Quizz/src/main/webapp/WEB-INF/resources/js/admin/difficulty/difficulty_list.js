@@ -8,7 +8,9 @@ var DifficultyList = function () {
     let url = {
         countListURL : contextPath + "/difficulty/count",
         searchListURL : contextPath + "/difficulty/search",
-        deleteURL : contextPath + "/difficulty/delete/"
+        deleteURL : contextPath + "/difficulty/delete/",
+        detailURL: contextPath +"/difficulty/find/ID"
+
     };
 
     let page = {

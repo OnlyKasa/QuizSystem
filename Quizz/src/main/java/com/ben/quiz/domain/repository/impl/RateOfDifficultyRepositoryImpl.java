@@ -40,7 +40,15 @@ public class RateOfDifficultyRepositoryImpl extends BaseRepositoryImpl implement
 
     @Override
     public long count(RateOfDifficultyReq searchReq) throws QuizException {
-        return 0;
+        final CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        final CriteriaQuery<Long> criteriaQuery = criteriaBuilder.createQuery(Long.class);
+        final Root<RateOfDifficulty> entityRoot = criteriaQuery.from(RateOfDifficulty.class);
+
+        List<Predicate>  predicates = createPredicateForSearchAndCount(criteriaBuilder,entityRoot,searchReq);
+        criteriaQuery.select(criteriaBuilder.count(entityRoot))
+                .where(predicates.toArray(new Predicate[predicates.size()]));
+        final TypedQuery<Long> query = entityManager.createQuery(criteriaQuery);
+        return query.getSingleResult();
     }
     private List<Predicate> createPredicateForSearchAndCount(CriteriaBuilder criteriaBuilder,
                                                              Root<RateOfDifficulty> entityRoot,

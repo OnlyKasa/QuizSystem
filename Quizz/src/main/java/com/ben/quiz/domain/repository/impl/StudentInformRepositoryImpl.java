@@ -1,5 +1,6 @@
 package com.ben.quiz.domain.repository.impl;
 
+import com.ben.quiz.domain.common.constant.CodeConst;
 import com.ben.quiz.domain.common.exception.QuizException;
 import com.ben.quiz.domain.common.util.SQLUtil;
 import com.ben.quiz.domain.dto.request.PagingReq;
@@ -106,7 +107,28 @@ public class StudentInformRepositoryImpl extends BaseRepositoryImpl implements S
     }
     @Override
     public StudentInformDto findByID(Integer iStudentInformationPk) throws QuizException {
-        return null;
+        final CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        final CriteriaQuery<Tuple> criteriaQuery = criteriaBuilder.createQuery(Tuple.class);
+        final Root<StudentInformation> entityRoot = criteriaQuery.from(StudentInformation.class);
+        final Join<StudentInformation,FacultyInformation>
+                faculty = entityRoot.join(StudentInformation_.facultyInformationByIFacultyInformationPk
+                , JoinType.LEFT);
+        List<Predicate> predicates = new ArrayList<>() ;
+        predicates.add(criteriaBuilder.equal(entityRoot.get(StudentInformation_.iStudentInformationPk),
+                iStudentInformationPk));
+        predicates.add(criteriaBuilder.isNotNull(entityRoot.get(StudentInformation_.iStudentInformationPkEk)));
+
+        criteriaQuery.multiselect(entityRoot,
+                faculty)
+                .where(predicates.toArray(new Predicate[predicates.size()]));
+        Tuple tuple ;
+        final TypedQuery<Tuple> query = entityManager.createQuery(criteriaQuery);
+        try {
+            tuple = query.getSingleResult();
+            return convertToStudentInformDto(tuple);
+        }catch (Exception e){
+            throw new QuizException(CodeConst.ErrorCode.Err_Deleted_Record, CodeConst.ErrorMess.Err_Deleted_Record);
+        }
     }
 
     @Override

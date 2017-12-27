@@ -8,8 +8,9 @@ var DifficultyCreate = function () {
       urlAdd : contextPath + "/difficulty/create"
     };
     function init() {
+        validUtil.autoValidation("form-create-difficulty",DifficultyCreate.submit);
         $("#btnConfirm").click(function () {
-            validUtil.autoValidation("form-create-difficulty","submit");
+            validUtil.autoValidation("form-create-difficulty",DifficultyCreate.submit);
         });
 
     }
@@ -45,7 +46,8 @@ var DifficultyCreate = function () {
     }
 
     return{
-        init : init
+        init : init,
+        submit:submit
     }
 }();
 

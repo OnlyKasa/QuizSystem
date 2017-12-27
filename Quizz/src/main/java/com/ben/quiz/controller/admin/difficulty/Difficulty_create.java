@@ -20,7 +20,7 @@ public class Difficulty_create extends BaseControllerWeb {
                 || Objects.equals( getUser().getStrTopMenu(), "TEA")
         ){
             inModel.put("screenCode",  getUser().getStrTopMenu());
-            return getDefaultPageMap(inModel, "A101_2");
+            return getDefaultPageMap(inModel, "A102_2");
         }else
             return redirect(QuizTrasitionConst.ERROR);
     }

@@ -14,7 +14,7 @@ import java.util.Objects;
 @RequestMapping(QuizTrasitionConst.ADMIN.PAGE_DIFFICULTY_EDIT)
 public class Difficulty_edit extends BaseControllerWeb {
 
-    @RequestMapping("/ID/{iRateOfDifficultyPk}")
+    @RequestMapping("/{iRateOfDifficultyPk}")
     public String prepareEdit(Map<String, Object> inModel,
                               @PathVariable(value = "iRateOfDifficultyPk") Integer iRateOfDifficultyPk) throws QuizException {
 

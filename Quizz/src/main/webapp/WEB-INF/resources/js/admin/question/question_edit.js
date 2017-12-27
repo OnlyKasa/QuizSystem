@@ -10,8 +10,9 @@ var QuestionEdit = function () {
     };
     function init() {
         console.log("inint");
+        validUtil.autoValidation("form-update-question",StudentCreate.submit);
         $("#btnConfirm").click(function () {
-            validUtil.autoValidation("form-update-question","submit");
+            validUtil.autoValidation("form-update-question",QuestionEdit.submit);
         });
 
         loadOld();
@@ -98,7 +99,7 @@ var QuestionEdit = function () {
     }
 
     return{
-        init : init
+        init : init, submit:submit
     }
 }();
 

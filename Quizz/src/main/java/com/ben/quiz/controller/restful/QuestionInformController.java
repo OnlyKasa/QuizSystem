@@ -53,7 +53,7 @@ public class QuestionInformController {
         return questionInformService.create(saveReq);
     }
 
-    @PutMapping("/update")
+    @PostMapping("/update")
     public QuestionInformation update(@RequestBody @Valid QuestionInformSaveReq saveReq) throws QuizException {
         return questionInformService.update(saveReq);
     }

@@ -5,11 +5,12 @@ var RoomCreate = function () {
     };
 
     let url = {
-      urlAdd : contextPath + "/examination/create"
+      urlAdd : contextPath + "/room/create"
     };
     function init() {
+        validUtil.autoValidation("form-create-room",RoomCreate.submit);
         $("#btnConfirm").click(function () {
-            validUtil.autoValidation("form-create-teacher","submit");
+            validUtil.autoValidation("form-create-room",RoomCreate.submit);
         });
 
     }
@@ -17,13 +18,7 @@ var RoomCreate = function () {
 
     function submit() {
         let newdata = {
-            strExaminationInformationCode:$("#strExaminationInformationCode").val().trim() ,
-            iExaminationRoomPk:  $("#strExaminationRoomName").attr("iExaminationRoomPk").trim(),
-            iSubjectInformationPk: $("#strSubjectInformationName").attr("iSubjectInformationPk").trim(),
-            iTeacherInformationPk: $("#strTeacherInformationName").attr("iTeacherInformationPk").trim(),
-            dtExaminationDay:formatNormalDateTime($("#dtExaminationDay").val()),
-            iRateOfDifficultyPk: $("#strRateDifficultyName").attr("iRateOfDifficultyPk").trim(),
-            iTestInformationTime: $("#iTestInformationTime").val().trim()
+            strExaminationRoomName:$("#strExaminationRoomName").val().trim()
         };
 
         $("#modal-confirm").modal("show");
@@ -39,7 +34,7 @@ var RoomCreate = function () {
 
 
     function addSuccess() {
-        displayCreated("admin","a101");
+        displayCreated("admin","a108");
     }
 
     function addError(err) {
@@ -47,7 +42,7 @@ var RoomCreate = function () {
     }
 
     return{
-        init : init
+        init : init, submit:submit
     }
 }();
 

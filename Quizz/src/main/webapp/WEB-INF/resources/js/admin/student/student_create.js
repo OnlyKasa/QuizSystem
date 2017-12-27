@@ -8,8 +8,9 @@ var StudentCreate = function () {
       urlAdd : contextPath + "/examination/create"
     };
     function init() {
+        validUtil.autoValidation("form-create-teacher",StudentCreate.submit);
         $("#btnConfirm").click(function () {
-            validUtil.autoValidation("form-create-teacher","submit");
+            validUtil.autoValidation("form-create-teacher",StudentCreate.submit);
         });
 
     }
@@ -47,7 +48,7 @@ var StudentCreate = function () {
     }
 
     return{
-        init : init
+        init : init, submit:submit
     }
 }();
 

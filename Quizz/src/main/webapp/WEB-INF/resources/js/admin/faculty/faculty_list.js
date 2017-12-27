@@ -8,7 +8,8 @@ var FacultyList = function () {
     let url = {
         countListURL : contextPath + "/faculty/count",
         searchListURL : contextPath + "/faculty/search",
-        deleteURL : contextPath + "/faculty/delete/"
+        deleteURL : contextPath + "/faculty/delete/",
+        detailURL: contextPath +"/faculty/find/ID"
     };
 
     let page = {

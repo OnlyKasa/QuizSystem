@@ -10,8 +10,9 @@ var FacultyEdit = function () {
     };
     function init() {
         console.log("inint");
+        validUtil.autoValidation("form-update-faculty",FacultyEdit.submit);
         $("#btnConfirm").click(function () {
-            validUtil.autoValidation("form-update-faculty","submit");
+            validUtil.autoValidation("form-update-faculty",FacultyEdit.submit);
         });
 
         loadOld();
@@ -55,8 +56,10 @@ var FacultyEdit = function () {
     }
 
     return{
-        init : init
+        init : init,
+        submit:submit
     }
+
 }();
 
 $(document).ready(function () {

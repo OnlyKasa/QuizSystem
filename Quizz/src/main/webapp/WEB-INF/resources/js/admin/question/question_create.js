@@ -8,8 +8,9 @@ var QuestionCreate = function () {
       urlAdd : contextPath + "/question/create"
     };
     function init() {
+        validUtil.autoValidation("form-create-question",QuestionCreate.submit);
         $("#btnConfirm").click(function () {
-            validUtil.autoValidation("form-create-question","submit");
+            validUtil.autoValidation("form-create-question",QuestionCreate.submit);
         });
 
     }
@@ -54,7 +55,7 @@ var QuestionCreate = function () {
     }
 
     return{
-        init : init
+        init : init, submit:submit
     }
 }();
 

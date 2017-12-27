@@ -40,7 +40,7 @@ public class RoomInformController extends BaseControllerRestful {
         return roomInformService.create(saveReq);
     }
 
-    @PutMapping("/update")
+    @PostMapping("/update")
     public ExaminationRoom update(@RequestBody @Valid RoomInformationReq saveReq) throws QuizException {
         return roomInformService.update(saveReq);
     }

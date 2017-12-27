@@ -3,10 +3,8 @@ package com.ben.quiz.domain.dto.request;
 public class SubjectInformationSearchReq {
 
     private String strSubjectInformationName;
-
-    private String strFacultyInformationShortName;
-    private String strFacultyInformationFullName;
-
+    private Integer iSubjectInformationPk;
+    private Integer iSubjectInformationCreditsNum;
     public String getStrSubjectInformationName() {
         return strSubjectInformationName;
     }
@@ -15,19 +13,19 @@ public class SubjectInformationSearchReq {
         this.strSubjectInformationName = strSubjectInformationName;
     }
 
-    public String getStrFacultyInformationShortName() {
-        return strFacultyInformationShortName;
+    public Integer getiSubjectInformationPk() {
+        return iSubjectInformationPk;
     }
 
-    public void setStrFacultyInformationShortName(String strFacultyInformationShortName) {
-        this.strFacultyInformationShortName = strFacultyInformationShortName;
+    public void setiSubjectInformationPk(Integer iSubjectInformationPk) {
+        this.iSubjectInformationPk = iSubjectInformationPk;
     }
 
-    public String getStrFacultyInformationFullName() {
-        return strFacultyInformationFullName;
+    public Integer getiSubjectInformationCreditsNum() {
+        return iSubjectInformationCreditsNum;
     }
 
-    public void setStrFacultyInformationFullName(String strFacultyInformationFullName) {
-        this.strFacultyInformationFullName = strFacultyInformationFullName;
+    public void setiSubjectInformationCreditsNum(Integer iSubjectInformationCreditsNum) {
+        this.iSubjectInformationCreditsNum = iSubjectInformationCreditsNum;
     }
 }

@@ -1,5 +1,6 @@
 package com.ben.quiz.domain.repository.impl;
 
+import com.ben.quiz.domain.common.constant.CodeConst;
 import com.ben.quiz.domain.common.exception.QuizException;
 import com.ben.quiz.domain.common.util.SQLUtil;
 import com.ben.quiz.domain.dto.request.PagingReq;
@@ -11,6 +12,7 @@ import com.ben.quiz.domain.model.SubjectInformation_;
 import com.ben.quiz.domain.repository.interfaces.SubjectInformRepository;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.Tuple;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -67,6 +69,14 @@ public class SubjectInformRepositoryImpl extends BaseRepositoryImpl implements S
         predicates.add(criteriaBuilder.like(
                 criteriaBuilder.lower(entityRoot.get(SubjectInformation_.strSubjectInformationName)),
                 SQLUtil.AllLike(searchReq.getStrSubjectInformationName())));
+        if(searchReq.getiSubjectInformationPk() != null ) {
+            predicates.add(criteriaBuilder.equal(entityRoot.get(SubjectInformation_.iSubjectInformationPk),
+                    searchReq.getiSubjectInformationPk()));
+        }
+        if(searchReq.getiSubjectInformationCreditsNum() != null ){
+            predicates.add(criteriaBuilder.equal(entityRoot.get(SubjectInformation_.iSubjectInformationCreditsNum),
+                searchReq.getiSubjectInformationCreditsNum()));
+        }
 
         return predicates ;
     }
@@ -74,7 +84,23 @@ public class SubjectInformRepositoryImpl extends BaseRepositoryImpl implements S
 
     @Override
     public SubjectInformationDto findByID(Integer iSubjectInformationPk) throws QuizException {
-        return null;
+        final CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        final CriteriaQuery<SubjectInformation> criteriaQuery = criteriaBuilder.createQuery(SubjectInformation.class);
+        final Root<SubjectInformation> entityRoot = criteriaQuery.from(SubjectInformation.class);
+
+        List<Predicate> predicates = new ArrayList<>() ;
+        predicates.add(criteriaBuilder.equal(entityRoot.get(SubjectInformation_.iSubjectInformationPk),
+                iSubjectInformationPk));
+        predicates.add(criteriaBuilder.isNotNull(entityRoot.get(SubjectInformation_.iSubjectInformationPkEk)));
+
+        criteriaQuery.select(entityRoot)
+                .where(predicates.toArray(new Predicate[predicates.size()]));
+        final TypedQuery<SubjectInformation> query = entityManager.createQuery(criteriaQuery);
+        try {
+            return convertToSubjectInformDto(query.getSingleResult());
+        }catch (Exception e){
+            throw new QuizException(CodeConst.ErrorCode.Err_Deleted_Record, CodeConst.ErrorMess.Err_Deleted_Record);
+        }
     }
 
     @Override

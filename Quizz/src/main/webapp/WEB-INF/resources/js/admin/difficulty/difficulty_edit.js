@@ -10,8 +10,9 @@ var DifficultyEdit = function () {
     };
     function init() {
         console.log("inint");
+        validUtil.autoValidation("form-update-difficulty",DifficultyEdit.submit);
         $("#btnConfirm").click(function () {
-            validUtil.autoValidation("form-update-difficulty","submit");
+            validUtil.autoValidation("form-update-difficulty",DifficultyEdit.submit);
         });
 
         loadOld();
@@ -61,7 +62,8 @@ var DifficultyEdit = function () {
     }
 
     return{
-        init : init
+        init : init,
+        submit:submit
     }
 }();
 

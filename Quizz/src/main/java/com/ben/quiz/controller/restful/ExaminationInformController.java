@@ -57,7 +57,7 @@ public class ExaminationInformController {
         return examinationInformService.create(saveReq);
     }
 
-    @PutMapping("/update")
+    @PostMapping("/update")
     public ExaminationInformation update(@RequestBody @Valid ExaminationInformationSaveReq saveReq) throws QuizException {
         return examinationInformService.update(saveReq);
     }

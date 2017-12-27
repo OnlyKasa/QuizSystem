@@ -33,8 +33,8 @@ public class UtilRepositoryImpl extends BaseRepositoryImpl implements UtilReposi
         Query query = entityManager.createNativeQuery("select nextval(?)");
         query.setParameter(1, sequenceName);
         BigInteger nextSeq = (BigInteger) query.getSingleResult();
-        if((nextSeq.compareTo(BigInteger.valueOf(1000000L)))==-1){
-            return nextSeq.add(BigInteger.valueOf(1000000L));
+        if((nextSeq.compareTo(BigInteger.valueOf(100000L)))==-1){
+            return nextSeq.add(BigInteger.valueOf(100000L));
         }else {
             return nextSeq;
         }

@@ -40,7 +40,7 @@ public class SubjectInformController extends BaseControllerRestful {
         return subjectInformRepository.create(saveReq);
     }
 
-    @PutMapping("/update")
+    @PostMapping("/update")
     public SubjectInformation update(@RequestBody @Valid SubjectInformationSaveReq saveReq) throws QuizException {
         return subjectInformRepository.update(saveReq);
     }

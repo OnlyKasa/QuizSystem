@@ -8,8 +8,9 @@ var FacultyCreate = function () {
       urlAdd : contextPath + "/faculty/create"
     };
     function init() {
+        validUtil.autoValidation("form-create-faculty",FacultyCreate.submit);
         $("#btnConfirm").click(function () {
-            validUtil.autoValidation("form-create-faculty","submit");
+            validUtil.autoValidation("form-create-faculty",FacultyCreate.submit);
         });
 
     }
@@ -42,7 +43,8 @@ var FacultyCreate = function () {
     }
 
     return{
-        init : init
+        init : init,
+        submit:submit
     }
 }();
 

@@ -5,11 +5,12 @@ var SubjectCreate = function () {
     };
 
     let url = {
-      urlAdd : contextPath + "/examination/create"
+      urlAdd : contextPath + "/subject/create"
     };
     function init() {
+        validUtil.autoValidation("form-create-subject",SubjectCreate.submit);
         $("#btnConfirm").click(function () {
-            validUtil.autoValidation("form-create-teacher","submit");
+            validUtil.autoValidation("form-create-subject",SubjectCreate.submit);
         });
 
     }
@@ -17,13 +18,8 @@ var SubjectCreate = function () {
 
     function submit() {
         let newdata = {
-            strExaminationInformationCode:$("#strExaminationInformationCode").val().trim() ,
-            iExaminationRoomPk:  $("#strExaminationRoomName").attr("iExaminationRoomPk").trim(),
-            iSubjectInformationPk: $("#strSubjectInformationName").attr("iSubjectInformationPk").trim(),
-            iTeacherInformationPk: $("#strTeacherInformationName").attr("iTeacherInformationPk").trim(),
-            dtExaminationDay:formatNormalDateTime($("#dtExaminationDay").val()),
-            iRateOfDifficultyPk: $("#strRateDifficultyName").attr("iRateOfDifficultyPk").trim(),
-            iTestInformationTime: $("#iTestInformationTime").val().trim()
+            strStudentInformationName:$("#strStudentInformationName").val().trim() ,
+            iSubjectInformationCreditsNum: $("#iSubjectInformationCreditsNum").val().trim()
         };
 
         $("#modal-confirm").modal("show");
@@ -39,7 +35,7 @@ var SubjectCreate = function () {
 
 
     function addSuccess() {
-        displayCreated("admin","a101");
+        displayCreated("admin","a105");
     }
 
     function addError(err) {

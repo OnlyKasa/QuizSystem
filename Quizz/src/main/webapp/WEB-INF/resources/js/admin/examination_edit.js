@@ -10,8 +10,9 @@ var ExaminationEdit= function () {
     };
     function init() {
         console.log("inint");
+        validUtil.autoValidation("form-update-teacher",ExaminationEdit.submit);
         $("#btnConfirm").click(function () {
-            validUtil.autoValidation("form-update-teacher","submit");
+            validUtil.autoValidation("form-update-teacher",ExaminationEdit.submit);
         });
 
         loadOld();
@@ -79,7 +80,7 @@ var ExaminationEdit= function () {
     }
 
     return{
-        init : init
+        init : init, submit:submit
     }
 }();
 

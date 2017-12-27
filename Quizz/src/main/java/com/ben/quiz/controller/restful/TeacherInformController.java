@@ -53,7 +53,7 @@ public class TeacherInformController extends BaseControllerRestful {
         return teacherInformService.create(saveReq);
     }
 
-    @PutMapping("/update")
+    @PostMapping("/update")
     public TeacherInformation update(@RequestBody @Valid TeacherInformationSaveReq saveReq)
             throws QuizException {
         return teacherInformService.update(saveReq);

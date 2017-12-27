@@ -47,13 +47,11 @@
                 <col />
                 <col />
                 <col />
-                <col />
-                <col />
-                <col />
                 <col class="col-button" />
             </colgroup>
             <tr>
                 <th class="first-child">STT</th>
+                <th><a>Mã khoa </a></th>
                 <th><a>Mã khoa (tên viết tắt) </a></th>
                 <th><a>Tên đầy đủ</a></th>
                 <th class="last-child"></th>
@@ -95,6 +93,11 @@
                             <colgroup>
                                 <col class="col-xs-5 col-sm-4" />
                             </colgroup>
+
+                            <tr>
+                                <th>Mã khoa</th>
+                                <td>{{iFacultyInformationPk}}</td>
+                            </tr>
                             <tr>
                                 <th>Mã khoa(tên viết tắt)</th>
                                 <td>{{strFacultyInformationShortName}}</td>
@@ -127,6 +130,11 @@
 <script type="text/template7" id="table-template-faculty-list">
     <tr>
         <td class="txt-center">{{index}}</td>
+
+        <td>
+            {{iFacultyInformationPk}}
+        </td>
+
         <td>
             {{strFacultyInformationShortName}}
         </td>
@@ -140,4 +148,4 @@
     </tr>
 </script>
 
-<script src="${pageContext.request.contextPath}/js/admin/faculty_list.js"></script>
+<script src="${pageContext.request.contextPath}/js/admin/faculty/faculty_list.js"></script>

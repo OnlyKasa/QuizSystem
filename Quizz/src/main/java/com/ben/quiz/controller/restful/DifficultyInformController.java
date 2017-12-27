@@ -43,7 +43,7 @@ public class DifficultyInformController extends BaseControllerRestful {
         return rateOfDifficultyService.create(saveReq);
     }
 
-    @PutMapping("/update")
+    @PostMapping("/update")
     public RateOfDifficulty update(@RequestBody @Valid RateOfDifficultyReq saveReq) throws QuizException {
         return rateOfDifficultyService.update(saveReq);
     }
