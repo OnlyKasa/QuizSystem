@@ -13,20 +13,21 @@
 
     <div class="box-toggle row">
         <div class="col-xs-12 clear-padding">
-            <div class="col-xs-12 col-sm-3 col-lg-2">
-                <label>Mã sinh viên </label>
-                <input class="form-control" type="text" id="strStudentInformationCode"/>
-            </div>
             <div class="col-xs-12 col-sm-6 col-lg-4 mt-xs">
                 <label>Họ /tên sinh viên</label>
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 par5-sm">
-                        <input class="form-control" type="text" id="strStudentInformationFirstName" />
+                        <input class="form-control" type="text" id="strTeacherInformationFirstName" />
                     </div>
                     <div class="col-xs-12 col-sm-6 pal5-sm mt-small-xs">
-                        <input class="form-control" type="text" id="strStudentInformationLastName"/>
+                        <input class="form-control" type="text" id="strTeacherInformationLastName"/>
                     </div>
                 </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-lg-4 mt-xs">
+                <label>Khoa</label>
+
+                <input class="form-control" type="text" id="strFacultyInformationFullName" />
             </div>
         </div>
 
@@ -38,7 +39,7 @@
 
 <div class="row row-small layout mt20">
     <div class="col-xs-12 col-sm-inline padding-small">
-        <button class="btn btn-blue btn-reponsive btn-medium float-l" onclick="redirectPage('admin','a101_2');">Thêm mới</button>
+        <button class="btn btn-blue btn-reponsive btn-medium float-l" onclick="redirectPage('admin','a107_2');">Thêm mới</button>
     </div>
 
     <p id="txtPageCount" class="float-r txt-small mt15 mr5"></p>
@@ -55,15 +56,17 @@
                 <col />
                 <col />
                 <col />
+                <col />
                 <col class="col-button" />
             </colgroup>
             <tr>
                 <th class="first-child">STT</th>
-                <th><a>Mã sinh viên </a></th>
-                <th><a>Họ và tên sinh viên</a></th>
-                <th>Tài khoản</th>
-                <th>Mật khẩu</th>
+                <th><a>Mã giáo viên</a></th>
+                <th><a>Họ và tên giáo viên</a></th>
                 <th><a>Tên khoa</a></th>
+                <th><a>Số điện thoại</a></th>
+                <th><a>Tài khoản đăng nhập</a></th>
+                <th><a>Mật khẩu</a></th>
                 <th class="last-child"></th>
             </tr>
 
@@ -82,7 +85,7 @@
 <div id="modal-delete" class="modal-confirm modal modal-style-1 fade" role="dialog">
 </div><!-- /.modal -->
 
-<script type="text/template7" id="template-delete-student-list">
+<script type="text/template7" id="template-delete-teacher-list">
     <div class="modal-dialog box-medium">
         <!-- Modal content-->
         <div class="modal-content">
@@ -104,21 +107,25 @@
                                 <col class="col-xs-5 col-sm-4" />
                             </colgroup>
                             <tr>
-                                <th>Mã sinh viên</th>
-                                <td>{{strStudentInformationCode}}</td>
+                                <th>Mã giáo viên</th>
+                                <td>{{iTeacherInformationPk}}</td>
                             </tr>
 
                             <tr>
-                                <th>Họ sinh viên </th>
-                                <td>{{strStudentInformationLastName}}</td>
+                                <th>Tên giáo viên </th>
+                                <td>{{strTeacherInformationLastName}} {{strTeacherInformationFirstName}}</td>
                             </tr>
                             <tr>
-                                <th>Tên sinh viên </th>
-                                <td>{{strStudentInformationFirstName}}</td>
+                                <th>Tên khoa </th>
+                                <td>{{strFacultyInformationFullName}}</td>
+                            </tr>
+                            <tr>
+                                <th>Số điện thoại</th>
+                                <td>{{strTeacherInformationPhone}}</td>
                             </tr>
                             <tr>
                                 <th>Tài khoản</th>
-                                <td>{username}}</td>
+                                <td>{{userId}}</td>
                             </tr>
                             <tr>
                                 <th>Mật khẩu  </th>
@@ -137,7 +144,7 @@
                             </colgroup>
                             <tr>
                                 <th>Tên khoa</th>
-                                <td>{{strFacultyInformationName}}</td>
+                                <td>{{strFacultyInformationFullName}}</td>
                             </tr>
                         </table>
                     </div><!-- /.scroll -->
@@ -146,7 +153,7 @@
 
             <div class="modal-footer">
                 <div class="btn-modal">
-                    <button class="btn btn-delete btn-confirm btn-medium btn-fa" onclick="StudentList.deleteOne('{{iStudentInformationPk}}')" >
+                    <button class="btn btn-delete btn-confirm btn-medium btn-fa" onclick="TeacherList.deleteOne('{{iTeacherInformationPk}}')" >
                         Xóa
                     </button>
                 </div>
@@ -159,26 +166,22 @@
 </script>
 
 
-<script type="text/template7" id="table-template-examination-list">
+<script type="text/template7" id="table-template-teacher-list">
     <tr>
         <td class="txt-center">{{index}}</td>
-        <td>
-            <a class="txt-green border" onclick="StudentList.showDetail('{{iStudentInformationPk}}');">
-                {{strStudentInformationCode}}
-            </a>
-            <a style="display:none" id="iStudentInformationPk">{{iStudentInformationPk}}</a>
+        <td>{{iTeacherInformationPk}}
         </td>
-        <td> {{strStudentInformationFirstName}} {{strStudentInformationLastName}}</td>
-        <td>{{username}}</td>
+        <td> {{strTeacherInformationLastName}} {{strTeacherInformationFirstName}} </td>
+        <td>{{strFacultyInformationFullName}}</td>
+        <td>{{strTeacherInformationPhone}}</td>
+        <td>{{userId}}</td>
         <td>**********</td>
-        <td>{{strFacultyInformationName}}</td>
-
         <td class="txt-center">
             <button class="btn btn-update btn-small"
-                    onclick="redirectPage('admin','a106_1','{{iStudentInformationPk}}');" >Sửa</button><br/>
-            <button class="btn btn-delete btn-small mt5" onclick="StudentList.showDelete('{{iStudentInformationPk}}');">Xóa</button>
+                    onclick="redirectPage('admin','a107_1','{{iTeacherInformationPk}}');" >Sửa</button><br/>
+            <button class="btn btn-delete btn-small mt5" onclick="TeacherList.showDelete('{{iTeacherInformationPk}}');">Xóa</button>
         </td>
     </tr>
 </script>
 
-<script src="${pageContext.request.contextPath}/js/admin/student/student_list.js"></script>
+<script src="${pageContext.request.contextPath}/js/admin/teacher/teacher_list.js"></script>

@@ -10,11 +10,11 @@ import java.util.List;
 
 public interface RateOfDifficultyRepository extends BaseRepository{
 
-    List<RateOfDifficulty> search(RateOfDifficultyReq searchReq,
+    List<RateOfDifficultyDto> search(RateOfDifficultyReq searchReq,
                                      PagingReq pagingReq) throws QuizException;
     long count(RateOfDifficultyReq searchReq)throws QuizException;
 
-    RateOfDifficulty findByID(Integer iRateOfDifficultyPk)throws QuizException;
+    RateOfDifficultyDto findByID(Integer iRateOfDifficultyPk)throws QuizException;
 
     RateOfDifficulty create(RateOfDifficultyReq saveReq) throws QuizException ;
 

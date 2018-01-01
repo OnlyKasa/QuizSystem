@@ -14,7 +14,6 @@ var ExaminationDetail = function () {
         urlCountQuestion : contextPath +"/question/countBySubjectID/",
         urlFindQuestion : contextPath +"/question/findBySubjectID/",
         urlFindDifficulty : contextPath +"/difficulty/find/ID"
-
     };
     let iSubjectInformationPk = 0;
     let iRateOfDifficultyPk = 0 ;
@@ -68,22 +67,22 @@ var ExaminationDetail = function () {
             calculatorNumberQuestion();
         });
 
-        console.log({iExaminationInformationPk :iExaminationInformationPk,
-            numberStudent: $("#numberStudent").val(), percentMatch:$("#numberPercent").val()});
+
+
         $("#btnRepageAddStudent").click(function () {
-            if(!($("#numQuestionLv1").html()< curentDetail.numQuestionLv1)
-            && !($("#numQuestionLv2").html()< curentDetail.numQuestionLv2)
-                && !($("#numQuestionLv3").html()< curentDetail.numQuestionLv3)
-                && !($("#numQuestionLv4").html()< curentDetail.numQuestionLv4)
+            if((parseInt($("#numQuestionLv1").html())< parseInt(curentDetail.numQuestionLv1))
+                && (parseInt($("#numQuestionLv2").html())< parseInt(curentDetail.numQuestionLv2))
+                && (parseInt($("#numQuestionLv3").html())<parseInt(curentDetail.numQuestionLv3))
+                && (parseInt($("#numQuestionLv4").html())< parseInt(curentDetail.numQuestionLv4))
             ){
 
                 redirectPage("admin","a101_4",{iExaminationInformationPk :iExaminationInformationPk,
                     numberStudent: $("#numberStudent").val(), percentMatch:$("#numberPercent").val()});
             }else
-                $("#messErorr").html("<p>Số lượng câu hỏi của môn học không đủ.</p> </br>" +
+                $("#messErorr").html("<p>Số lượng câu hỏi của môn học không đủ.</p> </br>" +"<p>Tham khảo một số cách sau.</p>"+
                     "<ul>" +
                     "<li>Thêm mới câu hỏi</li>" +
-                    "<li>Thay đổi độ khó đề th</li>" +
+                    "<li>Thay đổi độ khó đề thi</li>" +
                     "<li>Tăng độ trùng câu hỏi hoặc giảm số sinh viên xuống</li>" +
                     "</ul>")
         });
@@ -92,10 +91,11 @@ var ExaminationDetail = function () {
 
     function calculatorNumberQuestion() {
         let studentNumber = parseInt($("#numberStudent").val()) + curentDetail.numStudent ;
-        let numberQuestionLv1ForOneTests = curentDetail.numQuestionLv1;
-        let numberQuestionLv2ForOneTests = curentDetail.numQuestionLv2;
-        let numberQuestionLv3ForOneTests = curentDetail.numQuestionLv3;
-        let numberQuestionLv4ForOneTests = curentDetail.numQuestionLv4;
+        console.log(studentNumber);
+        let numberQuestionLv1ForOneTests = examination.numQuestionLv1;
+        let numberQuestionLv2ForOneTests = examination.numQuestionLv2;
+        let numberQuestionLv3ForOneTests = examination.numQuestionLv3;
+        let numberQuestionLv4ForOneTests = examination.numQuestionLv4;
 
         let percentMatch = $("#numberPercent").val();
 
@@ -121,8 +121,7 @@ var ExaminationDetail = function () {
             display("Có lỗi xảy ra với dữ liệu của kỳ thi. Kiểm tra lại trường đánh giá độ khó.");
             return
         }
-
-        executeGetNew(url.urlFindDifficulty +iRateOfDifficultyPk,findSuccessDifficulty,findErrorDifficulty);
+        executeGetNew(contextPath +"/difficulty/find/ID" +iRateOfDifficultyPk,findSuccessDifficulty,findErrorDifficulty);
 
     }
     function findSuccessDifficulty(res) {
@@ -145,6 +144,7 @@ var ExaminationDetail = function () {
     }
 
     function findSuccess(res) {
+        console.log(res);
         iSubjectInformationPk =res.iSubjectInformationPk ;
         iRateOfDifficultyPk = res.iRateOfDifficultyPk;
         $("#strExaminationInformationCode").val(res.strExaminationInformationCode);
@@ -187,7 +187,8 @@ var ExaminationDetail = function () {
         let inputSearch ={};
         if(typeof pg =="undefined"){
             page.currentPage = 1;
-        }
+        }else
+            page.currentPage=pg;
         inputSearch["page"] = page.currentPage ;
         inputSearch["rowPerPage"] = page.rowPerPage ;
         executeGetNew(url.urlFindDetailExamination +"?"+ paramEncode(inputSearch),loadSuccess,loadError);
@@ -201,7 +202,7 @@ var ExaminationDetail = function () {
             data[i]["index"] = (((page.currentPage - 1) * page.rowPerPage) + i + 1).toString();
             $("#table-student-content").append(template7.compileList(data[i]));
         }
-        countIndexDetailExamination()
+        countIndexDetailExamination();
     }
 
     function countIndexDetailExamination() {
@@ -247,7 +248,7 @@ var ExaminationDetail = function () {
         executeGetNew(url.urlFindQuestion+iSubjectInformationPk +"?"+ paramEncode(inputSearch),loadSuccessQuestion,loadErrorQuestion);
     }
 
-    function loadSuccessQuestion() {
+    function loadSuccessQuestion(res) {
         $("#table-question").empty();
         let data = $.map(res, function (value) {
             return [value];

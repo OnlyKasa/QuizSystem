@@ -1,8 +1,5 @@
 package com.ben.quiz.domain.dto.result;
 
-import com.ben.quiz.domain.model.SubjectInformation;
-import com.ben.quiz.domain.model.TeacherInformation;
-
 public class QuestionInformDto {
     private int iQuestionInformationPk;
     private Integer iTeacherInformationPk;

@@ -10,7 +10,7 @@ var QuestionEdit = function () {
     };
     function init() {
         console.log("inint");
-        validUtil.autoValidation("form-update-question",StudentCreate.submit);
+        validUtil.autoValidation("form-update-question",QuestionEdit.submit);
         $("#btnConfirm").click(function () {
             validUtil.autoValidation("form-update-question",QuestionEdit.submit);
         });
@@ -50,19 +50,20 @@ var QuestionEdit = function () {
         }
 
         $("#strSubjectInformationName").val(res.strSubjectInformationName);
-        $("#strSubjectInformationName").attr("iSubjectInformationPk", res.iTeacherInformationPk);
+        $("#strSubjectInformationName").attr("iSubjectInformationPk", res.iSubjectInformationPk);
 
         if(res.strTeacherInformationFirstName != null || res.strTeacherInformationLastName != null)
             $("#strTeacherInformationName").val(res.strTeacherInformationFirstName +" "+ res.strTeacherInformationLastName);
         $("#strTeacherInformationName").attr("iTeacherInformationPk", res.iTeacherInformationPk);
-
 
     }
     function findError(err) {
         display(err.responseText);
     }
     function submit() {
+        let check = $('input[name="checkTrue"]:checked').val();
         let newdata = {
+            iQuestionInformationPk: iQuestionInformationPk,
             iQuestionInformationLevel:$("#iQuestionInformationLevel").val(),
             strQuestionContentInformation:  $("#strQuestionContentInformation").val().trim(),
             iSubjectInformationPk: $("#strSubjectInformationName").attr("iSubjectInformationPk").trim(),

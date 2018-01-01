@@ -6,6 +6,7 @@ import com.ben.quiz.domain.dto.request.FacultyInformationSaveReq;
 import com.ben.quiz.domain.dto.request.PagingReq;
 import com.ben.quiz.domain.dto.request.RateOfDifficultyReq;
 import com.ben.quiz.domain.dto.result.FacultyInformDto;
+import com.ben.quiz.domain.dto.result.RateOfDifficultyDto;
 import com.ben.quiz.domain.model.FacultyInformation;
 import com.ben.quiz.domain.model.RateOfDifficulty;
 
@@ -13,11 +14,11 @@ import java.util.List;
 
 public interface RateOfDifficultyService {
 
-    List<RateOfDifficulty> search(RateOfDifficultyReq searchReq,
+    List<RateOfDifficultyDto> search(RateOfDifficultyReq searchReq,
                                   PagingReq pagingReq) throws QuizException;
     long count(RateOfDifficultyReq searchReq)throws QuizException;
 
-    RateOfDifficulty findByID(Integer iRateOfDifficultyPk)throws QuizException;
+    RateOfDifficultyDto findByID(Integer iRateOfDifficultyPk)throws QuizException;
 
     RateOfDifficulty create(RateOfDifficultyReq saveReq) throws QuizException ;
 

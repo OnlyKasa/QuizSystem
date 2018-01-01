@@ -18,11 +18,12 @@ var StudentListCreate= function () {
         urlGetListQuestionForExamination : contextPath +"/question/findBySubjectID/" ,
         urlCountListQuestion : contextPath +"/question/countBySubjectID/",
         urlFindOneExamination : contextPath + "/examination/find/ID" + iExaminationInformationPk,
-        urlListOldStudentInExamination : contextPath + "/findDetailExamination/"+ iExaminationInformationPk,
+        urlListOldStudentInExamination : contextPath + "/examination/findDetailExamination/"+ iExaminationInformationPk,
         urlCountStudent:contextPath+"/student/count",
         urlSearchStudent:contextPath +"/student/search",
         urlFindStudentById: contextPath+"/student/find/ID",
-        urlAddTestAndStudent: contextPath +"/createStudentAndTest"
+        urlAddTestAndStudent: contextPath +"/examination/createStudentAndTest",
+        urlFindDifficulty : contextPath +"/difficulty/find/ID"
     };
 
     let page = {
@@ -53,12 +54,13 @@ var StudentListCreate= function () {
             if(listStudentChecked.length == 0){
                 $("#table-confirm-content").html("<tr><td colspan='2'>"+noData+"</td></tr>");
                 $("#confirm-add").attr("disabled","disabled");
+            }else{
+                $("#table-confirm-content").empty();
+                for(let i = 0 ; i< listStudentChecked.length;i++){
+                    let iStudentInformationPk = listStudentChecked[i];
+                    executeGetNew(url.urlFindStudentById + iStudentInformationPk,findSuccessStudent,display )
+                }
             }
-            for(let i = 0 ; i< listStudentChecked.length;i++){
-                let iStudentInformationPk = listStudentChecked[i];
-                executeGetNew(url.urlFindStudentById + iStudentInformationPk,findSuccessStudent,display )
-            }
-
 
             $("#confirm-add").click(function () {
                 showLoading();
@@ -102,7 +104,8 @@ var StudentListCreate= function () {
     function changePage(pg) {
         if(typeof pg =="undefined"){
             page.currentPage = 1;
-        }
+        }else
+            page.currentPage=pg;
         inputSearch["page"] = page.currentPage ;
         inputSearch["rowPerPage"] = page.rowPerPage ;
         executeGetNew(url.urlSearchStudent +"?"+ paramEncode(inputSearch),searchSuccess,searchError);
@@ -112,6 +115,8 @@ var StudentListCreate= function () {
     let listStudent=[];
     function searchSuccess(res) {
         listStudent =res;
+        console.log("--------");
+        console.log(res);
         $("#table-content").empty();
         let data = $.map(res, function (value) {
             return [value];
@@ -126,12 +131,16 @@ var StudentListCreate= function () {
             }
 
             $("#checkbox-"+data[i].iStudentInformationPk).click(function () {
-                if("#checkbox-"+data[i].iStudentInformationPk.is(':checked')){
+                if($("#checkbox-"+data[i].iStudentInformationPk).is(':checked')){
                     if(!checkChecked(data[i].iStudentInformationPk)){
-                        if(listStudentChecked.length > numberStudent){
-                            display(mess);
-                        }else
+                        if(listStudentChecked.length < numberStudent){
                             listStudentChecked.push(data[i].iStudentInformationPk);
+                        }else
+                        {
+                            display(mess);
+                            $("#checkbox-"+data[i].iStudentInformationPk)[0].checked = false;
+                        }
+
                     }
                 }else{
                     let index = listStudentChecked.indexOf(data[i].iStudentInformationPk);
@@ -139,23 +148,24 @@ var StudentListCreate= function () {
                         listStudentChecked.splice(index, 1);
                     }
                 }
-            })
+            });
         }
 
         $("#checkbox-all").click(function () {
             if($("#checkbox-all").is(':checked')){
                 for (let i = 0; i < data.length; i++) {
                     if(!checkChecked(data[i].iStudentInformationPk)){
-                        if(listStudentChecked.length > numberStudent){
-                            display(mess);
-                            break;
-                        }else {
+                        if(listStudentChecked.length < numberStudent){
                             $("#checkbox-"+data[i].iStudentInformationPk)[0].checked = true;
                             listStudentChecked.push(data[i].iStudentInformationPk);
+                        }else {
+                            display(mess);
+                            break;
                         }
 
                     }
                 }
+                console.log(listStudentChecked);
             }
             else{
                 for (let i = 0; i < data.length; i++) {
@@ -177,7 +187,7 @@ var StudentListCreate= function () {
     }
     function AddStudentAndTests() {
         let list = randomGetFromList(listTestForStudent,listStudentChecked.length).listChild;
-
+        console.log(list);
         let data= {
         iStudentInformationPk:listStudentChecked,
         iExaminationInformationPk:iExaminationInformationPk,
@@ -204,6 +214,7 @@ var StudentListCreate= function () {
     }
 
     function getSuccess(res) {
+        numberStudent +=  res.length;
         for (let i= 0 ; i< res.length;i++){
             listStudentChecked.push(res[i].iStudentInformationPk);
         }
@@ -228,6 +239,7 @@ var StudentListCreate= function () {
     function findErrorDifficulty(err) {
         display(err.responseText);
     }
+
     let listQuestionLv1 = [];
     let listQuestionLv2 = [];
     let listQuestionLv3 = [];
@@ -236,6 +248,7 @@ var StudentListCreate= function () {
     let listTestsLv2 =[];
     let listTestsLv3 =[];
     let listTestsLv4 =[];
+
     function findQuestion() {
         if(iSubjectInformationPk == null){
             return
@@ -245,17 +258,18 @@ var StudentListCreate= function () {
 
     function findQuestionSuccess(res) {
         for(let i=0 ;i< res.length;i++){
-            if(res[i].iQuestionInformationLevel = 1){
-                listQuestionLv1.push(res[i].iStudentInformationPk);
+            console.log(res[i].iQuestionInformationLevel);
+            if(res[i].iQuestionInformationLevel == 1){
+                listQuestionLv1.push(res[i].iQuestionInformationPk);
             }
-            if(res[i].iQuestionInformationLevel = 2){
-                listQuestionLv2.push(res[i].iStudentInformationPk);
+            if(res[i].iQuestionInformationLevel == 2){
+                listQuestionLv2.push(res[i].iQuestionInformationPk);
             }
-            if(res[i].iQuestionInformationLevel = 3){
-                listQuestionLv3.push(res[i].iStudentInformationPk);
+            if(res[i].iQuestionInformationLevel == 3){
+                listQuestionLv3.push(res[i].iQuestionInformationPk);
             }
-            if(res[i].iQuestionInformationLevel = 4){
-                listQuestionLv4.push(res[i].iStudentInformationPk);
+            if(res[i].iQuestionInformationLevel == 4){
+                listQuestionLv4.push(res[i].iQuestionInformationPk);
             }
         }
         listTestsLv1 = getListQuestionForStudents(listQuestionLv1,examination.numQuestionLv1,percentMatch);
@@ -263,14 +277,14 @@ var StudentListCreate= function () {
         listTestsLv3 = getListQuestionForStudents(listQuestionLv3,examination.numQuestionLv3,percentMatch);
         listTestsLv4 = getListQuestionForStudents(listQuestionLv4,examination.numQuestionLv4,percentMatch);
 
-
-        for(let i =0 ;i<listQuestionLv1.length;i++){
+        for(let i =0 ;i<listTestsLv1.length;i++){
             let subList = [];
-            copyElement(listQuestionLv1[i],subList);
-            copyElement(listQuestionLv2[i],subList);
-            copyElement(listQuestionLv3[i],subList);
-            copyElement(listQuestionLv4[i],subList);
+            copyElement(listTestsLv1[i],subList);
+            copyElement(listTestsLv2[i],subList);
+            copyElement(listTestsLv3[i],subList);
+            copyElement(listTestsLv4[i],subList);
             listTestForStudent.push(subList);
+            console.log(subList);
         }
     }
 

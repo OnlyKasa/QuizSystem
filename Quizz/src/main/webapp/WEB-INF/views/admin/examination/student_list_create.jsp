@@ -16,7 +16,7 @@
         <div class="col-xs-12 clear-padding">
             <div class="col-xs-12 col-sm-6 col-lg-4 mt-xs">
                 <label>Mã sinh viên</label>
-                <input class="form-control" id="strStudentInformationCode" type="text" />
+                <input class="form-control" id="iStudentInformationCode" type="text" />
             </div>
 
             <div class="col-xs-12 col-sm-6 col-lg-4 mt-xs">
@@ -133,7 +133,7 @@
     <tr>
         <td class="txt-center">{{index}}</td>
         <td>
-            {{strStudentInformationCode}}
+            {{iStudentInformationCode}}
         </td>
         <td>{{strStudentInformationFirstName}} {{strStudentInformationLastName}}</td>
         <td>{{strFacultyInformationFullName}}</td>

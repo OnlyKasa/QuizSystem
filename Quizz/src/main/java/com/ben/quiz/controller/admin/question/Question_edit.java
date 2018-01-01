@@ -14,15 +14,15 @@ import java.util.Objects;
 @RequestMapping(QuizTrasitionConst.ADMIN.PAGE_QUESTION_EDIT)
 public class Question_edit extends BaseControllerWeb {
 
-    @RequestMapping("/{iQuestionInformation}")
+    @RequestMapping("/{iQuestionInformationPk}")
     public String prepareEdit(Map<String, Object> inModel,
-                              @PathVariable(value = "iQuestionInformation") Integer iQuestionInformation) throws QuizException {
+                              @PathVariable(value = "iQuestionInformationPk") Integer iQuestionInformationPk) throws QuizException {
 
         if(Objects.equals( getUser().getStrTopMenu(), "ADM")
                 || Objects.equals( getUser().getStrTopMenu(), "")
                 || Objects.equals( getUser().getStrTopMenu(), "TEA")
                 ){
-            inModel.put("iQuestionInformation", iQuestionInformation);
+            inModel.put("iQuestionInformationPk", iQuestionInformationPk);
             inModel.put("screenCode",  getUser().getStrTopMenu());
             return getDefaultPageMap(inModel, "A104_1");
         }else

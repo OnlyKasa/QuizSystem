@@ -33,6 +33,7 @@ public class QuestionInformRepositoryImpl extends BaseRepositoryImpl implements 
         final Join<QuestionInformation,SubjectInformation>
                 subject = entityRoot.join(QuestionInformation_.subjectInformationByISubjectInformationPk,
                 JoinType.LEFT);
+
         List<Predicate>  predicates = createPredicateForSearchAndCount(criteriaBuilder,
                 entityRoot,
                 teacher,
@@ -47,8 +48,8 @@ public class QuestionInformRepositoryImpl extends BaseRepositoryImpl implements 
             query.setFirstResult((pagingReq.getPage() - 1) * pagingReq.getRowPerPage());
             query.setMaxResults(pagingReq.getRowPerPage());
         }
-        List<Tuple> examinationRooms = query.getResultList();
-        return examinationRooms.stream()
+        List<Tuple> tuples = query.getResultList();
+        return tuples.stream()
                 .map(this::convertToQuestionInformDto)
                 .collect(Collectors.toList());
     }
@@ -70,17 +71,22 @@ public class QuestionInformRepositoryImpl extends BaseRepositoryImpl implements 
         predicates.add(criteriaBuilder.like(
                 criteriaBuilder.lower(entityRoot.get(QuestionInformation_.strQuestionContentInformation)),
                 SQLUtil.AllLike(searchReq.getStrQuestionContentInformation())));
-        predicates.add(criteriaBuilder.equal(entityRoot.get(QuestionInformation_.iQuestionInformationLevel),
-                searchReq.getiQuestionInformationPk()));
+
+        if(searchReq.getiQuestionInformationLevel()!=99) {
+            predicates.add(criteriaBuilder.equal(entityRoot.get(QuestionInformation_.iQuestionInformationLevel),
+                    searchReq.getiQuestionInformationLevel()));
+        }
         predicates.add(criteriaBuilder.like(
                 criteriaBuilder.lower(subject.get(SubjectInformation_.strSubjectInformationName)),
                 SQLUtil.AllLike(searchReq.getStrSubjectInformationName())));
-        predicates.add(criteriaBuilder.like(
+
+        predicates.add(criteriaBuilder.or(criteriaBuilder.like(
                 criteriaBuilder.lower(teacher.get(TeacherInformation_.strTeacherInformationLastName)),
-                SQLUtil.AllLike(searchReq.getStrTeacherInformationLastName())));
-        predicates.add(criteriaBuilder.like(
+                SQLUtil.AllLike(searchReq.getStrTeacherInformationLastName())),criteriaBuilder.like(
                 criteriaBuilder.lower(teacher.get(TeacherInformation_.strTeacherInformationFirstName)),
-                SQLUtil.AllLike(searchReq.getStrTeacherInformationFirstName())));
+                SQLUtil.AllLike(searchReq.getStrTeacherInformationFirstName()))));
+
+
         return predicates ;
     }
     @Override

@@ -170,24 +170,8 @@ public class ExaminationInformServiceImpl implements ExaminationInformService {
         saveReq.setiExaminationInformationPk(
                 utilRepository.findSequenceNextval(SequenceConst.EXAMINATION_INFORMATION_SEQ).intValue());
 
-        saveReq.setiExaminationInformationPk(saveReq.getiExaminationInformationPk());
+        saveReq.setiExaminationInformationPkEk(saveReq.getiExaminationInformationPk());
         ExaminationInformation examinationInformation = modelMapper.map(saveReq ,ExaminationInformation.class);
-        if((saveReq.getiExaminationRoomPk() != 0) || saveReq.getiExaminationRoomPk() !=null) {
-            examinationInformation.setExaminationRoomByIExaminationRoomPk(
-                    roomInformRepository.findOne(ExaminationRoom.class,saveReq.getiExaminationRoomPk()));
-        }
-        if((saveReq.getiRateOfDifficultyPk() != 0) || saveReq.getiRateOfDifficultyPk() != null) {
-            examinationInformation.setRateOfDifficultyByIRateOfDifficultyPk(
-                    rateOfDifficultyRepository.findOne(RateOfDifficulty.class,saveReq.getiRateOfDifficultyPk()));
-        }
-        if((saveReq.getiSubjectInformationPk() != 0) || saveReq.getiSubjectInformationPk() != null) {
-            examinationInformation.setSubjectInformationByISubjectInformationPk(
-                    rateOfDifficultyRepository.findOne(SubjectInformation.class,saveReq.getiSubjectInformationPk()));
-        }
-        if((saveReq.getiTeacherInformationPk() != 0) || saveReq.getiTeacherInformationPk() != null) {
-            examinationInformation.setTeacherInformationByITeacherInformationPk(
-                    teacherInformRepository.findOne(TeacherInformation.class,saveReq.getiTeacherInformationPk()));
-        }
         return examinationInformRepository.add(examinationInformation);
     }
 
@@ -203,20 +187,19 @@ public class ExaminationInformServiceImpl implements ExaminationInformService {
         examinationInformation.setiExaminationInformationPkEk(examinationInformation.getiExaminationInformationPk());
         return examinationInformRepository.save(examinationInformation);
     }
-
+    @Transactional(rollbackFor = QuizException.class)
     @Override
     public void createStudentAndTest(CreateListTestsReq saveReq) throws QuizException {
-
-        for (Integer idStudent:saveReq.getiStudentInformationPk()
-             ) {
-            DeleteTest(idStudent,saveReq.getiExaminationInformationPk());
-
-            TestInformation testInformation = testInformRepository.add(generateTestInformation(idStudent,saveReq.getiExaminationInformationPk()));
-
-            for (List<Integer> idQuestion:saveReq.getiQuestionInformationPk()
-                 ) {
-                generateTestInformationDetail(idQuestion,testInformation.getiTestInformationPk());
+        List<Integer> idStudent =saveReq.getiStudentInformationPk();
+        List<List<Integer>> idQuestion = saveReq.getiQuestionInformationPk();
+        for (int index=0; index < idStudent.size() ; index++){
+            DeleteTest(idStudent.get(index),saveReq.getiExaminationInformationPk());
+            TestInformation testInformation = testInformRepository.add(generateTestInformation(idStudent.get(index),
+                    saveReq.getiExaminationInformationPk()));
+            if(saveReq.getiQuestionInformationPk().size() ==0){
+                throw new QuizException(1,"null");
             }
+            generateTestInformationDetail(idQuestion.get(index),testInformation.getiTestInformationPk());
         }
     }
     private void generateTestInformationDetail(List<Integer> iQuestionInformations,Integer iTestInformationPk ){
@@ -225,7 +208,7 @@ public class ExaminationInformServiceImpl implements ExaminationInformService {
              ) {
             TestInformationDetail testInformationDetail = new TestInformationDetail();
             testInformationDetail.setiQuestionInformationPk(iQuestionInformation);
-            testInformationDetail.setiTestInformationDetailPk(iTestInformationPk);
+            testInformationDetail.setiTestInformationPk(iTestInformationPk);
             testInformationDetail.setiTestInformationDetailPk(utilRepository.findSequenceNextval(SequenceConst.TEST_INFORMATION_DETAIL_SEQ).intValue());
             testInformationDetail.setiTestDetailInformationPkEk(testInformationDetail.getiTestInformationDetailPk());
             testInformationDetailRepository.add(testInformationDetail);

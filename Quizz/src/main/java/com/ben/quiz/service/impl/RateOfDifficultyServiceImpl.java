@@ -5,6 +5,7 @@ import com.ben.quiz.domain.common.constant.SequenceConst;
 import com.ben.quiz.domain.common.exception.QuizException;
 import com.ben.quiz.domain.dto.request.PagingReq;
 import com.ben.quiz.domain.dto.request.RateOfDifficultyReq;
+import com.ben.quiz.domain.dto.result.RateOfDifficultyDto;
 import com.ben.quiz.domain.model.FacultyInformation;
 import com.ben.quiz.domain.model.RateOfDifficulty;
 import com.ben.quiz.domain.repository.interfaces.RateOfDifficultyRepository;
@@ -31,7 +32,7 @@ public class RateOfDifficultyServiceImpl implements RateOfDifficultyService{
     }
     @Transactional(readOnly = true)
     @Override
-    public List<RateOfDifficulty> search(RateOfDifficultyReq searchReq, PagingReq pagingReq) throws QuizException {
+    public List<RateOfDifficultyDto> search(RateOfDifficultyReq searchReq, PagingReq pagingReq) throws QuizException {
         return rateOfDifficultyRepository.search(searchReq,pagingReq);
     }
 
@@ -43,7 +44,7 @@ public class RateOfDifficultyServiceImpl implements RateOfDifficultyService{
 
     @Transactional(readOnly = true)
     @Override
-    public RateOfDifficulty findByID(Integer iRateOfDifficultyPk) throws QuizException {
+    public RateOfDifficultyDto findByID(Integer iRateOfDifficultyPk) throws QuizException {
         return rateOfDifficultyRepository.findByID(iRateOfDifficultyPk);
     }
 
@@ -60,19 +61,21 @@ public class RateOfDifficultyServiceImpl implements RateOfDifficultyService{
     @Transactional
     @Override
     public RateOfDifficulty update(RateOfDifficultyReq saveReq) throws QuizException {
-        RateOfDifficulty rateOfDifficulty = rateOfDifficultyRepository.findByID(
+        RateOfDifficultyDto rateOfDifficultyDto = rateOfDifficultyRepository.findByID(
                 saveReq.getiRateOfDifficultyPk());
 
-        modelMapper.map(saveReq,rateOfDifficulty);
+        modelMapper.map(saveReq,rateOfDifficultyDto);
+        RateOfDifficulty rateOfDifficulty = modelMapper.map(rateOfDifficultyDto,RateOfDifficulty.class);
         rateOfDifficulty.setiRateOfDifficultyPkEk(rateOfDifficulty.getiRateOfDifficultyPk());
         return rateOfDifficultyRepository.save(rateOfDifficulty);
     }
     @Transactional
     @Override
     public void delete(Integer iRateOfDifficultyPk) throws QuizException {
-        RateOfDifficulty facultyInformation = rateOfDifficultyRepository.findByID(
+        RateOfDifficultyDto rateOfDifficultyDto = rateOfDifficultyRepository.findByID(
                 iRateOfDifficultyPk);
-        facultyInformation.setiRateOfDifficultyPkEk(null);
-        rateOfDifficultyRepository.save(facultyInformation);
+        rateOfDifficultyDto.setiRateOfDifficultyPkEk(null);
+        RateOfDifficulty rateOfDifficulty = modelMapper.map(rateOfDifficultyDto,RateOfDifficulty.class);
+        rateOfDifficultyRepository.save(rateOfDifficulty);
     }
 }

@@ -5,7 +5,7 @@ var TeacherCreate = function () {
     };
 
     let url = {
-      urlAdd : contextPath + "/examination/create"
+      urlAdd : contextPath + "/teacher/create"
     };
     function init() {
         validUtil.autoValidation("form-create-teacher",TeacherCreate.submit);
@@ -13,18 +13,24 @@ var TeacherCreate = function () {
             validUtil.autoValidation("form-create-teacher",TeacherCreate.submit);
         });
 
+
     }
 
 
     function submit() {
+
+        if(checkPassword()){
+            return
+        }
+
         let newdata = {
-            strExaminationInformationCode:$("#strExaminationInformationCode").val().trim() ,
-            iExaminationRoomPk:  $("#strExaminationRoomName").attr("iExaminationRoomPk").trim(),
-            iSubjectInformationPk: $("#strSubjectInformationName").attr("iSubjectInformationPk").trim(),
-            iTeacherInformationPk: $("#strTeacherInformationName").attr("iTeacherInformationPk").trim(),
-            dtExaminationDay:formatNormalDateTime($("#dtExaminationDay").val()),
-            iRateOfDifficultyPk: $("#strRateDifficultyName").attr("iRateOfDifficultyPk").trim(),
-            iTestInformationTime: $("#iTestInformationTime").val().trim()
+            strTeacherInformationLastName:$("#strTeacherInformationLastName").val().trim(),
+            strTeacherInformationFirstName: $("#strTeacherInformationFirstName").val().trim(),
+            iFacultyInformationPk: $("#strFacultyInformationFullName").attr("iFacultyInformationPk").trim(),
+            strFacultyInformationFullName: $("#strFacultyInformationFullName").val(),
+            strTeacherInformationPhone:$("#strTeacherInformationPhone").val(),
+            userId:$("#userId").val(),
+            password:$("#password").val()
         };
 
         $("#modal-confirm").modal("show");
@@ -38,9 +44,25 @@ var TeacherCreate = function () {
         });
     }
 
+    function checkPassword(){
+        let pass =  $("#password").val();
+        let repass = $("#rePassword").val();
+
+        $("#password").removeClass("input-error");
+        $("#passwordErr").css("display", "none");
+        if(pass == repass)
+            return false;
+        else{
+            $("#password").addClass("input-error");
+            $("#passwordErr").css("display", "block");
+            $("#passwordErr").text("Mật khẩu nhập lại không khớp");
+            return true;
+        }
+
+    }
 
     function addSuccess() {
-        displayCreated("admin","a101");
+        displayCreated("admin","a107");
     }
 
     function addError(err) {

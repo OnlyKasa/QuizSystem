@@ -7,11 +7,10 @@ import com.ben.quiz.domain.dto.request.PagingReq;
 import com.ben.quiz.domain.dto.request.TeacherInformationSaveReq;
 import com.ben.quiz.domain.dto.request.TeacherInformationSearchReq;
 import com.ben.quiz.domain.dto.result.TeacherInformDto;
-import com.ben.quiz.domain.model.FacultyInformation;
-import com.ben.quiz.domain.model.FacultyInformation_;
-import com.ben.quiz.domain.model.TeacherInformation;
-import com.ben.quiz.domain.model.TeacherInformation_;
+import com.ben.quiz.domain.model.*;
 import com.ben.quiz.domain.repository.interfaces.TeacherInformRepository;
+import com.ben.quiz.domain.repository.interfaces.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.Tuple;
@@ -24,6 +23,8 @@ import java.util.stream.Collectors;
 @Repository("teacherRepository")
 public class TeacherInformRepositoryImpl extends BaseRepositoryImpl implements TeacherInformRepository {
 
+    @Autowired
+    private UserRepository userRepository;
     @Override
     public List<TeacherInformDto> search(TeacherInformationSearchReq searchReq, PagingReq pagingReq) throws QuizException {
         final CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
@@ -55,6 +56,13 @@ public class TeacherInformRepositoryImpl extends BaseRepositoryImpl implements T
         TeacherInformDto teacherInformDto = new TeacherInformDto();
         modelMapper.map(tuple.get(0),teacherInformDto);
         modelMapper.map(tuple.get(1),teacherInformDto);
+
+        try {
+            Seiuser seiuser = userRepository.findSeiuserByiTeacherPk(teacherInformDto.getiTeacherInformationPk());
+            teacherInformDto.setUserId(seiuser.getUserId());
+        } catch (QuizException e) {
+            e.printStackTrace();
+        }
         return teacherInformDto ;
     }
 

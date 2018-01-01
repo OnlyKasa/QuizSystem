@@ -10,15 +10,24 @@ var pageCount = 1;
 const noData = "Không tìm thấy dữ liệu";
 
 function calculatorNumberQuestionForExamination(studentNumber,numberQuestOfOneTest,percentMatch) {
-    if(percentMatch > 100 ){
+    percentMatch = parseInt(percentMatch);
+    let numberGroup = 0 ;
+    if(percentMatch >= 100 ){
         percentMatch = 99;
+    }if(percentMatch <= 0 ){
+        percentMatch = 1;
     }
+
     let matchQuestionNumberOfOneTest = (percentMatch/100) * numberQuestOfOneTest;
     let notMatchQuestionNumberOfOneTest  = numberQuestOfOneTest - matchQuestionNumberOfOneTest ;
     if(matchQuestionNumberOfOneTest === 0){
         return numberQuestOfOneTest * studentNumber ;
     }
     let testsNumber= 0 ;
+    if(percentMatch > 50){
+        numberGroup = notMatchQuestionNumberOfOneTest;
+    }else
+        numberGroup = matchQuestionNumberOfOneTest;
     let numberQuestionForExamination = numberQuestOfOneTest - 1 ;
     if(notMatchQuestionNumberOfOneTest < matchQuestionNumberOfOneTest ||
         notMatchQuestionNumberOfOneTest === matchQuestionNumberOfOneTest){
@@ -28,7 +37,7 @@ function calculatorNumberQuestionForExamination(studentNumber,numberQuestOfOneTe
             let matchQuestionGroup = Math.floor(numberQuestionForExamination / matchQuestionNumberOfOneTest);
             for(let i = 1 ; i < matchQuestionGroup + 1 ;i++){
                 //TODO nested : not match question and match question.
-                let notMatchQuestionGroup = Math.floor(numberQuestionForExamination - i * notMatchQuestionNumberOfOneTest)
+                let notMatchQuestionGroup = Math.floor(numberQuestionForExamination - i * numberGroup)
                     / notMatchQuestionNumberOfOneTest ;
                 testsNumber += notMatchQuestionGroup ;
             }
@@ -43,28 +52,34 @@ function calculatorNumberQuestionForExamination(studentNumber,numberQuestOfOneTe
  */
 
 function getListQuestionForStudents(objQuestionOfExamination,numberQuestOfOneTest,percentMatch) {
+
     let matchQuestionNumberOfOneTests = Math.floor((percentMatch/100) * numberQuestOfOneTest);
     let notMatchQuestionNumberOfOneTests  = numberQuestOfOneTest - matchQuestionNumberOfOneTests ;
-
     let testsOfStudentList = [];
-    let objQuestionOfExaminationCopy = objQuestionOfExamination;
+    let objQuestionOfExaminationCopy = [];
+    objQuestionOfExamination.map(function (value) {
+        objQuestionOfExaminationCopy.push(value);
+    });
     let oldMatch = [] ;
-    while (objQuestionOfExamination.length >= numberQuestOfOneTest){
+    let first = new Date();
+    while (objQuestionOfExaminationCopy.length > numberQuestOfOneTest){
+        let last = new Date();
+        if((last - first) > 5000){
+            alert("No responding in getListQuestionForStudents");
+            break;
+        }
         let testsList = [];
-        let resultMatch = randomGetFromList(objQuestionOfExaminationCopy,matchQuestionNumberOfOneTests);
-        testsList = copyElement(resultMatch.listChild,testsList);
+        let resultMatch = randomGetFromList(objQuestionOfExamination,matchQuestionNumberOfOneTests);
+        copyElement(resultMatch.listChild,testsList);
         let resultNotMatch = randomGetFromList(resultMatch.listObject,notMatchQuestionNumberOfOneTests,oldMatch);
-        testsList = copyElement(resultNotMatch.listChild,testsList);
-
+        copyElement(resultNotMatch.listChild,testsList);
         //gan lai tap hop cau hoi
         oldMatch = resultMatch.listChild;
-        objQuestionOfExamination= resultNotMatch.listObject ;
-        objQuestionOfExamination = copyElement(resultMatch.listChild,objQuestionOfExamination);
+        objQuestionOfExaminationCopy= resultNotMatch.listObject ;
+        copyElement(resultMatch.listChild,objQuestionOfExaminationCopy);
         //Ket thuc gan lai tap hop cau hoi
-
         testsOfStudentList.push(testsList);
     }
-
     return testsOfStudentList ;
 }
 
@@ -72,6 +87,7 @@ function getListQuestionForStudents(objQuestionOfExamination,numberQuestOfOneTes
 * ECMAScript 2016  with includes of array
 * */
 function copyElement(res,dic) {
+
     if(typeof res =="object" && typeof dic =="object")
         for (let i= 0 ; i< res.length ;i++){
             if(!dic.includes(res[i])){
@@ -89,26 +105,38 @@ function remove(array, element) {
 }
 
 function randomGetFromList(object, elementNumber , notInObject) {
+    let first = new Date();
+    let objectCopy = [];
+    object.map(function (value) {
+        objectCopy.push(value);
+    });
+
     let notInObjectCopy =[];
     if(typeof notInObject == "object" )
         notInObjectCopy= notInObject ;
     let result =[];
     let check = 0 ;
+    if( !(elementNumber > objectCopy.length)){
+        while((typeof objectCopy == "object") && (check < elementNumber)&& (objectCopy.length > 0))
+        {
+            let last = new Date();
+            if((last - first) > 5000){
+                alert("No responding in randomGetFromList");
+                break;
+            }
+            let indexRandom =Math.floor((Math.random() * objectCopy.length) + 1) - 1;
+            if(!notInObjectCopy.includes(objectCopy[indexRandom])){
+                result.push(objectCopy[indexRandom]) ;
+                check ++ ;
+            }
 
-    while(typeof object == "object" && (!(object.length < elementNumber)) && check < elementNumber)
-    {
-        let indexRandom =Math.floor((Math.random() * object.length) + 1) - 1;
-        if(!notInObjectCopy.includes(object[indexRandom])){
-            result.push(object[indexRandom]) ;
-            remove(object,object[indexRandom]);
-            check ++ ;
+            remove(objectCopy,objectCopy[indexRandom]);
         }
-
     }
 
     return {
         listChild : result,
-        listObject : object
+        listObject : objectCopy
     }
 }
 
@@ -188,6 +216,7 @@ function executePut(strUrl, inputData, successFunc, errorFunc, doneFunc, validat
 }
 
 function executeGetNew(strUrl, successFunc, errorFunc, doneFunc, validateFunc, async) {
+    console.log(strUrl);
     executeAjaxNew(strUrl, '', successFunc, errorFunc, doneFunc, "GET", validateFunc, async);
 }
 function executeDeleteNew(strUrl, successFunc, errorFunc, doneFunc, validateFunc) {
@@ -200,6 +229,7 @@ function executeAjaxNew(strUrl, inputData, successFunc, errorFunc, doneFunc, typ
     if(typeof validateFunc != 'undefined' && !validateFunc(inputData)){
         return;
     }
+    console.log(strUrl);
     setTimeout(function(){
         $.ajax({
             type : type,
@@ -321,6 +351,8 @@ function countIndex(rowCount, rowPerPage, currentPage, txtPageCount, txtPageNavi
     if(typeof pageChangeFunction == "undefined" || pageChangeFunction ==null){
         pageChangeFunction = "changePage";
     }
+    console.log(rowCount);
+    console.log(currentPage);
     if (rowCount > 0 && rowCount > rowPerPage) {
         var to;
         var from = (currentPage - 1) * rowPerPage;
@@ -408,6 +440,7 @@ function countIndex(rowCount, rowPerPage, currentPage, txtPageCount, txtPageNavi
         $('#'+txtPageCount).empty();
     }
 }
+
 
 //Display error modal
 function display(msg) {
@@ -518,12 +551,11 @@ function formatNormalDateTime(date) {
 }
 function reFormatDateTime(date) {
    var year =  new Date(date).getFullYear();
-   var month = new Date(date).getMonth() + 1;
-   var day = new Date(date).getDate();
-   var hour = new Date(date).getHours();
-   var min = new Date(date).getMinutes();
+   var month = ("0" + (new Date(date).getMonth() + 1)).slice(-2)
+   var day = ("0" + new Date(date).getDate()).slice(-2);
+   var hour =("0" +  new Date(date).getHours()).slice(-2);
+   var min = ("0" +  new Date(date).getMinutes()).slice(-2);
 
    return year +"/" +month+"/"+ day + " " + hour +":" + min;
-
 }
 

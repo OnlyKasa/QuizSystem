@@ -66,7 +66,8 @@ var FacultyList = function () {
     function changePage(pg) {
         if(typeof pg =="undefined"){
             page.currentPage = 1;
-        }
+        }else
+            page.currentPage=pg;
         inputSearch["page"] = page.currentPage ;
         inputSearch["rowPerPage"] = page.rowPerPage ;
         executeGetNew(url.searchListURL +"?"+ paramEncode(inputSearch),searchSuccess,searchError);

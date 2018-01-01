@@ -72,7 +72,9 @@ var QuestionList = function () {
     function changePage(pg) {
         if(typeof pg =="undefined"){
             page.currentPage = 1;
-        }
+        }else
+            page.currentPage=pg;
+
         inputSearch["page"] = page.currentPage ;
         inputSearch["rowPerPage"] = page.rowPerPage ;
         executeGetNew(url.searchListURL +"?"+ paramEncode(inputSearch),searchSuccess,searchError);
@@ -85,6 +87,18 @@ var QuestionList = function () {
         });
         for (let i = 0; i < data.length; i++) {
             data[i]["index"] = (((page.currentPage - 1) * page.rowPerPage) + i + 1).toString();
+            if(data[i]["iQuestionInformationLevel"]==1){
+                data[i]["vcQuestionInformationLevel"] = "Độ khó 1 (dễ)";
+            }
+            if(data[i]["iQuestionInformationLevel"]==2){
+                data[i]["vcQuestionInformationLevel"] ="Độ khó 2 (trung bình )";
+            }
+            if(data[i]["iQuestionInformationLevel"]==3){
+                data[i]["vcQuestionInformationLevel"] = "Độ khó 3 (khó)";
+            }
+            if(data[i]["iQuestionInformationLevel"]==4){
+                data[i]["vcQuestionInformationLevel"] = "Độ khó 4 (cực khó)";
+            }
             $("#table-content").append(template7.compileList(data[i]));
         }
         countIndexQuestion()
@@ -115,6 +129,18 @@ var QuestionList = function () {
 
     function getSuccessDetail(res) {
         $("#modal-detail").modal("show");
+        if(res["iQuestionInformationLevel"]==1){
+            res["vcQuestionInformationLevel"] = "Độ khó 1 (dễ)";
+        }
+        if(res["iQuestionInformationLevel"]==2){
+            res["vcQuestionInformationLevel"] = "Độ khó 2 (trung bình )";
+        }
+        if(res["iQuestionInformationLevel"]==3){
+            res["vcQuestionInformationLevel"] = "Độ khó 3 (khó)";
+        }
+        if(res["iQuestionInformationLevel"]==4){
+            res["vcQuestionInformationLevel"] = "Độ khó 4 (cực khó)";
+        }
         $("#modal-detail").html(template7.compileModalDetail(res))
     }
     function getError(err) {

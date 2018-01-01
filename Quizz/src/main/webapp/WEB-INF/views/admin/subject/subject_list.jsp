@@ -131,7 +131,6 @@
     </div>
 </script>
 
-
 <script type="text/template7" id="table-template-subject-list">
     <tr>
         <td class="txt-center">{{index}}</td>

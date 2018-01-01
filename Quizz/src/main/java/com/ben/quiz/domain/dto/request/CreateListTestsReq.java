@@ -6,7 +6,7 @@ public class CreateListTestsReq {
 
     private List<Integer> iStudentInformationPk;
     private Integer iExaminationInformationPk;
-    private List<Integer>[] iQuestionInformationPk;
+    private List<List<Integer>>iQuestionInformationPk;
 
     public List<Integer> getiStudentInformationPk() {
         return iStudentInformationPk;
@@ -24,11 +24,11 @@ public class CreateListTestsReq {
         this.iExaminationInformationPk = iExaminationInformationPk;
     }
 
-    public List<Integer>[] getiQuestionInformationPk() {
+    public List<List<Integer>> getiQuestionInformationPk() {
         return iQuestionInformationPk;
     }
 
-    public void setiQuestionInformationPk(List<Integer>[] iQuestionInformationPk) {
+    public void setiQuestionInformationPk(List<List<Integer>> iQuestionInformationPk) {
         this.iQuestionInformationPk = iQuestionInformationPk;
     }
 }

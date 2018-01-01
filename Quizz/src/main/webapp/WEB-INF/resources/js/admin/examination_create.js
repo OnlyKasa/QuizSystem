@@ -22,7 +22,7 @@ var ExaminationCreate = function () {
             iExaminationRoomPk:  $("#strExaminationRoomName").attr("iExaminationRoomPk").trim(),
             iSubjectInformationPk: $("#strSubjectInformationName").attr("iSubjectInformationPk").trim(),
             iTeacherInformationPk: $("#strTeacherInformationName").attr("iTeacherInformationPk").trim(),
-            dtExaminationDay:formatNormalDateTime($("#dtExaminationDay").val()),
+            dtExaminationDay:new Date(formatNormalDateTime($("#dtExaminationDay").val())),
             iRateOfDifficultyPk: $("#strRateDifficultyName").attr("iRateOfDifficultyPk").trim(),
             iTestInformationTime: $("#iTestInformationTime").val().trim(),
 

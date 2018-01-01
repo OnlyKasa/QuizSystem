@@ -8,6 +8,15 @@ public class QuestionInformSearchReq {
     private int iSubjectInformationCreditsNum;
     private String strTeacherInformationFirstName;
     private String strTeacherInformationLastName;
+    private Integer iQuestionInformationLevel;
+
+    public Integer getiQuestionInformationLevel() {
+        return iQuestionInformationLevel;
+    }
+
+    public void setiQuestionInformationLevel(Integer iQuestionInformationLevel) {
+        this.iQuestionInformationLevel = iQuestionInformationLevel;
+    }
 
     public Integer getiQuestionInformationPk() {
         return iQuestionInformationPk;

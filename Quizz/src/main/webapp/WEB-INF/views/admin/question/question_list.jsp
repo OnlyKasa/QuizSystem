@@ -105,7 +105,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title heading-1">Thông tin chi tiết câu h</h4>
+                <h4 class="modal-title heading-1">Thông tin chi tiết câu hỏi</h4>
             </div>
 
             <div class="modal-body">
@@ -164,7 +164,7 @@
                             </colgroup>
                             <tr>
                                 <th>Tên gíao viên tổ chức</th>
-                                <td>{{strTeacherInformationName}}</td>
+                                <td>{{strTeacherInformationLastName}} {{strTeacherInformationFirstName}}</td>
                             </tr>
 
                             <tr>
@@ -184,7 +184,7 @@
                 </div>
                 <div class="btn-modal">
                     <button type="button" class="btn btn-detail-delete btn-gray"
-                            onclick="ExaminationList.showDelete('{{iQuestionInformationPk}}');" >Xóa</button>
+                            onclick="QuestionList.showDelete('{{iQuestionInformationPk}}');" >Xóa</button>
                 </div>
                 <div class="btn-modal">
                     <button type="button" class="btn btn-gray" data-dismiss="modal">Trở lại</button>
@@ -263,7 +263,7 @@
                             </colgroup>
                             <tr>
                                 <th>Tên gíao viên tổ chức</th>
-                                <td>{{strTeacherInformationName}}</td>
+                                <td>{{strTeacherInformationLastName}} {{strTeacherInformationFirstName}}</td>
                             </tr>
 
                             <tr>
@@ -294,15 +294,15 @@
 <script type="text/template7" id="table-template-question-list">
 
     <tr>
-        <td class="txt-center">2</td>
+        <td class="txt-center">{{index}}</td>
         <td>
-            <a class="txt-green border" data-toggle="modal">
+            <a class="txt-green border" data-toggle="modal" onclick="QuestionList.showDetail('{{iQuestionInformationPk}}')">
                 {{strQuestionContentInformation}}
 
             </a>
             <a style="display:none" id="iQuestionInformationPk">{{iQuestionInformationPk}}</a>
         </td>
-        <td>{{strTeacherInformationName}}</td>
+        <td>{{strTeacherInformationLastName}} {{strTeacherInformationFirstName}}</td>
         <td>{{strSubjectInformationName}}</td>
         <td>{{vcQuestionInformationLevel}}</td>
 

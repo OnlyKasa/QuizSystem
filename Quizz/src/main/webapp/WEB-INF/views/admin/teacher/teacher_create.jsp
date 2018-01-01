@@ -26,6 +26,7 @@
 
                 <div class="col-xs-12 col-sm-7 col-md-65p">
                     <input class="form-control" type="text" id="strTeacherInformationLastName" nullable="false"/>
+                    <p class="message-error" id="strTeacherInformationLastNameErr"></p>
                 </div>
             </div>
 
@@ -44,6 +45,7 @@
 
                 <div class="col-xs-12 col-sm-7 col-md-65p">
                     <input class="form-control" type="text" id="strTeacherInformationFirstName" nullable="false"/>
+                    <p class="message-error" id="strTeacherInformationFirstNameErr"></p>
                 </div>
             </div>
 
@@ -61,6 +63,7 @@
 
                 <div class="col-xs-12 col-sm-7 col-md-65p">
                     <input class="form-control" type="text" id="strTeacherInformationPhone" nullable="false" maxlength="14"/>
+                    <p class="message-error" id="strTeacherInformationPhoneErr"></p>
                 </div>
 
             </div>
@@ -78,7 +81,8 @@
                 </div>
 
                 <div class="col-xs-12 col-sm-7 col-md-65p">
-                    <input class="form-control" type="text" id="username" readonly=readonly nullable="false"/>
+                    <input class="form-control" type="text" id="userId" nullable="false"/>
+                    <p class="message-error" id="userIdErr"></p>
                 </div>
             </div>
 
@@ -97,9 +101,8 @@
 
                 <div class="col-xs-12 col-sm-7 col-md-65p">
                     <input class="form-control" type="password" id="password" nullable="false"/>
+                    <p class="message-error" id="passwordErr"></p>
                 </div>
-
-
             </div>
             <div class="form-content first-child row">
                 <div class="col-xs-9 col-sm-4 col-md-30p">
@@ -109,7 +112,6 @@
                 </div>
 
                 <div class="col-xs-3 col-sm-1 col-md-5p clear-p-sm">
-
                 </div>
 
                 <div class="col-xs-12 col-sm-7 col-md-65p">
@@ -137,8 +139,8 @@
                 <div class="col-xs-12 col-sm-7 col-md-65p">
                     <div class="row">
                         <div class="col-xs-8 col-sm-9 col-lg-80p">
-                            <input  id="strFacultyInformationName" class="form-control" type="text" readonly="readonly" nullable="false" />
-                            <p class="message-error" id="strFacultyInformationNameErr"> </p>
+                            <input  id="strFacultyInformationFullName" class="form-control" type="text" readonly="readonly" nullable="false" />
+                            <p class="message-error" id="strFacultyInformationFullNameErr"> </p>
                         </div>
 
                         <div class="col-xs-4 col-sm-3 col-lg-20p clear-p-l">
@@ -193,11 +195,11 @@
 
                             <tr>
                                 <th>Số điện thoại </th>
-                                <td>{{strTeacherInformationFirstName}}</td>
+                                <td>{{strTeacherInformationPhone}}</td>
                             </tr>
                             <tr>
                                 <th>Tài khoản</th>
-                                <td>{username}}</td>
+                                <td>{{userId}}</td>
                             </tr>
                             <tr>
                                 <th>Mật khẩu  </th>
@@ -217,7 +219,7 @@
                             </colgroup>
                             <tr>
                                 <th>Khoa</th>
-                                <td>{{strFacultyInformationName}}</td>
+                                <td>{{strFacultyInformationFullName}}</td>
                             </tr>
                         </table>
                     </div><!-- /.scroll -->
@@ -230,7 +232,8 @@
                 </div>
                 <div class="btn-modal">
                     <button type="button" class="btn btn-gray btn-medium" data-dismiss="modal">Hủy bỏ</button>
-                </div        </div>
+                </div>
+            </div>
         </div>
     </div>
 </script>

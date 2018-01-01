@@ -68,7 +68,8 @@ var SubjectList = function () {
     function changePage(pg) {
         if(typeof pg =="undefined"){
             page.currentPage = 1;
-        }
+        }else
+            page.currentPage=pg;
         inputSearch["page"] = page.currentPage ;
         inputSearch["rowPerPage"] = page.rowPerPage ;
         executeGetNew(url.searchListURL +"?"+ paramEncode(inputSearch),searchSuccess,searchError);
@@ -105,8 +106,14 @@ var SubjectList = function () {
 
 
 
-    function showDelete(iSubjectInformationPk) {
-        executeGetNew(url.detailURL + iSubjectInformationPk,getSuccessDelete, getError)
+    function getError(err) {
+        display(err.responseText);
+    }
+
+
+    function showDelete() {
+        let iExaminationInformationPk = $("#iExaminationInformationPk").html();
+        executeGetNew(url.detailURL + iExaminationInformationPk,getSuccessDelete, getError)
     }
     function getSuccessDelete(res) {
         $("#modal-delete").modal("show");

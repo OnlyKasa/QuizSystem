@@ -46,7 +46,7 @@ function clearDataX() {
 function changePageX(page){
     if(typeof page =="undefined"){
         pageX.currentPage = 1;
-    }
+    }else pageX.currentPage = page;
     executeGetNew(urlSearchTeacher,searchSuccessX,searchErrorX);
 }
 function searchSuccessX(res) {
@@ -101,9 +101,11 @@ function showSubject() {
 
      $("#modal-list").modal("show");
      $("#modal-list").html(compilePopUpSubject());
+     console.log("aaa");
      countSubject();
 }
 function countSubject() {
+    console.log(urlCountSubject);
     executeGetNew(urlCountSubject,countSuccessY, countErrorY)
 }
 function countSuccessY(res) {
@@ -131,7 +133,7 @@ function clearDataY() {
 function changePageY(page){
     if(typeof page =="undefined"){
         pageY.currentPage = 1;
-    }
+    }else pageY.currentPage = page;
     executeGetNew(urlSearchSubject,searchSuccessY,searchErrorY);
 }
 function searchSuccessY(res) {
@@ -211,7 +213,7 @@ function clearDataZ() {
 function changePageZ(page){
     if(typeof page =="undefined"){
         pageY.currentPage = 1;
-    }
+    }else pageY.currentPage = page;
     executeGetNew(urlSearchDifficulty,searchSuccessZ,searchErrorZ);
 }
 function searchSuccessZ(res) {
@@ -285,7 +287,7 @@ function clearDataR() {
 function changePageR(page){
     if(typeof page =="undefined"){
         pageR.currentPage = 1;
-    }
+    }else  pageR.currentPage = page;
     executeGetNew(urlSearchRoom,searchSuccessR,searchErrorR);
 }
 function searchSuccessR(res) {
@@ -340,9 +342,9 @@ function showFaculty() {
 
     $("#modal-list").modal("show");
     $("#modal-list").html(compilePopUpFaculty());
-    countSubject();
+    countFaculty();
 }
-function countSubject() {
+function countFaculty() {
     executeGetNew(urlCountFaculty,countSuccessF, countErrorF)
 }
 function countSuccessF(res) {
@@ -370,7 +372,7 @@ function clearDataF() {
 function changePageF(page){
     if(typeof page =="undefined"){
         pageF.currentPage = 1;
-    }
+    }else pageF.currentPage = page;
     executeGetNew(urlSearchFaculty,searchSuccessF,searchErrorF);
 }
 function searchSuccessF(res) {
@@ -396,10 +398,9 @@ function selectFaculty(iFacultyInformationPk){
     for (var i = 0; i < listFaculty.length; i++) {
         if (listFaculty[i].iFacultyInformationPk == iFacultyInformationPk) {
             $("#strFacultyInformationFullName").attr("iFacultyInformationPk", listFaculty[i].iFacultyInformationPk);
-            $("#strFacultyInformationFullName").val(
-                listFaculty[i].strFacultyInformationFullName
-            );
-            $("#strFacultyInformationFullName").css("display", "none");
+            $("#strFacultyInformationFullName").val(listFaculty[i].strFacultyInformationFullName);
+            $("#strFacultyInformationFullNameErr").css("display", "none");
+            console.log(listFaculty[i].strFacultyInformationFullName);
             $("#modal-list").modal("hide");
             return;
         }

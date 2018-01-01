@@ -122,15 +122,6 @@ public class QuestionInformServiceImpl implements QuestionInformService {
 
         saveReq.setiQuestionInformationPkEk(saveReq.getiQuestionInformationPk());
         QuestionInformation questionInformation = modelMapper.map(saveReq ,QuestionInformation.class);
-        if((saveReq.getiTeacherInformationPk() != 0) || saveReq.getiTeacherInformationPk() !=null) {
-            questionInformation.setTeacherInformationByITeacherInformationPk(
-                    teacherInformRepository.findOne(TeacherInformation.class,
-                                                    saveReq.getiTeacherInformationPk()));
-        }
-        if((saveReq.getiSubjectInformationPk() != 0) || saveReq.getiSubjectInformationPk() !=null) {
-            questionInformation.setSubjectInformationByISubjectInformationPk(subjectInformRepository.findOne(SubjectInformation.class,
-                            saveReq.getiTeacherInformationPk()));
-        }
 
         return teacherInformRepository.add(questionInformation);
     }
@@ -138,21 +129,12 @@ public class QuestionInformServiceImpl implements QuestionInformService {
     @Override
     public QuestionInformation update(QuestionInformSaveReq saveReq) throws QuizException {
         QuestionInformDto questionInformDto = questionInformRepository.findByID(
-                saveReq.getiTeacherInformationPk());
+                saveReq.getiQuestionInformationPk());
+
         QuestionInformation questionInformation = new QuestionInformation();
 
         modelMapper.map(saveReq,questionInformDto);
         modelMapper.map(questionInformDto,questionInformation);
-        if((saveReq.getiSubjectInformationPk() != 0) || saveReq.getiSubjectInformationPk() !=null)
-        {
-            questionInformation.setSubjectInformationByISubjectInformationPk(
-                    subjectInformRepository.findOne(SubjectInformation.class,saveReq.getiSubjectInformationPk()));
-        }
-        if((saveReq.getiTeacherInformationPk() != 0) || saveReq.getiTeacherInformationPk() !=null)
-        {
-            questionInformation.setTeacherInformationByITeacherInformationPk(
-                    teacherInformRepository.findOne(TeacherInformation.class,saveReq.getiSubjectInformationPk()));
-        }
         questionInformation.setiQuestionInformationPkEk(questionInformation.getiQuestionInformationPk());
         return teacherInformRepository.save(questionInformation);
     }

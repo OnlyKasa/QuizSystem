@@ -87,14 +87,14 @@
 
 <script id="template-table-student" type="text/template7">
     <tr>
-        <td class="txt-center">1</td>
+        <td class="txt-center">{{index}}</td>
         <td>
-            {{strStudentInformationCode}}
+            {{iStudentInformationCode}}
         </td>
         <td>{{strStudentInformationFirstName}} {{strStudentInformationLastName}}</td>
         <td>{{strFacultyInformationFullName}}</td>
         <td class="txt-center">
-            <button class="btn btn-update btn-small">Xem đề thi</button><br/>
+            <%--<button class="btn btn-update btn-small">Xem đề thi</button><br/>--%>
             <button class="btn btn-delete btn-small mt5" data-toggle="modal" data-target="#modal-delete">Xóa</button>
         </td>
     </tr>
@@ -211,12 +211,12 @@
 
                             <tr>
                                 <th><label for="numberStudent" >Số lượng sinh viên thêm mới</label> </th>
-                                <td><input id="numberStudent" type="text" valid-type="number" valid="true" value="0"/></td>
+                                <td><input id="numberStudent" type="text" valid-type="number" valid="true" value="0"/>(Sinh viên)</td>
                             </tr>
 
                             <tr>
                                 <th><label for="numberPercent" >Tỷ lệ trùng câu hỏi </label> </th>
-                                <td><input id="numberPercent" type="text" valid-type="number" valid="true" min="0" max="100" value="50"></td>
+                                <td><input id="numberPercent" type="text" valid-type="number" valid="true" min="0" max="100" value="50">%</td>
                             </tr>
 
                             <tr>

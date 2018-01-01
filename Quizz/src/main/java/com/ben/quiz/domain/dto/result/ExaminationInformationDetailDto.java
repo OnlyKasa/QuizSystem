@@ -6,6 +6,8 @@ public class ExaminationInformationDetailDto {
     private Integer iExaminationInformationPk;
     private Integer iStudentInformationPk;
 
+
+
     public Integer getiTestInformationPk() {
         return iTestInformationPk;
     }

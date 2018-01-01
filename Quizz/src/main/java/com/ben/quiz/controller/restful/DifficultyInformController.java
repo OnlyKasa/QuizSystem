@@ -26,7 +26,7 @@ public class DifficultyInformController extends BaseControllerRestful {
     private RateOfDifficultyService rateOfDifficultyService;
 
     @GetMapping("/search")
-    public List<RateOfDifficulty> search(@Valid RateOfDifficultyReq req,
+    public List<RateOfDifficultyDto> search(@Valid RateOfDifficultyReq req,
                                          PagingReq pagingReq) throws QuizException {
         return rateOfDifficultyService.search(req, pagingReq);
     }
@@ -35,7 +35,7 @@ public class DifficultyInformController extends BaseControllerRestful {
         return rateOfDifficultyService.count(req);
     }
     @GetMapping("/find/ID{iRateOfDifficultyPk}")
-    public RateOfDifficulty findByID(@PathVariable("iRateOfDifficultyPk") Integer iRateOfDifficultyPk)throws QuizException{
+    public RateOfDifficultyDto findByID(@PathVariable("iRateOfDifficultyPk") Integer iRateOfDifficultyPk)throws QuizException{
         return rateOfDifficultyService.findByID(iRateOfDifficultyPk);
     }
     @PostMapping("/create")

@@ -5,6 +5,7 @@ import com.ben.quiz.domain.common.constant.CodeConst;
 import com.ben.quiz.domain.common.constant.SequenceConst;
 import com.ben.quiz.domain.common.exception.QuizException;
 import com.ben.quiz.domain.common.util.PasswordUtil;
+import com.ben.quiz.domain.common.util.PropertiesUtil;
 import com.ben.quiz.domain.dto.request.PagingReq;
 import com.ben.quiz.domain.dto.request.TeacherInformationSaveReq;
 import com.ben.quiz.domain.dto.request.TeacherInformationSearchReq;
@@ -91,6 +92,21 @@ public class TeacherInformServiceImpl implements TeacherInformService {
         if(saveReq.getUserId() == null || saveReq.getPassword()== null){
            throw new QuizException(CodeConst.ErrorCode.Err_Not_Null, CodeConst.ErrorMess.Err_Not_Null);
         }
+        boolean check = false ;
+        try {
+            userRepository.findSeiuserByUserid(saveReq.getUserId());
+        }catch (QuizException e){
+            if(e.getErrorCode() == CodeConst.ErrorCode.ERR_099){
+                check =true;
+            }
+        }
+        if(!check){
+            throw new QuizException(1, PropertiesUtil.getMessage("UserName.Exist"));
+        }
+
+        saveReq.setiTeacherInformationPkEk(saveReq.getiTeacherInformationPk());
+        TeacherInformation teacherInformation = modelMapper.map(saveReq ,TeacherInformation.class);
+        teacherInformation= teacherInformRepository.add(teacherInformation);
         Seiuser seiuser = new Seiuser();
         if(!userRepository.isExistUserid(saveReq.getUserId())){
             seiuser.setiTeacherInformationPk(saveReq.getiTeacherInformationPk());
@@ -99,14 +115,7 @@ public class TeacherInformServiceImpl implements TeacherInformService {
             seiuser.setTopMenu(AuthorityConst.TEA.CODE);
             userRepository.add(seiuser);
         }
-
-        saveReq.setiTeacherInformationPkEk(saveReq.getiTeacherInformationPk());
-        TeacherInformation teacherInformation = modelMapper.map(saveReq ,TeacherInformation.class);
-        if((saveReq.getiFacultyInformationPk() != 0) || saveReq.getiFacultyInformationPk() !=null) {
-            teacherInformation.setFacultyInformationByIFacultyInformationPk(
-                    facultyInformRepository.findByID(saveReq.getiFacultyInformationPk()));
-        }
-        return teacherInformRepository.add(teacherInformation);
+        return teacherInformation;
     }
     @Transactional
     @Override
@@ -130,11 +139,7 @@ public class TeacherInformServiceImpl implements TeacherInformService {
         }
         modelMapper.map(saveReq,teacherInformDto);
         modelMapper.map(teacherInformDto,teacherInformation);
-        if((saveReq.getiFacultyInformationPk() != 0) || saveReq.getiFacultyInformationPk() !=null)
-        {
-            teacherInformation.setFacultyInformationByIFacultyInformationPk(
-                    facultyInformRepository.findOne(FacultyInformation.class,saveReq.getiFacultyInformationPk()));
-        }
+
         teacherInformation.setiTeacherInformationPkEk(teacherInformation.getiTeacherInformationPk());
         return teacherInformRepository.save(teacherInformation);
     }

@@ -75,7 +75,8 @@ var ExaminationList = function () {
     function changePage(pg) {
         if(typeof pg =="undefined"){
             page.currentPage = 1;
-        }
+        }else
+            page.currentPage=pg;
         inputSearch["page"] = page.currentPage ;
         inputSearch["rowPerPage"] = page.rowPerPage ;
         executeGetNew(url.searchListURL +"?"+ paramEncode(inputSearch),searchSuccess,searchError);
@@ -88,6 +89,7 @@ var ExaminationList = function () {
         });
         for (let i = 0; i < data.length; i++) {
             data[i]["index"] = (((page.currentPage - 1) * page.rowPerPage) + i + 1).toString();
+            data[i]["dtExaminationDay"]= reFormatDateTime(data[i]["dtExaminationDay"]);
             $("#table-content").append(template7.compileList(data[i]));
         }
         countIndexExamination()
@@ -118,6 +120,7 @@ var ExaminationList = function () {
 
     function getSuccessDetail(res) {
         $("#modal-detail").modal("show");
+        res["dtExaminationDay"]= reFormatDateTime(res["dtExaminationDay"]);
         $("#modal-detail").html(template7.compileModalDetail(res))
     }
     function getError(err) {
@@ -130,6 +133,7 @@ var ExaminationList = function () {
     }
     function getSuccessDelete(res) {
         $("#modal-delete").modal("show");
+        res["dtExaminationDay"]= reFormatDateTime(res["dtExaminationDay"]);
         $("#modal-delete").html(template7.compileModalDelete(res));
     }
     return{
