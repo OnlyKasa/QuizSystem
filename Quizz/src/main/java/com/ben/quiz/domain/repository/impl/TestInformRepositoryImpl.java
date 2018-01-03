@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.Tuple;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.*;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -32,14 +33,21 @@ public class TestInformRepositoryImpl extends BaseRepositoryImpl implements Test
         final Join<TestInformation,ExaminationInformation>
                 examination = entityRoot.join(TestInformation_.examinationInformationByIExaminationInformationPk,
                 JoinType.LEFT);
+        final Join<ExaminationInformation,SubjectInformation>
+                subject= examination.join(ExaminationInformation_.subjectInformationByISubjectInformationPk
+                , JoinType.LEFT);
+        final Join<ExaminationInformation,ExaminationRoom>
+                room= examination.join(ExaminationInformation_.examinationRoomByIExaminationRoomPk
+                , JoinType.LEFT);
         List<Predicate>  predicates = createPredicateForSearchAndCount(criteriaBuilder,
                 entityRoot,
                 teacher,
                 examination,
+                subject,
                 searchReq);
 
         criteriaQuery.multiselect(entityRoot,
-                teacher,examination)
+                teacher,examination,subject,room)
                 .where(predicates.toArray(new Predicate[predicates.size()]));
         final TypedQuery<Tuple> query = entityManager.createQuery(criteriaQuery);
         if (pagingReq.getPage() > 0) {
@@ -51,17 +59,21 @@ public class TestInformRepositoryImpl extends BaseRepositoryImpl implements Test
                 .map(this::convertToTestInformDto)
                 .collect(Collectors.toList());
     }
+
     private TestInformationDto convertToTestInformDto(Tuple tuple){
         TestInformationDto questionInformDto = new TestInformationDto();
-        modelMapper.map(tuple.get(0),questionInformDto);
-        modelMapper.map(tuple.get(1),questionInformDto);
-        modelMapper.map(tuple.get(2),questionInformDto);
-        return questionInformDto ;
+        for(int i= 0 ;i< tuple.toArray().length;i++){
+            if(tuple.get(i) !=null){
+                modelMapper.map(tuple.get(i),questionInformDto);
+            }
+        }
+        return questionInformDto;
     }
     private List<Predicate> createPredicateForSearchAndCount(CriteriaBuilder criteriaBuilder,
                                                              Root<TestInformation> entityRoot,
                                                              Join<TestInformation,StudentInformation> student,
                                                              Join<TestInformation,ExaminationInformation> examination,
+                                                             Join<ExaminationInformation,SubjectInformation> subject,
                                                              TestInformationSearchReq searchReq){
         List<Predicate>  predicates = new ArrayList<>();
         predicates.add(criteriaBuilder.isNotNull(entityRoot.get(TestInformation_.iTestInformationPkEk)));
@@ -69,7 +81,8 @@ public class TestInformRepositoryImpl extends BaseRepositoryImpl implements Test
                 criteriaBuilder.lower(student.get(StudentInformation_.iStudentInformationCode)),
                 SQLUtil.AllLike(searchReq.getiStudentInformationCode())));
 
-        predicates.add(criteriaBuilder.equal(examination.get(ExaminationInformation_.strExaminationInformationCode),
+        if( searchReq.getStrExaminationInformationCode() != null)
+            predicates.add(criteriaBuilder.equal(examination.get(ExaminationInformation_.strExaminationInformationCode),
                 searchReq.getStrExaminationInformationCode()));
 
         predicates.add(criteriaBuilder.like(
@@ -79,6 +92,15 @@ public class TestInformRepositoryImpl extends BaseRepositoryImpl implements Test
                 criteriaBuilder.lower(student.get(StudentInformation_.strStudentInformationLastName)),
                 SQLUtil.AllLike(searchReq.getStrStudentInformationLastName())));
 
+        predicates.add(criteriaBuilder.like(
+                criteriaBuilder.lower(subject.get(SubjectInformation_.strSubjectInformationName)),
+                SQLUtil.AllLike(searchReq.getStrSubjectInformationName())));
+
+        predicates.add(criteriaBuilder.equal((student.get(StudentInformation_.iStudentInformationPk)), searchReq.getiStudentInformationPk()));
+        if(searchReq.getDtExaminationDay() != null) {
+            predicates.add(criteriaBuilder.equal(criteriaBuilder.function("date", Date.class,examination.get(ExaminationInformation_.dtExaminationDay)),
+                    searchReq.getDtExaminationDay()));
+        }
         return predicates ;
     }
     @Override
@@ -92,10 +114,14 @@ public class TestInformRepositoryImpl extends BaseRepositoryImpl implements Test
         final Join<TestInformation,ExaminationInformation>
                 examination = entityRoot.join(TestInformation_.examinationInformationByIExaminationInformationPk,
                 JoinType.LEFT);
+        final Join<ExaminationInformation,SubjectInformation>
+                subject= examination.join(ExaminationInformation_.subjectInformationByISubjectInformationPk
+                , JoinType.LEFT);
         List<Predicate>  predicates = createPredicateForSearchAndCount(criteriaBuilder,
                 entityRoot,
                 teacher,
                 examination,
+                subject,
                 searchReq);
         criteriaQuery.select(criteriaBuilder.count(entityRoot))
                 .where(predicates.toArray(new Predicate[predicates.size()]));
@@ -114,13 +140,19 @@ public class TestInformRepositoryImpl extends BaseRepositoryImpl implements Test
         final Join<TestInformation,ExaminationInformation>
                 examination = entityRoot.join(TestInformation_.examinationInformationByIExaminationInformationPk,
                 JoinType.LEFT);
+        final Join<ExaminationInformation,SubjectInformation>
+                subject= examination.join(ExaminationInformation_.subjectInformationByISubjectInformationPk
+                , JoinType.LEFT);
+        final Join<ExaminationInformation,ExaminationRoom>
+                room= examination.join(ExaminationInformation_.examinationRoomByIExaminationRoomPk
+                , JoinType.LEFT);
         List<Predicate> predicates = new ArrayList<>() ;
         predicates.add(criteriaBuilder.equal(entityRoot.get(TestInformation_.iTestInformationPk),
                 iTestInformationPk));
         predicates.add(criteriaBuilder.isNotNull(entityRoot.get(TestInformation_.iTestInformationPkEk)));
 
         criteriaQuery.multiselect(entityRoot,
-                teacher,examination)
+                teacher,examination,subject,room)
                 .where(predicates.toArray(new Predicate[predicates.size()]));
         Tuple tuple ;
         final TypedQuery<Tuple> query = entityManager.createQuery(criteriaQuery);
@@ -143,6 +175,7 @@ public class TestInformRepositoryImpl extends BaseRepositoryImpl implements Test
                 JoinType.LEFT);
         final Join<StudentInformation,FacultyInformation>
                 faculty = student.join(StudentInformation_.facultyInformationByIFacultyInformationPk,JoinType.LEFT);
+
 
         List<Predicate> predicates = new ArrayList<>() ;
         predicates.add(criteriaBuilder.equal(entityRoot.get(TestInformation_.iExaminationInformationPk),

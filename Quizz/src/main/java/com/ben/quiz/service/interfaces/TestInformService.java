@@ -30,4 +30,8 @@ public interface TestInformService {
     List<TestInformationDetailDto> findByTestID(Integer iTestInformationPk , PagingReq pagingReq) throws QuizException;
 
     long countByTestID(Integer iTestInformationPk) throws QuizException ;
+
+    boolean updateByTestID(List<TestInformationDetailDto> testInformationDetailDtos) throws QuizException;
+
+    boolean updateScore(Integer iTestInformationPk) throws QuizException;
 }

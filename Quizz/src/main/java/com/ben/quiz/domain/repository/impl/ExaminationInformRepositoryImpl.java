@@ -15,6 +15,7 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.Tuple;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.*;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -88,33 +89,34 @@ public class ExaminationInformRepositoryImpl extends BaseRepositoryImpl
                 criteriaBuilder.lower(entityRoot.get(ExaminationInformation_.strExaminationInformationCode)),
                 SQLUtil.AllLike(searchReq.getStrExaminationInformationCode())));
 
-        if(!searchReq.getStrExaminationRoomName().equals("")) {
+        if(searchReq.getStrExaminationRoomName() != null && !searchReq.getStrExaminationRoomName().equals("")) {
             predicates.add(criteriaBuilder.like(
                     criteriaBuilder.lower(room.get(ExaminationRoom_.strExaminationRoomName)),
                     SQLUtil.AllLike(searchReq.getStrExaminationRoomName())));
         }
-        if(!searchReq.getStrRateDifficultyName().equals("")) {
+        if(searchReq.getStrRateDifficultyName()!= null && !searchReq.getStrRateDifficultyName().equals("")) {
             predicates.add(criteriaBuilder.like(
                     criteriaBuilder.lower(difficulty.get(RateOfDifficulty_.strRateDifficultyName)),
                     SQLUtil.AllLike(searchReq.getStrRateDifficultyName())));
         }
-        if(!searchReq.getStrTeacherInformationFirstName().equals("")) {
+        if(searchReq.getStrTeacherInformationFirstName()!= null &&!searchReq.getStrTeacherInformationFirstName().equals("")) {
             predicates.add(criteriaBuilder.like(
                     criteriaBuilder.lower(teacher.get(TeacherInformation_.strTeacherInformationFirstName)),
                     SQLUtil.AllLike(searchReq.getStrTeacherInformationFirstName())));
         }
-        if(!searchReq.getStrTeacherInformationLastName().equals("")) {
+        if(searchReq.getStrTeacherInformationLastName()!= null &&!searchReq.getStrTeacherInformationLastName().equals("")) {
             predicates.add(criteriaBuilder.like(
                     criteriaBuilder.lower(teacher.get(TeacherInformation_.strTeacherInformationLastName)),
                     SQLUtil.AllLike(searchReq.getStrTeacherInformationLastName())));
         }
-        if(!searchReq.getStrSubjectInformationName().equals("")) {
+        if(searchReq.getStrSubjectInformationName()!= null && !searchReq.getStrSubjectInformationName().equals("")) {
             predicates.add(criteriaBuilder.like(
                     criteriaBuilder.lower(subject.get(SubjectInformation_.strSubjectInformationName)),
                     SQLUtil.AllLike(searchReq.getStrSubjectInformationName())));
         }
+
         if(searchReq.getDtExaminationDay() != null) {
-            predicates.add(criteriaBuilder.equal(entityRoot.get(ExaminationInformation_.dtExaminationDay),
+            predicates.add(criteriaBuilder.equal(criteriaBuilder.function("date", Date.class,entityRoot.get(ExaminationInformation_.dtExaminationDay)),
                     searchReq.getDtExaminationDay()));
         }
         return predicates ;
@@ -136,7 +138,6 @@ public class ExaminationInformRepositoryImpl extends BaseRepositoryImpl
         final Join<ExaminationInformation,ExaminationRoom>
                 room= entityRoot.join(ExaminationInformation_.examinationRoomByIExaminationRoomPk
                 , JoinType.LEFT);
-
         List<Predicate>  predicates = createPredicateForSearchAndCount(criteriaBuilder,
                 entityRoot,
                 difficulty,

@@ -5,10 +5,7 @@ import com.ben.quiz.domain.common.constant.CodeConst;
 import com.ben.quiz.domain.common.exception.QuizException;
 import com.ben.quiz.domain.dto.request.PagingReq;
 import com.ben.quiz.domain.dto.result.TestInformationDetailDto;
-import com.ben.quiz.domain.model.QuestionInformation;
-import com.ben.quiz.domain.model.TestInformation;
-import com.ben.quiz.domain.model.TestInformationDetail;
-import com.ben.quiz.domain.model.TestInformationDetail_;
+import com.ben.quiz.domain.model.*;
 import com.ben.quiz.domain.repository.interfaces.TestInformationDetailRepository;
 import org.aspectj.weaver.ast.Test;
 import org.springframework.stereotype.Repository;
@@ -55,14 +52,22 @@ public class TestInformationDetailRepositoryImpl extends  BaseRepositoryImpl imp
         final Join<TestInformationDetail,QuestionInformation>
                 question = entityRoot.join(TestInformationDetail_.questionInformationByIQuestionInformationPk
                 , JoinType.LEFT);
-
+        final Join<TestInformationDetail,TestInformation>
+                tests = entityRoot.join(TestInformationDetail_.testInformationByITestInformationPk
+                , JoinType.LEFT);
+        final Join<TestInformation,ExaminationInformation>
+                examination = tests.join(TestInformation_.examinationInformationByIExaminationInformationPk
+                , JoinType.LEFT);
+        final Join<ExaminationInformation,SubjectInformation>
+                subject = examination.join(ExaminationInformation_.subjectInformationByISubjectInformationPk
+                , JoinType.LEFT);
         List<Predicate> predicates = new ArrayList<>() ;
 
         predicates.add(criteriaBuilder.equal(entityRoot.get(TestInformationDetail_.iTestInformationPk),
                 iTestInformationPk));
         predicates.add(criteriaBuilder.isNotNull(entityRoot.get(TestInformationDetail_.iTestDetailInformationPkEk)));
 
-        criteriaQuery.multiselect(entityRoot,question)
+        criteriaQuery.multiselect(entityRoot,question,tests,examination,subject)
                 .where(predicates.toArray(new Predicate[predicates.size()]));
 
         final TypedQuery<Tuple> query = entityManager.createQuery(criteriaQuery);
@@ -82,8 +87,11 @@ public class TestInformationDetailRepositoryImpl extends  BaseRepositoryImpl imp
 
     private TestInformationDetailDto convertToDetailDto(Tuple tuple){
         TestInformationDetailDto testInformationDetailDto = new TestInformationDetailDto();
-        modelMapper.map(tuple.get(0),testInformationDetailDto);
-        modelMapper.map(tuple.get(1),testInformationDetailDto);
+        for(int i= 0 ;i< tuple.toArray().length;i++){
+            if(tuple.get(i) !=null){
+                modelMapper.map(tuple.get(i),testInformationDetailDto);
+            }
+        }
         return testInformationDetailDto;
     }
     @Override

@@ -19,6 +19,15 @@ public class ExaminationInformationDto {
     private String strTeacherInformationLastName;
     private String strRateDifficultyName;
 
+    private Integer iTestInformationPk ;
+
+    public Integer getiTestInformationPk() {
+        return iTestInformationPk;
+    }
+
+    public void setiTestInformationPk(Integer iTestInformationPk) {
+        this.iTestInformationPk = iTestInformationPk;
+    }
 
     public String getStrExaminationRoomName() {
         return strExaminationRoomName;

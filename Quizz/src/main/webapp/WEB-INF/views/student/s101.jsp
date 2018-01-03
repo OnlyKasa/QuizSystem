@@ -1,197 +1,147 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
-<%@ page session="true"%>
+<%@ page session="false"%>
 <%@ page isELIgnored="false"%>
 
-<section class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-4 col-md-4 box-left">
-            <div class="box-infor mb20">
-                <h5 class="title-box">Thông tin cơ bản</h5>
-                <div class="box-infor-common">
-                    <div class="item-info">
-                        <div class="row">
-                            <div class="col-xs-5 clear-pr">
-                                <label>Tên môn thi:</label>
-                            </div>
-                            <div class="col-xs-7 clear-pl5">
-                                <span>Pháp luật đại cương</span>
-                            </div>
-                        </div>
-                    </div>
+<div class="row">
+    <div class="col-xs-12 col-sm-4 col-md-4 box-left">
+        <div class="box-infor mb20">
+            <h5 class="title-box">Thông tin cơ bản</h5>
+            <div class="box-infor-common" id="common-content">
 
-                    <div class="item-info">
-                        <div class="row">
-                            <div class="col-xs-5 clear-pr">
-                                <label>Ngày thi:</label>
-                            </div>
-                            <div class="col-xs-7 clear-pl5">
-                                <span>20/12/2017</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item-info">
-                        <div class="row">
-                            <div class="col-xs-5 clear-pr">
-                                <label>Thời gian làm bài:</label>
-                            </div>
-                            <div class="col-xs-7 clear-pl5">
-                                <span>120 phút</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item-info">
-                        <div class="row">
-                            <div class="col-xs-5 clear-pr">
-                                <label>Thời gian còn lại:</label>
-                            </div>
-                            <div class="col-xs-7 clear-pl5">
-                                <div class="range-time">
-                                    <span class="num-hour">02</span>
-                                    <span>:</span>
-                                    <span class="num-min">00</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="box-infor box-infor-question">
-                <h5 class="title-box">Danh sách câu hỏi</h5>
-                <ul class="list-question list-inline" >
-                    <li>
-                        <button class="btn btn-number" type="">1</button>
-                    </li>
-                    <li>
-                        <button class="btn btn-number" type="">2</button>
-                    </li>
-                    <li>
-                        <button class="btn btn-number" type="">3</button>
-                    </li>
-                    <li>
-                        <button class="btn btn-number" type="">4</button>
-                    </li>
-                    <li>
-                        <button class="btn btn-number" type="">5</button>
-                    </li>
-                    <li>
-                        <button class="btn btn-number" type="">6</button>
-                    </li>
-                    <li>
-                        <button class="btn btn-number" type="">7</button>
-                    </li>
-                    <li>
-                        <button class="btn btn-number" type="">8</button>
-                    </li>
-                    <li>
-                        <button class="btn btn-number" type="">9</button>
-                    </li>
-                    <li>
-                        <button class="btn btn-number" type="">10</button>
-                    </li>
-                    <li>
-                        <button class="btn btn-number" type="">100</button>
-                    </li>
-                    <li>
-                        <button class="btn btn-number" type="">499</button>
-                    </li>
-                    <li>
-                        <button class="btn btn-number" type="">499</button>
-                    </li>
-                </ul>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-8 col-md-8 box-right">
-            <div class="category-question">
-                <div class="box-item-question">
-                    <div class="head-box">
-                        <span class="txt-bold">Câu 1: </span>
-                        <span class="content-question">
-									Quy phạm pháp luật là gì? Phân tích cấu trúc của quy phạm pháp luật? (Hãy lấy ví dụ minh họa).
-								</span>
-                    </div>
-                    <div class="body-box">
-                        <div class="answer">
-                            <div class="radio">
-                                <input id="radio-1" name="radio" type="radio">
-                                <label for="radio-1" class="radio-label">Là những quy tắc, chuẩn mực chung mang tính bắt buộc phải thi hành đối với tất cả tổ chức, cá nhân có liên quan, và được ban hành bởi các cơ quan Nhà nước có thẩm quyền.</label>
-                            </div>
-                        </div>
-                        <div class="answer">
-                            <div class="radio">
-                                <input id="radio-2" name="radio" type="radio">
-                                <label for="radio-2" class="radio-label">Là những quy tắc, chuẩn mực chung mang tính bắt buộc phải thi hành đối với tất cả tổ chức, cá nhân có liên quan, và được ban hành bởi các cơ quan Nhà nước có thẩm quyền.</label>
-                            </div>
-                        </div>
-                        <div class="answer">
-                            <div class="radio">
-                                <input id="radio-3" name="radio" type="radio">
-                                <label for="radio-3" class="radio-label">Là những quy tắc, chuẩn mực chung mang tính bắt buộc phải thi hành đối với tất cả tổ chức, cá nhân có liên quan, và được ban hành bởi các cơ quan Nhà nước có thẩm quyền.</label>
-                            </div>
-                        </div>
-                        <div class="answer">
-                            <div class="radio">
-                                <input id="radio-4" name="radio" type="radio">
-                                <label for="radio-4" class="radio-label">Là những quy tắc, chuẩn mực chung mang tính bắt buộc phải thi hành đối với tất cả tổ chức, cá nhân có liên quan, và được ban hành bởi các cơ quan Nhà nước có thẩm quyền.</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="box-item-question">
-                    <div class="head-box">
-                        <span class="txt-bold">Câu 2: </span>
-                        <span class="content-question">
-									Quy phạm pháp luật là gì? Phân tích cấu trúc của quy phạm pháp luật? (Hãy lấy ví dụ minh họa).
-								</span>
-                    </div>
-                    <div class="body-box">
-                        <div class="answer">
-                            <div class="checkbox">
-                                <input id="checkbox-1" name="radio" type="checkbox">
-                                <label for="checkbox-1" class="checkbox-label"><div><i class="fa fa-check"></i></div>Là những quy tắc, chuẩn mực chung mang tính bắt buộc phải thi hành đối với tất cả tổ chức, cá nhân có liên quan, và được ban hành bởi các cơ quan Nhà nước có thẩm quyền.</label>
-                            </div>
-                        </div>
-                        <div class="answer">
-                            <div class="checkbox">
-                                <input id="checkbox-2" name="radio" type="checkbox">
-                                <label for="checkbox-2" class="checkbox-label"><div><i class="fa fa-check"></i></div>Là những quy tắc, chuẩn mực chung mang tính bắt buộc phải thi hành đối với tất cả tổ chức, cá nhân có liên quan, và được ban hành bởi các cơ quan Nhà nước có thẩm quyền.</label>
-                            </div>
-                        </div>
-                        <div class="answer">
-                            <div class="checkbox">
-                                <input id="checkbox-3" name="radio" type="checkbox">
-                                <label for="checkbox-3" class="checkbox-label"><div><i class="fa fa-check"></i></div>Là những quy tắc, chuẩn mực chung mang tính bắt buộc phải thi hành đối với tất cả tổ chức, cá nhân có liên quan, và được ban hành bởi các cơ quan Nhà nước có thẩm quyền.</label>
-                            </div>
-                        </div>
-                        <div class="answer">
-                            <div class="checkbox">
-                                <input id="checkbox-4" name="radio" type="checkbox">
-                                <label for="checkbox-4" class="checkbox-label"><div><i class="fa fa-check"></i></div>Là những quy tắc, chuẩn mực chung mang tính bắt buộc phải thi hành đối với tất cả tổ chức, cá nhân có liên quan, và được ban hành bởi các cơ quan Nhà nước có thẩm quyền.</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="box-infor box-infor-question">
+            <h5 class="title-box">Danh sách câu hỏi</h5>
+            <ul class="list-question list-inline" id="list-question-button">
+            </ul>
+        </div>
+    </div>
 
-                <div class="box-item-question">
-                    <div class="head-box">
-                        <span class="txt-bold">Câu 3: </span>
-                        <span class="content-question">
-									Quy phạm pháp luật là gì? Phân tích cấu trúc của quy phạm pháp luật? (Hãy lấy ví dụ minh họa).
-								</span>
-                    </div>
-                    <div class="body-box">
-                        <div class="answer">
-                            <textarea class="form-control"></textarea>
-                        </div>
+    <div class="col-xs-12 col-sm-8 col-md-8 box-right">
+        <div class="category-question" id="table-content">
+        </div>
+    </div>
+</div>
+<script id="template-question-content" type="text/template7">
+    <div class="box-item-question" id="question-{{index}}">
+        <div class="head-box">
+            <span class="txt-bold">Câu {{index}}: </span>
+            <span class="content-question">
+                {{strQuestionContentInformation}}
+            </span>
+        </div>
+        <div class="body-box">
+            {{#js_if "this.strAnswer1 != ''  && this.strAnswer1 != null"}}
+                <div class="answer">
+                    <div class="radio">
+                        <input id="radio-strAnswer1-{{index}}" name="radio-{{index}}" type="radio" value="1">
+                        <label for="radio-strAnswer1-{{index}}" class="radio-label" id="strAnswer1-{{index}}">
+                            {{strAnswer1}}
+                        </label>
                     </div>
                 </div>
+            {{/js_if}}
+            {{#js_if "this.strAnswer2 != ''  && this.strAnswer2 != null"}}
+            <div class="answer">
+                <div class="radio">
+                    <input id="radio-strAnswer2-{{index}}" name="radio-{{index}}" type="radio" value="2">
+                    <label for="radio-strAnswer2-{{index}}" class="radio-label" id="strAnswer2-{{index}}"> {{strAnswer2}}</label>
+                </div>
+            </div>
+            {{/js_if}}
+            {{#js_if "this.strAnswer3 != ''  && this.strAnswer3 != null"}}
+            <div class="answer">
+                <div class="radio">
+                    <input id="radio-strAnswer3-{{index}}" name="radio-{{index}}" type="radio" value="3">
+                    <label for="radio-strAnswer3-{{index}}" class="radio-label" id="strAnswer3-{{index}}"> {{strAnswer3}}</label>
+                </div>
+            </div>
+            {{/js_if}}
+            {{#js_if "this.strAnswer4 != ''  && this.strAnswer4 != null"}}
+            <div class="answer">
+                <div class="radio semi-hidden">
+                    <input id="radio-strAnswer4-{{index}}" name="radio-{{index}}" type="radio" value="4">
+                    <label for="radio-strAnswer4-{{index}}" class="radio-label" id="strAnswer4-{{index}}"> {{strAnswer4}}</label>
+                </div>
+            </div>
+            {{/js_if}}
+            {{#js_if "this.strAnswer5 != ''  && this.strAnswer5 != null"}}
+                <div class="answer">
+                    <div class="radio semi-hidden">
+                        <input id="radio-strAnswer5-{{index}}" name="radio-{{index}}" type="radio" value="5">
+                        <label for="radio-strAnswer4-{{index}}" class="radio-label" id="strAnswer5-{{index}}">{{strAnswer5}}</label>
+                    </div>
+                </div>
+            {{/js_if}}
+        </div>
+    </div>
+</script>
+<script id="template-button-question" type="text/template7">
+    <li>
+        <button class="btn btn-number" id="button-{{index}}" onclick="Tests.goToPosition('{{index}}');" >{{index}}</button>
+    </li>
+</script>
+
+<script id="template-common-content" type="text/template7">
+    <div class="item-info">
+        <div class="row">
+            <div class="col-xs-5 clear-pr">
+                <label>Tên môn thi:</label>
+            </div>
+            <div class="col-xs-7 clear-pl5">
+                <span>{{strSubjectInformationName}}</span>
             </div>
         </div>
     </div>
 
-</section><!-- /.container -->
+    <div class="item-info">
+        <div class="row">
+            <div class="col-xs-5 clear-pr">
+                <label>Ngày thi:</label>
+            </div>
+            <div class="col-xs-7 clear-pl5">
+                <span>{{dtExaminationDay}}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="item-info">
+        <div class="row">
+            <div class="col-xs-5 clear-pr">
+                <label>Thời gian làm bài:</label>
+            </div>
+            <div class="col-xs-7 clear-pl5">
+                <span>{{iTestInformationTime}}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="item-info">
+        <div class="row">
+            <div class="col-xs-5 clear-pr">
+                <label>Thời gian còn lại:</label>
+            </div>
+            <div class="col-xs-7 clear-pl5">
+                <div class="range-time" >
+                    <span class="num-hour" id="hour"></span>
+                    <span>:</span>
+                    <span class="num-min" id="minute"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/template7" id="templatehour">
+    {{hour}}
+</script>
+<script type="text/template7" id="templateminute">
+    {{minute}}
+</script>
+<script>
+    var iTestInformationPk ="${iTestInformationPk}";
+    var dateStartTest = "${dateStartTest}";
+</script>
+<script src="${pageContext.request.contextPath}/js/student/s101.js"></script>

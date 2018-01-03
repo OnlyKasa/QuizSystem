@@ -20,7 +20,7 @@
             </div>
             <div class="col-xs-12 col-sm-8 col-lg-6 mt-xs">
                 <label>Ngày thi</label>
-                <input class="form-control bootstrap-calendar-3" type="text" id="dtExaminationDay" />
+                <input class="form-control bootstrap-calendar-1 form-current-date" type="text" id="dtExaminationDay" />
             </div>
         </div>
 
@@ -44,7 +44,7 @@
                 <col />
                 <col />
                 <col />
-                <col class="col-button" />
+                <col />
             </colgroup>
             <tr>
                 <th class="first-child">STT</th>
@@ -142,8 +142,8 @@
 
 <%--TODO sửa chỗ này --%>
                 <div class="btn-modal">
-                    <button class="btn btn-green"
-                            onclick="redirectPage('admin','s101','{{iTestInformationPk}}');">Bắt đầu làm bài</button>
+                        <button class="btn btn-green btnGoTest"
+                            onclick="ViewExamination.goToTests('{{iTestInformationPk}}');">Bắt đầu làm bài</button>
                 </div>
 
                 <div class="btn-modal">
@@ -158,7 +158,7 @@
     <tr>
         <td class="txt-center">{{index}}</td>
         <td>
-            <a class="txt-green border" onclick="ExaminationList.showDetail('{{iExaminationInformationPk}}');">
+            <a class="txt-green border" onclick="ViewExamination.showDetail('{{iExaminationInformationPk}}');">
                 {{strExaminationInformationCode}}
             </a>
             <a style="display:none" id="iExaminationInformationPk">{{iExaminationInformationPk}}</a>
@@ -167,8 +167,8 @@
         <td>{{dtExaminationDay}}</td>
         <td>{{strExaminationRoomName}}</td>
         <td class="txt-center">
-            <button class="btn btn-green"
-                    onclick="redirectPage('admin','s101','{{iTestInformationPk}}');">Bắt đầu làm bài
+            <button class="btn btn-green btnGoTest"
+                    onclick="ViewExamination.goToTests('{{iTestInformationPk}}');">Bắt đầu làm bài
             </button>
         </td>
     </tr>

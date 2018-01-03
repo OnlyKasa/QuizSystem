@@ -1,5 +1,7 @@
 package com.ben.quiz.domain.dto.result;
 
+import java.sql.Timestamp;
+
 public class TestInformationDetailDto {
 
     private int iTestInformationDetailPk;
@@ -16,6 +18,34 @@ public class TestInformationDetailDto {
     private String strAnswer5 ;
     private Integer iQuestionInformationLevel ;
 
+    private Timestamp dtExaminationDay ;
+    private Integer iTestInformationTime;
+    private String strSubjectInformationName;
+
+
+    public Timestamp getDtExaminationDay() {
+        return dtExaminationDay;
+    }
+
+    public void setDtExaminationDay(Timestamp dtExaminationDay) {
+        this.dtExaminationDay = dtExaminationDay;
+    }
+
+    public Integer getiTestInformationTime() {
+        return iTestInformationTime;
+    }
+
+    public void setiTestInformationTime(Integer iTestInformationTime) {
+        this.iTestInformationTime = iTestInformationTime;
+    }
+
+    public String getStrSubjectInformationName() {
+        return strSubjectInformationName;
+    }
+
+    public void setStrSubjectInformationName(String strSubjectInformationName) {
+        this.strSubjectInformationName = strSubjectInformationName;
+    }
 
     public String getStrQuestionContentInformation() {
         return strQuestionContentInformation;

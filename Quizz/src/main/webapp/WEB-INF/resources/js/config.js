@@ -216,7 +216,7 @@ function executePut(strUrl, inputData, successFunc, errorFunc, doneFunc, validat
 }
 
 function executeGetNew(strUrl, successFunc, errorFunc, doneFunc, validateFunc, async) {
-    console.log(strUrl);
+
     executeAjaxNew(strUrl, '', successFunc, errorFunc, doneFunc, "GET", validateFunc, async);
 }
 function executeDeleteNew(strUrl, successFunc, errorFunc, doneFunc, validateFunc) {
@@ -229,7 +229,6 @@ function executeAjaxNew(strUrl, inputData, successFunc, errorFunc, doneFunc, typ
     if(typeof validateFunc != 'undefined' && !validateFunc(inputData)){
         return;
     }
-    console.log(strUrl);
     setTimeout(function(){
         $.ajax({
             type : type,
@@ -547,7 +546,17 @@ function download(url) {
     window.location.href = url;
 }
 function formatNormalDateTime(date) {
-  return (date + ":00").replace(/\//g,"-") ;
+    if(date.length < 11){
+        return  (date + " 00:00:00").replace(/\//g,"-") ;
+    }else
+        return (date + ":00").replace(/\//g,"-") ;
+
+}
+function reFormatDate(date) {
+    var year =  new Date(date).getFullYear();
+    var month = ("0" + (new Date(date).getMonth() + 1)).slice(-2)
+    var day = ("0" + new Date(date).getDate()).slice(-2);
+    return year +"-" +month+"-"+ day;
 }
 function reFormatDateTime(date) {
    var year =  new Date(date).getFullYear();
@@ -555,7 +564,6 @@ function reFormatDateTime(date) {
    var day = ("0" + new Date(date).getDate()).slice(-2);
    var hour =("0" +  new Date(date).getHours()).slice(-2);
    var min = ("0" +  new Date(date).getMinutes()).slice(-2);
-
-   return year +"/" +month+"/"+ day + " " + hour +":" + min;
+   return year +"-" +month+"-"+ day + " " + hour +":" + min;
 }
 

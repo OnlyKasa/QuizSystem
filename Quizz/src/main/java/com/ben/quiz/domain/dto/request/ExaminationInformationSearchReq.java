@@ -14,6 +14,16 @@ public class ExaminationInformationSearchReq {
     private String strTeacherInformationFirstName;
     private String strTeacherInformationLastName;
 
+    private Integer iStudentInformationPk ;
+
+    public Integer getiStudentInformationPk() {
+        return iStudentInformationPk;
+    }
+
+    public void setiStudentInformationPk(Integer iStudentInformationPk) {
+        this.iStudentInformationPk = iStudentInformationPk;
+    }
+
     public String getStrExaminationInformationCode() {
         return strExaminationInformationCode;
     }

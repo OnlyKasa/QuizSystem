@@ -1,5 +1,7 @@
 package com.ben.quiz.domain.dto.request;
 
+import java.sql.Timestamp;
+
 public class TestInformationSearchReq {
 
     private String iStudentInformationCode;
@@ -8,6 +10,34 @@ public class TestInformationSearchReq {
 
     private String strExaminationInformationCode;
 
+    private Timestamp dtExaminationDay;
+    private String strSubjectInformationName;
+
+    private Integer iStudentInformationPk;
+
+    public Integer getiStudentInformationPk() {
+        return iStudentInformationPk;
+    }
+
+    public void setiStudentInformationPk(Integer iStudentInformationPk) {
+        this.iStudentInformationPk = iStudentInformationPk;
+    }
+
+    public Timestamp getDtExaminationDay() {
+        return dtExaminationDay;
+    }
+
+    public void setDtExaminationDay(Timestamp dtExaminationDay) {
+        this.dtExaminationDay = dtExaminationDay;
+    }
+
+    public String getStrSubjectInformationName() {
+        return strSubjectInformationName;
+    }
+
+    public void setStrSubjectInformationName(String strSubjectInformationName) {
+        this.strSubjectInformationName = strSubjectInformationName;
+    }
 
     public String getiStudentInformationCode() {
         return iStudentInformationCode;

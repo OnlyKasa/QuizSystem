@@ -14,10 +14,29 @@ public class TestInformationDto {
     private String strStudentInformationFirstName;
     private String strStudentInformationLastName;
 
+    private String strSubjectInformationName;
+
+    private String strExaminationRoomName;
     private String strExaminationInformationCode;
     private Timestamp dtExaminationDay;
     private int iTestInformationTime;
 
+
+    public String getStrSubjectInformationName() {
+        return strSubjectInformationName;
+    }
+
+    public void setStrSubjectInformationName(String strSubjectInformationName) {
+        this.strSubjectInformationName = strSubjectInformationName;
+    }
+
+    public String getStrExaminationRoomName() {
+        return strExaminationRoomName;
+    }
+
+    public void setStrExaminationRoomName(String strExaminationRoomName) {
+        this.strExaminationRoomName = strExaminationRoomName;
+    }
 
     public int getiTestInformationPk() {
         return iTestInformationPk;

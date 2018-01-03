@@ -385,7 +385,7 @@ $('.bootstrap-calendar-2').datepicker({
 });
 
 $('.bootstrap-calendar-3').datetimepicker({
-
+    format: 'Y-m-d H:i'
 });
 
 $('.form-current-date').datepicker('setDate', 'now');

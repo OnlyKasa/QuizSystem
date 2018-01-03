@@ -5,9 +5,10 @@ var ViewExamination = function () {
         compileModalDetail : Template7.compile($("#template-detail-examination-list").html())
     };
     let url = {
-        countListURL : contextPath + "/examination/count",
-        searchListURL : contextPath + "/examination/search",
-        detailURL : contextPath + "/examination/find/ID"
+        countListURL : contextPath + "/tests/count",
+        searchListURL : contextPath + "/tests/search",
+        detailURL : contextPath + "/tests/find/ID",
+        startTestURL : contextPath +"/tests/beginTest/"
     };
 
     let page = {
@@ -24,7 +25,9 @@ var ViewExamination = function () {
     let  inputSearch;
 
     function init() {
-        $("#dtExaminationDay").datetimepicker('setDate',new Date());
+        let date = reFormatDate(new Date);
+        $("#dtExaminationDay").val(date);
+        console.log("a");
         search() ;
         $("#btnSearch").click(function () {
             search() ;
@@ -32,8 +35,8 @@ var ViewExamination = function () {
     }
     //==========================================================list==========
     function search() {
+        console.log(iStudentInformationPk);
         inputSearch ={
-
             strSubjectInformationName :$("#strSubjectInformationName").val(),
             iStudentInformationPk : iStudentInformationPk
         };
@@ -80,7 +83,13 @@ var ViewExamination = function () {
         for (let i = 0; i < data.length; i++) {
             data[i]["index"] = (((page.currentPage - 1) * page.rowPerPage) + i + 1).toString();
             data[i]["dtExaminationDay"]= reFormatDateTime(data[i]["dtExaminationDay"]);
+
             $("#table-content").append(template7.compileList(data[i]));
+
+            if(new Date(data[i]["dtExaminationDay"]) != new Date() || data[i]["fExaminationResultScore"] == 0.0){
+                $(".btnGoTest").removeClass("btn-green");
+                $(".btnGoTest").attr('disabled','disabled');
+            }
         }
         countIndexExamination()
     }
@@ -88,7 +97,7 @@ var ViewExamination = function () {
         display(err.responseText)
     }
     function countIndexExamination() {
-        countIndex(page.rowCount, page.rowPerPage, page.currentPage, 'txtPageCount', 'txtPageNavigator',"ExaminationList.changePage");
+        countIndex(page.rowCount, page.rowPerPage, page.currentPage, 'txtPageCount', 'txtPageNavigator',"ViewExamination.changePage");
     }
 
     //===========================================Show detail
@@ -105,11 +114,24 @@ var ViewExamination = function () {
     function getError(err) {
         display(err.responseText);
     }
+    let iTestInformation = 0;
+    function goToTests(iTestInformationPk) {
+        iTestInformation = iTestInformationPk ;
+        updateScore();
+    }
+    function updateScore() {
 
+        executeGetNew(url.startTestURL +iTestInformation,updateSuccess, display);
+    }
+    function updateSuccess() {
+        let date = reFormatDateTime(new Date());
+        redirectPage('student','s101',{iTestInformationPk :iTestInformation,dateStartTest : date});
+    }
     return{
         init : init,
         showDetail: showDetail,
-        changePage : changePage
+        changePage : changePage,
+        goToTests : goToTests
     }
 }();
 

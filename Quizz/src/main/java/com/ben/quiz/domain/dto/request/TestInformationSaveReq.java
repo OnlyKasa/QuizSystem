@@ -1,5 +1,6 @@
 package com.ben.quiz.domain.dto.request;
 
+import com.ben.quiz.domain.dto.result.TestInformationDetailDto;
 import com.ben.quiz.domain.model.ExaminationInformation;
 import com.ben.quiz.domain.model.StudentInformation;
 
@@ -18,6 +19,16 @@ public class TestInformationSaveReq {
 
     private List<Integer> listiQuestionInformationPk ;
     private List<Integer> listDeleteiQuestionInformationPk;
+
+    private List<TestInformationDetailDto>testInformationDetailDtos;
+
+    public List<TestInformationDetailDto> getTestInformationDetailDtos() {
+        return testInformationDetailDtos;
+    }
+
+    public void setTestInformationDetailDtos(List<TestInformationDetailDto> testInformationDetailDtos) {
+        this.testInformationDetailDtos = testInformationDetailDtos;
+    }
 
     public List<Integer> getListDeleteiQuestionInformationPk() {
         return listDeleteiQuestionInformationPk;

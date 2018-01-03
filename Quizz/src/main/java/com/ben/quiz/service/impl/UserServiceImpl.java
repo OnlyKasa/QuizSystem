@@ -65,7 +65,13 @@ public class UserServiceImpl implements UserService {
                 sUser.setStrUsername(strUsername);
                 sUser.setsPasswordHash(user.getPassword());
                 sUser.setStrTopMenu(user.getTopMenu());
-                sUser.setStrFullName(getStrFullNameByTopMenu(sUser.getStrTopMenu(), user.getiStudentInformationPk(), strUsername));
+                if(user.getiStudentInformationPk() != null ) {
+                    sUser.setStrFullName(getStrFullNameByTopMenu(sUser.getStrTopMenu(), user.getiStudentInformationPk(), strUsername));
+                }else
+                    sUser.setStrFullName(getStrFullNameByTopMenu(sUser.getStrTopMenu(), user.getiTeacherInformationPk(), strUsername));
+
+                sUser.setiStudentInformationPk(user.getiStudentInformationPk());
+                sUser.setiTeacherInformationPk(user.getiTeacherInformationPk());
                 sUser.setScreenCode((String) Class.forName("com.ben.quiz.domain.common.constant.AuthorityConst$"
                         + user.getTopMenu()).getDeclaredField("SCREEN_CODE").get(null));
                 if (user.getiStudentInformationPk() == null && user.getiTeacherInformationPk() == null
@@ -111,8 +117,10 @@ public class UserServiceImpl implements UserService {
             inModel.put("screenCode", sUser.getStrTopMenu());
             if(sUser.getStrTopMenu().equals("ADM") || sUser.getStrTopMenu().equals("TEA")){
                 return QuizTrasitionConst.TEMPLATE.A101;
-            }else if(sUser.getStrTopMenu().equals("STU"))
+            }else if(sUser.getStrTopMenu().equals("STU")) {
+                inModel.put("iStudentInformationPk", sUser.getiStudentInformationPk());
                 return QuizTrasitionConst.TEMPLATE.S102;
+            }
 
             return QuizTrasitionConst.TEMPLATE.HOME;
         } catch (Exception ex) {

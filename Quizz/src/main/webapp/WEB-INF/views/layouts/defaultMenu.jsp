@@ -79,7 +79,6 @@
             <ul class="flex-box">
                 <li  id="sub_menu_examination"  ><a href="${pageContext.request.contextPath}/admin/a101"><span>Quản lý kỳ thi</span></a></li>
                 <li id="sub_menu_difficulty" ><a   href="${pageContext.request.contextPath}/admin/a102"><span>Quản lý độ khó</span></a></li>
-                <li id="sub_menu_tests"><a   href="${pageContext.request.contextPath}/admin/a103"><span>Danh sách bài thi</span></a></li>
                 <li id="sub_menu_question" ><a  href="${pageContext.request.contextPath}/admin/a104"><span>Quản lý câu hỏi</span></a></li>
                 <li id="sub_menu_subject"><a href="${pageContext.request.contextPath}/admin/a105"><span> Quản lý môn học</span></a></li>
             </ul>

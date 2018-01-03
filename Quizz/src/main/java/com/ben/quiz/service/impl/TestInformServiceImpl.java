@@ -13,10 +13,12 @@ import com.ben.quiz.service.interfaces.TestInformService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Transactional
 @Service("testService")
 public class TestInformServiceImpl implements TestInformService {
 
@@ -49,21 +51,25 @@ public class TestInformServiceImpl implements TestInformService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<TestInformationDto> search(TestInformationSearchReq searchReq, PagingReq pagingReq) throws QuizException {
         return testInformRepository.search(searchReq,pagingReq);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public long count(TestInformationSearchReq searchReq) throws QuizException {
         return testInformRepository.count(searchReq);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public TestInformationDto findByID(Integer iTestInformationPk) throws QuizException {
         return testInformRepository.findByID(iTestInformationPk);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<TestInformationDto> findByStudentPk(Integer iStudentInformationPk) throws QuizException {
         List<TestInformationDto> testInformationDtos = new ArrayList<>();
         StudentInformation studentInformation =  studentInformRepository.findOne(StudentInformation.class,iStudentInformationPk);
@@ -76,6 +82,7 @@ public class TestInformServiceImpl implements TestInformService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<TestInformationDto> findByExaminationPk(Integer iExaminationInformationPk) throws QuizException {
         List<TestInformationDto> testInformationDtos = new ArrayList<>();
         ExaminationInformation examinationInformation = examinationInformRepository.findOne(
@@ -164,6 +171,25 @@ public class TestInformServiceImpl implements TestInformService {
     @Override
     public long countByTestID(Integer iTestInformationPk) throws QuizException {
         return testInformationDetailRepository.countByTestID(iTestInformationPk);
+    }
+
+    @Override
+    public boolean updateByTestID(List<TestInformationDetailDto> testInformationDetailDtos) throws QuizException {
+        for (TestInformationDetailDto testInformationDetailDto:testInformationDetailDtos
+             ) {
+            TestInformationDetail testInformationDetail = modelMapper.map(testInformationDetailDto,TestInformationDetail.class);
+            testInformationDetailRepository.save(testInformationDetail);
+        }
+        return  true;
+    }
+
+    @Override
+    public boolean updateScore(Integer iTestInformationPk) throws QuizException {
+        TestInformationDto testInformationDto = findByID(iTestInformationPk);
+        TestInformation testInformation = modelMapper.map(testInformationDto,TestInformation.class);
+        testInformation.setfExaminationResultScore(0.0);
+        testInformRepository.save(testInformation);
+        return true;
     }
 
 
