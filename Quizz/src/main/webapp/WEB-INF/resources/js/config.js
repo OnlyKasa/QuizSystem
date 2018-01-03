@@ -3,8 +3,8 @@
  */
 //Timeout
 const btnTimeout = 100000;
-var rowPerPage = 10;
-var rowPerPageModal = 20;
+var rowPerPage = 5;
+var rowPerPageModal = 5;
 const popupTimeout = 3000;
 var pageCount = 1;
 const noData = "Không tìm thấy dữ liệu";
@@ -361,10 +361,10 @@ function countIndex(rowCount, rowPerPage, currentPage, txtPageCount, txtPageNavi
         }else{
             to = rowCount;
         }
-        $('#'+txtPageCount).html((from + 1) + "-" + to + "page/" + rowCount+"pages");
+        $('#'+txtPageCount).html((from + 1) + "-" + to + "bản ghi/" + rowCount+"bản ghi");
         $('#'+txtPageNavigator).empty();
         if (currentPage != 1) {
-            $('#'+txtPageNavigator).html("<li><a onclick=\""+pageChangeFunction+"('" + (parseInt(currentPage) - 1).toString() + "')\" href=\"#\" aria-label=\"Previous\"><span aria-hidden=\"true\">&laquo;</span>Previous</a></li>");
+            $('#'+txtPageNavigator).html("<li><a onclick=\""+pageChangeFunction+"('" + (parseInt(currentPage) - 1).toString() + "')\" href=\"#\" aria-label=\"Trước\"><span aria-hidden=\"true\">&laquo;</span>Trước</a></li>");
         }else{
             $('#'+txtPageNavigator).html("<li><a class='no-hover' aria-label=\"Trước\"><span aria-hidden=\"true\">&laquo;</span>Trước</a></li>");
         }

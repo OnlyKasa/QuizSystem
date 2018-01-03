@@ -90,9 +90,9 @@
             </div>
 
             <div class="modal-body">
-                    <div class="box-shadow-radius overflow-h">
-                        <div class="scrollx-xs">
-                            <table class="table-border-2 table-short table-xs th-nomarl">
+                <div class="box-shadow-radius overflow-h mt10">
+                    <div class="scrollx-xs">
+                        <table class="table-border-1 table-center table-xs th-nomarl">
                                 <colgroup>
                                     <col class="col-number" />
                                     <col />
@@ -105,8 +105,7 @@
                                     <th><a>Mã sinh viên </a></th>
                                     <th><a>Họ và tên sinh viên</a></th>
                                     <th><a>Tên khoa</a></th>
-                                    <th class="last-child">
-                                    </th>
+                                    <th class="last-child"></th>
                                 </tr>
                                 <tbody id="table-confirm-content"></tbody>
                               </table>

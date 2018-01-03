@@ -94,8 +94,7 @@
         <td>{{strStudentInformationFirstName}} {{strStudentInformationLastName}}</td>
         <td>{{strFacultyInformationFullName}}</td>
         <td class="txt-center">
-            <%--<button class="btn btn-update btn-small">Xem đề thi</button><br/>--%>
-            <button class="btn btn-delete btn-small mt5" data-toggle="modal" data-target="#modal-delete">Xóa</button>
+            <button class="btn btn-update btn-small" onclick="ExaminationDetail.OpenTest('{{iTestInformationPk}}');">Xem đề thi</button><br/>
         </td>
     </tr>
 </script>
@@ -154,6 +153,83 @@
     </tr>
 </script>
 
+<div id="modal-view-tests" class="modal modal-style-1 fade" role="dialog">
+    <div class="modal-dialog box-medium">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body">
+                    <p id="txtPageCountV" class="txt-small txt-right"></p>
+                    <div class="box-shadow-radius overflow-h mt10">
+                        <div class="scrollx-xs">
+                            <table class="table-border-1 table-center table-xs th-nomarl">
+                                <colgroup>
+                                    <col width="5%" />
+                                    <col/>
+                                    <col/>
+                                    <col/>
+                                    <col/>
+                                    <col/>
+                                    <col/>
+                                    <col/>
+                                    <col/>
+                                    <col width="5%" />
+                                </colgroup>
+
+                                <thead>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th><a>Nội dung câu hỏi</a></th>
+                                        <th><a>Câu trả lời 1</a></th>
+                                        <th><a>Câu trả lời 2</a></th>
+                                        <th><a>Câu trả lời 3</a></th>
+                                        <th><a>Câu trả lời 4</a></th>
+                                        <th><a>Câu trả lời 5</a></th>
+                                        <th><a>Đáp án đúng</a></th>
+                                        <th><a>Câu trả lời của sinh viên</a></th>
+                                        <th><a>Độ khó</a></th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="test-content">
+
+                                </tbody>
+
+                            </table>
+                        </div><!-- /.scroll -->
+                    </div><!-- /.box-shadow-radius -->
+                    <nav aria-label="Page navigation">
+                        <ul id="txtPageNavigatorV" class="pagination float-r"></ul>
+                        <div class="clearfix"></div>
+                    </nav>
+                </div><!-- /.modal-body -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-gray" data-dismiss="modal">Trở lại</button>
+            </div>
+        </div>
+    </div>
+</div><!-- /.modal -->
+
+<script  type="text/template7" id="template-tests-content">
+    <tr>
+        <td>{{index}}</td>
+        <td>{{strQuestionContentInformation}}</td>
+        <td>{{strAnswer1}}</td>
+        <td>{{strAnswer2}}</td>
+        <td>{{strAnswer3}}</td>
+        <td>{{strAnswer4}}</td>
+        <td>{{strAnswer5}}</td>
+        <td>{{strTrueAnswer}}</td>
+        <td>{{strStudentAnswer}}</td>
+        <td>{{iQuestionInformationLevel}}</td>
+    </tr>
+</script>
+
+
 <div id="confirm-adding-student" class="modal modal-style-1 fade" role="dialog">
 
 </div><!-- /.modal -->
@@ -161,99 +237,104 @@
 <script type="text/template7" id="template-confirm-adding-student">
     <div class="modal-dialog box-medium">
         <!-- Modal content-->
-
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title heading-1">Chi tiết thêm mới</h4>
-            </div>
+            <form id="confirm-value" action="javascript:void(0);">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title heading-1">Chi tiết thêm mới</h4>
+                </div>
+                <div class="modal-body">
+                    <h4 class="heading-4 txt-center mb15">Thông tin hiện tại</h4>
 
-            <div class="modal-body">
-                <h4 class="heading-4 txt-center mb15">Thông tin hiện tại</h4>
+                    <div class="box-shadow-radius overflow-h">
 
-                <div class="box-shadow-radius overflow-h">
+                        <div class="scrollx-xs">
+                            <table class="table-border-2 table-short table-xs th-nomarl">
+                                <colgroup>
+                                    <col class="col-xs-5 col-sm-4" />
+                                </colgroup>
 
-                    <div class="scrollx-xs">
-                        <table class="table-border-2 table-short table-xs th-nomarl">
-                            <colgroup>
-                                <col class="col-xs-5 col-sm-4" />
-                            </colgroup>
+                                <tr>
+                                    <th>Số lượng câu hỏi dễ (mức độ 1) của cả kỳ thi </th>
+                                    <td>{{numQuestionLv1}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Số lượng câu hỏi trung bình (mức độ 2) của cả kỳ thi</th>
+                                    <td>{{numQuestionLv2}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Số lượng câu hỏi khó  (mức độ 3) của cả kỳ thi</th>
+                                    <td>{{numQuestionLv3}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Số lượng câu hỏi cực khó  (mức độ 4) của cả kỳ thi</th>
+                                    <td>{{numQuestionLv4}}</td>
+                                </tr>
 
-                            <tr>
-                                <th>Số lượng câu hỏi dễ (mức độ 1) của cả kỳ thi </th>
-                                <td>{{numQuestionLv1}}</td>
-                            </tr>
-                            <tr>
-                                <th>Số lượng câu hỏi trung bình (mức độ 2) của cả kỳ thi</th>
-                                <td>{{numQuestionLv2}}</td>
-                            </tr>
-                            <tr>
-                                <th>Số lượng câu hỏi khó  (mức độ 3) của cả kỳ thi</th>
-                                <td>{{numQuestionLv3}}</td>
-                            </tr>
-                            <tr>
-                                <th>Số lượng câu hỏi cực khó  (mức độ 4) của cả kỳ thi</th>
-                                <td>{{numQuestionLv4}}</td>
-                            </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <h4 class="heading-4 txt-center mb15 mt40">Thông tin thêm mới </h4>
 
-                        </table>
+                    <div class="box-shadow-radius overflow-h">
+                        <div class="scrollx-xs">
+                            <table class="table-border-2 table-short table-xs th-nomarl">
+                                <colgroup>
+                                    <col class="col-xs-5 col-sm-4" />
+                                </colgroup>
+
+                                <tr>
+                                    <th><label for="numberStudent" >Số lượng sinh viên thêm mới</label> </th>
+                                    <td><input id="numberStudent" type="text" input-type="number" valid="true" value="0"/>(Sinh viên)
+                                        <p class="message-error" id="numberStudentErr">
+
+                                        </p>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th><label for="numberPercent" >Tỷ lệ trùng câu hỏi </label> </th>
+                                    <td>
+                                        <input id="numberPercent" type="text" input-type="number" valid="true" min="0" max="100" value="50">%
+                                        <p class="message-error" id="numberPercentErr">
+                                        </p>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>Số câu hỏi dễ (mức độ 1) cần cho sô sinh viên trên</th>
+                                    <td id="numQuestionLv1">0</td>
+                                </tr>
+                                <tr>
+                                    <th>Số câu hỏi trung bình (mức độ 2) cần cho sô sinh viên trên</th>
+                                    <td id="numQuestionLv2">0</td>
+                                </tr>
+                                <tr>
+                                    <th>Số câu hỏi khó  (mức độ 3) cần cho sô sinh viên trên</th>
+                                    <td id="numQuestionLv3">0</td>
+                                </tr>
+                                <tr>
+                                    <th>Số câu hỏi cực khó  (mức độ 4) cần cho sô sinh viên trên</th>
+                                    <td id="numQuestionLv4">0</td>
+                                </tr>
+
+                            </table>
+                        </div><!-- /.scroll -->
+                    </div><!-- /.box-shadow-r -->
+
+                </div><!-- /.modal-body -->
+                <p id="messErorr" class="message-error"></p>
+                <div class="modal-footer">
+                    <div class="btn-modal">
+                        <button class="btn btn-green" id="btnRepageAddStudent">Đồng ý</button>
+                    </div>
+                    <div class="btn-modal">
+                        <button type="button" class="btn btn-gray" data-dismiss="modal">Trở lại</button>
                     </div>
                 </div>
-                <h4 class="heading-4 txt-center mb15 mt40">Thông tin thêm mới </h4>
-
-                <div class="box-shadow-radius overflow-h">
-                    <div class="scrollx-xs">
-                        <form id="confirm-value" action="javascript:void(0);">
-                        <table class="table-border-2 table-short table-xs th-nomarl">
-                            <colgroup>
-                                <col class="col-xs-5 col-sm-4" />
-                            </colgroup>
-
-                            <tr>
-                                <th><label for="numberStudent" >Số lượng sinh viên thêm mới</label> </th>
-                                <td><input id="numberStudent" type="text" valid-type="number" valid="true" value="0"/>(Sinh viên)</td>
-                            </tr>
-
-                            <tr>
-                                <th><label for="numberPercent" >Tỷ lệ trùng câu hỏi </label> </th>
-                                <td><input id="numberPercent" type="text" valid-type="number" valid="true" min="0" max="100" value="50">%</td>
-                            </tr>
-
-                            <tr>
-                                <th>Số câu hỏi dễ (mức độ 1) cần cho sô sinh viên trên</th>
-                                <td id="numQuestionLv1">0</td>
-                            </tr>
-                            <tr>
-                                <th>Số câu hỏi trung bình (mức độ 2) cần cho sô sinh viên trên</th>
-                                <td id="numQuestionLv2">0</td>
-                            </tr>
-                            <tr>
-                                <th>Số câu hỏi khó  (mức độ 3) cần cho sô sinh viên trên</th>
-                                <td id="numQuestionLv3">0</td>
-                            </tr>
-                            <tr>
-                                <th>Số câu hỏi cực khó  (mức độ 4) cần cho sô sinh viên trên</th>
-                                <td id="numQuestionLv4">0</td>
-                            </tr>
-
-                        </table>
-
-                        </form>
-                    </div><!-- /.scroll -->
-                </div><!-- /.box-shadow-r -->
-
-            </div><!-- /.modal-body -->
-            <p id="messErorr" class="message-error"></p>
-            <div class="modal-footer">
-                <div class="btn-modal">
-                    <button class="btn btn-green" id="btnRepageAddStudent">Đồng ý</button>
-                </div>
-                <div class="btn-modal">
-                    <button type="button" class="btn btn-gray" data-dismiss="modal">Trở lại</button>
-                </div>
-            </div>
-            </div>
+            </form>
         </div>
+    </div>
 </script>
 <script>
     var iExaminationInformationPk  = ${iExaminationInformationPk};

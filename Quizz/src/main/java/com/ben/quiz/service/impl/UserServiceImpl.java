@@ -107,8 +107,13 @@ public class UserServiceImpl implements UserService {
                 // If not logged in, redirect to login page
                 return QuizTrasitionConst.AUTH.LOG_IN;
             }
-           inModel.put("fullname", sUser.getStrFullName());
+            inModel.put("fullname", sUser.getStrFullName());
             inModel.put("screenCode", sUser.getStrTopMenu());
+            if(sUser.getStrTopMenu().equals("ADM") || sUser.getStrTopMenu().equals("TEA")){
+                return QuizTrasitionConst.TEMPLATE.A101;
+            }else if(sUser.getStrTopMenu().equals("STU"))
+                return QuizTrasitionConst.TEMPLATE.S102;
+
             return QuizTrasitionConst.TEMPLATE.HOME;
         } catch (Exception ex) {
             Logger.getLogger(UserServiceImpl.class).error(ex);

@@ -1674,7 +1674,7 @@ textarea {
 .table-style tr td, .table-border tr td, .table-border-1 tr td, .table-border-2 tr td, .table-calendar tr td {
   font-size: 14px;
   padding: 4px;
-  word-break: break-all; }
+  word-break: keep-all; }
 
 .table-style .no-image, .table-border .no-image, .table-border-1 .no-image, .table-border-2 .no-image, .table-calendar .no-image, .table-style .img-deleted, .table-border .img-deleted, .table-border-1 .img-deleted, .table-border-2 .img-deleted, .table-calendar .img-deleted {
   background-color: #f5f5f5;

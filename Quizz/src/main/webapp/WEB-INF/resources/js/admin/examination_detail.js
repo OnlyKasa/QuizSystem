@@ -3,7 +3,8 @@ var ExaminationDetail = function () {
     let template7 ={
         compileList : Template7.compile($("#template-table-student").html()),
         compileQuestion : Template7.compile($("#template-table-question").html()),
-        confirmAdd : Template7.compile($("#template-confirm-adding-student").html())
+        confirmAdd : Template7.compile($("#template-confirm-adding-student").html()),
+        viewTests : Template7.compile($("#template-tests-content").html())
     };
     let url = {
         urlDeleteQuestion : contextPath + "/question/delete",
@@ -13,7 +14,9 @@ var ExaminationDetail = function () {
         urlCountDetailExamination : contextPath +"/examination/countDetailExamination/"+ iExaminationInformationPk,
         urlCountQuestion : contextPath +"/question/countBySubjectID/",
         urlFindQuestion : contextPath +"/question/findBySubjectID/",
-        urlFindDifficulty : contextPath +"/difficulty/find/ID"
+        urlFindDifficulty : contextPath +"/difficulty/find/ID",
+        urlCountTest : contextPath + "/tests/countByTestID",
+        urlViewTest : contextPath + "/tests/findByTestID"
     };
     let iSubjectInformationPk = 0;
     let iRateOfDifficultyPk = 0 ;
@@ -32,7 +35,13 @@ var ExaminationDetail = function () {
         pageCount: 0
     };
 
-    let curentDetail ={
+    let pageV = {
+        currentPage : 1,
+        rowCount : 0,
+        rowPerPage : rowPerPage,
+        pageCount: 0
+    };
+    let currentDetail ={
         numStudent : 0,
         numQuestionLv1 : 0,
         numQuestionLv2 : 0,
@@ -48,18 +57,38 @@ var ExaminationDetail = function () {
     };
 
     function init(){
+        validUtil.autoValidation("confirm-value",ExaminationDetail.submit);
         loadOldExamination();
         loadOldDetailExamination();
+    }
 
-
+    function countQuestionFollowingDifficulty(res) {
+        console.log("aaa");
+        let data = $.map(res, function (value) {
+            return [value];
+        });
+        for (let i = 0; i < data.length; i++) {
+            if (data[i].iQuestionInformationLevel == 1) {
+                currentDetail.numQuestionLv1 += 1;
+            }
+            if (data[i].iQuestionInformationLevel == 2) {
+                currentDetail.numQuestionLv2 += 1;
+            }
+            if (data[i].iQuestionInformationLevel == 3) {
+                currentDetail.numQuestionLv3 += 1;
+            }
+            if (data[i].iQuestionInformationLevel == 4) {
+                currentDetail.numQuestionLv4 += 1;
+            }
+        }
         $("#btnAddStudent").click(function () {
-             showConfirmAdd();
+            showConfirmAdd();
         });
     }
     function showConfirmAdd() {
 
         $("#confirm-adding-student").modal("show");
-        $("#confirm-adding-student").html(template7.confirmAdd(curentDetail));
+        $("#confirm-adding-student").html(template7.confirmAdd(currentDetail));
         $("#numberStudent").change(function () {
             calculatorNumberQuestion();
         });
@@ -67,30 +96,30 @@ var ExaminationDetail = function () {
             calculatorNumberQuestion();
         });
 
-
-
         $("#btnRepageAddStudent").click(function () {
-            if((parseInt($("#numQuestionLv1").html())< parseInt(curentDetail.numQuestionLv1))
-                && (parseInt($("#numQuestionLv2").html())< parseInt(curentDetail.numQuestionLv2))
-                && (parseInt($("#numQuestionLv3").html())<parseInt(curentDetail.numQuestionLv3))
-                && (parseInt($("#numQuestionLv4").html())< parseInt(curentDetail.numQuestionLv4))
-            ){
-
-                redirectPage("admin","a101_4",{iExaminationInformationPk :iExaminationInformationPk,
-                    numberStudent: $("#numberStudent").val(), percentMatch:$("#numberPercent").val()});
-            }else
-                $("#messErorr").html("<p>Số lượng câu hỏi của môn học không đủ.</p> </br>" +"<p>Tham khảo một số cách sau.</p>"+
-                    "<ul>" +
-                    "<li>Thêm mới câu hỏi</li>" +
-                    "<li>Thay đổi độ khó đề thi</li>" +
-                    "<li>Tăng độ trùng câu hỏi hoặc giảm số sinh viên xuống</li>" +
-                    "</ul>")
+            validUtil.autoValidation("confirm-value",ExaminationDetail.submit);
         });
 
     }
+    function submit() {
+        if((parseInt($("#numQuestionLv1").html())< parseInt(currentDetail.numQuestionLv1))
+            && (parseInt($("#numQuestionLv2").html())< parseInt(currentDetail.numQuestionLv2))
+            && (parseInt($("#numQuestionLv3").html())<parseInt(currentDetail.numQuestionLv3))
+            && (parseInt($("#numQuestionLv4").html())< parseInt(currentDetail.numQuestionLv4))
+        ){
 
+            redirectPage("admin","a101_4",{iExaminationInformationPk :iExaminationInformationPk,
+                numberStudent: $("#numberStudent").val(), percentMatch:$("#numberPercent").val()});
+        }else
+            $("#messErorr").html("<p>Số lượng câu hỏi của môn học không đủ.</p> </br>" +"<p>Tham khảo một số cách sau.</p>"+
+                "<ul>" +
+                "<li>Thêm mới câu hỏi</li>" +
+                "<li>Thay đổi độ khó đề thi</li>" +
+                "<li>Tăng độ trùng câu hỏi hoặc giảm số sinh viên xuống</li>" +
+                "</ul>");
+    }
     function calculatorNumberQuestion() {
-        let studentNumber = parseInt($("#numberStudent").val()) + curentDetail.numStudent ;
+        let studentNumber = parseInt($("#numberStudent").val()) + currentDetail.numStudent ;
         console.log(studentNumber);
         let numberQuestionLv1ForOneTests = examination.numQuestionLv1;
         let numberQuestionLv2ForOneTests = examination.numQuestionLv2;
@@ -156,6 +185,7 @@ var ExaminationDetail = function () {
         }
         loadQuestion();
         loadDifficulty();
+        executeGetNew(url.urlFindQuestion+iSubjectInformationPk,countQuestionFollowingDifficulty,display);
     }
     function findError(err) {
         display(err.responseText);
@@ -174,7 +204,7 @@ var ExaminationDetail = function () {
     }
     function countSuccess(res) {
         if(res > 0){
-            curentDetail.numStudent =res ;
+            currentDetail.numStudent =res ;
             page.rowCount = res;
             page.pageCount = Math.ceil(page.rowCount / page.rowPerPage);
             changePage();
@@ -242,7 +272,7 @@ var ExaminationDetail = function () {
         let inputSearch ={};
         if(typeof pg =="undefined"){
             pageX.currentPage = 1;
-        }
+        }else pageX.currentPage =pg;
         inputSearch["page"] = pageX.currentPage ;
         inputSearch["rowPerPage"] = pageX.rowPerPage ;
         executeGetNew(url.urlFindQuestion+iSubjectInformationPk +"?"+ paramEncode(inputSearch),loadSuccessQuestion,loadErrorQuestion);
@@ -254,19 +284,6 @@ var ExaminationDetail = function () {
             return [value];
         });
         for (let i = 0; i < data.length; i++) {
-
-            if(data[i].iQuestionInformationLevel == 1 ){
-                curentDetail.numQuestionLv1 +=1;
-            }
-            if(data[i].iQuestionInformationLevel == 2 ){
-                curentDetail.numQuestionLv2 +=1;
-            }
-            if(data[i].iQuestionInformationLevel == 3 ){
-                curentDetail.numQuestionLv3 +=1;
-            }
-            if(data[i].iQuestionInformationLevel == 4 ){
-                curentDetail.numQuestionLv4 +=1;
-            }
             data[i]["index"] = (((pageX.currentPage - 1) * pageX.rowPerPage) + i + 1).toString();
             $("#table-question").append(template7.compileQuestion(data[i]));
         }
@@ -286,10 +303,65 @@ var ExaminationDetail = function () {
         $("#txtPageNavigatorX").empty();
     }
 
+    let iTestInformationPkDetail ;
+    function OpenTest(iTestInformationPk) {
+        $("#modal-view-tests").modal("show");
+        iTestInformationPkDetail = iTestInformationPk;
+        countTest(iTestInformationPk);
+    }
+
+    function countTest(iTestInformationPk){
+        let data = {
+            iTestInformationPk :iTestInformationPk
+        };
+        executeGetNew(url.urlCountTest + "?" + paramEncode(data),countTestSuccess, display)
+    }
+    function countTestSuccess(res) {
+        if(res > 0){
+            pageV.rowCount = res;
+            pageV.pageCount = Math.ceil(pageV.rowCount / pageV.rowPerPage);
+            changePageV();
+        }else clearDataTests();
+    }
+
+    function changePageV(pg) {
+        let inputSearch ={};
+        if(typeof pg =="undefined"){
+            pageV.currentPage = 1;
+        }else pageV.currentPage =pg;
+        inputSearch["page"] = pageV.currentPage ;
+        inputSearch["rowPerPage"] = pageV.rowPerPage ;
+        inputSearch["iTestInformationPk"] =iTestInformationPkDetail;
+        executeGetNew(url.urlViewTest +"?"+ paramEncode(inputSearch),viewSuccess,display);
+    }
+
+    function viewSuccess(res) {
+        $("#test-content").empty();
+        let data = $.map(res, function (value) {
+            return [value];
+        });
+        for (let i = 0; i < data.length; i++) {
+            data[i]["index"] = (((pageV.currentPage - 1) * pageV.rowPerPage) + i + 1).toString();
+            $("#test-content").append(template7.viewTests(data[i]));
+        }
+        countIndexTests();
+    }
+
+    function countIndexTests() {
+        countIndex(pageV.rowCount, pageV.rowPerPage, pageV.currentPage, 'txtPageCountV', 'txtPageNavigatorV',"ExaminationDetail.changePageV");
+    }
+    function clearDataTests() {
+        $("#test-content").html("<tr><td colspan='2'>"+noData+"</td></tr>");
+        $("#txtPageCountV").empty();
+        $("#txtPageNavigatorV").empty();
+    }
     return{
         init: init,
         changePage:changePage,
-        changePageX:changePageX
+        changePageX:changePageX,
+        changePageV : changePageV,
+        submit:submit,
+        OpenTest : OpenTest
     };
 }();
 

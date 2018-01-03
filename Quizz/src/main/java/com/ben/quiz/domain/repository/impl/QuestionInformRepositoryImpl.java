@@ -163,11 +163,11 @@ public class QuestionInformRepositoryImpl extends BaseRepositoryImpl implements 
                 .where(predicates.toArray(new Predicate[predicates.size()]));
 
         final TypedQuery<Tuple> query = entityManager.createQuery(criteriaQuery);
-        List<Tuple> examinationRooms = query.getResultList();
         if (pagingReq.getPage() > 0) {
             query.setFirstResult((pagingReq.getPage() - 1) * pagingReq.getRowPerPage());
             query.setMaxResults(pagingReq.getRowPerPage());
         }
+        List<Tuple> examinationRooms = query.getResultList();
         return examinationRooms.stream()
                 .map(this::convertToQuestionInformDto)
                 .collect(Collectors.toList());

@@ -35,6 +35,7 @@ public class QuizTrasitionConst {
     public interface STUDENT{
         public static final String ROOT = "/student";
         public static String PAGE_TEST = STUDENT.ROOT + "/s101";
+        public static String PAGE_VIEW_TESTS = STUDENT.ROOT +"/s102";
     }
 
     public interface TEACHER{
@@ -94,6 +95,7 @@ public class QuizTrasitionConst {
         public static String LOGIN = "login";
         public static String LOGOUT = "logout";
         public static String S101 = "s101";
+        public static String S102 = "s102";
         public static String T101 = "t101";
         public static String T101_1 = "t101_1";
         public static String A101 = "a101";

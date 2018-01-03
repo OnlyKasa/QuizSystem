@@ -156,5 +156,15 @@ public class TestInformServiceImpl implements TestInformService {
         testInformRepository.save(testInformation);
     }
 
+    @Override
+    public List<TestInformationDetailDto> findByTestID(Integer iTestInformationPk, PagingReq pagingReq) throws QuizException {
+        return testInformationDetailRepository.findByTestInformationPk(iTestInformationPk,pagingReq);
+    }
+
+    @Override
+    public long countByTestID(Integer iTestInformationPk) throws QuizException {
+        return testInformationDetailRepository.countByTestID(iTestInformationPk);
+    }
+
 
 }

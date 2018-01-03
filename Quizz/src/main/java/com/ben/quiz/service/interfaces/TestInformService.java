@@ -4,6 +4,7 @@ import com.ben.quiz.domain.common.exception.QuizException;
 import com.ben.quiz.domain.dto.request.PagingReq;
 import com.ben.quiz.domain.dto.request.TestInformationSaveReq;
 import com.ben.quiz.domain.dto.request.TestInformationSearchReq;
+import com.ben.quiz.domain.dto.result.TestInformationDetailDto;
 import com.ben.quiz.domain.dto.result.TestInformationDto;
 import com.ben.quiz.domain.model.TestInformation;
 
@@ -25,4 +26,8 @@ public interface TestInformService {
     TestInformation update(TestInformationSaveReq saveReq) throws QuizException ;
 
     void delete( Integer iTestInformationPk)throws QuizException ;
+
+    List<TestInformationDetailDto> findByTestID(Integer iTestInformationPk , PagingReq pagingReq) throws QuizException;
+
+    long countByTestID(Integer iTestInformationPk) throws QuizException ;
 }

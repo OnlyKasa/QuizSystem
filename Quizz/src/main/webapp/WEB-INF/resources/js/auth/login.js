@@ -37,6 +37,7 @@ var login = function () {
         if (typeof data == 'undefined' || data == null || data == '') {
             redirectPage('auth','C106',{"userid": $.trim($('#txtUsername').val())});
         }else{
+
             $.redirect(contextPath + "/", {});
         }
     }

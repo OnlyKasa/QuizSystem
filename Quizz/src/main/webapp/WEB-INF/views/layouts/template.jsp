@@ -43,7 +43,6 @@
                     <ul id="txtPageNavigatorX" class="pagination float-r"></ul>
                     <div class="clearfix"></div>
                 </nav>
-
             </div><!-- /.modal-body -->
 
             <div class="modal-footer">

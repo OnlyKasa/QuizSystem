@@ -136,29 +136,42 @@ public class TestInformRepositoryImpl extends BaseRepositoryImpl implements Test
     public List<ExaminationInformationDetailDto> findTestByExaminationID(Integer iExaminationInformationPk,
                                                                    PagingReq pagingReq) throws QuizException {
         final CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        final CriteriaQuery<TestInformation> criteriaQuery = criteriaBuilder.createQuery(TestInformation.class);
+        final CriteriaQuery<Tuple> criteriaQuery = criteriaBuilder.createQuery(Tuple.class);
         final Root<TestInformation> entityRoot = criteriaQuery.from(TestInformation.class);
+        final Join<TestInformation,StudentInformation>
+                student = entityRoot.join(TestInformation_.studentInformationByIStudentInformationPk,
+                JoinType.LEFT);
+        final Join<StudentInformation,FacultyInformation>
+                faculty = student.join(StudentInformation_.facultyInformationByIFacultyInformationPk,JoinType.LEFT);
 
         List<Predicate> predicates = new ArrayList<>() ;
         predicates.add(criteriaBuilder.equal(entityRoot.get(TestInformation_.iExaminationInformationPk),
                 iExaminationInformationPk));
         predicates.add(criteriaBuilder.isNotNull(entityRoot.get(TestInformation_.iTestInformationPkEk)));
 
-        criteriaQuery.select(entityRoot)
+        criteriaQuery.multiselect(entityRoot,student,faculty)
                 .where(predicates.toArray(new Predicate[predicates.size()]));
 
-        final TypedQuery<TestInformation> query = entityManager.createQuery(criteriaQuery);
+        final TypedQuery<Tuple> query = entityManager.createQuery(criteriaQuery);
         if (pagingReq.getPage() > 0) {
             query.setFirstResult((pagingReq.getPage() - 1) * pagingReq.getRowPerPage());
             query.setMaxResults(pagingReq.getRowPerPage());
         }
         List<ExaminationInformationDetailDto>examinationInformationDetailDtos = new ArrayList<>() ;
-        List<TestInformation> testInformations = query.getResultList();
-        for (TestInformation testInformation:testInformations) {
-            examinationInformationDetailDtos.add(convertToDto(testInformation));
+        List<Tuple> tuples = query.getResultList();
+        for (Tuple tuple:tuples) {
+            examinationInformationDetailDtos.add(convertToDetailExaminationDto(tuple));
         }
 
         return examinationInformationDetailDtos;
+    }
+
+    private ExaminationInformationDetailDto convertToDetailExaminationDto(Tuple tuple){
+        ExaminationInformationDetailDto examinationInformationDetailDto = new ExaminationInformationDetailDto();
+        modelMapper.map(tuple.get(0),examinationInformationDetailDto);
+        modelMapper.map(tuple.get(1),examinationInformationDetailDto);
+        modelMapper.map(tuple.get(2),examinationInformationDetailDto);
+        return  examinationInformationDetailDto;
     }
 
     @Override
@@ -203,6 +216,7 @@ public class TestInformRepositoryImpl extends BaseRepositoryImpl implements Test
     }
 
     private ExaminationInformationDetailDto convertToDto(TestInformation testInformation){
+
       return   modelMapper.map(testInformation,ExaminationInformationDetailDto.class);
     }
 

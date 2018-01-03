@@ -13,12 +13,12 @@
 
     <div class="box-toggle row">
         <div class="col-xs-12 clear-padding">
-            <div class="col-xs-12 col-sm-3 col-lg-2">
+            <div class="col-xs-12 col-sm-6 col-lg-4 mt-xs">
                 <label>Mã kỳ thi</label>
                 <input class="form-control" type="text" id="strExaminationInformationCode"/>
             </div>
 
-            <div class="col-xs-12 col-sm-3 col-lg-2 mt-xs">
+            <div class="col-xs-12 col-sm-6 col-lg-4 mt-xs">
                 <label>Tên môn học </label>
                 <input class="form-control" type="text" id="strSubjectInformationName" />
             </div>
@@ -34,13 +34,6 @@
                     </div>
                 </div>
             </div>
-
-
-            <div class="col-xs-12 col-sm-6 col-lg-4 mt-xs">
-                <label>Phòng thi</label>
-                <input class="form-control" type="text" id="strExaminationRoomName"/>
-            </div>
-
         </div>
         <div class="col-xs-12 clear-padding">
             <div class="col-xs-12 col-sm-6 col-lg-4 mt-xs">
@@ -51,6 +44,11 @@
             <div class="col-xs-12 col-sm-6 col-lg-4 mt-xs">
                 <label>Ngày thi</label>
                 <input class="form-control bootstrap-calendar-3" type="text" id="dtExaminationDay"/>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-lg-4 mt-xs">
+                <label>Phòng thi</label>
+                <input class="form-control" type="text" id="strExaminationRoomName"/>
             </div>
         </div>
 

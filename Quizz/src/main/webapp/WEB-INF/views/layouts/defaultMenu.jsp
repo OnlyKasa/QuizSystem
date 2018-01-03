@@ -65,11 +65,8 @@
     </li>
 </script>
 <script id="templateMenuStudent" type="text/template7">
-    <li id="sub_menu_examintion"  class="first-child">
+    <li id="sub_menu_examintion"  class="first-child active">
         <a>Danh sách kỳ thi</a>
-    </li>
-    <li  id="sub_menu_tests" class="last-child">
-        <a>Danh sách bài thi</a>
     </li>
 </script>
 <script id="templateMenuTeacher" type="text/template7">

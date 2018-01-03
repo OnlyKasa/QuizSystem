@@ -228,7 +228,8 @@ public class ExaminationInformServiceImpl implements ExaminationInformService {
     }
 
     private void DeleteDetailTest(Integer iTestInformationPk) throws QuizException {
-       List<TestInformationDetailDto> results = testInformationDetailRepository.findByTestInformationPk(iTestInformationPk);
+       List<TestInformationDetailDto> results =
+               testInformationDetailRepository.findByTestInformationPk(iTestInformationPk,new PagingReq());
         for (TestInformationDetailDto result: results
              ) {
             testInformationDetailRepository.delete(TestInformationDetail.class,result.getiTestInformationDetailPk());
