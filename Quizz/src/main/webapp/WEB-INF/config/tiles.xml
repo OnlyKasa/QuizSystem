@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <!-- Base Definition -->
+    <definition name="base-definition"
+                template="/WEB-INF/views/layouts/default.jsp">
+        <put-attribute name="template" value="/WEB-INF/views/layouts/template.jsp" />
+        <put-attribute name="header" value="/WEB-INF/views/layouts/defaultHeader.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/layouts/defaultMenu.jsp" />
+        <put-attribute name="title" value="Quiz" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="footer" value="/WEB-INF/views/layouts/defaultFooter.jsp" />
+    </definition>
+    <!-- SPA (Single page application) Definition -->
+    <definition name="spa-definition"
+                template="/WEB-INF/views/layouts/default.jsp">
+        <put-attribute name="header" value="" />
+        <put-attribute name="menu" value="" />
+        <put-attribute name="title" value="" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="footer" value="" />
+    </definition>
+    <!-- Home Page -->
+    <definition name="home" extends="base-definition">
+        <put-attribute name="title" value="Welcome to Quiz" />
+        <put-attribute name="body" value="/WEB-INF/views/home.jsp" />
+    </definition>
+    <!-- Error Page -->
+    <definition name="default_error" extends="base-definition">
+        <put-attribute name="menu" value=""/>
+        <put-attribute name="title" value="Page not found"/>
+        <put-attribute name="body" value="/WEB-INF/views/layouts/error.jsp"/>
+    </definition>
+    <definition name="error" extends="base-definition">
+        <put-attribute name="header" value="" />
+        <put-attribute name="menu" value="" />
+        <put-attribute name="title" value="Error in Quiz" />
+        <put-attribute name="body" value="/WEB-INF/views/layouts/error.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/views/layouts/miniFooter.jsp" />
+    </definition>
+
+    <definition name="login" extends="base-definition">
+        <put-attribute name="menu" value=""/>
+        <put-attribute name="title" value="Page login"/>
+        <put-attribute name="body" value="/WEB-INF/views/auth/login.jsp"/>
+    </definition>
+
+    <definition name="s101" extends="base-definition">
+        <put-attribute name="title" value="Page test"/>
+        <put-attribute name="menu" value=""/>
+        <put-attribute name="body" value="/WEB-INF/views/student/s101.jsp"/>
+    </definition>
+
+    <definition name="s102" extends="base-definition">
+        <put-attribute name="title" value="Page Examination"/>
+        <put-attribute name="body" value="/WEB-INF/views/student/view_examination.jsp"/>
+    </definition>
+    <definition name="t101" extends="base-definition">
+        <put-attribute name="title" value="Page examination"/>
+        <put-attribute name="body" value="/WEB-INF/views/teacher/t101.jsp"/>
+    </definition>
+
+    <definition name="t101_1" extends="base-definition">
+        <put-attribute name="title" value="Page examination detail"/>
+        <put-attribute name="body" value="/WEB-INF/views/teacher/t101_1.jsp"/>
+    </definition>
+
+    <definition name="a101" extends="base-definition">
+        <put-attribute name="title" value="Page examination"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/examination/examination_list.jsp"/>
+    </definition>
+
+    <definition name="a101_1" extends="base-definition">
+        <put-attribute name="menu" value=""/>
+        <put-attribute name="title" value="Page edit examination"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/examination/examination_edit.jsp"/>
+    </definition>
+
+    <definition name="a101_2" extends="base-definition">
+        <put-attribute name="menu" value=""/>
+        <put-attribute name="title" value="Page create examination"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/examination/examination_create.jsp"/>
+    </definition>
+
+    <definition name="a101_3" extends="base-definition">
+        <put-attribute name="menu" value=""/>
+        <put-attribute name="title" value="Page detail examination"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/examination/examination_detail.jsp"/>
+    </definition>
+
+    <definition name="a101_4" extends="base-definition">
+        <put-attribute name="menu" value=""/>
+        <put-attribute name="title" value="Page create student list"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/examination/student_list_create.jsp"/>
+    </definition>
+
+    <definition name="a102" extends="base-definition">
+        <put-attribute name="title" value="Page list difficulty"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/difficulty/difficulty_list.jsp"/>
+    </definition>
+
+    <definition name="a102_2" extends="base-definition">
+        <put-attribute name="menu" value=""/>
+        <put-attribute name="title" value="Page create difficulty"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/difficulty/difficulty_create.jsp"/>
+    </definition>
+
+    <definition name="a102_1" extends="base-definition">
+        <put-attribute name="menu" value=""/>
+        <put-attribute name="title" value="Page edit difficulty"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/difficulty/difficulty_edit.jsp"/>
+    </definition>
+    <definition name="a103" extends="base-definition">
+        <put-attribute name="title" value="Page list test"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/tests/tests_list.jsp"/>
+    </definition>
+
+    <definition name="a104" extends="base-definition">
+        <put-attribute name="title" value="Page list question"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/question/question_list.jsp"/>
+    </definition>
+
+    <definition name="a104_2" extends="base-definition">
+        <put-attribute name="menu" value=""/>
+        <put-attribute name="title" value="Page create question"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/question/question_create.jsp"/>
+    </definition>
+
+    <definition name="a104_1" extends="base-definition">
+        <put-attribute name="menu" value=""/>
+        <put-attribute name="title" value="Page edit question"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/question/question_edit.jsp"/>
+    </definition>
+    <definition name="a105" extends="base-definition">
+        <put-attribute name="title" value="Page list subject"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/subject/subject_list.jsp"/>
+    </definition>
+
+    <definition name="a105_2" extends="base-definition">
+        <put-attribute name="menu" value=""/>
+        <put-attribute name="title" value="Page create subject"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/subject/subject_create.jsp"/>
+    </definition>
+
+    <definition name="a105_1" extends="base-definition">
+        <put-attribute name="menu" value=""/>
+        <put-attribute name="title" value="Page edit subject"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/subject/subject_edit.jsp"/>
+    </definition>
+    <definition name="a106" extends="base-definition">
+        <put-attribute name="title" value="Page list student"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/student/student_list.jsp"/>
+    </definition>
+
+    <definition name="a106_2" extends="base-definition">
+        <put-attribute name="menu" value=""/>
+        <put-attribute name="title" value="Page create student"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/student/student_create.jsp"/>
+    </definition>
+
+    <definition name="a106_1" extends="base-definition">
+        <put-attribute name="menu" value=""/>
+        <put-attribute name="title" value="Page edit student"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/student/student_edit.jsp"/>
+    </definition>
+    <definition name="a107" extends="base-definition">
+        <put-attribute name="title" value="Page list teacher"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/teacher/teacher_list.jsp"/>
+    </definition>
+
+    <definition name="a107_2" extends="base-definition">
+        <put-attribute name="menu" value=""/>
+        <put-attribute name="title" value="Page create teacher"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/teacher/teacher_create.jsp"/>
+    </definition>
+
+    <definition name="a107_1" extends="base-definition">
+        <put-attribute name="menu" value=""/>
+        <put-attribute name="title" value="Page edit teacher information"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/teacher/teacher_edit.jsp"/>
+    </definition>
+    <definition name="a108" extends="base-definition">
+        <put-attribute name="title" value="Page list room"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/room/room_list.jsp"/>
+    </definition>
+
+    <definition name="a108_2" extends="base-definition">
+        <put-attribute name="menu" value=""/>
+        <put-attribute name="title" value="Page create room"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/room/room_create.jsp"/>
+    </definition>
+
+    <definition name="a109" extends="base-definition">
+        <put-attribute name="title" value="Page list faculty"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/faculty/faculty_list.jsp"/>
+    </definition>
+
+    <definition name="a109_2" extends="base-definition">
+        <put-attribute name="menu" value=""/>
+        <put-attribute name="title" value="Page create faculty"/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/faculty/faculty_create.jsp"/>
+    </definition>
+
+    <definition name="a109_1" extends="base-definition">
+        <put-attribute name="menu" value=""/>
+        <put-attribute name="title" value="Page edit faculty "/>
+        <put-attribute name="body" value="/WEB-INF/views/admin/faculty/faculty_edit.jsp"/>
+    </definition>
+
+</tiles-definitions>
